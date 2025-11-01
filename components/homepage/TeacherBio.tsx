@@ -163,7 +163,7 @@ export default function TeacherBio({
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </Container>
     </section>
