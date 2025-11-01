@@ -73,10 +73,10 @@ export default function PricingTable() {
         <AnimatedSection direction="up">
           <div className="text-center mb-8 sm:mb-12 px-4 sm:px-0">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-primary-900 mb-3 sm:mb-4">
-              Choose Your Path to Inner Freedom
+              Choose Your Path to Power BI Mastery
             </h2>
             <p className="text-base sm:text-lg font-sans text-gray-700 max-w-2xl mx-auto">
-              Simple, transparent pricing. Start your free trial today.
+              Simple, transparent pricing. Start your journey today.
             </p>
           </div>
         </AnimatedSection>

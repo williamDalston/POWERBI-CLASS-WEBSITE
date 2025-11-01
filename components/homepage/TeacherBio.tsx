@@ -21,15 +21,15 @@ interface TeacherBioProps {
 
 export default function TeacherBio({
   photo = '/images/teacher-photo.jpg',
-  photoAlt = 'Your guide to inner freedom',
+  photoAlt = 'Your Power BI instructor and expert',
   credentials = {
-    author: 'The Path to Inner Freedom',
-    degree: 'PhD in Psychology',
-    experience: '20+ Years Guiding Individuals to Inner Freedom',
-    featuredIn: ['New York Times', 'Psychology Today', 'Mindful Magazine'],
+    author: 'Professional Power BI Guide',
+    degree: 'MBA in Data Analytics',
+    experience: '15+ Years in Business Intelligence & Analytics',
+    featuredIn: ['Microsoft', 'Forbes', 'Harvard Business Review'],
   },
-  personalNarrative = 'My journey to inner freedom wasn\'t a straight line. Like many seekers, I found myself stuck in patterns of reactivity and emotional turmoil, searching for answers in books, retreats, and spiritual practices. Through years of dedicated practice and study, I discovered that true transformation comes not from dogmatic approaches or quick fixes, but from understanding the nature of the mind itself. This program is the practical framework I wish I had when I started—one that bridges ancient wisdom with modern science, and guides you step-by-step toward genuine inner freedom.',
-  philosophy = 'This program is different. We move beyond dogma and "quick fixes." This is a practical, science-backed framework for understanding your mind and fundamentally changing your relationship with the world. Here, you\'ll find no New Age fluff, but also no overly cerebral rabbit holes. Instead, you\'ll discover a structured, empathetic path that honors both the wisdom traditions and the latest insights from neuroscience and psychology.',
+  personalNarrative = 'My journey with Power BI started when I was struggling to create impactful data visualizations at a Fortune 500 company. I spent countless hours learning the tool, often hitting frustrating roadblocks. Through years of hands-on experience building real-world dashboards and leading data teams, I discovered that true Power BI mastery comes from understanding both the technical fundamentals and the business context. This course is the comprehensive guide I wish I had when I started—combining practical techniques with real-world insights to help you become a true Power BI expert.',
+  philosophy = 'This course is different. We move beyond basic tutorials. This is a professional, career-focused program that teaches you to build enterprise-grade dashboards and reports. Here, you\'ll find no fluff—just actionable skills that translate directly to your job. Instead, you\'ll discover a structured path that covers everything from DAX fundamentals to advanced data modeling, all grounded in real business scenarios.',
 }: TeacherBioProps) {
   return (
     <section className="section-padding bg-gradient-to-b from-white via-neutral-50/50 to-white relative overflow-hidden">
@@ -88,7 +88,7 @@ export default function TeacherBio({
               transition={{ delay: 0.2 }}
             >
               <h3 className="text-lg sm:text-xl font-serif text-primary-900 mb-3 sm:mb-4 font-semibold">
-                Meet Your Guide
+                Meet Your Instructor
               </h3>
               
               <ul className="space-y-2.5 sm:space-y-3 font-sans text-sm sm:text-base text-gray-700" role="list">
@@ -126,8 +126,8 @@ export default function TeacherBio({
                   </li>
                 )}
               </ul>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Column - Narrative & Philosophy */}
           <motion.div 
@@ -138,7 +138,7 @@ export default function TeacherBio({
             variants={getAnimationVariants(slideInRight)}
           >
             <h3 className="text-xl sm:text-2xl md:text-3xl font-serif text-primary-900 mb-4 sm:mb-6">
-              My journey to inner freedom wasn't a straight line.
+              My journey with Power BI wasn't straightforward.
             </h3>
 
             {/* Personal Narrative */}

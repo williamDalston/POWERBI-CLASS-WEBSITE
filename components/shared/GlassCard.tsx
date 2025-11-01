@@ -17,7 +17,7 @@ export default function GlassCard({
 }: GlassCardProps) {
   return (
     <motion.div
-      whileHover={hoverable ? hoverLift : undefined}
+      whileHover={hoverable ? (hoverLift as any) : undefined}
       className={`
         backdrop-blur-lg bg-white/80 
         border border-white/20 

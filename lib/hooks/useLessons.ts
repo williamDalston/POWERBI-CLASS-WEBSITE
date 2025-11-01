@@ -37,9 +37,9 @@ export function useLessons() {
         const mockLessons: Lesson[] = [
           {
             id: 'lesson-1',
-            title: 'Introduction: Understanding Your Inner Landscape',
+            title: 'Introduction: Getting Started with Power BI',
             description:
-              'Begin your journey by exploring the foundational concepts of inner freedom and self-awareness.',
+              'Begin your journey by exploring the Power BI Desktop interface and learning to create your first dashboard.',
             moduleNumber: 1,
             lessonNumber: 1,
             duration: 18,
@@ -47,9 +47,9 @@ export function useLessons() {
           },
           {
             id: 'lesson-2',
-            title: 'Recognizing Patterns in Your Thoughts',
+            title: 'Connecting to Data Sources',
             description:
-              'Learn to identify recurring thought patterns and understand their impact on your emotional state.',
+              'Learn to connect Power BI to various data sources including Excel, SQL databases, and cloud services.',
             moduleNumber: 1,
             lessonNumber: 2,
             duration: 22,

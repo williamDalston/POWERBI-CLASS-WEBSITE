@@ -134,17 +134,17 @@ export default function SocialProof() {
               variants={getAnimationVariants(fadeInUp)}
               transition={{ delay: 0.4 }}
             >
-              Join thousands who have transformed their lives through inner freedom
+              Join thousands who have advanced their careers with Power BI skills
             </motion.p>
             <motion.p 
               className="text-sm md:text-base font-sans text-neutral-400 mt-4"
               variants={getAnimationVariants(fadeInUp)}
               transition={{ delay: 0.5 }}
             >
-              Trusted by professionals, parents, students, and seekers worldwide
+              Trusted by data analysts, business professionals, and managers worldwide
             </motion.p>
-          </AnimatedSection>
-        </div>
+          </div>
+        </AnimatedSection>
       </Container>
     </section>
   )

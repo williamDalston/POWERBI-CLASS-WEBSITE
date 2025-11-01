@@ -2,21 +2,21 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Inner Freedom Program | Transform Your Life',
-  description: 'A practical, step-by-step path to inner freedom. Move beyond temporary calm and build a life of lasting clarity and purpose.',
-  keywords: ['inner freedom', 'mindfulness', 'meditation', 'personal growth', 'wellness', 'self-improvement', 'transformation'],
-  authors: [{ name: 'Inner Freedom Program' }],
+  title: 'Professional Power BI Course | Master Data Visualization',
+  description: 'Comprehensive Power BI training from beginner to advanced. Learn data modeling, DAX, visualization, and become a Power BI expert.',
+  keywords: ['power bi', 'data visualization', 'business intelligence', 'bi training', 'power bi course', 'dax', 'data analysis', 'analytics'],
+  authors: [{ name: 'Power BI Course' }],
   openGraph: {
-    title: 'Inner Freedom Program | Transform Your Life',
-    description: 'A practical, step-by-step path to inner freedom. Move beyond temporary calm and build a life of lasting clarity and purpose.',
+    title: 'Professional Power BI Course | Master Data Visualization',
+    description: 'Comprehensive Power BI training from beginner to advanced. Learn data modeling, DAX, visualization, and become a Power BI expert.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'Inner Freedom Program',
+    siteName: 'Power BI Course',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Inner Freedom Program | Transform Your Life',
-    description: 'A practical, step-by-step path to inner freedom. Move beyond temporary calm and build a life of lasting clarity and purpose.',
+    title: 'Professional Power BI Course | Master Data Visualization',
+    description: 'Comprehensive Power BI training from beginner to advanced. Learn data modeling, DAX, visualization, and become a Power BI expert.',
   },
   robots: {
     index: true,
@@ -57,20 +57,21 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Course',
-              name: 'Inner Freedom Program',
-              description: 'A practical, step-by-step path to inner freedom. Move beyond temporary calm and build a life of lasting clarity and purpose.',
+              name: 'Professional Power BI Course',
+              description: 'Comprehensive Power BI training from beginner to advanced. Learn data modeling, DAX, visualization, and become a Power BI expert.',
               provider: {
                 '@type': 'Organization',
-                name: 'Inner Freedom Program',
+                name: 'Power BI Course',
               },
               courseMode: 'online',
-              educationalLevel: 'Beginner',
+              educationalLevel: 'Beginner to Advanced',
               teaches: [
-                'Mindfulness',
-                'Meditation',
-                'Personal Growth',
-                'Emotional Resilience',
-                'Inner Peace',
+                'Power BI Desktop',
+                'Data Visualization',
+                'DAX Formulas',
+                'Business Intelligence',
+                'Data Modeling',
+                'Dashboard Design',
               ],
               aggregateRating: {
                 '@type': 'AggregateRating',

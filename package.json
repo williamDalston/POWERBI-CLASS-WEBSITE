@@ -1,7 +1,7 @@
 {
-  "name": "inner-freedom-program-stripe-class",
+  "name": "powerbi-course-website",
   "version": "1.0.0",
-  "description": "Inner Freedom Program - High-Conversion Subscription Website",
+  "description": "Professional PowerBI Course - Comprehensive Data Visualization Training",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -14,7 +14,9 @@
     "react",
     "tailwindcss",
     "subscription",
-    "wellness"
+    "powerbi",
+    "data-visualization",
+    "business-intelligence"
   ],
   "author": "",
   "license": "ISC",

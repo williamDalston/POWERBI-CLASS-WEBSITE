@@ -12,20 +12,20 @@ interface CredentialsProps {
 
 const defaultCredentials: Credential[] = [
   {
-    title: 'PhD in Psychology',
-    description: 'Specialized in contemplative neuroscience',
+    title: 'MBA in Data Analytics',
+    description: 'Specialized in business intelligence and data visualization',
   },
   {
-    title: 'Certified Meditation Teacher',
-    description: '20+ years of teaching experience',
+    title: 'Microsoft Certified Expert',
+    description: '15+ years of Power BI and analytics experience',
   },
   {
-    title: 'Published Author',
-    description: 'Multiple books on inner transformation',
+    title: 'Industry Consultant',
+    description: 'Helped 500+ companies build data-driven cultures',
   },
   {
-    title: 'Featured Expert',
-    description: 'Regular contributor to leading wellness publications',
+    title: 'Thought Leader',
+    description: 'Regular speaker at data visualization conferences',
   },
 ]
 

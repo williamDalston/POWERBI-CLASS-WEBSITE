@@ -1,8 +1,10 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 import Container from '@/components/shared/Container'
 import { usePrefersReducedMotion } from '@/lib/hooks/usePrefersReducedMotion'
+import { getAnimationVariants } from '@/lib/utils/animations'
 
 interface Benefit {
   icon: React.ReactNode
@@ -28,8 +30,8 @@ const benefits: Benefit[] = [
         />
       </svg>
     ),
-    title: '10+ Hours of Transformative Video Lessons',
-    description: 'Deep-dive video content that goes beyond surface-level tips. Each lesson builds on the last, creating a complete framework for understanding your mind and achieving lasting change.',
+    title: '20+ Hours of Comprehensive Video Training',
+    description: 'In-depth tutorials covering Power BI Desktop, DAX formulas, data modeling, and visualization. Each module builds practical skills with real-world examples and hands-on projects.',
   },
   {
     icon: (
@@ -44,12 +46,12 @@ const benefits: Benefit[] = [
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}
-          d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
         />
       </svg>
     ),
-    title: 'Step-by-Step Exercises for Deep Healing',
-    description: 'Hands-on practices and downloadable worksheets that help you integrate insights into daily life. These aren\'t just concepts—they\'re actionable tools for real transformation.',
+    title: 'Hands-On Practice Projects',
+    description: 'Build real dashboards and reports using actual business scenarios. Get downloadable datasets, starter files, and bonus resources to create professional portfolio pieces.',
   },
   {
     icon: (
@@ -64,12 +66,12 @@ const benefits: Benefit[] = [
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}
-          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+          d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
         />
       </svg>
     ),
-    title: 'Guidance from an Experienced Teacher',
-    description: 'Learn from someone who\'s walked the path themselves. Our teacher combines decades of experience, scientific rigor, and genuine empathy to guide you every step of the way.',
+    title: 'Taught by Power BI Experts',
+    description: 'Learn from certified professionals with years of industry experience. Our instructors combine technical expertise with practical insights from working with Fortune 500 companies.',
   },
   {
     icon: (
@@ -84,12 +86,12 @@ const benefits: Benefit[] = [
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}
-          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
         />
       </svg>
     ),
-    title: 'Private Community Support',
-    description: 'Join a community of serious seekers committed to growth. Share insights, ask questions, and find support from others who understand your journey.',
+    title: 'Lifetime Access & Updates',
+    description: 'Get lifetime access to all course materials plus future updates. New content added regularly to keep you current with the latest Power BI features and best practices.',
   },
 ]
 
@@ -144,10 +146,10 @@ export default function ValueProposition() {
             id="value-prop-heading"
             className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-serif text-primary-900 mb-4 lg:mb-6 leading-tight"
           >
-            What You'll Get
+            What You'll Master
           </h2>
           <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-            Everything you need to transform your relationship with yourself and build lasting inner freedom
+            Everything you need to become a Power BI expert and advance your data analytics career
           </p>
         </div>
 

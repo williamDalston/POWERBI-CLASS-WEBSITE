@@ -132,7 +132,7 @@ export default function WelcomeModal({
               Welcome to Your Journey
             </h2>
             <p className="font-sans text-lg text-gray-600 leading-relaxed">
-              You're about to begin a transformative path to inner freedom.
+              You're about to begin mastering Power BI and advancing your data analytics career.
               Let's get you started.
             </p>
           </div>
@@ -142,7 +142,7 @@ export default function WelcomeModal({
               onClick={handleStartLesson}
               className="flex-1 sm:flex-none transform hover:scale-105 transition-transform"
             >
-              Start Lesson 1
+              Start Your First Lesson
             </CTAButton>
             <CTAButton
               onClick={handleTakeTour}

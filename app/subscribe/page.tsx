@@ -12,7 +12,7 @@ export default function SubscribePage() {
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-3xl md:text-4xl font-serif text-primary-900 mb-2">
-              Start Your Journey to Inner Freedom
+              Start Your Power BI Journey
             </h1>
             <p className="text-lg font-sans text-gray-700">
               Complete your purchase below to begin your transformation
@@ -39,8 +39,8 @@ export default function SubscribePage() {
             </div>
             <p className="text-xs font-sans text-gray-500">
               Need help? Our support team is here for you. Contact us at{' '}
-              <a href="mailto:support@innerfreedomprogram.com" className="text-accent hover:text-accent-dark underline">
-                support@innerfreedomprogram.com
+              <a href="mailto:support@powerbicourse.com" className="text-accent hover:text-accent-dark underline">
+                support@powerbicourse.com
               </a>
             </p>
           </div>

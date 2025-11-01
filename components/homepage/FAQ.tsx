@@ -13,36 +13,36 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: 'How is this different from other meditation apps like Calm or Headspace?',
-    answer: 'While those apps focus on quick relaxation and sleep, our program goes deeper. We combine practical tools with science-backed frameworks to help you understand your mind and fundamentally change how you relate to your thoughts and emotions. This isn\'t just about feeling calm—it\'s about achieving lasting inner freedom.',
+    question: 'How is this different from free YouTube tutorials?',
+    answer: 'While YouTube has great content, it\'s fragmented and lacks structure. Our course provides a complete learning path from beginner to expert with hands-on projects, downloadable datasets, and expert guidance. You\'ll learn not just the "how" but also the "why" behind best practices.',
   },
   {
-    question: 'I\'m a beginner. Will this be too advanced for me?',
-    answer: 'Not at all! The program is designed for everyone, whether you\'re new to mindfulness or have years of experience. Our step-by-step approach makes complex concepts accessible, and the teacher guides you with warmth and clarity. Many of our most successful students started as complete beginners.',
+    question: 'I\'m a beginner with no Power BI experience. Is this for me?',
+    answer: 'Absolutely! The course is designed for complete beginners. We start with Power BI Desktop installation and basic concepts, building up to advanced techniques. Our step-by-step approach makes complex topics accessible, and many students with no prior experience have achieved mastery.',
   },
   {
-    question: 'How long does the program take to complete?',
-    answer: 'The program is self-paced, so you can move through it at your own rhythm. The structured content covers 6 core modules, and most students spend 2-3 months going through the material thoroughly. However, you have lifetime access (as long as you maintain your subscription), so you can revisit lessons whenever you need them.',
+    question: 'How long does the course take to complete?',
+    answer: 'The course is self-paced with 6 comprehensive modules. Most students spend 4-8 weeks completing the material thoroughly, but you can go faster or slower based on your schedule. You have lifetime access, so you can revisit any section whenever you need to.',
   },
   {
-    question: 'What if I\'m not satisfied?',
-    answer: 'We offer a 30-day money-back guarantee with no questions asked. If you\'re not completely satisfied with the program, simply contact us within 30 days of your purchase for a full refund. We\'re confident in the value we provide, but we want you to feel completely secure in your decision.',
+    question: 'What if I\'m not satisfied with the course?',
+    answer: 'We offer a 30-day money-back guarantee with no questions asked. If you\'re not completely satisfied, simply contact us within 30 days of your purchase for a full refund. We\'re confident in the value we provide and want you to feel secure in your investment.',
   },
   {
-    question: 'Can I cancel my subscription anytime?',
-    answer: 'Yes, absolutely. You can cancel your subscription at any time from your account settings. You\'ll continue to have access until the end of your billing period, and there are no cancellation fees or penalties.',
+    question: 'Do I need to have Power BI installed before starting?',
+    answer: 'No! We\'ll guide you through downloading and installing Power BI Desktop (which is free) in Module 1. You don\'t need any special software or prior experience. Everything you need is covered in the course.',
   },
   {
-    question: 'What happens if I can\'t afford the subscription?',
-    answer: 'We believe everyone deserves access to these transformative tools. If you genuinely cannot afford a subscription, we offer a scholarship program. Simply visit our scholarship page and tell us about your situation. We review all requests with compassion and aim to support anyone committed to their journey.',
+    question: 'Will I get a certificate upon completion?',
+    answer: 'Yes! Upon completing the course, you\'ll receive a certificate of completion that you can add to your LinkedIn profile and resume. This demonstrates your commitment to professional development to employers.',
   },
   {
-    question: 'What format is the content in?',
-    answer: 'The program includes high-quality video lessons, audio meditations and guided practices, downloadable exercise materials, and written content. Everything is available in your member dashboard and works on any device—phone, tablet, or computer.',
+    question: 'What format is the content delivered in?',
+    answer: 'The course includes high-quality HD video lessons, downloadable practice files and datasets, step-by-step guides, and bonus resources. Everything is accessible through your member dashboard on any device—desktop, tablet, or mobile.',
   },
   {
-    question: 'How much time do I need to commit each week?',
-    answer: 'We recommend dedicating about 2-3 hours per week to get the most out of the program. This includes watching lessons, doing exercises, and practicing the techniques. However, since it\'s self-paced, you can adjust this to fit your schedule. Even 30 minutes a week can create meaningful change.',
+    question: 'How much time should I dedicate each week?',
+    answer: 'We recommend 3-5 hours per week for optimal learning, but the self-paced format lets you fit it into your schedule. You can accelerate through familiar topics or take extra time on challenging sections. Consistent practice yields the best results.',
   },
 ]
 
@@ -152,7 +152,7 @@ export default function FAQ() {
               Still have questions? We're here to help.
             </p>
             <a
-              href="mailto:support@innerfreedomprogram.com"
+              href="mailto:support@powerbicourse.com"
               className="inline-block text-accent hover:text-accent-dark font-sans font-semibold underline transition-colors"
             >
               Contact Support

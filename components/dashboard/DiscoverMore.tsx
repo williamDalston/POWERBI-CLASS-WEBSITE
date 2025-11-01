@@ -22,22 +22,22 @@ type FilterType = 'all' | 'theory' | 'expert' | 'exercise'
 const defaultRecommendations: Recommendation[] = [
   {
     id: 'theory-1',
-    title: 'Understanding the Nature of Mind',
-    description: 'Deep dive into the philosophical foundations of inner freedom',
+    title: 'Advanced DAX Patterns',
+    description: 'Master complex DAX formulas and optimization techniques',
     type: 'theory',
     duration: 25,
   },
   {
     id: 'expert-1',
-    title: 'Conversation with Dr. Sarah Chen',
-    description: 'Expert insights on mindfulness and neuroscience',
+    title: 'Interview with BI Expert',
+    description: 'Insights from industry leaders on data visualization best practices',
     type: 'expert',
     duration: 45,
   },
   {
     id: 'exercise-1',
-    title: 'Daily Reflection Exercise',
-    description: 'A practical exercise to deepen your practice',
+    title: 'Dashboard Design Challenge',
+    description: 'Build a professional dashboard using real-world data',
     type: 'exercise',
     duration: 15,
   },

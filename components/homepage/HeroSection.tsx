@@ -111,7 +111,7 @@ export default function HeroSection() {
                 transition={{ delay: 0.1 }}
               >
                 <GradientText gradient="primary" className="font-bold">
-                  Stop Reacting.
+                  Master Power BI.
                 </GradientText>
               </motion.span>{' '}
               <motion.span 
@@ -120,7 +120,7 @@ export default function HeroSection() {
                 transition={{ delay: 0.3 }}
               >
                 <GradientText gradient="accent" className="font-bold">
-                  Start Living.
+                  Transform Your Career.
                 </GradientText>
               </motion.span>
             </motion.h1>
@@ -128,7 +128,7 @@ export default function HeroSection() {
             <h2 className={`text-lg sm:text-xl md:text-2xl lg:text-2xl font-sans text-gray-700 leading-relaxed max-w-2xl mx-auto lg:mx-0 px-4 sm:px-0 font-light transition-all duration-700 delay-300 ${
               isVisible || prefersReducedMotion ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}>
-              The subscription program for inner freedom. A practical, step-by-step path from a trusted guide to help you move beyond temporary calm and build a life of lasting clarity and purpose.
+              Comprehensive Power BI training for professionals. From beginner to expert—master data visualization, DAX formulas, and business intelligence with hands-on projects and real-world expertise.
             </h2>
 
             <div className={`space-y-4 transition-all duration-700 delay-500 ${
@@ -167,7 +167,7 @@ export default function HeroSection() {
                   <svg className="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span>Self-Paced Learning</span>
+                  <span>Lifetime Access</span>
                 </div>
               </div>
             </div>
@@ -204,13 +204,13 @@ export default function HeroSection() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={1.5}
-                      d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
                     />
                   </svg>
                 </div>
               </div>
-              <p className="font-serif text-sm sm:text-base opacity-90 mb-2 font-medium">Begin Your Journey</p>
-              <p className="font-sans text-xs sm:text-sm opacity-75">Transform your life with inner freedom</p>
+              <p className="font-serif text-sm sm:text-base opacity-90 mb-2 font-medium">Start Learning Today</p>
+              <p className="font-sans text-xs sm:text-sm opacity-75">Master data visualization with Power BI</p>
             </div>
           </div>
         </div>

@@ -13,34 +13,34 @@ interface Module {
 
 const modules: Module[] = [
   {
-    week: 'Week 1',
-    title: 'Understanding Your Inner Self',
-    description: 'Learn to recognize your reactive patterns and understand the nature of your mind.',
+    week: 'Module 1',
+    title: 'Getting Started with Power BI',
+    description: 'Master the Power BI Desktop interface, connect to data sources, and create your first interactive reports and dashboards.',
   },
   {
-    week: 'Week 2',
-    title: 'Healing Past Wounds',
-    description: 'Discover practical tools for processing past trauma and emotional pain with compassion.',
+    week: 'Module 2',
+    title: 'Data Connections & Transformation',
+    description: 'Learn to import data from multiple sources, transform and clean data with Power Query, and build robust data models.',
   },
   {
-    week: 'Week 3',
-    title: 'Breaking Reactive Patterns',
-    description: 'Develop skills to pause, observe, and respond instead of automatically reacting.',
+    week: 'Module 3',
+    title: 'Data Modeling & Relationships',
+    description: 'Design star schemas, create relationships between tables, and optimize your data models for performance and clarity.',
   },
   {
-    week: 'Week 4',
-    title: 'Building Emotional Resilience',
-    description: 'Strengthen your capacity to navigate difficult emotions with grace and wisdom.',
+    week: 'Module 4',
+    title: 'DAX Fundamentals',
+    description: 'Master calculated columns, measures, and essential DAX functions to create powerful business metrics and analytics.',
   },
   {
-    week: 'Week 5',
-    title: 'Cultivating Inner Peace',
-    description: 'Learn meditation practices and mindfulness techniques that create lasting calm.',
+    week: 'Module 5',
+    title: 'Advanced Visualization',
+    description: 'Build professional dashboards, use advanced chart types, implement drill-throughs, and create stunning data visualizations.',
   },
   {
-    week: 'Week 6',
-    title: 'Living with Purpose',
-    description: 'Align your actions with your values and create a life of meaning and fulfillment.',
+    week: 'Module 6',
+    title: 'Power BI Service & Deployment',
+    description: 'Publish to Power BI Service, share reports with your team, set up data refresh, and implement security best practices.',
   },
 ]
 
@@ -51,10 +51,10 @@ export default function CourseOutline() {
         <AnimatedSection direction="up">
           <div className="text-center mb-10 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-primary-900 mb-3 sm:mb-4 font-bold">
-              Your Journey to Inner Freedom
+              Your Path to Power BI Mastery
             </h2>
             <p className="text-base sm:text-lg font-sans text-gray-700 max-w-2xl mx-auto px-4 sm:px-0 leading-relaxed">
-              A structured, self-paced program designed to guide you step-by-step toward lasting transformation
+              A comprehensive, hands-on curriculum designed to take you from beginner to Power BI expert
             </p>
           </div>
         </AnimatedSection>
@@ -92,8 +92,7 @@ export default function CourseOutline() {
                     whileHover={{ 
                       scale: 1.15,
                       rotate: 5,
-                      ringColor: "rgba(255,125,50,0.5)",
-                      boxShadow: "0 10px 25px rgba(255,125,50,0.3)",
+                      boxShadow: "0 10px 25px rgba(37, 99, 235, 0.3)",
                     }}
                     transition={{ duration: 0.3 }}
                   >
@@ -115,9 +114,9 @@ export default function CourseOutline() {
                   {module.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <div className="text-center mt-10 sm:mt-12 px-4 sm:px-0">
           <div className="bg-white rounded-xl p-6 sm:p-8 shadow-md border border-neutral-200 max-w-2xl mx-auto">

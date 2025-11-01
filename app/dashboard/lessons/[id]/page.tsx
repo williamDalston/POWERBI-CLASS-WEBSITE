@@ -8,19 +8,19 @@ import Container from '@/components/shared/Container'
 const mockLessons: Record<string, any> = {
   'lesson-1': {
     id: 'lesson-1',
-    title: 'Introduction: Understanding Your Inner Landscape',
+    title: 'Introduction: Getting Started with Power BI',
     description:
-      'Begin your journey by exploring the foundational concepts of inner freedom and self-awareness. This lesson introduces you to the key principles that will guide your transformation. We will explore how to recognize patterns in your thoughts and emotions, and begin building the foundation for lasting change.',
+      'Begin your journey by exploring the Power BI Desktop interface. This lesson introduces you to the key principles that will guide your learning. We will explore the main components of Power BI, learn to navigate the interface, and build your first visualization.',
     duration: 18,
     videoUrl: '', // Add video URL here when available
     exerciseMaterials: [
       {
-        name: 'Reflection Worksheet',
-        url: '/materials/reflection-worksheet.pdf',
+        name: 'Practice Dataset',
+        url: '/materials/sample-data.xlsx',
       },
       {
-        name: 'Practice Guide',
-        url: '/materials/practice-guide.pdf',
+        name: 'Exercise Guide',
+        url: '/materials/exercise-guide.pdf',
       },
     ],
     isCompleted: false,
