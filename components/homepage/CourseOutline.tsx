@@ -1,4 +1,9 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import Container from '@/components/shared/Container'
+import AnimatedSection from '@/components/shared/AnimatedSection'
+import { staggerContainer, staggerItem, getAnimationVariants } from '@/lib/utils/animations'
 
 interface Module {
   week: string
@@ -41,33 +46,61 @@ const modules: Module[] = [
 
 export default function CourseOutline() {
   return (
-    <section className="section-padding bg-neutral-100">
+    <section className="section-padding bg-gradient-to-b from-neutral-50 to-neutral-100">
       <Container>
-        <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-primary-900 mb-3 sm:mb-4 font-bold">
-            Your Journey to Inner Freedom
-          </h2>
-          <p className="text-base sm:text-lg font-sans text-gray-700 max-w-2xl mx-auto px-4 sm:px-0 leading-relaxed">
-            A structured, self-paced program designed to guide you step-by-step toward lasting transformation
-          </p>
-        </div>
+        <AnimatedSection direction="up">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-primary-900 mb-3 sm:mb-4 font-bold">
+              Your Journey to Inner Freedom
+            </h2>
+            <p className="text-base sm:text-lg font-sans text-gray-700 max-w-2xl mx-auto px-4 sm:px-0 leading-relaxed">
+              A structured, self-paced program designed to guide you step-by-step toward lasting transformation
+            </p>
+          </div>
+        </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto"
+          variants={getAnimationVariants(staggerContainer)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           {modules.map((module, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white rounded-lg shadow-md p-5 sm:p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 border border-neutral-100 hover:border-accent/30 relative overflow-hidden group"
+              variants={getAnimationVariants(staggerItem)}
+              className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-5 sm:p-6 border border-neutral-100 hover:border-accent/40 relative overflow-hidden group"
+              whileHover={{ 
+                y: -8,
+                boxShadow: "0 20px 40px rgba(0,0,0,0.12)",
+                transition: { duration: 0.3 }
+              }}
             >
               {/* Decorative gradient on hover */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full -mr-12 -mt-12 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <motion.div 
+                className="absolute top-0 right-0 w-24 h-24 bg-accent/10 rounded-full -mr-12 -mt-12 blur-xl pointer-events-none"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1, scale: 1.2 }}
+                transition={{ duration: 0.5 }}
+              />
               
-              <div className="relative">
+              <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 bg-gradient-to-br from-accent to-accent-dark rounded-full flex items-center justify-center shadow-md ring-2 ring-accent/20 transition-all duration-300 group-hover:ring-accent/40 group-hover:shadow-lg group-hover:scale-110">
+                  <motion.div 
+                    className="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 bg-gradient-to-br from-accent to-accent-dark rounded-full flex items-center justify-center shadow-lg ring-2 ring-accent/20"
+                    whileHover={{ 
+                      scale: 1.15,
+                      rotate: 5,
+                      ringColor: "rgba(255,125,50,0.5)",
+                      boxShadow: "0 10px 25px rgba(255,125,50,0.3)",
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
                     <span className="text-white font-sans font-bold text-base sm:text-lg">
                       {index + 1}
                     </span>
-                  </div>
+                  </motion.div>
                   <div>
                     <span className="text-xs sm:text-sm font-sans font-semibold text-accent uppercase tracking-wide">
                       {module.week}

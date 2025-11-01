@@ -1,5 +1,10 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import Container from '@/components/shared/Container'
 import Image from 'next/image'
+import AnimatedSection from '@/components/shared/AnimatedSection'
+import { fadeInUp, slideInLeft, slideInRight, getAnimationVariants } from '@/lib/utils/animations'
 
 interface TeacherBioProps {
   photo?: string
@@ -27,13 +32,32 @@ export default function TeacherBio({
   philosophy = 'This program is different. We move beyond dogma and "quick fixes." This is a practical, science-backed framework for understanding your mind and fundamentally changing your relationship with the world. Here, you\'ll find no New Age fluff, but also no overly cerebral rabbit holes. Instead, you\'ll discover a structured, empathetic path that honors both the wisdom traditions and the latest insights from neuroscience and psychology.',
 }: TeacherBioProps) {
   return (
-    <section className="section-padding bg-white">
-      <Container>
+    <section className="section-padding bg-gradient-to-b from-white via-neutral-50/50 to-white relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-30 pointer-events-none" aria-hidden="true">
+        <div className="absolute top-20 right-10 w-64 h-64 bg-primary-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-10 w-64 h-64 bg-secondary-200/20 rounded-full blur-3xl"></div>
+      </div>
+
+      <Container className="relative z-10">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           {/* Left Column - Photo & Credentials */}
-          <div className="flex-shrink-0 lg:w-1/3">
+          <motion.div 
+            className="flex-shrink-0 lg:w-1/3"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={getAnimationVariants(slideInLeft)}
+          >
             {/* Teacher Photo */}
-            <div className="relative w-full max-w-xs sm:max-w-sm mx-auto lg:max-w-none aspect-[3/4] rounded-lg overflow-hidden shadow-lg mb-6 bg-gradient-to-br from-primary-200 to-secondary-200 ring-1 ring-neutral-200/50 group">
+            <motion.div 
+              className="relative w-full max-w-xs sm:max-w-sm mx-auto lg:max-w-none aspect-[3/4] rounded-xl overflow-hidden shadow-2xl mb-6 bg-gradient-to-br from-primary-200 to-secondary-200 ring-2 ring-white/50 group"
+              whileHover={{ 
+                scale: 1.02,
+                boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
+              }}
+              transition={{ duration: 0.4 }}
+            >
               <Image
                 src={photo}
                 alt={photoAlt}
@@ -44,11 +68,25 @@ export default function TeacherBio({
                 loading="eager"
               />
               {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-            </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"               />
+              {/* Enhanced gradient overlay on hover */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.div>
 
             {/* Credentials Section */}
-            <div className="space-y-4 px-4 sm:px-0">
+            <motion.div 
+              className="space-y-4 px-4 sm:px-0 bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-neutral-200/50 shadow-lg"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={getAnimationVariants(fadeInUp)}
+              transition={{ delay: 0.2 }}
+            >
               <h3 className="text-lg sm:text-xl font-serif text-primary-900 mb-3 sm:mb-4 font-semibold">
                 Meet Your Guide
               </h3>
@@ -92,7 +130,13 @@ export default function TeacherBio({
           </div>
 
           {/* Right Column - Narrative & Philosophy */}
-          <div className="flex-1 lg:w-2/3 px-4 sm:px-0">
+          <motion.div 
+            className="flex-1 lg:w-2/3 px-4 sm:px-0"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={getAnimationVariants(slideInRight)}
+          >
             <h3 className="text-xl sm:text-2xl md:text-3xl font-serif text-primary-900 mb-4 sm:mb-6">
               My journey to inner freedom wasn't a straight line.
             </h3>

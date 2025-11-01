@@ -1,7 +1,12 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import Container from '@/components/shared/Container'
 import Image from 'next/image'
+import AnimatedSection from '@/components/shared/AnimatedSection'
 import { SpotlightTestimonial as SpotlightTestimonialType } from './types'
 import { spotlightTestimonial } from './testimonialsData'
+import { slideInLeft, slideInRight, getAnimationVariants } from '@/lib/utils/animations'
 
 export default function SpotlightTestimonial({
   testimonial = spotlightTestimonial,
@@ -9,14 +14,38 @@ export default function SpotlightTestimonial({
   testimonial?: SpotlightTestimonialType
 }) {
   return (
-    <section className="section-padding bg-gradient-to-b from-white to-neutral-50" aria-label="Featured testimonial">
-      <Container>
+    <section className="section-padding bg-gradient-to-b from-neutral-50 via-white to-neutral-50 relative overflow-hidden" aria-label="Featured testimonial">
+      {/* Subtle background elements */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none" aria-hidden="true">
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-primary-200/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <Container className="relative z-10">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center">
           {/* Left Column - Image or Video */}
-          <div className="w-full lg:w-1/2">
-            <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary-200 to-secondary-200 group">
+          <motion.div 
+            className="w-full lg:w-1/2"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={getAnimationVariants(slideInLeft)}
+          >
+            <motion.div 
+              className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary-200 to-secondary-200 group"
+              whileHover={{ 
+                scale: 1.02,
+                boxShadow: "0 30px 60px rgba(0,0,0,0.2)",
+              }}
+              transition={{ duration: 0.4 }}
+            >
               {/* Decorative overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none" />
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10 pointer-events-none"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              />
               {testimonial.videoUrl ? (
                 <video
                   src={testimonial.videoUrl}
@@ -56,11 +85,17 @@ export default function SpotlightTestimonial({
                   </div>
                 </div>
               )}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Column - Full Story */}
-          <div className="w-full lg:w-1/2">
+          <motion.div 
+            className="w-full lg:w-1/2"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={getAnimationVariants(slideInRight)}
+          >
             <div className="space-y-6">
               {/* Header with Quote Icon and Rating */}
               <div className="flex items-start gap-4">
