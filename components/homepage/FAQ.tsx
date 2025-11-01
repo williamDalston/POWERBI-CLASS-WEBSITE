@@ -92,23 +92,25 @@ export default function FAQ() {
                   boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
                 }}
               >
-                <button
+                <motion.button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-inset transition-colors"
+                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-inset transition-colors group"
                   aria-expanded={openIndex === index}
                   aria-controls={`faq-answer-${index}`}
+                  whileHover={{ backgroundColor: 'rgba(255, 125, 50, 0.05)' }}
+                  whileTap={{ scale: 0.99 }}
                 >
-                  <span className="font-sans font-semibold text-lg text-primary-900 pr-8">
+                  <span className="font-sans font-semibold text-lg text-primary-900 pr-8 group-hover:text-accent transition-colors">
                     {faq.question}
                   </span>
-                  <svg
-                    className={`w-6 h-6 flex-shrink-0 text-accent transition-transform duration-300 ${
-                      openIndex === index ? 'rotate-180' : ''
-                    }`}
+                  <motion.svg
+                    className="w-6 h-6 flex-shrink-0 text-accent group-hover:scale-110 transition-transform"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
+                    animate={{ rotate: openIndex === index ? 180 : 0 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
                   >
                     <path
                       strokeLinecap="round"
@@ -116,21 +118,32 @@ export default function FAQ() {
                       strokeWidth={2}
                       d="M19 9l-7 7-7-7"
                     />
-                  </svg>
-                </button>
-                <div
-                  id={`faq-answer-${index}`}
-                  className={`overflow-hidden transition-all duration-300 ${
-                    openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  }`}
-                >
-                  <div className="px-6 pb-5">
-                    <p className="font-sans text-base text-gray-700 leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </div>
-              </div>
+                  </motion.svg>
+                </motion.button>
+                <AnimatePresence>
+                  {openIndex === index && (
+                    <motion.div
+                      id={`faq-answer-${index}`}
+                      className="overflow-hidden"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    >
+                      <div className="px-6 pb-5 bg-gradient-to-br from-neutral-50 to-white border-t border-gray-200">
+                        <motion.p 
+                          className="font-sans text-base text-gray-700 leading-relaxed"
+                          initial={{ y: -10, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ delay: 0.1 }}
+                        >
+                          {faq.answer}
+                        </motion.p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             ))}
           </div>
 

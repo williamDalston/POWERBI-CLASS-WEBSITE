@@ -87,7 +87,7 @@ export default function FinalCTA() {
               </svg>
               <span>Lifetime Access</span>
             </motion.div>
-          </motion.div>
+          </AnimatedSection>
         </div>
       </Container>
     </section>
