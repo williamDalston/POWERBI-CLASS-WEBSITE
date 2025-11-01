@@ -1,5 +1,10 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import Container from '@/components/shared/Container'
+import AnimatedSection from '@/components/shared/AnimatedSection'
 import { testimonials } from './testimonialsData'
+import { staggerContainer, staggerItem, getAnimationVariants } from '@/lib/utils/animations'
 
 export default function SocialProof() {
   // Calculate average rating
@@ -13,10 +18,41 @@ export default function SocialProof() {
   const totalReviews = testimonials.length
 
   return (
-    <section className="section-padding bg-primary-900 text-white">
-      <Container>
-        <div className="text-center max-w-3xl mx-auto">
-          <div className="flex items-center justify-center gap-3 mb-4">
+    <section className="section-padding bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 text-white relative overflow-hidden">
+      {/* Subtle animated background */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none" aria-hidden="true">
+        <motion.div
+          className="absolute top-1/2 left-1/2 w-96 h-96 bg-accent/30 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            x: [-100, 100, -100],
+            y: [-50, 50, -50],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+      </div>
+
+      <Container className="relative z-10">
+        <AnimatedSection direction="up">
+          <div className="text-center max-w-3xl mx-auto">
+            <motion.div 
+              className="flex items-center justify-center gap-3 mb-4"
+              variants={getAnimationVariants({
+                hidden: { opacity: 0, scale: 0.8 },
+                visible: { 
+                  opacity: 1, 
+                  scale: 1,
+                  transition: {
+                    duration: 0.5,
+                    ease: 'easeOut',
+                  }
+                }
+              })}
+            >
             {/* Star Rating Display */}
             <div className="flex gap-1" role="img" aria-label={`${averageRating} out of 5 stars`}>
               {[...Array(fullStars)].map((_, i) => (

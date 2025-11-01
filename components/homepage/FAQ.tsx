@@ -1,7 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Container from '@/components/shared/Container'
+import AnimatedSection from '@/components/shared/AnimatedSection'
+import { fadeInUp, getAnimationVariants } from '@/lib/utils/animations'
 
 interface FAQItem {
   question: string
@@ -51,23 +54,43 @@ export default function FAQ() {
   }
 
   return (
-    <section className="section-padding bg-white" id="faq">
+    <section className="section-padding bg-gradient-to-b from-white to-neutral-50" id="faq">
       <Container>
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12 px-4 sm:px-0">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-primary-900 mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-lg font-sans text-gray-700">
-              Everything you need to know before starting your journey
-            </p>
-          </div>
+          <AnimatedSection direction="up">
+            <div className="text-center mb-12 px-4 sm:px-0">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-primary-900 mb-4">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-lg font-sans text-gray-700">
+                Everything you need to know before starting your journey
+              </p>
+            </div>
+          </AnimatedSection>
 
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 hover:border-accent/30 hover:shadow-md"
+                className="border border-gray-200 rounded-xl overflow-hidden bg-white/80 backdrop-blur-sm hover:border-accent/40 hover:shadow-lg transition-all duration-300"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+                variants={getAnimationVariants({
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { 
+                    opacity: 1, 
+                    y: 0,
+                    transition: {
+                      delay: index * 0.05,
+                      duration: 0.4,
+                    }
+                  }
+                })}
+                whileHover={{ 
+                  y: -2,
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+                }}
               >
                 <button
                   onClick={() => toggleFAQ(index)}
