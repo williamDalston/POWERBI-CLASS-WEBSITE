@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { logger } from '@/lib/utils/logger'
 
 export interface Note {
   id: string
@@ -42,7 +43,7 @@ export function useNotes(lessonId?: string) {
           setIsLoading(false)
         }
       } catch (error) {
-        console.error('Error loading notes:', error)
+        logger.error(new Error('Error loading notes'), { error })
         setIsLoading(false)
       }
     }
@@ -107,7 +108,7 @@ export function useNotes(lessonId?: string) {
       try {
         localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(updatedNotes))
       } catch (error) {
-        console.error('Error saving notes:', error)
+        logger.error(new Error('Error saving notes'), { error })
       }
 
       setIsSaving(false)
@@ -127,7 +128,7 @@ export function useNotes(lessonId?: string) {
     try {
       localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(updatedNotes))
     } catch (error) {
-      console.error('Error deleting note:', error)
+      logger.error(new Error('Error deleting note'), { error })
     }
   }, [notes, updateStats])
 

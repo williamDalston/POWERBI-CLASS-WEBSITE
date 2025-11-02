@@ -1,5 +1,6 @@
 import { getAllLessons, Lesson } from '@/lib/data/courseData'
 import { getAllVideoAnalytics, VideoWatchProgress } from '@/lib/hooks/useVideoAnalytics'
+import { logger } from './logger'
 
 export interface Recommendation {
   lesson: Lesson
@@ -48,7 +49,7 @@ export function getSmartRecommendations(
         })
       }
     } catch (err) {
-      console.error('Failed to load user data:', err)
+      logger.error(new Error('Failed to load user data'), { error: err })
     }
   }
 

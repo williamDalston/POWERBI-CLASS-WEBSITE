@@ -203,6 +203,13 @@ export default function DashboardSearch({
 
   return (
     <div ref={searchRef} className={`relative ${className}`}>
+      {/* ARIA Live Region for Search Results */}
+      <div aria-live="polite" aria-atomic="true" className="sr-only">
+        {isSearching && 'Searching for lessons...'}
+        {!isSearching && query && results.length > 0 && `Found ${results.length} result${results.length !== 1 ? 's' : ''} for "${query}"`}
+        {!isSearching && query && results.length === 0 && query.length >= 2 && `No results found for "${query}"`}
+      </div>
+
       {/* Search Input */}
       <div className="relative">
         <input

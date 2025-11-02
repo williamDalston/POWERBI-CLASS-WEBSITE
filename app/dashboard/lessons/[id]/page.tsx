@@ -54,7 +54,7 @@ export default function LessonPage() {
 
   const handleComplete = async (id: string) => {
     await markLessonComplete(id)
-    console.log('Lesson completed:', id)
+    // Lesson completion is tracked by markLessonComplete function
   }
 
   const handleNext = useCallback(() => {

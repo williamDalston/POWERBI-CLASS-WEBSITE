@@ -8,6 +8,7 @@ import {
   type BeforeInstallPromptEvent 
 } from '@/lib/utils/pwa'
 import { X, Download, Smartphone } from 'lucide-react'
+import { logger } from '@/lib/utils/logger'
 
 export default function PWAInstallPrompt() {
   const [show, setShow] = useState(false)
@@ -50,10 +51,10 @@ export default function PWAInstallPrompt() {
         const accepted = await promptInstall()
         if (accepted) {
           setShow(false)
-          console.log('PWA installed successfully')
+          logger.log('PWA installed successfully')
         }
       } else {
-        console.log('No install prompt available. Opening fallback instructions.')
+        logger.log('No install prompt available. Opening fallback instructions.')
         // Fallback for iOS
         if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
           alert('To install this app: Tap Share > Add to Home Screen')
@@ -62,7 +63,7 @@ export default function PWAInstallPrompt() {
         }
       }
     } catch (error) {
-      console.error('Installation failed:', error)
+      logger.error(new Error('Installation failed'), { error })
     } finally {
       setIsInstalling(false)
     }
@@ -193,7 +194,7 @@ export function PWAInstallButton() {
         console.log('PWA installed successfully')
       }
     } catch (error) {
-      console.error('Installation failed:', error)
+      logger.error(new Error('Installation failed'), { error })
     } finally {
       setIsInstalling(false)
     }

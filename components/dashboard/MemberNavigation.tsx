@@ -1,9 +1,11 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import DarkModeToggle from '@/components/shared/DarkModeToggle'
 import FocusModeToggle from '@/components/shared/FocusModeToggle'
+import KeyboardShortcutsHelpMobile from './KeyboardShortcutsHelpMobile'
 
 interface NavItem {
   label: string
@@ -36,6 +38,15 @@ const navItems: NavItem[] = [
     ),
   },
   {
+    label: 'Search',
+    href: '/dashboard',
+    icon: (
+      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    ),
+  },
+  {
     label: 'Progress',
     href: '/dashboard/progress',
     icon: (
@@ -60,13 +71,47 @@ export default function MemberNavigation({
   isMobile = false,
 }: MemberNavigationProps) {
   const pathname = usePathname()
+  const [showShortcuts, setShowShortcuts] = useState(false)
 
   if (isMobile) {
     return (
       <nav className={`fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 z-40 pb-safe ${className}`}>
-        <div className="flex justify-around items-center h-16 px-2">
+        <div className="flex justify-around items-center h-16 px-2 gap-1">
           {navItems.slice(0, 4).map((item) => {
             const isActive = pathname === item.href || pathname?.startsWith(item.href + '/')
+            const isSearch = item.label === 'Search'
+            
+            // Special handling for search - trigger command palette or focus search on dashboard
+            if (isSearch) {
+              return (
+                <button
+                  key={item.href}
+                  onClick={() => {
+                    // Trigger Cmd+K / Ctrl+K to open command palette
+                    window.dispatchEvent(new KeyboardEvent('keydown', {
+                      key: 'k',
+                      metaKey: true,
+                      ctrlKey: true,
+                    }))
+                    // Also scroll to search on dashboard if we're there
+                    if (pathname === '/dashboard') {
+                      const searchInput = document.querySelector('input[type="search"]') as HTMLInputElement
+                      if (searchInput) {
+                        setTimeout(() => searchInput.focus(), 100)
+                      }
+                    }
+                  }}
+                  className="flex flex-col items-center justify-center gap-1 px-3 py-2 rounded-lg transition-all duration-200 touch-manipulation text-gray-700 dark:text-gray-300 hover:text-primary-900 dark:hover:text-white active:scale-95"
+                  aria-label="Search lessons"
+                >
+                  <span className="transition-transform duration-200">
+                    {item.icon}
+                  </span>
+                  <span className="font-sans text-xs font-medium">{item.label}</span>
+                </button>
+              )
+            }
+            
             return (
               <Link
                 key={item.href}
@@ -74,7 +119,7 @@ export default function MemberNavigation({
                 className={`flex flex-col items-center justify-center gap-1 px-3 py-2 rounded-lg transition-all duration-200 touch-manipulation ${
                   isActive
                     ? 'text-accent scale-110'
-                    : 'text-gray-600 dark:text-gray-300 hover:text-primary-900 dark:hover:text-white active:scale-95'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-primary-900 dark:hover:text-white active:scale-95'
                 }`}
               >
                 <span className={`transition-transform duration-200 ${isActive ? 'scale-110' : ''}`}>
@@ -84,7 +129,27 @@ export default function MemberNavigation({
               </Link>
             )
           })}
+          
+          {/* Keyboard Shortcuts Help Button (Mobile) */}
+          <button
+            onClick={() => setShowShortcuts(true)}
+            className="flex flex-col items-center justify-center gap-1 px-3 py-2 rounded-lg transition-all duration-200 touch-manipulation text-gray-700 dark:text-gray-300 hover:text-primary-900 dark:hover:text-white active:scale-95"
+            aria-label="Keyboard shortcuts help"
+          >
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <span className="font-sans text-xs font-medium">Help</span>
+          </button>
         </div>
+        
+        {/* Mobile Keyboard Shortcuts Modal */}
+        {showShortcuts && (
+          <KeyboardShortcutsHelpMobile 
+            isOpen={showShortcuts} 
+            onClose={() => setShowShortcuts(false)} 
+          />
+        )}
       </nav>
     )
   }

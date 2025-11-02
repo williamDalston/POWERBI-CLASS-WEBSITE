@@ -10,6 +10,7 @@ import {
   getAchievementsByCategory,
   AchievementCategory,
 } from '@/lib/utils/achievementUtils'
+import { logger } from '@/lib/utils/logger'
 
 export interface AchievementState extends Achievement {
   progress: number
@@ -89,7 +90,7 @@ export function useAchievements() {
         lastCompletionTime,
       }
     } catch (err) {
-      console.error('Failed to load progress data:', err)
+      logger.error(new Error('Failed to load progress data'), { error: err })
       return {
         completedLessonIds: [],
         currentStreak: 0,
@@ -155,7 +156,7 @@ export function useAchievements() {
       localStorage.setItem('achievementData', JSON.stringify(storedAchievements))
       setAchievements(updatedAchievements)
     } catch (err) {
-      console.error('Failed to load achievements:', err)
+      logger.error(new Error('Failed to load achievements'), { error: err })
     } finally {
       setIsLoading(false)
     }

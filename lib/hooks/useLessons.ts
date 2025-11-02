@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { getAllLessons, Lesson as CourseLesson } from '@/lib/data/courseData'
+import { logger } from '@/lib/utils/logger'
 
 // Import achievement utilities (using dynamic import to avoid circular dependencies)
 let checkAchievementsForLesson: ((lessonId: string, completedCount: number) => void) | null = null
@@ -92,7 +93,7 @@ export function useLessons() {
               })
             }
           } catch (err) {
-            console.error('Failed to load lesson progress:', err)
+            logger.error(new Error('Failed to load lesson progress'), { error: err })
           }
         }
 
@@ -155,7 +156,7 @@ export function useLessons() {
           checkAchievementsForLesson(lessonId, completedIds.length)
         }
       } catch (err) {
-        console.error('Failed to save completed lesson:', err)
+        logger.error(new Error('Failed to save completed lesson'), { error: err })
       }
     }
   }
@@ -185,7 +186,7 @@ export function useLessons() {
         progress[lessonId].lastAccessed = new Date().toISOString()
         localStorage.setItem('lessonProgress', JSON.stringify(progress))
       } catch (err) {
-        console.error('Failed to save time spent:', err)
+        logger.error(new Error('Failed to save time spent'), { error: err })
       }
     }
   }
@@ -226,9 +227,11 @@ export function useLessons() {
         localStorage.setItem('achievements', JSON.stringify(allAchievements))
         
         // You could trigger a toast notification here
-        console.log('New achievements:', achievements)
+        if (achievements.length > 0) {
+          logger.log('New achievements unlocked', { achievements })
+        }
       } catch (err) {
-        console.error('Failed to save achievements:', err)
+        logger.error(new Error('Failed to save achievements'), { error: err })
       }
     }
   }
@@ -259,7 +262,7 @@ export function useLessons() {
         const achievements = localStorage.getItem('achievements')
         return achievements ? JSON.parse(achievements) as string[] : []
       } catch (err) {
-        console.error('Failed to load achievements:', err)
+        logger.error(new Error('Failed to load achievements'), { error: err })
         return []
       }
     }

@@ -81,7 +81,7 @@ export default function CelebrationAnimation({
         oscillator.stop(audioContext.currentTime + 0.5)
       } catch (err) {
         // Browser doesn't support Web Audio API, silently fail
-        console.debug('Web Audio API not supported')
+        // Web Audio API not supported - audio disabled
       }
     }
 

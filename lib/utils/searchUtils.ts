@@ -1,6 +1,7 @@
 import Fuse from 'fuse.js'
 import { getAllLessons, getAllModules, Lesson, Module } from '@/lib/data/courseData'
 import { SearchResult } from './lessonSearch'
+import { logger } from './logger'
 
 export interface SearchFilters {
   moduleNumber?: number
@@ -44,7 +45,7 @@ export function fuzzySearchLessons(query: string, filters?: SearchFilters): Sear
       const completed = localStorage.getItem('completedLessons')
       completedIds = completed ? (JSON.parse(completed) as string[]) : []
     } catch (err) {
-      console.error('Failed to load completed lessons:', err)
+      logger.error(new Error('Failed to load completed lessons'), { error: err })
     }
   }
 
@@ -201,7 +202,7 @@ export function getRecentSearches(limit: number = 5): string[] {
       return searches.slice(0, limit)
     }
   } catch (err) {
-    console.error('Failed to load recent searches:', err)
+    logger.error(new Error('Failed to load recent searches'), { error: err })
   }
   
   return []
@@ -226,7 +227,7 @@ export function saveRecentSearch(query: string): void {
     
     localStorage.setItem('recentSearches', JSON.stringify(searches))
   } catch (err) {
-    console.error('Failed to save recent search:', err)
+    logger.error(new Error('Failed to save recent search'), { error: err })
   }
 }
 

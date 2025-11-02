@@ -1,4 +1,5 @@
 import { getAllLessons, getAllModules, Lesson, Module } from '@/lib/data/courseData'
+import { logger } from './logger'
 
 // Re-export for convenience
 export { getAllModules, getAllLessons } from '@/lib/data/courseData'
@@ -113,7 +114,7 @@ export function filterLessons(options: FilterOptions): Lesson[] {
         isCompleted: completedIds.includes(lesson.id),
       }))
     } catch (err) {
-      console.error('Failed to load completed lessons:', err)
+      logger.error(new Error('Failed to load completed lessons'), { error: err })
     }
   }
 

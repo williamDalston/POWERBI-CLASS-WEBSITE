@@ -9,38 +9,7 @@ import LessonNotes from './LessonNotes'
 import { parseVideoUrl, buildYouTubeEmbedUrl, buildVimeoEmbedUrl, formatTimestamp, VideoInfo } from '@/lib/utils/videoUtils'
 import { useVideoAnalytics } from '@/lib/hooks/useVideoAnalytics'
 import { logger } from '@/lib/utils/logger'
-
-interface VideoChapter {
-  title: string
-  timestamp: number // in seconds
-}
-
-interface Lesson {
-  id: string
-  title: string
-  description: string
-  videoUrl?: string
-  duration?: number // in minutes
-  videoChapters?: VideoChapter[]
-  exerciseMaterials?: {
-    name: string
-    url: string
-    type?: 'pdf' | 'dataset' | 'code' | 'cheatsheet' | 'pbix' | 'other'
-  }[]
-  content?: {
-    concept?: string
-    discussion?: string
-    tables?: Array<{
-      title: string
-      headers: string[]
-      rows: string[][]
-    }>
-    labs?: string[]
-    keyPoints?: string[]
-    insiderTips?: string[]
-  }
-  isCompleted?: boolean
-}
+import type { Lesson, VideoChapter } from '@/lib/data/courseData'
 
 interface LessonPlayerProps {
   lesson: Lesson
@@ -71,6 +40,8 @@ export default function LessonPlayer({
   const [videoInfo, setVideoInfo] = useState<VideoInfo | null>(null)
   const [embedUrl, setEmbedUrl] = useState<string>('')
   const [showChapters, setShowChapters] = useState(false)
+  const [showResumePrompt, setShowResumePrompt] = useState(false)
+  const [showKeyboardShortcuts, setShowKeyboardShortcuts] = useState(false)
   const iframeRef = useRef<HTMLIFrameElement>(null)
   const videoDurationSeconds = lesson.duration ? lesson.duration * 60 : undefined
   
@@ -105,11 +76,39 @@ export default function LessonPlayer({
         } else {
           setEmbedUrl(parsed.embedUrl)
         }
+        
+        // Show resume prompt if there's saved progress
+        if (watchProgress?.lastPosition && watchProgress.lastPosition > 30) {
+          setShowResumePrompt(true)
+          // Auto-hide after 8 seconds
+          setTimeout(() => setShowResumePrompt(false), 8000)
+        }
       } else {
         setVideoError(true)
       }
     }
   }, [lesson.videoUrl, watchProgress?.lastPosition])
+
+  // Keyboard shortcuts handler
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Show keyboard shortcuts with '?' key
+      if (e.key === '?' && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+        const target = e.target as HTMLElement
+        if (target.tagName !== 'INPUT' && target.tagName !== 'TEXTAREA' && !target.isContentEditable) {
+          e.preventDefault()
+          setShowKeyboardShortcuts(true)
+        }
+      }
+      // Close shortcuts with Escape
+      if (e.key === 'Escape' && showKeyboardShortcuts) {
+        setShowKeyboardShortcuts(false)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [showKeyboardShortcuts])
   
   // Update embed URL when playback speed or quality changes
   useEffect(() => {
@@ -290,31 +289,33 @@ export default function LessonPlayer({
               onError={handleVideoError}
             />
             
-            {/* Video Controls Overlay */}
+            {/* Video Controls Overlay - Always visible on mobile/touch devices */}
             {videoInfo && (
-              <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-20">
-                {/* Chapters Button */}
+              <div className="absolute top-4 right-4 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-20">
+                {/* Chapters Button - Always visible on mobile */}
                 {lesson.videoChapters && lesson.videoChapters.length > 0 && (
                   <button
                     onClick={() => setShowChapters(!showChapters)}
-                    className="px-3 py-2 bg-black bg-opacity-70 hover:bg-opacity-90 text-white rounded-lg font-sans text-sm transition-colors flex items-center gap-2"
+                    className="px-3 py-2 md:px-3 md:py-2 p-2.5 bg-black bg-opacity-70 hover:bg-opacity-90 active:bg-opacity-100 text-white rounded-lg font-sans text-xs md:text-sm transition-colors flex items-center gap-2 min-h-[44px] min-w-[44px] md:min-h-0 md:min-w-0 touch-manipulation"
                     title="Chapters"
+                    aria-label="Show video chapters"
                   >
-                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="h-4 w-4 md:h-4 md:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
-                    Chapters
+                    <span className="hidden md:inline">Chapters</span>
                   </button>
                 )}
                 
                 {/* Picture-in-Picture Button */}
-                {document.pictureInPictureEnabled && (
+                {typeof document !== 'undefined' && document.pictureInPictureEnabled && (
                   <button
                     onClick={handlePictureInPicture}
-                    className="px-3 py-2 bg-black bg-opacity-70 hover:bg-opacity-90 text-white rounded-lg font-sans text-sm transition-colors"
+                    className="px-3 py-2 md:px-3 md:py-2 p-2.5 bg-black bg-opacity-70 hover:bg-opacity-90 active:bg-opacity-100 text-white rounded-lg font-sans text-xs md:text-sm transition-colors min-h-[44px] min-w-[44px] md:min-h-0 md:min-w-0 touch-manipulation"
                     title="Picture-in-Picture"
+                    aria-label="Toggle picture-in-picture"
                   >
-                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="h-4 w-4 md:h-4 md:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                     </svg>
                   </button>
@@ -322,6 +323,53 @@ export default function LessonPlayer({
               </div>
             )}
             
+            {/* Resume Prompt */}
+            {showResumePrompt && watchProgress && watchProgress.lastPosition > 0 && (
+              <div className="absolute top-4 left-4 right-4 md:left-auto md:right-auto md:max-w-md bg-black bg-opacity-80 text-white rounded-lg p-4 z-30 animate-fade-in">
+                <div className="flex items-start gap-3">
+                  <svg className="h-5 w-5 flex-shrink-0 mt-0.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <div className="flex-1">
+                    <p className="font-sans font-semibold mb-1">Continue from where you left off?</p>
+                    <p className="font-sans text-sm text-gray-300 mb-3">
+                      Resume from {formatTimestamp(watchProgress.lastPosition)}
+                    </p>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => {
+                          // Video will auto-resume at saved position
+                          setShowResumePrompt(false)
+                        }}
+                        className="px-3 py-1.5 bg-accent hover:bg-accent-dark text-white rounded font-sans text-sm transition-colors"
+                      >
+                        Continue
+                      </button>
+                      <button
+                        onClick={() => {
+                          setShowResumePrompt(false)
+                          // Reset to beginning if user wants to restart
+                        }}
+                        className="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-white rounded font-sans text-sm transition-colors"
+                      >
+                        Restart
+                      </button>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setShowResumePrompt(false)}
+                    className="flex-shrink-0 text-gray-400 hover:text-white transition-colors"
+                    aria-label="Dismiss"
+                  >
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            )}
+
             {/* Watch Progress Indicator */}
             {watchProgress && watchProgress.completionPercentage > 0 && (
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-700">
@@ -413,12 +461,20 @@ export default function LessonPlayer({
                 {Math.round(watchProgress.completionPercentage)}% watched
               </span>
             )}
-            <LessonControls
-              currentSpeed={playbackSpeed}
-              currentQuality={quality}
-              onSpeedChange={setPlaybackSpeed}
-              onQualityChange={setQuality}
-            />
+            <div className="flex items-center gap-4 flex-wrap">
+              {/* Playback Speed Indicator */}
+              {playbackSpeed !== 1 && (
+                <span className="font-sans text-sm text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+                  Speed: {playbackSpeed}x
+                </span>
+              )}
+              <LessonControls
+                currentSpeed={playbackSpeed}
+                currentQuality={quality}
+                onSpeedChange={setPlaybackSpeed}
+                onQualityChange={setQuality}
+              />
+            </div>
           </div>
         </div>
         
@@ -683,9 +739,102 @@ export default function LessonPlayer({
           
           {/* Keyboard Shortcut Hint */}
           <p className="text-xs font-sans text-gray-500 text-center mt-2">
-            Use <kbd className="px-1.5 py-0.5 bg-gray-100 rounded text-xs">←</kbd> / <kbd className="px-1.5 py-0.5 bg-gray-100 rounded text-xs">→</kbd> arrow keys or <kbd className="px-1.5 py-0.5 bg-gray-100 rounded text-xs">Esc</kbd> to return to dashboard
+            Press <kbd className="px-1.5 py-0.5 bg-gray-100 rounded text-xs">?</kbd> for keyboard shortcuts • Use <kbd className="px-1.5 py-0.5 bg-gray-100 rounded text-xs">←</kbd> / <kbd className="px-1.5 py-0.5 bg-gray-100 rounded text-xs">→</kbd> arrow keys or <kbd className="px-1.5 py-0.5 bg-gray-100 rounded text-xs">Esc</kbd> to return to dashboard
           </p>
         </div>
+
+        {/* Keyboard Shortcuts Modal */}
+        {showKeyboardShortcuts && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            onClick={() => setShowKeyboardShortcuts(false)}
+          >
+            {/* Backdrop */}
+            <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+            
+            {/* Modal */}
+            <div
+              className="relative bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-2xl w-full p-6 z-10 animate-fade-in"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-serif text-xl text-primary-900 dark:text-white">Keyboard Shortcuts</h3>
+                <button
+                  onClick={() => setShowKeyboardShortcuts(false)}
+                  className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                  aria-label="Close shortcuts"
+                >
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Navigation Shortcuts */}
+                <div>
+                  <h4 className="font-sans font-semibold text-gray-900 dark:text-white mb-2">Navigation</h4>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between p-2 bg-neutral-50 dark:bg-gray-700 rounded">
+                      <span className="font-sans text-sm text-gray-700 dark:text-gray-300">Previous Lesson</span>
+                      <kbd className="px-2 py-1 bg-white dark:bg-gray-800 rounded text-xs font-mono">←</kbd>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-neutral-50 dark:bg-gray-700 rounded">
+                      <span className="font-sans text-sm text-gray-700 dark:text-gray-300">Next Lesson</span>
+                      <kbd className="px-2 py-1 bg-white dark:bg-gray-800 rounded text-xs font-mono">→</kbd>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-neutral-50 dark:bg-gray-700 rounded">
+                      <span className="font-sans text-sm text-gray-700 dark:text-gray-300">Scroll Down</span>
+                      <kbd className="px-2 py-1 bg-white dark:bg-gray-800 rounded text-xs font-mono">J</kbd>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-neutral-50 dark:bg-gray-700 rounded">
+                      <span className="font-sans text-sm text-gray-700 dark:text-gray-300">Scroll Up</span>
+                      <kbd className="px-2 py-1 bg-white dark:bg-gray-800 rounded text-xs font-mono">K</kbd>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Video Controls */}
+                <div>
+                  <h4 className="font-sans font-semibold text-gray-900 dark:text-white mb-2">Video Controls</h4>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between p-2 bg-neutral-50 dark:bg-gray-700 rounded">
+                      <span className="font-sans text-sm text-gray-700 dark:text-gray-300">Play/Pause</span>
+                      <kbd className="px-2 py-1 bg-white dark:bg-gray-800 rounded text-xs font-mono">Space</kbd>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-neutral-50 dark:bg-gray-700 rounded">
+                      <span className="font-sans text-sm text-gray-700 dark:text-gray-300">Seek Back</span>
+                      <kbd className="px-2 py-1 bg-white dark:bg-gray-800 rounded text-xs font-mono">←</kbd>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-neutral-50 dark:bg-gray-700 rounded">
+                      <span className="font-sans text-sm text-gray-700 dark:text-gray-300">Seek Forward</span>
+                      <kbd className="px-2 py-1 bg-white dark:bg-gray-800 rounded text-xs font-mono">→</kbd>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-neutral-50 dark:bg-gray-700 rounded">
+                      <span className="font-sans text-sm text-gray-700 dark:text-gray-300">Fullscreen</span>
+                      <kbd className="px-2 py-1 bg-white dark:bg-gray-800 rounded text-xs font-mono">F</kbd>
+                    </div>
+                  </div>
+                </div>
+
+                {/* General */}
+                <div className="md:col-span-2">
+                  <h4 className="font-sans font-semibold text-gray-900 dark:text-white mb-2">General</h4>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between p-2 bg-neutral-50 dark:bg-gray-700 rounded">
+                      <span className="font-sans text-sm text-gray-700 dark:text-gray-300">Close / Back to Dashboard</span>
+                      <kbd className="px-2 py-1 bg-white dark:bg-gray-800 rounded text-xs font-mono">Esc</kbd>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-neutral-50 dark:bg-gray-700 rounded">
+                      <span className="font-sans text-sm text-gray-700 dark:text-gray-300">Show Shortcuts</span>
+                      <kbd className="px-2 py-1 bg-white dark:bg-gray-800 rounded text-xs font-mono">?</kbd>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Completion Celebration */}
         {showCompletion && (

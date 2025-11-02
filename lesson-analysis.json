@@ -1,0 +1,681 @@
+{
+  "total": 97,
+  "incomplete": 86,
+  "issues": [
+    {
+      "id": "0-1",
+      "title": "What is Business Intelligence (BI) and Why Now?",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "0-2",
+      "title": "Course Overview and Target Audience",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "0-3",
+      "title": "Prerequisites: What Do You Really Need?",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "0-4",
+      "title": "The BI Landscape: Power BI vs. Tableau vs. Excel",
+      "issues": [
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "1-1",
+      "title": "The Three Parts of Power BI",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "1-2",
+      "title": "Installation and Setup (Hands-On Lab)",
+      "issues": [
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "1-3",
+      "title": "Post-Install: Enabling Preview Features",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "1-4",
+      "title": "Tour of the Power BI Desktop Interface",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "2-1",
+      "title": "The \\",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "2-2",
+      "title": "Connecting to Files (Hands-On Lab)",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "2-3",
+      "title": "Connecting to Databases",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "2-4",
+      "title": "Connecting to Web and Cloud Services",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "2-5",
+      "title": "Understanding Connection Modes (A Critical Choice)",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "3-1",
+      "title": "Introduction to Power Query (The ETL Mindset)",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "3-2",
+      "title": "Basic Table Transformations (Hands-On Lab)",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "3-4",
+      "title": "Shaping Data \u2013 Pivot and Unpivot",
+      "issues": [
+        "Discussion too short (need 500+ chars)"
+      ]
+    },
+    {
+      "id": "3-6",
+      "title": "Introduction to Parameters",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "3-7",
+      "title": "Combining Queries: Merge vs. Append (A Critical Concept)",
+      "issues": [
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "3-8",
+      "title": "Introduction to the Advanced Editor (The M Language)",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "3-9",
+      "title": "Close & Apply",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "4-1",
+      "title": "Introduction to the Visualizations Pane",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "4-2",
+      "title": "Creating Core Visuals (Hands-On Lab)",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "4-3",
+      "title": "Using Slicers for Interactivity",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "4-4",
+      "title": "Displaying Key Metrics: Cards, KPIs, and Gauges",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "4-5",
+      "title": "Basic Report Formatting",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "5-1",
+      "title": "Why Data Modeling is the Most Critical Skill",
+      "issues": [
+        "Discussion too short (need 500+ chars)"
+      ]
+    },
+    {
+      "id": "5-2",
+      "title": "Understanding Fact vs. Dimension Tables",
+      "issues": [
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "5-3",
+      "title": "Designing a Star Schema (The BI Gold Standard)",
+      "issues": [
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "5-5",
+      "title": "Cardinality and Cross-Filter Direction",
+      "issues": [
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "6-2",
+      "title": "The Core Concept: Calculated Columns vs. Measures",
+      "issues": [
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "6-3",
+      "title": "Creating Calculated Columns (Hands-On Lab)",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "6-4",
+      "title": "Creating Measures (Hands-On Lab)",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "6-5",
+      "title": "Implicit vs. Explicit Measures",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "6-6",
+      "title": "Using Quick Measures",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "7-1",
+      "title": "The \\",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "7-2",
+      "title": "Row Context (The \\",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "7-3",
+      "title": "Filter Context (The \\",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "7-4",
+      "title": "Iterator Functions (SUMX, AVERAGEX, MINX)",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "8-1",
+      "title": "The Most Important Function in DAX: CALCULATE()",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "8-2",
+      "title": "Removing Filters with ALL()",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "8-3",
+      "title": "Related ALL Functions: ALLEXCEPT(), ALLSELECTED()",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "8-4",
+      "title": "Context Transition (The Advanced Concept)",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "8-5",
+      "title": "Advanced DAX Scenarios (USERELATIONSHIP)",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "8-6",
+      "title": "Introduction to Visual Calculations (Oct 2025 GA)",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "9-1",
+      "title": "The Prerequisite: A Date Table",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "9-2",
+      "title": "Year-to-Date (YTD) and Period-to-Date (Hands-On Lab)",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "9-3",
+      "title": "Prior Period Comparisons",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "9-4",
+      "title": "Calculating Year-over-Year (YoY) Growth",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "9-5",
+      "title": "Calculating Rolling Averages",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "10-1",
+      "title": "Principles of Effective Report Design & Chart Selection (UI/UX)",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "10-2",
+      "title": "Advanced Interactivity: Drill-through Pages",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "10-3",
+      "title": "Advanced Interactivity: Bookmarks and the Selection Pane",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "10-4",
+      "title": "Enhancing Visuals: Custom Report Tooltips",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "10-5",
+      "title": "Enhancing Visuals: Conditional Formatting",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "10-6",
+      "title": "The Art of Data Storytelling",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "12-2",
+      "title": "Reports vs. Dashboards (A Critical Distinction)",
+      "issues": [
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "12-3",
+      "title": "Collaboration with Workspaces",
+      "issues": [
+        "Discussion too short (need 500+ chars)"
+      ]
+    },
+    {
+      "id": "12-4",
+      "title": "Distribution with Apps (The \\",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "12-5",
+      "title": "Data Refresh and On-Premises Data Gateways",
+      "issues": [
+        "Discussion too short (need 500+ chars)"
+      ]
+    },
+    {
+      "id": "13-2",
+      "title": "Deep-Dive Analysis with DAX Studio",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "13-3",
+      "title": "Core Optimization Strategies",
+      "issues": [
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "13-4",
+      "title": "Optimizing for Big Data (Aggregations)",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "13-5",
+      "title": "Incremental Refresh",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "13-6",
+      "title": "Using Performance Analyzer in the Web (New in 2025)",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "14-1",
+      "title": "Row-Level Security (RLS) \u2013 Static Method",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "14-2",
+      "title": "Dynamic Row-Level Security (RLS) (The \\",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "14-3",
+      "title": "Object-Level Security (OLS)",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "14-4",
+      "title": "Overview of the Power BI Admin Portal",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "15-1",
+      "title": "Introduction to Tabular Editor (External Tool)",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "15-2",
+      "title": "Creating and Using Calculation Groups",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "15-3",
+      "title": "Advanced M Language Concepts",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "15-4",
+      "title": "Creating Reusable ETL with Dataflows Gen",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "16-1",
+      "title": "CI/CD with Deployment Pipelines",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "16-2",
+      "title": "The Future: Microsoft Fabric and OneLake",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "16-3",
+      "title": "Integrating with the Power Platform (Power Apps & Power Automate)",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "16-4",
+      "title": "Developer Focus: Power BI Embedded Analytics",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "16-5",
+      "title": "Introduction to Streaming and Real-Time Dashboards",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "17-1",
+      "title": "Introduction to Copilot (The AI Assistant)",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "17-2",
+      "title": "Copilot for DAX Generation (GA Oct 2025)",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "17-3",
+      "title": "Copilot for Report Building",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "17-4",
+      "title": "Fabric Integration: The OneLake Shortcut",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "18-1",
+      "title": "Certification: The PL-300 Exam",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "18-2",
+      "title": "Learning Paths by Role",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "18-3",
+      "title": "Staying Current (The Power BI Monthly Update)",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "18-4",
+      "title": "Downloadable Resources and Cheat-Sheets",
+      "issues": [
+        "Discussion too short (need 500+ chars)",
+        "Missing keyPoints array"
+      ]
+    },
+    {
+      "id": "18-5",
+      "title": "Final Deliverable: Your LinkedIn Portfolio",
+      "issues": [
+        "Missing discussion field",
+        "Missing keyPoints array"
+      ]
+    }
+  ]
+}

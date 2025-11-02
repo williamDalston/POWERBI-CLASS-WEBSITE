@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { logger } from '@/lib/utils/logger'
 
 const FOCUS_MODE_KEY = 'powerbi_focus_mode'
 const FOCUS_MODE_DEFAULT_KEY = 'powerbi_focus_mode_default'
@@ -28,7 +29,7 @@ export function useFocusMode() {
           }
         }
       } catch (error) {
-        console.error('Failed to load focus mode preference:', error)
+        logger.error(new Error('Failed to load focus mode preference'), { error })
       }
     }
   }, [])
@@ -41,7 +42,7 @@ export function useFocusMode() {
       try {
         localStorage.setItem(FOCUS_MODE_KEY, JSON.stringify(newValue))
       } catch (error) {
-        console.error('Failed to save focus mode preference:', error)
+        logger.error(new Error('Failed to save focus mode preference'), { error })
       }
     }
   }
@@ -53,7 +54,7 @@ export function useFocusMode() {
       try {
         localStorage.setItem(FOCUS_MODE_KEY, JSON.stringify(enabled))
       } catch (error) {
-        console.error('Failed to save focus mode preference:', error)
+        logger.error(new Error('Failed to save focus mode preference'), { error })
       }
     }
   }

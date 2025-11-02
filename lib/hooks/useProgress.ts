@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { logger } from '@/lib/utils/logger'
 
 interface ProgressData {
   daysPracticed: number
@@ -11,40 +12,59 @@ interface ProgressData {
 }
 
 export function useProgress(initialData?: ProgressData) {
-  const [progress, setProgress] = useState<ProgressData>({
-    daysPracticed: 0,
-    totalTime: 0,
-    currentStreak: 0,
-    totalLessons: 12,
-    completedLessons: 0,
-    ...initialData,
+  // Use ref to track if we've initialized to prevent overwriting with initialData after mount
+  const hasInitialized = useRef(false)
+  
+  const [progress, setProgress] = useState<ProgressData>(() => {
+    // Initialize state with initialData only on first render
+    const base = {
+      daysPracticed: 0,
+      totalTime: 0,
+      currentStreak: 0,
+      totalLessons: 12,
+      completedLessons: 0,
+    }
+    if (initialData) {
+      return { ...base, ...initialData }
+    }
+    return base
   })
 
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
+  // Keep initialData ref updated but don't update state from it after mount
+  const initialDataRef = useRef(initialData)
+  useEffect(() => {
+    initialDataRef.current = initialData
+  }, [initialData])
+
   // Load progress from localStorage on mount
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && !hasInitialized.current) {
       try {
         const saved = localStorage.getItem('userProgress')
         if (saved) {
           const parsed = JSON.parse(saved)
           setProgress((prev) => ({ ...prev, ...parsed }))
+        } else if (initialDataRef.current) {
+          // If no saved data and we have initialData, use it
+          setProgress((prev) => ({ ...prev, ...initialDataRef.current }))
         }
+        hasInitialized.current = true
       } catch (err) {
-        console.error('Failed to load progress:', err)
+        logger.error(new Error('Failed to load progress'), { error: err })
       }
     }
   }, [])
 
-  // Save progress to localStorage whenever it changes
+  // Save progress to localStorage whenever it changes (only after initialization)
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && hasInitialized.current) {
       try {
         localStorage.setItem('userProgress', JSON.stringify(progress))
       } catch (err) {
-        console.error('Failed to save progress:', err)
+        logger.error(new Error('Failed to save progress'), { error: err })
       }
     }
   }, [progress])

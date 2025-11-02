@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import { Command } from 'cmdk'
+import { logger } from '@/lib/utils/logger'
 import { 
   Home, 
   BookOpen, 
@@ -56,7 +57,7 @@ export default function CommandPalette({ open: controlledOpen, onOpenChange }: C
           setRecentActions(JSON.parse(recent))
         }
       } catch (err) {
-        console.error('Failed to load recent actions:', err)
+        logger.error(new Error('Failed to load recent actions'), { error: err })
       }
     }
   }, [])
@@ -104,7 +105,7 @@ export default function CommandPalette({ open: controlledOpen, onOpenChange }: C
       localStorage.setItem('commandPaletteRecentActions', JSON.stringify(actions))
       setRecentActions(actions)
     } catch (err) {
-      console.error('Failed to save recent action:', err)
+      logger.error(new Error('Failed to save recent action'), { error: err })
     }
   }
 

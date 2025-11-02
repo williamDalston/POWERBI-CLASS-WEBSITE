@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { logger } from '@/lib/utils/logger'
 
 export interface CodeBlockProps {
   code: string
@@ -30,7 +31,7 @@ export default function CodeBlock({
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     } catch (err) {
-      console.error('Failed to copy code:', err)
+      logger.error(new Error('Failed to copy code'), { error: err })
     }
   }
 

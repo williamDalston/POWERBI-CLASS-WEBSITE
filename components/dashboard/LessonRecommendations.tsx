@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { getSmartRecommendations, Recommendation } from '@/lib/utils/recommendationUtils'
+import { logger } from '@/lib/utils/logger'
 
 interface LessonRecommendationsProps {
   currentLessonId?: string
@@ -26,7 +27,7 @@ export default function LessonRecommendations({
         const recs = getSmartRecommendations({ currentLessonId }, limit)
         setRecommendations(recs)
       } catch (err) {
-        console.error('Failed to load recommendations:', err)
+        logger.error(new Error('Failed to load recommendations'), { error: err })
       } finally {
         setIsLoading(false)
       }
@@ -156,7 +157,7 @@ export default function LessonRecommendations({
           <button
             onClick={() => {
               // Could expand to show more recommendations
-              console.log('Show more recommendations')
+              // Feature to be implemented
             }}
             className="text-sm font-sans text-accent hover:text-accent-dark font-medium underline-offset-4 hover:underline transition-colors"
           >

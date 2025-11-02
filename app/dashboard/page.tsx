@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import WelcomeModal from '@/components/dashboard/WelcomeModal'
@@ -44,33 +44,46 @@ export default function DashboardPage() {
 
   const nextLesson = getNextLesson()
   
-  // Calculate real progress from lessons
-  const completedLessons = lessons.filter((l) => l.isCompleted).length
-  const totalLessons = lessons.length
+  // Calculate real progress from lessons (memoized to prevent recalculation)
+  const { completedLessons, totalLessons } = useMemo(() => {
+    const completed = lessons.filter((l) => l.isCompleted).length
+    const total = lessons.length
+    return { completedLessons: completed, totalLessons: total }
+  }, [lessons])
   
-  const { progress, isLoading: progressLoading } = useProgress({
+  // Memoize initial progress data to prevent re-renders
+  const initialProgressData = useMemo(() => ({
     daysPracticed: Math.max(completedLessons / 7, 0), // Rough estimate
     totalTime: lessons.reduce((sum, l) => sum + (l.duration || 20), 0),
     currentStreak: Math.min(completedLessons, 7), // Simple streak calculation
     totalLessons,
     completedLessons,
-  })
+  }), [completedLessons, totalLessons, lessons])
   
-  // Convert course data to module format for CourseOutline component
-  const modules = courseData.flatMap((part) => 
-    part.modules.map((module) => ({
-      id: module.id,
-      title: module.title,
-      description: module.description,
-      lessons: module.lessons.map((lesson) => ({
-        id: lesson.id,
-        title: lesson.title,
-        duration: lesson.duration,
-        isCompleted: lesson.isCompleted,
-        isLocked: false,
-      })),
-    }))
+  const { progress, isLoading: progressLoading } = useProgress(initialProgressData)
+  
+  // Convert course data to module format for CourseOutline component (memoized)
+  const modules = useMemo(() => 
+    courseData.flatMap((part) => 
+      part.modules.map((module) => ({
+        id: module.id,
+        title: module.title,
+        description: module.description,
+        lessons: module.lessons.map((lesson) => ({
+          id: lesson.id,
+          title: lesson.title,
+          duration: lesson.duration,
+          isCompleted: lesson.isCompleted,
+          isLocked: false,
+        })),
+      }))
+    ), []
   )
+
+  // Memoize checkForNewAchievements callback to ensure stability
+  const checkAchievementsCallback = useCallback(() => {
+    checkForNewAchievements()
+  }, [checkForNewAchievements])
 
   useEffect(() => {
     // Check if this is the user's first visit
@@ -80,8 +93,13 @@ export default function DashboardPage() {
     }
     
     // Check for new achievements on mount
-    checkForNewAchievements()
-  }, [checkForNewAchievements])
+    checkAchievementsCallback()
+  }, [checkAchievementsCallback])
+
+  // Memoize showToast callback to ensure stability
+  const showToastCallback = useCallback((message: string, type: 'success' | 'error' | 'info' = 'info', duration?: number) => {
+    showToast(message, type, duration)
+  }, [showToast])
 
   // Handle newly unlocked achievements
   useEffect(() => {
@@ -89,9 +107,9 @@ export default function DashboardPage() {
       const achievement = recentlyUnlocked[0]
       setCurrentAchievement(achievement)
       setShowCelebration(true)
-      showToast(`Achievement Unlocked: ${achievement.title}!`, 'success', 3000)
+      showToastCallback(`Achievement Unlocked: ${achievement.title}!`, 'success', 3000)
     }
-  }, [recentlyUnlocked, showToast])
+  }, [recentlyUnlocked, showToastCallback])
 
   const handleStartLesson = () => {
     if (nextLesson) {
@@ -101,7 +119,6 @@ export default function DashboardPage() {
 
   const handleTakeTour = () => {
     // Show tour/modal (can be implemented later)
-    console.log('Take tour clicked')
     // Could implement a tour modal here
   }
 
@@ -148,6 +165,16 @@ export default function DashboardPage() {
 
       {/* Breadcrumbs */}
       <Breadcrumbs items={[{ label: 'Dashboard', href: '/dashboard' }]} />
+
+      {/* ARIA Live Region for Progress Updates */}
+      <div aria-live="polite" aria-atomic="true" className="sr-only">
+        {!progressLoading && !lessonsLoading && (
+          <>
+            Progress: {completedLessons} of {totalLessons} lessons completed ({Math.round((completedLessons / totalLessons) * 100)}%)
+            {progress.currentStreak > 0 && `. Current streak: ${progress.currentStreak} days`}
+          </>
+        )}
+      </div>
 
       {/* Dashboard Header */}
       <div className="mb-8 animate-fade-in">
@@ -282,6 +309,26 @@ export default function DashboardPage() {
 
       {/* Floating Action Button */}
       <FloatingActionButton />
+
+      {/* Sticky Mobile CTA - Continue Learning Button */}
+      {nextLesson && (
+        <div className="fixed bottom-20 left-0 right-0 z-30 sm:hidden pb-safe">
+          <div className="container-custom px-4">
+            <Link
+              href={`/dashboard/lessons/${nextLesson.id}`}
+              className="block w-full bg-accent hover:bg-accent-dark text-white font-sans font-semibold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all text-center"
+            >
+              <div className="flex items-center justify-center gap-2">
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>{completedLessons > 0 ? 'Continue Learning' : 'Start Learning'}</span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      )}
     </>
   )
 }

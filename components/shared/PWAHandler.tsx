@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import { registerServiceWorker, setDeferredPrompt, type BeforeInstallPromptEvent } from '@/lib/utils/pwa'
+import { logger } from '@/lib/utils/logger'
 
 export default function PWAHandler() {
   useEffect(() => {
@@ -11,7 +12,7 @@ export default function PWAHandler() {
     // Register service worker
     if ('serviceWorker' in navigator) {
       registerServiceWorker().catch((error) => {
-        console.error('Failed to register service worker:', error)
+        logger.error(new Error('Failed to register service worker'), { error })
       })
     }
 
