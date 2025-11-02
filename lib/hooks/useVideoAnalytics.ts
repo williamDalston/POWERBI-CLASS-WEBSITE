@@ -180,22 +180,18 @@ export function useVideoAnalytics(lessonId: string, videoDuration?: number) {
       if (watchIntervalRef.current) {
         clearInterval(watchIntervalRef.current)
       }
-      // Save final progress
-      setWatchProgress(prev => {
-        if (prev) {
-          saveProgress(prev)
-        }
-        return prev
-      })
+      // DO NOT call setWatchProgress in cleanup - it causes React error #185 (infinite loops)
+      // Progress is already saved periodically via the interval and the effect below
     }
-  }, [saveProgress])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []) // Only run cleanup on unmount - saveProgress is stable enough
   
   // Save progress whenever it changes significantly
   useEffect(() => {
     if (watchProgress) {
       saveProgress(watchProgress)
     }
-  }, [watchProgress?.completed, watchProgress?.completionPercentage]) // Only save on important changes
+  }, [watchProgress?.completed, watchProgress?.completionPercentage, saveProgress]) // Only save on important changes
   
   return {
     watchProgress,

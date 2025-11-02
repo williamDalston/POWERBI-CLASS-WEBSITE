@@ -257,7 +257,8 @@ export function useAchievements() {
       window.removeEventListener('lesson-completed', handleLessonCompleted as EventListener)
       clearInterval(interval)
     }
-  }, [loadAchievements])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []) // Only run once on mount - loadAchievements is stable enough
 
   return {
     achievements,

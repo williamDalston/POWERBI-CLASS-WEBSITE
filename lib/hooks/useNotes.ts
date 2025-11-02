@@ -82,40 +82,44 @@ export function useNotes(lessonId?: string) {
 
     // Debounce the actual save
     const timeoutId = setTimeout(() => {
-      const note: Note = {
-        id: `${lessonId}-note`,
-        lessonId,
-        content,
-        tags: extractTags(content),
-        createdAt: getCurrentNote(lessonId)?.createdAt || new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      }
+      // Use functional update to avoid stale closure
+      setNotes((currentNotes) => {
+        const note: Note = {
+          id: `${lessonId}-note`,
+          lessonId,
+          content,
+          tags: extractTags(content),
+          createdAt: currentNotes.find(n => n.lessonId === lessonId)?.createdAt || new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+        }
 
-      // Update notes array
-      const updatedNotes = [...notes]
-      const existingIndex = updatedNotes.findIndex(n => n.lessonId === lessonId)
-      
-      if (existingIndex >= 0) {
-        updatedNotes[existingIndex] = note
-      } else {
-        updatedNotes.push(note)
-      }
+        // Update notes array
+        const updatedNotes = [...currentNotes]
+        const existingIndex = updatedNotes.findIndex(n => n.lessonId === lessonId)
+        
+        if (existingIndex >= 0) {
+          updatedNotes[existingIndex] = note
+        } else {
+          updatedNotes.push(note)
+        }
 
-      setNotes(updatedNotes)
-      updateStats(updatedNotes)
+        updateStats(updatedNotes)
 
-      // Persist to localStorage
-      try {
-        localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(updatedNotes))
-      } catch (error) {
-        logger.error(new Error('Error saving notes'), { error })
-      }
+        // Persist to localStorage
+        try {
+          localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(updatedNotes))
+        } catch (error) {
+          logger.error(new Error('Error saving notes'), { error })
+        }
 
-      setIsSaving(false)
+        setIsSaving(false)
+        
+        return updatedNotes
+      })
     }, AUTO_SAVE_DELAY)
 
     return () => clearTimeout(timeoutId)
-  }, [notes, getCurrentNote, updateStats])
+  }, [updateStats]) // Remove notes and getCurrentNote from deps - use functional update instead
 
   // Delete note for a lesson
   const deleteNote = useCallback((lessonId: string) => {

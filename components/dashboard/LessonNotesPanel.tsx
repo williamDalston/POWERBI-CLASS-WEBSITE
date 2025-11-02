@@ -33,14 +33,16 @@ export default function LessonNotesPanel({
   useEffect(() => {
     const content = getCurrentNoteContent(lessonId)
     setNoteContent(content)
-  }, [lessonId, getCurrentNoteContent])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lessonId]) // Only depend on lessonId, not the callback function
 
   // Auto-save note
   useEffect(() => {
     if (noteContent === '') return
     const timeoutId = saveNote(lessonId, noteContent)
     return timeoutId
-  }, [noteContent, lessonId, saveNote])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [noteContent, lessonId]) // Only depend on values, not the callback function
 
   const handleClear = () => {
     if (confirm('Are you sure you want to clear all notes for this lesson?')) {
