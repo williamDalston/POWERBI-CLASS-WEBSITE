@@ -3,6 +3,7 @@
 Rebuild courseData.ts from course-outline.md
 
 This script parses the course outline and generates a complete TypeScript courseData.ts file.
+Usage: python3 scripts/rebuild-course-data.py
 """
 
 import re
@@ -432,6 +433,53 @@ def generate_course_data(lessons):
     output.append("}")
     output.append("")
     
+    output.append("export function getModuleForLesson(lessonId: string): { module: Module, part: Part } | undefined {")
+    output.append("  for (const part of courseData) {")
+    output.append("    for (const module of part.modules) {")
+    output.append("      const found = module.lessons.find(lesson => lesson.id === lessonId)")
+    output.append("      if (found) {")
+    output.append("        return { module, part }")
+    output.append("      }")
+    output.append("    }")
+    output.append("  }")
+    output.append("  return undefined")
+    output.append("}")
+    output.append("")
+    
+    output.append("export function getLessonPositionInModule(lessonId: string): { lessonIndex: number, totalLessons: number } | undefined {")
+    output.append("  const result = getModuleForLesson(lessonId)")
+    output.append("  if (!result) return undefined")
+    output.append("  ")
+    output.append("  const { module } = result")
+    output.append("  const index = module.lessons.findIndex(lesson => lesson.id === lessonId)")
+    output.append("  return index >= 0 ? { lessonIndex: index + 1, totalLessons: module.lessons.length } : undefined")
+    output.append("}")
+    output.append("")
+    
+    output.append("export function getNextLesson(lessonId: string): Lesson | undefined {")
+    output.append("  const allLessons = getAllLessons()")
+    output.append("  const currentIndex = allLessons.findIndex(lesson => lesson.id === lessonId)")
+    output.append("  ")
+    output.append("  if (currentIndex < 0 || currentIndex >= allLessons.length - 1) {")
+    output.append("    return undefined")
+    output.append("  }")
+    output.append("  ")
+    output.append("  return allLessons[currentIndex + 1]")
+    output.append("}")
+    output.append("")
+    
+    output.append("export function getPreviousLesson(lessonId: string): Lesson | undefined {")
+    output.append("  const allLessons = getAllLessons()")
+    output.append("  const currentIndex = allLessons.findIndex(lesson => lesson.id === lessonId)")
+    output.append("  ")
+    output.append("  if (currentIndex <= 0) {")
+    output.append("    return undefined")
+    output.append("  }")
+    output.append("  ")
+    output.append("  return allLessons[currentIndex - 1]")
+    output.append("}")
+    output.append("")
+    
     return "\n".join(output)
 
 def main():
@@ -454,3 +502,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

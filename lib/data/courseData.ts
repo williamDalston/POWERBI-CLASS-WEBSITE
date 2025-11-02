@@ -809,14 +809,49 @@ export const courseData: Part[] = [
             id: "6-2",
             moduleNumber: 6,
             lessonNumber: 2,
-            title: "The Core",
-            description: "Calculated Columns vs. MeasuresConcept: This is the single-most critical, and most-confused, concept for new DAX learners.77 A simple formula like \"Total Price\" ([Quantity] * [Unit Price]) can be crea",
-            duration: 30,
+            title: "The Core Concept: Calculated Columns vs. Measures",
+            description: "This is the single-most critical concept for new DAX learners. A simple formula can be created in two different ways, and the choice has massive implications.",
+            duration: 40,
             difficulty: 'intermediate',
-            tags: ["DAX", "Visualizations", "Security"],
+            tags: ["DAX", "Critical Concept"],
             topic: 'DAX',
             content: {
-              concept: "Calculated Columns vs. MeasuresConcept: This is the single-most critical, and most-confused, concept for new DAX learners.77 A simple formula like \"Total Price\" ([Quantity] * [Unit Price]) can be created in two different ways. The choice has massive implications.Calculated Column 83:How: Created in the Data View or Model View.86Evaluation: Calculated at data refresh. Computed row-by-row based on the \"Row Context\".83Storage: The results are stored in the model, consuming RAM and increasing the file size.83Use Case: When the result is needed in a slicer, on an axis, or as a filter.83 (e.g., categorizing products by \"High/Low\" price).Measure 83:How: Created in the Report View, Data View, or Model View.Evaluation: Calculated at query time (when a visual renders). Computed on-the-fly based on the \"Filter Context\" of the visual.83Storage: Results are not stored. Consumes CPU at query time.83Use Case: For any aggregation that will appear in the \"Values\" area of a visual (e.g., Total Sales, Average Price).83The Golden Rule: A beginner from an Excel background will try to do everything in Calculated Columns, as it mimics an Excel table. This is the primary mistake. It leads to bloated, slow, and inflexible reports. The professional rule is: Use a Calculated Column only when you must. Use a Measure for everything else..83Table: Calculated Columns vs. Measures (Expanded) 83FeatureCalculated ColumnMeasureEvaluation ContextRow Context [81]Filter Context [81]When CalculatedAt Data Refresh [85]At Query Time (On-the-fly) [85]StorageConsumes RAM (stored in model) 84Consumes CPU (not stored) 84Primary UseSlicers, Axes, Filters, Row-level categorization 83Values in charts, KPIs, aggregations 83Common MistakeUsing for simple aggregations 83(Rarely the wrong choice)",
+              concept: "This is the single-most critical concept for new DAX learners. A simple formula like 'Total Price' ([Quantity] * [Unit Price]) can be created in two different ways, and the choice has massive implications for performance, flexibility, and maintainability. This lesson is where many students struggle, but mastery of this concept separates professionals from beginners.",
+              discussion: "Calculated Columns and Measures are both created with DAX, but they work fundamentally differently. A Calculated Column is created in Data View or Model View, evaluated at data refresh row-by-row based on 'Row Context,' and stored in the model consuming RAM. Use calculated columns when the result is needed in a slicer, on an axis, or as a filter (e.g., categorizing products by 'High/Low' price). A Measure is created in Report View, Data View, or Model View, evaluated at query time when a visual renders based on 'Filter Context,' and is not stored (consumes CPU instead). Use measures for any aggregation appearing in the Values area of a visual (e.g., Total Sales, Average Price). The Golden Rule: Beginners from Excel backgrounds try to do everything in calculated columns because it mimics Excel tables. This is the primary mistake and leads to bloated, slow, inflexible reports. The professional rule is: Use a calculated column ONLY when you must. Use a measure for everything else. In enterprise models, you'll find 90%+ measures and 10% calculated columns. If your model has more calculated columns than measures, you're likely doing it wrong.",
+              tables: [
+                {
+                  title: "Calculated Columns vs. Measures (Expanded)",
+                  headers: ["Feature", "Calculated Column", "Measure"],
+                  rows: [
+                    ["Evaluation Context", "Row Context (current row)", "Filter Context (visual context)"],
+                    ["When Calculated", "At Data Refresh", "At Query Time (on-the-fly)"],
+                    ["Storage", "Consumes RAM (stored in model)", "Consumes CPU (not stored)"],
+                    ["Primary Use", "Slicers, Axes, Filters, Row-level categorization", "Values in charts, KPIs, aggregations"],
+                    ["Common Mistake", "Using for simple aggregations", "Rarely the wrong choice"],
+                    ["Created In", "Data View or Model View", "Report View, Data View, or Model View"],
+                    ["Flexibility", "Fixed at refresh time", "Dynamic based on filters"],
+                    ["Performance Impact", "Increases file size, slows refresh", "Increases query time"]
+                  ]
+                }
+              ],
+              keyPoints: [
+                "Calculated columns: evaluated at refresh, stored in memory, use for slicers/axes/filters",
+                "Measures: evaluated at query time, not stored, use for aggregations in visuals",
+                "The Golden Rule: Use calculated columns only when you MUST, use measures for everything else",
+                "Row Context (calculated columns) vs Filter Context (measures) determines how each is evaluated",
+                "Most enterprise models have 90%+ measures and <10% calculated columns"
+              ],
+              insiderTips: [
+                "RED FLAG: If your model has more calculated columns than measures, you're doing it wrong!",
+                "Quick test: Need it in a slicer or on an axis? → Calculated Column. Need it in Values? → Measure",
+                "Performance killer: Avoid calculated columns for simple math like [Quantity] * [UnitPrice]",
+                "Solution: Use measures with SUMX() for row-by-row calculations that need aggregation",
+                "Storage impact: Each calculated column increases .pbix file size and slows refresh time",
+                "Filter behavior: Measures respond to all filters dynamically; calculated columns don't change after refresh",
+                "Pro tip: Create a dedicated 'Measures' table to organize all your measures in one place",
+                "Common beginner mistake: Trying to create 'Sales YTD' as a calculated column - impossible! Must be a measure",
+                "Debugging: When a measure returns wrong value, check your filter context, not the formula"
+              ]
             },
           },
           {
