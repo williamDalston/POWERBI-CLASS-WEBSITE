@@ -13,5 +13,8 @@ export { default as AchievementBadge, AchievementCelebration } from './Achieveme
 export { default as Toast } from './Toast'
 export { default as DashboardSearch } from './DashboardSearch'
 export { default as SkeletonLoader } from './SkeletonLoader'
+export { default as AdvancedAnalytics } from './AdvancedAnalytics'
+export { default as ProgressCharts } from './ProgressCharts'
+export { default as MasteryChart } from './MasteryChart'
 export { useKeyboardShortcuts, KeyboardShortcutsHelp } from './KeyboardShortcuts'
 

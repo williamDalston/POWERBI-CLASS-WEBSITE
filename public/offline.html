@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're Offline - Power BI Course</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #082434 0%, #254B5A 100%);
+      color: #ffffff;
+      padding: 20px;
+    }
+    
+    .container {
+      text-align: center;
+      max-width: 500px;
+    }
+    
+    .icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+    }
+    
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 10px;
+      opacity: 0.9;
+    }
+    
+    .actions {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    button {
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .primary {
+      background: #2563eb;
+      color: white;
+    }
+    
+    .primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+    
+    .secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .tips {
+      margin-top: 40px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      text-align: left;
+    }
+    
+    .tips h2 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+    
+    .tips ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .tips li {
+      padding: 8px 0;
+      padding-left: 25px;
+      position: relative;
+    }
+    
+    .tips li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #2dd4bf;
+      font-weight: bold;
+    }
+    
+    .online-indicator {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 20px;
+      display: none;
+    }
+    
+    .online-indicator.show {
+      display: block;
+    }
+    
+    .online-indicator.online {
+      background: rgba(34, 197, 94, 0.2);
+      border: 1px solid rgba(34, 197, 94, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="online-indicator" id="onlineIndicator">
+    <span>Back online!</span>
+  </div>
+  
+  <div class="container">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12 15V12M12 9H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M1 1L6 6M23 23L18 18M23 1L18 6M1 23L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    
+    <h1>You're Offline</h1>
+    <p>Looks like you've lost your connection to the internet.</p>
+    <p>Don't worry! You can still review cached lessons and track your progress.</p>
+    
+    <div class="actions">
+      <button class="primary" onclick="retry()">
+        Try Again
+      </button>
+      <button class="secondary" onclick="goHome()">
+        Go to Home
+      </button>
+    </div>
+    
+    <div class="tips">
+      <h2>While you're offline, you can:</h2>
+      <ul>
+        <li>Review previously cached lessons</li>
+        <li>Take notes on completed content</li>
+        <li>Plan your learning path</li>
+        <li>Track progress (syncs when online)</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script>
+    // Check if back online
+    window.addEventListener('online', () => {
+      const indicator = document.getElementById('onlineIndicator');
+      indicator.classList.add('show', 'online');
+      
+      setTimeout(() => {
+        indicator.classList.remove('show', 'online');
+        window.location.reload();
+      }, 2000);
+    });
+    
+    function retry() {
+      if (navigator.onLine) {
+        window.location.reload();
+      } else {
+        alert('Still offline. Please check your connection.');
+      }
+    }
+    
+    function goHome() {
+      window.location.href = '/';
+    }
+    
+    // Show online indicator when back online
+    if (navigator.onLine) {
+      setTimeout(retry, 1000);
+    }
+  </script>
+</body>
+</html>
+

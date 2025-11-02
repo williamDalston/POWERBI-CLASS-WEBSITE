@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import PWAHandler from '@/components/shared/PWAHandler'
 
 export const metadata: Metadata = {
   title: 'Professional Power BI Course | Master Data Visualization',
@@ -86,6 +87,8 @@ export default function RootLayout({
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="manifest" href="/manifest.json" />
+        <PWAHandler />
         {children}
       </body>
     </html>

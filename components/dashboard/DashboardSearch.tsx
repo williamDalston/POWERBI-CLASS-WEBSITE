@@ -2,44 +2,13 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-
-interface SearchResult {
-  id: string
-  type: 'lesson' | 'module' | 'resource'
-  title: string
-  description?: string
-  url: string
-}
+import { searchLessons, SearchResult } from '@/lib/utils/lessonSearch'
 
 interface DashboardSearchProps {
   onSearch?: (query: string) => void
   placeholder?: string
   className?: string
 }
-
-const mockSearchResults: SearchResult[] = [
-  {
-    id: '1',
-    type: 'lesson',
-    title: 'Introduction: Understanding Your Inner Landscape',
-    description: 'Begin your journey by exploring foundational concepts',
-    url: '/dashboard/lessons/lesson-1',
-  },
-  {
-    id: '2',
-    type: 'lesson',
-    title: 'Recognizing Patterns in Your Thoughts',
-    description: 'Learn to identify recurring thought patterns',
-    url: '/dashboard/lessons/lesson-2',
-  },
-  {
-    id: '3',
-    type: 'resource',
-    title: 'Daily Reflection Exercise',
-    description: 'A practical exercise to deepen your practice',
-    url: '/dashboard/resources/daily-reflection',
-  },
-]
 
 export default function DashboardSearch({
   onSearch,
@@ -50,22 +19,30 @@ export default function DashboardSearch({
   const [results, setResults] = useState<SearchResult[]>([])
   const [isOpen, setIsOpen] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(-1)
+  const [isSearching, setIsSearching] = useState(false)
   const searchRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     if (query.trim().length > 0) {
-      // Mock search - in production, this would be an API call
-      const filtered = mockSearchResults.filter(
-        (item) =>
-          item.title.toLowerCase().includes(query.toLowerCase()) ||
-          item.description?.toLowerCase().includes(query.toLowerCase())
-      )
-      setResults(filtered)
-      setIsOpen(true)
+      setIsSearching(true)
+      // Debounce search for better performance
+      const timeoutId = setTimeout(() => {
+        // Real search against course data
+        const searchResults = searchLessons(query)
+        setResults(searchResults)
+        setIsOpen(true)
+        setIsSearching(false)
+      }, 300)
+
+      return () => {
+        clearTimeout(timeoutId)
+        setIsSearching(false)
+      }
     } else {
       setResults([])
       setIsOpen(false)
+      setIsSearching(false)
     }
   }, [query])
 
@@ -161,14 +138,31 @@ export default function DashboardSearch({
           className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg font-sans focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
         />
         <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
-          </svg>
+          {isSearching ? (
+            <svg
+              className="h-5 w-5 animate-spin"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-label="Searching"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+              />
+            </svg>
+          ) : (
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          )}
         </div>
         {query && (
           <button
@@ -186,8 +180,37 @@ export default function DashboardSearch({
         )}
       </div>
 
+      {/* Loading State */}
+      {isOpen && isSearching && (
+        <div className="absolute top-full mt-2 w-full bg-white rounded-lg shadow-xl border border-gray-200 p-6 z-50">
+          <div className="flex items-center justify-center gap-3">
+            <svg
+              className="h-5 w-5 animate-spin text-accent"
+              fill="none"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              />
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              />
+            </svg>
+            <span className="font-sans text-sm text-gray-600">Searching...</span>
+          </div>
+        </div>
+      )}
+
       {/* Search Results Dropdown */}
-      {isOpen && results.length > 0 && (
+      {isOpen && !isSearching && results.length > 0 && (
         <div className="absolute top-full mt-2 w-full bg-white rounded-lg shadow-xl border border-gray-200 max-h-96 overflow-y-auto z-50">
           <div className="py-2">
             {results.map((result, index) => (
@@ -211,6 +234,11 @@ export default function DashboardSearch({
                       {result.description}
                     </p>
                   )}
+                  {result.moduleTitle && (
+                    <p className="font-sans text-xs text-gray-500 mt-1">
+                      {result.moduleTitle}
+                    </p>
+                  )}
                 </div>
               </Link>
             ))}
@@ -218,12 +246,41 @@ export default function DashboardSearch({
         </div>
       )}
 
-      {/* No Results */}
+      {/* No Results - Enhanced Empty State */}
       {isOpen && query && results.length === 0 && (
-        <div className="absolute top-full mt-2 w-full bg-white rounded-lg shadow-xl border border-gray-200 p-4 z-50">
-          <p className="font-sans text-gray-500 text-center">
-            No results found for "{query}"
-          </p>
+        <div className="absolute top-full mt-2 w-full bg-white rounded-lg shadow-xl border border-gray-200 p-6 z-50">
+          <div className="text-center">
+            <svg
+              className="h-12 w-12 text-gray-400 mx-auto mb-3"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+            <p className="font-sans font-semibold text-gray-900 mb-1">
+              No results found for "{query}"
+            </p>
+            <p className="font-sans text-sm text-gray-600 mb-4">
+              Try different keywords or check your spelling
+            </p>
+            <button
+              onClick={() => {
+                setQuery('')
+                setIsOpen(false)
+                inputRef.current?.focus()
+              }}
+              className="text-sm font-sans text-accent hover:text-accent-dark font-medium underline-offset-4 hover:underline transition-colors"
+            >
+              Clear search
+            </button>
+          </div>
         </div>
       )}
     </div>

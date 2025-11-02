@@ -241,4 +241,31 @@
       scroll-behavior: auto !important;
     }
   }
+  
+  /* Touch feedback for interactive elements */
+  .touch-active {
+    transform: scale(0.97);
+    opacity: 0.8;
+    transition: transform 0.1s ease, opacity 0.1s ease;
+  }
+  
+  @media (hover: hover) {
+    /* Hover effects for devices that support it */
+    .hover-lift:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .hover-glow:hover {
+      box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+    }
+  }
+  
+  /* iOS-specific styles */
+  @supports (-webkit-touch-callout: none) {
+    /* Better scrolling on iOS */
+    body {
+      -webkit-overflow-scrolling: touch;
+    }
+  }
 }

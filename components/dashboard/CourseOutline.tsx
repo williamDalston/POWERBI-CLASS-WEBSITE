@@ -135,6 +135,26 @@ export default function CourseOutline({
                   </svg>
                 </div>
               </button>
+              
+              {/* Assessment Button */}
+              {isExpanded && module.id !== 'module-0' && (
+                <div className="border-t border-gray-200 bg-neutral-50 px-4 py-3">
+                  <Link
+                    href={`/dashboard/assessments/${module.id.replace('module-', '')}`}
+                    className="flex items-center gap-2 text-sm font-medium text-purple-700 hover:text-purple-800 transition-colors"
+                  >
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                      />
+                    </svg>
+                    Take Module Assessment
+                  </Link>
+                </div>
+              )}
 
               {/* Module Lessons */}
               {isExpanded && (
@@ -153,13 +173,19 @@ export default function CourseOutline({
                                 ? '#'
                                 : `/dashboard/lessons/${lesson.id}`
                             }
-                            className={`flex items-center gap-3 p-4 transition-colors ${
+                            onClick={(e) => {
+                              if (lesson.isLocked || !isPreviousCompleted) {
+                                e.preventDefault()
+                              }
+                            }}
+                            className={`flex items-center gap-3 p-4 transition-all ${
                               isCurrent
                                 ? 'bg-accent bg-opacity-10 border-l-4 border-accent'
                                 : lesson.isLocked || !isPreviousCompleted
                                 ? 'opacity-50 cursor-not-allowed'
-                                : 'hover:bg-white'
+                                : 'hover:bg-white hover:shadow-sm'
                             }`}
+                            aria-disabled={lesson.isLocked || !isPreviousCompleted}
                           >
                             <div className="flex-shrink-0">
                               {lesson.isCompleted ? (

@@ -19,32 +19,20 @@ interface PricingPlan {
 
 const plans: PricingPlan[] = [
   {
-    name: 'Monthly',
-    priceMonthly: 29,
-    priceAnnual: 29,
-    description: 'Perfect for trying out the program',
-    features: [
-      'Full access to all video lessons',
-      'Step-by-step exercises and practices',
-      'Guided meditations and audio content',
-      'Theory lectures and insights',
-      'Email support',
-      'Cancel anytime',
-    ],
-  },
-  {
-    name: 'Annual',
-    priceMonthly: 19,
-    priceAnnual: 199,
-    description: 'Best value for committed seekers',
+    name: 'Free Access',
+    priceMonthly: 0,
+    priceAnnual: 0,
+    description: 'Complete Power BI mastery course - 100% free',
     popular: true,
     features: [
-      'Everything in Monthly plan',
-      'Save $149 per year (40% off)',
-      'Priority email support',
-      'Exclusive bonus content',
-      'Early access to new materials',
-      'Cancel anytime',
+      '120+ hours of comprehensive training',
+      '18 modules covering Beginner to Master level',
+      'Hands-on labs and real-world projects',
+      'Interactive lessons with rich content',
+      'Progress tracking and certificates',
+      'Access to all course materials',
+      'Lifetime access',
+      'Community support',
     ],
   },
 ]
@@ -76,15 +64,8 @@ export default function PricingTable() {
               Choose Your Path to Power BI Mastery
             </h2>
             <p className="text-base sm:text-lg font-sans text-gray-700 max-w-2xl mx-auto">
-              Simple, transparent pricing. Start your journey today.
+              100% free course - Start your Power BI journey today.
             </p>
-          </div>
-        </AnimatedSection>
-
-        {/* Billing Toggle */}
-        <AnimatedSection direction="up" delay={0.2}>
-          <div className="px-4 sm:px-0">
-            <BillingToggle billingCycle={billingCycle} onToggle={setBillingCycle} />
           </div>
         </AnimatedSection>
 
@@ -168,27 +149,27 @@ export default function PricingTable() {
 
               {/* CTA Button */}
               <CTAButton
-                href="/subscribe"
-                variant={plan.popular && billingCycle === 'annual' ? 'primary' : 'secondary'}
+                href="/dashboard"
+                variant={plan.popular ? 'primary' : 'secondary'}
                 fullWidth
                 size="lg"
               >
-                Start Your Free Trial
+                Get Started Now - It's Free!
               </CTAButton>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Guarantee Text */}
+        {/* Free Access Text */}
         <div className="text-center mt-6 sm:mt-8 px-4 sm:px-0 space-y-2">
           <p className="text-sm sm:text-base font-sans text-gray-700">
-            <span className="font-semibold">30-Day Money-Back Guarantee</span>
+            <span className="font-semibold">100% Free</span>
             <span className="hidden sm:inline"> • </span>
             <br className="sm:hidden" />
-            <span className="sm:inline">Cancel anytime</span>
+            <span className="sm:inline">No credit card required</span>
           </p>
           <p className="text-xs sm:text-sm font-sans text-gray-600 max-w-2xl mx-auto">
-            Try risk-free. If you're not completely satisfied, we'll refund your payment within 30 days, no questions asked.
+            Get instant access to the complete Power BI course. Start learning today!
           </p>
         </div>
       </Container>

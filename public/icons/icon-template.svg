@@ -1,0 +1,24 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" rx="100" fill="#082434"/>
+  
+  <!-- Safe zone (80% for maskable icons) -->
+  <rect x="51.2" y="51.2" width="409.6" height="409.6" rx="20" fill="transparent"/>
+  
+  <!-- Power BI Logo Inspired Design -->
+  <g transform="translate(64, 64)">
+    <!-- Data bars (Power BI visual) -->
+    <rect x="48" y="280" width="56" height="108" rx="4" fill="#2563eb" opacity="0.9"/>
+    <rect x="136" y="240" width="56" height="148" rx="4" fill="#2dd4bf" opacity="0.9"/>
+    <rect x="224" y="200" width="56" height="188" rx="4" fill="#60a5fa" opacity="0.9"/>
+    <rect x="312" y="160" width="56" height="228" rx="4" fill="#2563eb" opacity="0.9"/>
+    
+    <!-- Chart accent -->
+    <circle cx="240" cy="120" r="32" fill="#2563eb" opacity="0.2"/>
+    <circle cx="240" cy="120" r="20" fill="#2dd4bf"/>
+  </g>
+  
+  <!-- "PB" text alternative (smaller, lighter) -->
+  <text x="256" y="280" font-family="system-ui, sans-serif" font-size="120" font-weight="bold" fill="#2563eb" opacity="0.3" text-anchor="middle">PB</text>
+</svg>
+
