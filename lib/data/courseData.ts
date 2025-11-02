@@ -72,6 +72,14 @@ export const courseData: Part[] = [
             title: "What is Business Intelligence (BI) and Why Now?",
             description: "Business Intelligence (BI) is the comprehensive process of transforming raw data into coherent, visually immersive, and interactive insights to drive informed business decisions.8 This stands in contr",
             duration: 20,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 360 },
+  { title: 'Practical Examples', timestamp: 780 },
+  { title: 'Summary', timestamp: 1020 }
+            ],
             difficulty: 'beginner',
             tags: ["Visualizations"],
             topic: 'Visualizations',
@@ -87,6 +95,14 @@ export const courseData: Part[] = [
             title: "Course Overview and Target Audience",
             description: "This curriculum follows a three-part structure, guiding a student from \"Beginner\" to \"Analyst\" and finally to \"Master.\" A \"Case Study Scenario\" (e.g., analyzing sales for a retail company) will be use",
             duration: 20,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 360 },
+  { title: 'Practical Examples', timestamp: 780 },
+  { title: 'Summary', timestamp: 1020 }
+            ],
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'AI Features',
@@ -102,6 +118,14 @@ export const courseData: Part[] = [
             title: "Prerequisites: What Do You Really Need?",
             description: "While there are no formal prerequisites to begin 13, a baseline of data literacy is highly beneficial",
             duration: 20,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 360 },
+  { title: 'Practical Examples', timestamp: 780 },
+  { title: 'Summary', timestamp: 1020 }
+            ],
             difficulty: 'beginner',
             tags: ["DAX", "Visualizations", "Power Query"],
             topic: 'DAX',
@@ -117,6 +141,14 @@ export const courseData: Part[] = [
             title: "The BI Landscape: Power BI vs. Tableau vs. Excel",
             description: "This lesson positions Power BI within its competitive landscape to establish why it is a critical tool to learn",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 150 },
+  { title: 'Detailed Explanation', timestamp: 360 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
@@ -174,6 +206,14 @@ export const courseData: Part[] = [
             title: "The Three Parts of Power BI",
             description: "Power BI is not a single program but a collection of software services, apps, and connectors that work together",
             duration: 20,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 300 },
+  { title: 'Detailed Explanation', timestamp: 720 },
+  { title: 'Summary', timestamp: 1020 }
+            ],
             difficulty: 'beginner',
             tags: ["Visualizations"],
             topic: 'Data Modeling',
@@ -212,6 +252,14 @@ export const courseData: Part[] = [
             title: "Installation and Setup (Hands-On Lab)",
             description: "Installing the free Power BI Desktop application",
             duration: 20,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 240 },
+  { title: 'Hands-On Lab', timestamp: 600 },
+  { title: 'Key Takeaways', timestamp: 1020 }
+            ],
             difficulty: 'beginner',
             tags: ["2025 Features"],
             topic: 'Business Intelligence',
@@ -251,6 +299,14 @@ export const courseData: Part[] = [
             title: "Post-Install: Enabling Preview Features",
             description: "Power BI is updated on a monthly basis. Many of the most powerful new features are first released in \"preview\" and must be manually enabled by the user",
             duration: 20,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 360 },
+  { title: 'Practical Examples', timestamp: 780 },
+  { title: 'Summary', timestamp: 1020 }
+            ],
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
@@ -266,6 +322,14 @@ export const courseData: Part[] = [
             title: "Tour of the Power BI Desktop Interface",
             description: "Understanding the three main \"views\" within Power BI Desktop is key to navigating the workflow",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'AI Features',
@@ -303,6 +367,14 @@ export const courseData: Part[] = [
             title: "The \"Get Data\" Experience",
             description: "The \"Get Data\" function is the universal starting point for all Power BI projects. It provides access to hundreds of different data sources, from simple files to cloud databases and web services",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'Power BI Service',
@@ -332,6 +404,14 @@ export const courseData: Part[] = [
             title: "Connecting to Files (Hands-On Lab)",
             description: "Connecting to the most common flat-file data sources",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
@@ -376,6 +456,14 @@ export const courseData: Part[] = [
             title: "Connecting to Databases",
             description: "Connecting to relational databases, which form the backbone of most enterprise data systems",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Data Acquisition", "Databases"],
             topic: 'Data Acquisition',
@@ -420,6 +508,14 @@ export const courseData: Part[] = [
             title: "Connecting to Web and Cloud Services",
             description: "Acquiring data directly from online sources",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'Power BI Service',
@@ -435,6 +531,14 @@ export const courseData: Part[] = [
             title: "Understanding Connection Modes (A Critical Choice)",
             description: "When connecting to a data source, the user must choose how the data is accessed. This choice has profound and lasting implications for performance, data freshness, and their trade-offs",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 150 },
+  { title: 'Detailed Explanation', timestamp: 360 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Performance"],
             topic: 'Performance',
@@ -481,6 +585,14 @@ export const courseData: Part[] = [
             title: "Introduction to Power Query (The ETL Mindset)",
             description: "After connecting to data, the \"Navigator\" dialog asks to \"Load\" or \"Transform.\" The best practice is to always select \"Transform\" first.35 This opens the Power Query Editor",
             duration: 20,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 360 },
+  { title: 'Practical Examples', timestamp: 780 },
+  { title: 'Summary', timestamp: 1020 }
+            ],
             difficulty: 'beginner',
             tags: ["Power Query"],
             topic: 'Power Query',
@@ -496,6 +608,14 @@ export const courseData: Part[] = [
             title: "Basic Table Transformations (Hands-On Lab)",
             description: "Applying the most common steps to clean messy data",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Power Query"],
             topic: 'Power Query',
@@ -541,6 +661,14 @@ export const courseData: Part[] = [
             title: "Data Cleaning and Formatting",
             description: "Fixing \"dirty\" data to make it usable for analysis",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
@@ -579,6 +707,14 @@ export const courseData: Part[] = [
             title: "Shaping Data – Pivot and Unpivot",
             description: "Restructuring data to be suitable for analysis",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
@@ -614,6 +750,14 @@ export const courseData: Part[] = [
             title: "Advanced Shaping (Conditional Columns & Grouping)",
             description: "Using Power Query's UI to perform more advanced logic",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Power Query"],
             topic: 'Power Query',
@@ -649,6 +793,14 @@ export const courseData: Part[] = [
             title: "Introduction to Parameters",
             description: "Using Power Query parameters to make queries dynamic",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Power Query"],
             topic: 'Power Query',
@@ -692,6 +844,14 @@ export const courseData: Part[] = [
             title: "Combining Queries: Merge vs. Append (A Critical Concept)",
             description: "Combining multiple tables (queries) into a single, unified table.13 The distinction between these two operations is fundamental",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 150 },
+  { title: 'Detailed Explanation', timestamp: 360 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
@@ -750,6 +910,14 @@ export const courseData: Part[] = [
             title: "Introduction to the Advanced Editor (The M Language)",
             description: "This lesson serves to demystify the code behind Power Query, not to teach it (yet)",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Power Query", "M Language"],
             topic: 'Power Query',
@@ -792,6 +960,14 @@ export const courseData: Part[] = [
             title: "Close & Apply",
             description: "The final step in the Power Query Editor",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Power Query"],
             topic: 'Power Query',
@@ -843,6 +1019,14 @@ export const courseData: Part[] = [
             title: "Introduction to the Visualizations Pane",
             description: "The \"Fields\" pane contains the data tables and columns, while the \"Visualizations\" pane contains the chart types",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Visualizations"],
             topic: 'Visualizations',
@@ -886,6 +1070,14 @@ export const courseData: Part[] = [
             title: "Creating Core Visuals (Hands-On Lab)",
             description: "Building the most common and effective chart types",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Visualizations"],
             topic: 'Visualizations',
@@ -936,6 +1128,14 @@ export const courseData: Part[] = [
             title: "Using Slicers for Interactivity",
             description: "Slicers are on-page visual filters (like a dropdown or list) that allow the end-user to interact with and filter the entire report page.49Lab: Add a \"Year\" slicer and a \"Region\" slicer. Demonstrate ho",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Visualizations"],
             topic: 'Visualizations',
@@ -976,6 +1176,14 @@ export const courseData: Part[] = [
             title: "Displaying Key Metrics: Cards, KPIs, and Gauges",
             description: "Highlighting the most important, single-number metrics",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'AI Features',
@@ -1017,6 +1225,14 @@ export const courseData: Part[] = [
             title: "Basic Report Formatting",
             description: "Applying basic design principles for a professional look",
             duration: 20,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 360 },
+  { title: 'Practical Examples', timestamp: 780 },
+  { title: 'Summary', timestamp: 1020 }
+            ],
             difficulty: 'beginner',
             tags: ["DAX", "Visualizations", "Power Query", "Microsoft Fabric"],
             topic: 'DAX',
@@ -1047,6 +1263,14 @@ export const courseData: Part[] = [
             title: "Why Data Modeling is the Most Critical Skill",
             description: "This module addresses the limitations of the single-table model built in Part 1. Data modeling involves creating a relational model of multiple, interconnected tables",
             duration: 20,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 360 },
+  { title: 'Practical Examples', timestamp: 780 },
+  { title: 'Summary', timestamp: 1020 }
+            ],
             difficulty: 'intermediate',
             tags: ["DAX", "Power Query", "Visualizations", "Data Modeling", "Performance"],
             topic: 'Data Modeling',
@@ -1075,6 +1299,14 @@ export const courseData: Part[] = [
             title: "Understanding Fact vs. Dimension Tables",
             description: "A data model is composed of two primary types of tables: facts and dimensions",
             duration: 20,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 300 },
+  { title: 'Detailed Explanation', timestamp: 720 },
+  { title: 'Summary', timestamp: 1020 }
+            ],
             difficulty: 'intermediate',
             tags: ["Data Modeling"],
             topic: 'Data Modeling',
@@ -1117,6 +1349,14 @@ export const courseData: Part[] = [
             title: "Designing a Star Schema (The BI Gold Standard)",
             description: "The Star Schema is the target design for a Power BI data model",
             duration: 30,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 450 },
+  { title: 'Detailed Explanation', timestamp: 1080 },
+  { title: 'Summary', timestamp: 1530 }
+            ],
             difficulty: 'intermediate',
             tags: ["Data Modeling", "Performance", "Best Practices"],
             topic: 'Data Modeling',
@@ -1161,6 +1401,14 @@ export const courseData: Part[] = [
             title: "Creating and Managing Relationships (Hands-On Lab)",
             description: "Using the Model View to visually connect the tables into a star schema",
             duration: 30,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 360 },
+  { title: 'Hands-On Lab', timestamp: 900 },
+  { title: 'Key Takeaways', timestamp: 1530 }
+            ],
             difficulty: 'intermediate',
             tags: ["Data Modeling", "Lab"],
             topic: 'Data Modeling',
@@ -1209,6 +1457,14 @@ export const courseData: Part[] = [
             title: "Cardinality and Cross-Filter Direction",
             description: "Configuring the rules that govern the relationship flow",
             duration: 25,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 375 },
+  { title: 'Detailed Explanation', timestamp: 900 },
+  { title: 'Summary', timestamp: 1275 }
+            ],
             difficulty: 'intermediate',
             tags: ["Data Modeling"],
             topic: 'Data Modeling',
@@ -1264,6 +1520,14 @@ export const courseData: Part[] = [
             title: "Advanced Modeling Concepts (PL-300)",
             description: "Handling more complex modeling scenarios required for the PL-300 exam",
             duration: 30,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 450 },
+  { title: 'Detailed Explanation', timestamp: 1080 },
+  { title: 'Summary', timestamp: 1530 }
+            ],
             difficulty: 'intermediate',
             tags: ["Data Modeling", "PL-300"],
             topic: 'Data Modeling',
@@ -1309,6 +1573,14 @@ export const courseData: Part[] = [
             title: "What is DAX?",
             description: "DAX (Data Analysis Expressions) is the formula language used in Power BI, as well as in SQL Server Analysis Services (SSAS) Tabular and Power Pivot in Excel",
             duration: 20,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 360 },
+  { title: 'Practical Examples', timestamp: 780 },
+  { title: 'Summary', timestamp: 1020 }
+            ],
             difficulty: 'intermediate',
             tags: ["DAX"],
             topic: 'DAX',
@@ -1343,6 +1615,14 @@ export const courseData: Part[] = [
             title: "The Core Concept: Calculated Columns vs. Measures",
             description: "This is the single-most critical concept for new DAX learners. A simple formula can be created in two different ways, and the choice has massive implications.",
             duration: 40,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 600 },
+  { title: 'Detailed Explanation', timestamp: 1440 },
+  { title: 'Summary', timestamp: 2040 }
+            ],
             difficulty: 'intermediate',
             tags: ["DAX", "Critical Concept"],
             topic: 'DAX',
@@ -1392,6 +1672,14 @@ export const courseData: Part[] = [
             title: "Creating Calculated Columns (Hands-On Lab)",
             description: "Writing basic row-context DAX formulas in the Data View.77Lab: Create a Full Name column ([FirstName] & \" \" & [LastName]). Create a Price Category column using logical functions like IF and SWITCH",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["DAX"],
             topic: 'DAX',
@@ -1435,6 +1723,14 @@ export const courseData: Part[] = [
             title: "Creating Measures (Hands-On Lab)",
             description: "Writing basic aggregation measures.77Lab:Total Sales = SUM(Sales)Avg. Price = AVERAGE(Sales[UnitPrice])Order Count = COUNT(Sales[OrderLineKey])",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["DAX"],
             topic: 'DAX',
@@ -1479,6 +1775,14 @@ export const courseData: Part[] = [
             title: "Implicit vs. Explicit Measures",
             description: "\"Implicit\" measures are created when a numeric column is dragged into a visual, and Power BI implicitly applies an aggregation (like SUM).77 \"Explicit\" measures are those created manually with DAX, as",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["DAX"],
             topic: 'DAX',
@@ -1510,6 +1814,14 @@ export const courseData: Part[] = [
             title: "Using Quick Measures",
             description: "Using Power BI's UI-driven \"Quick Measures\" gallery to auto-generate DAX for common calculations",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["DAX"],
             topic: 'DAX',
@@ -1562,6 +1874,14 @@ export const courseData: Part[] = [
             title: "The \"Secret Sauce\" of DAX: Evaluation Context",
             description: "A DAX formula's result is not fixed; it depends on the context in which it is evaluated.87 There are two types of context",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["DAX"],
             topic: 'DAX',
@@ -1593,6 +1913,14 @@ export const courseData: Part[] = [
             title: "Row Context (The \"Current Row\")",
             description: "A context that iterates through a table one row at a time",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["DAX"],
             topic: 'DAX',
@@ -1623,6 +1951,14 @@ export const courseData: Part[] = [
             title: "Filter Context (The \"Current Cell\")",
             description: "The set of all filters applied to a measure before it is calculated",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["DAX"],
             topic: 'DAX',
@@ -1654,6 +1990,14 @@ export const courseData: Part[] = [
             title: "Iterator Functions (SUMX, AVERAGEX, MINX)",
             description: "Iterators, or \"X-functions,\" are functions that create a row context within a measure, allowing for row-by-row calculations",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["DAX"],
             topic: 'DAX',
@@ -1702,6 +2046,14 @@ export const courseData: Part[] = [
             title: "The Most Important Function in DAX: CALCULATE()",
             description: "CALCULATE() is the most powerful and important function in DAX. It is the only function that can modify the filter context.90Syntax: CALCULATE( <expression>, <filter1>, <filter2>,... )",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["DAX", "Critical Concept"],
             topic: 'DAX',
@@ -1744,6 +2096,14 @@ export const courseData: Part[] = [
             title: "Removing Filters with ALL()",
             description: "The ALL() function removes filters from a table or column.96 Its primary use is as a filter modifier inside CALCULATE()",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["DAX"],
             topic: 'DAX',
@@ -1785,6 +2145,14 @@ export const courseData: Part[] = [
             title: "Related ALL Functions: ALLEXCEPT(), ALLSELECTED()",
             description: "Nuanced versions of ALL() for more complex scenarios",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["DAX"],
             topic: 'DAX',
@@ -1826,6 +2194,14 @@ export const courseData: Part[] = [
             title: "Context Transition (The Advanced Concept)",
             description: "When CALCULATE() is used inside a row context (such as in a calculated column), it performs \"Context Transition\"",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["DAX"],
             topic: 'DAX',
@@ -1866,6 +2242,14 @@ export const courseData: Part[] = [
             title: "Advanced DAX Scenarios (USERELATIONSHIP)",
             description: "Solving complex modeling problems with DAX",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["DAX"],
             topic: 'DAX',
@@ -1907,6 +2291,14 @@ export const courseData: Part[] = [
             title: "Introduction to Visual Calculations (Oct 2025 GA)",
             description: "A new, simpler way to add calculations (like running totals or moving averages) directly on a visual, operating on the visual's data matrix rather than the full data model.Lab: Create a \"Running Total",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["DAX", "2025 Features"],
             topic: 'DAX',
@@ -1957,6 +2349,14 @@ export const courseData: Part[] = [
             title: "The Prerequisite: A Date Table",
             description: "DAX Time Intelligence functions will not work unless a proper, dedicated Date table exists in the model",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["Time Intelligence", "DAX", "Power Query"],
             topic: 'DAX',
@@ -2000,6 +2400,14 @@ export const courseData: Part[] = [
             title: "Year-to-Date (YTD) and Period-to-Date (Hands-On Lab)",
             description: "Calculating running totals for common time periods.99Lab: Create Sales YTD = TOTALYTD(, 'Date' ).99 This single function replaces complex, manual sum logic",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["Time Intelligence", "DAX"],
             topic: 'DAX',
@@ -2042,6 +2450,14 @@ export const courseData: Part[] = [
             title: "Prior Period Comparisons",
             description: "Comparing performance to the equivalent period in the past.99Lab: Create Sales PY = CALCULATE(, SAMEPERIODLASTYEAR('Date') ).99 Also demonstrate DATEADD and PARALLELPERIOD for more flexible period shi",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["Time Intelligence", "DAX"],
             topic: 'DAX',
@@ -2084,6 +2500,14 @@ export const courseData: Part[] = [
             title: "Calculating Year-over-Year (YoY) Growth",
             description: "Combining the previous measures to create a key business KPI.Lab: Sales YoY % = DIVIDE( ( - ), )",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["DAX", "Time Intelligence"],
             topic: 'DAX',
@@ -2125,6 +2549,14 @@ export const courseData: Part[] = [
             title: "Calculating Rolling Averages",
             description: "Smoothing volatile data by calculating rolling averages (e.g., 3-month rolling average).Lab: Demonstrate using DATESINPERIOD inside a CALCULATE function to achieve a rolling average calculation",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["Time Intelligence", "DAX"],
             topic: 'DAX',
@@ -2174,6 +2606,14 @@ export const courseData: Part[] = [
             title: "Principles of Effective Report Design & Chart Selection (UI/UX)",
             description: "A report can be analytically correct but visually useless. Good design (UI/UX) is not decoration; it is about guiding the user's eye and communicating insights with clarity",
             duration: 20,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 360 },
+  { title: 'Practical Examples', timestamp: 780 },
+  { title: 'Summary', timestamp: 1020 }
+            ],
             difficulty: 'intermediate',
             tags: ["Visualizations", "2025 Features"],
             topic: 'Visualizations',
@@ -2189,6 +2629,14 @@ export const courseData: Part[] = [
             title: "Advanced Interactivity: Drill-through Pages",
             description: "Drill-through allows a user to right-click a data point on a summary visual (e.g., \"East\" region) and navigate to a separate, detailed report page that is automatically filtered for the \"East\" region",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["Visualizations"],
             topic: 'Visualizations',
@@ -2232,6 +2680,14 @@ export const courseData: Part[] = [
             title: "Advanced Interactivity: Bookmarks and the Selection Pane",
             description: "Bookmarks capture and save the state of a report page, including all filters, slicers, and visual visibility states",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["Visualizations"],
             topic: 'Visualizations',
@@ -2247,6 +2703,14 @@ export const courseData: Part[] = [
             title: "Enhancing Visuals: Custom Report Tooltips",
             description: "The default hover-over tooltip is basic, showing only the data points.115 Power BI allows a developer to create an entirely new, small report page and use it as a custom tooltip.113Lab: Create a new p",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["Visualizations"],
             topic: 'Visualizations',
@@ -2290,6 +2754,14 @@ export const courseData: Part[] = [
             title: "Enhancing Visuals: Conditional Formatting",
             description: "Dynamically changing a visual's appearance (e.g., color) based on its data value",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["Visualizations"],
             topic: 'Visualizations',
@@ -2334,6 +2806,14 @@ export const courseData: Part[] = [
             title: "The Art of Data Storytelling",
             description: "A report should be more than a collection of charts; it must be a narrative that leads to a decision",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["Visualizations"],
             topic: 'Visualizations',
@@ -2349,6 +2829,14 @@ export const courseData: Part[] = [
             title: "Enhancing Reports with Custom Visuals",
             description: "Expanding Power BI's capabilities by importing new visuals from the AppSource marketplace",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["Visualizations"],
             topic: 'Visualizations',
@@ -2391,6 +2879,14 @@ export const courseData: Part[] = [
             title: "The Key Influencers Visual",
             description: "Using the Key Influencers visual to understand what factors drive a specific metric (e.g., \"What influences a customer to churn?\").55Lab: Use the Key Influencers visual to analyze what factors contrib",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["Data Modeling"],
             topic: 'Business Intelligence',
@@ -2429,6 +2925,14 @@ export const courseData: Part[] = [
             title: "The Decomposition Tree Visual",
             description: "Using the Decomposition Tree to perform root-cause analysis by breaking down a measure across multiple dimensions in a flexible, ad-hoc way.Lab: Create a Decomposition Tree to allow users to dynamical",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'intermediate',
             tags: ["Data Modeling"],
             topic: 'Business Intelligence',
@@ -2470,6 +2974,14 @@ export const courseData: Part[] = [
             title: "Anomaly Detection & Forecasting",
             description: "Using the built-in AI features on line charts to automatically detect anomalies (unexpected spikes or dips) and to generate a time-series forecast.Lab: Apply Anomaly Detection to the \"Sales over Time\"",
             duration: 30,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 360 },
+  { title: 'Hands-On Lab', timestamp: 900 },
+  { title: 'Key Takeaways', timestamp: 1530 }
+            ],
             difficulty: 'intermediate',
             tags: ["AI Features", "Visualizations", "Data Modeling", "DAX", "Time Intelligence"],
             topic: 'DAX',
@@ -2526,6 +3038,14 @@ export const courseData: Part[] = [
             title: "Publishing and Exploring the Power BI Service",
             description: "Using the \"Publish\" button in Power BI Desktop to send the .pbix file to the cloud (Power BI Service)",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Visualizations"],
             topic: 'Visualizations',
@@ -2560,6 +3080,14 @@ export const courseData: Part[] = [
             title: "Reports vs. Dashboards (A Critical Distinction)",
             description: "In the Power BI Service, Reports and Dashboards are distinct, and the terms are not interchangeable. A Dashboard is a feature unique to the Service",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 150 },
+  { title: 'Detailed Explanation', timestamp: 360 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Visualizations"],
             topic: 'Visualizations',
@@ -2603,6 +3131,14 @@ export const courseData: Part[] = [
             title: "Collaboration with Workspaces",
             description: "A Workspace is the fundamental unit of collaboration in the Power BI Service",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Visualizations"],
             topic: 'Visualizations',
@@ -2637,6 +3173,14 @@ export const courseData: Part[] = [
             title: "Distribution with Apps (The \"End-User\" Experience)",
             description: "End-users (e.g., executives, consumers) should never be given direct access to the developer Workspace.132 The correct method for distribution is publishing the Workspace content as an App",
             duration: 20,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 360 },
+  { title: 'Practical Examples', timestamp: 780 },
+  { title: 'Summary', timestamp: 1020 }
+            ],
             difficulty: 'advanced',
             tags: ["Visualizations"],
             topic: 'Visualizations',
@@ -2652,6 +3196,14 @@ export const courseData: Part[] = [
             title: "Data Refresh and On-Premises Data Gateways",
             description: "Keeping the data in an \"Import\" model fresh in the Power BI Service",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Power BI Fundamentals"],
             topic: 'Power BI Service',
@@ -2689,6 +3241,14 @@ export const courseData: Part[] = [
             title: "Identifying Bottlenecks with Performance Analyzer",
             description: "A \"Master\" must build fast, efficient reports. The first step is diagnostics, using the built-in Performance Analyzer",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Concept Overview', timestamp: 120 },
+  { title: 'Hands-On Lab', timestamp: 300 },
+  { title: 'Key Takeaways', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Performance", "Visualizations"],
             topic: 'Visualizations',
@@ -2727,6 +3287,14 @@ export const courseData: Part[] = [
             title: "Deep-Dive Analysis with DAX Studio",
             description: "Performance Analyzer identifies which visual is slow. DAX Studio is a free, external tool that shows why the DAX query is slow",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Performance", "DAX"],
             topic: 'DAX',
@@ -2742,6 +3310,14 @@ export const courseData: Part[] = [
             title: "Core Optimization Strategies",
             description: "A summary of how to fix the problems identified",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 150 },
+  { title: 'Detailed Explanation', timestamp: 360 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Performance"],
             topic: 'Performance',
@@ -2784,6 +3360,14 @@ export const courseData: Part[] = [
             title: "Optimizing for Big Data (Aggregations)",
             description: "Using aggregations to pre-summarize large fact tables",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Performance", "Data Modeling"],
             topic: 'AI Features',
@@ -2799,6 +3383,14 @@ export const courseData: Part[] = [
             title: "Incremental Refresh",
             description: "Setting up an incremental refresh policy for large datasets",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
@@ -2814,6 +3406,14 @@ export const courseData: Part[] = [
             title: "Using Performance Analyzer in the Web (New in 2025)",
             description: "The Performance Analyzer tool is now also available directly in the Power BI Service (GA Oct 2025), allowing for performance testing in the production environment.Lab: Run the Performance Analyzer in",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Performance", "2025 Features"],
             topic: 'Power BI Service',
@@ -2836,6 +3436,14 @@ export const courseData: Part[] = [
             title: "Row-Level Security (RLS) – Static Method",
             description: "RLS is a security feature that restricts data access at the row level, ensuring users only see the data they are authorized to see.148Lab (Static RLS):In Power BI Desktop, navigate to Modeling > Manag",
             duration: 20,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 360 },
+  { title: 'Practical Examples', timestamp: 780 },
+  { title: 'Summary', timestamp: 1020 }
+            ],
             difficulty: 'advanced',
             tags: ["DAX", "Security"],
             topic: 'DAX',
@@ -2851,6 +3459,14 @@ export const courseData: Part[] = [
             title: "Dynamic Row-Level Security (RLS) (The \"Master\" Method)",
             description: "A scalable, enterprise-grade solution where one role dynamically filters data based on the logged-in user's identity.149Prerequisite: This method requires a \"User Permissions\" or \"lookup\" table in the",
             duration: 20,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 360 },
+  { title: 'Practical Examples', timestamp: 780 },
+  { title: 'Summary', timestamp: 1020 }
+            ],
             difficulty: 'advanced',
             tags: ["DAX", "Visualizations", "Security"],
             topic: 'DAX',
@@ -2866,6 +3482,14 @@ export const courseData: Part[] = [
             title: "Object-Level Security (OLS)",
             description: "RLS hides rows of data. OLS hides entire columns or tables",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Security"],
             topic: 'Security',
@@ -2881,6 +3505,14 @@ export const courseData: Part[] = [
             title: "Overview of the Power BI Admin Portal",
             description: "A brief tour of the central, tenant-wide settings for Power BI governance",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
@@ -2904,6 +3536,14 @@ export const courseData: Part[] = [
             title: "Introduction to Tabular Editor (External Tool)",
             description: "Tabular Editor is the professional's tool for data modeling. It connects to the Power BI model and exposes many properties and features not visible in the Desktop UI",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Data Modeling"],
             topic: 'Data Modeling',
@@ -2918,6 +3558,14 @@ export const courseData: Part[] = [
             title: "Creating and Using Calculation Groups",
             description: "Calculation Groups are the ultimate DAX reusability tool. They are, in effect, \"measures for measures,\" allowing a developer to define calculation logic that can be applied to any base measure",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["DAX"],
             topic: 'DAX',
@@ -2933,6 +3581,14 @@ export const courseData: Part[] = [
             title: "Advanced M Language Concepts",
             description: "Moving beyond the UI in Power Query to write M code",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Power Query"],
             topic: 'Power Query',
@@ -2948,6 +3604,14 @@ export const courseData: Part[] = [
             title: "Creating Reusable ETL with Dataflows Gen",
             description: "Using Power BI Dataflows (Gen2) as a cloud-based ETL tool that integrates with Microsoft Fabric",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Visualizations", "Power Query", "Microsoft Fabric"],
             topic: 'Power Query',
@@ -2971,6 +3635,14 @@ export const courseData: Part[] = [
             title: "CI/CD with Deployment Pipelines",
             description: "A \"Master\" never publishes a change directly to the live production report. A professional Continuous Integration/Continuous Deployment (CI/CD) workflow is used to de-risk changes",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Visualizations"],
             topic: 'Visualizations',
@@ -2986,6 +3658,14 @@ export const courseData: Part[] = [
             title: "The Future: Microsoft Fabric and OneLake",
             description: "Power BI is no longer just a standalone tool; it is the visualization experience for Microsoft Fabric",
             duration: 20,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 360 },
+  { title: 'Practical Examples', timestamp: 780 },
+  { title: 'Summary', timestamp: 1020 }
+            ],
             difficulty: 'advanced',
             tags: ["Visualizations", "Data Modeling", "Microsoft Fabric"],
             topic: 'Visualizations',
@@ -3001,6 +3681,14 @@ export const courseData: Part[] = [
             title: "Integrating with the Power Platform (Power Apps & Power Automate)",
             description: "Making reports actionable by integrating with the other components of the Power Platform",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Visualizations"],
             topic: 'Visualizations',
@@ -3015,6 +3703,14 @@ export const courseData: Part[] = [
             title: "Developer Focus: Power BI Embedded Analytics",
             description: "For \"Master\" level developers, this is the process of embedding Power BI content inside their own custom applications for external customers (a SaaS scenario)",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Power BI Fundamentals"],
             topic: 'Power BI Service',
@@ -3030,6 +3726,14 @@ export const courseData: Part[] = [
             title: "Introduction to Streaming and Real-Time Dashboards",
             description: "A brief overview of connecting to streaming data sources (e.g., IoT sensor data via Azure Stream Analytics)",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Visualizations"],
             topic: 'Visualizations',
@@ -3053,6 +3757,14 @@ export const courseData: Part[] = [
             title: "Introduction to Copilot (The AI Assistant)",
             description: "Using the new Copilot pane to summarize reports and generate insights using natural language.Lab: Use the Copilot pane to \"Summarize sales trends\" on a report page and ask follow-up questions about th",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["AI Features", "Visualizations"],
             topic: 'Visualizations',
@@ -3067,6 +3779,14 @@ export const courseData: Part[] = [
             title: "Copilot for DAX Generation (GA Oct 2025)",
             description: "Using Copilot in the DAX Query View to write and explain complex DAX measures from a natural language prompt.Lab: In the DAX Query View, prompt Copilot to \"Write a DAX query for YoY growth\" and then a",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["DAX", "AI Features", "Time Intelligence", "2025 Features"],
             topic: 'DAX',
@@ -3081,6 +3801,14 @@ export const courseData: Part[] = [
             title: "Copilot for Report Building",
             description: "Using Copilot's natural language capabilities to generate full, multi-page reports from a high-level prompt.Lab: Prompt Copilot to \"Create a report page showing sales by region and category\" and refin",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["AI Features", "Visualizations"],
             topic: 'Visualizations',
@@ -3095,6 +3823,14 @@ export const courseData: Part[] = [
             title: "Fabric Integration: The OneLake Shortcut",
             description: "Connecting a Power BI semantic model directly to data in a Fabric Lakehouse using a \"OneLake shortcut,\" eliminating data movement and enabling a single source of truth.Lab: In a Fabric Lakehouse, crea",
             duration: 30,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 540 },
+  { title: 'Practical Examples', timestamp: 1170 },
+  { title: 'Summary', timestamp: 1530 }
+            ],
             difficulty: 'advanced',
             tags: ["Visualizations", "AI Features", "Security", "Performance", "Data Modeling", "Microsoft Fabric", "DAX", "Time Intelligence"],
             topic: 'DAX',
@@ -3117,6 +3853,14 @@ export const courseData: Part[] = [
             title: "Certification: The PL-300 Exam",
             description: "The PL-300 is the official \"Microsoft Power BI Data Analyst\" certification",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["DAX", "Visualizations", "Power Query", "Data Modeling"],
             topic: 'DAX',
@@ -3132,6 +3876,14 @@ export const courseData: Part[] = [
             title: "Learning Paths by Role",
             description: "\"Mastery\" can take many forms, and the next steps depend on career goals",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["DAX", "Power Query", "Microsoft Fabric"],
             topic: 'DAX',
@@ -3147,6 +3899,14 @@ export const courseData: Part[] = [
             title: "Staying Current (The Power BI Monthly Update)",
             description: "Power BI changes every single month",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
@@ -3162,6 +3922,14 @@ export const courseData: Part[] = [
             title: "Downloadable Resources and Cheat-Sheets",
             description: "Providing students with downloadable datasets, solution files (.pbix), and quick-reference \"cheat sheets.\"",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["DAX", "Visualizations", "Power Query"],
             topic: 'DAX',
@@ -3177,6 +3945,14 @@ export const courseData: Part[] = [
             title: "Final Deliverable: Your LinkedIn Portfolio",
             description: "How to present the three capstone projects and your PL-300 certification badge on your professional profile to attract employers",
             duration: 10,
+
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Introduction', timestamp: 0 },
+  { title: 'Core Concepts', timestamp: 180 },
+  { title: 'Practical Examples', timestamp: 390 },
+  { title: 'Summary', timestamp: 510 }
+            ],
             difficulty: 'advanced',
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',

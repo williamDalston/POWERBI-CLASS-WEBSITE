@@ -228,8 +228,37 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* PL-300 Mock Exam Banner */}
-      <div className="mb-6 animate-fade-in" style={{ animationDelay: '0.05s' }}>
+      {/* Analytics & Assessment Links */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 animate-fade-in" style={{ animationDelay: '0.05s' }}>
+        {/* Weakness Analysis Dashboard */}
+        <Link
+          href="/dashboard/analytics"
+          className="block bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all group"
+        >
+          <div className="p-6 flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="bg-white/20 p-4 rounded-lg">
+                <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white mb-1">Learning Analytics</h3>
+                <p className="text-purple-100">Identify weaknesses and track your progress</p>
+              </div>
+            </div>
+            <svg
+              className="h-6 w-6 text-white transform group-hover:translate-x-1 transition-transform"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </Link>
+
+        {/* PL-300 Mock Exam Banner */}
         <Link
           href="/dashboard/assessments/pl300-mock"
           className="block bg-gradient-to-r from-blue-700 via-purple-700 to-blue-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all group"

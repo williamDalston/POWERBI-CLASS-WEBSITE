@@ -12,7 +12,7 @@ import {
   X
 } from 'lucide-react'
 import { useLessons } from '@/lib/hooks/useLessons'
-import { getNextLesson, getLessonById } from '@/lib/data/courseData'
+import { getNextLesson, getLessonById, getAllLessons } from '@/lib/data/courseData'
 import Link from 'next/link'
 
 interface FloatingActionButtonProps {
@@ -80,14 +80,30 @@ export default function FloatingActionButton({
       if (typeof window !== 'undefined') {
         const completed = localStorage.getItem('completedLessons')
         const completedIds = completed ? (JSON.parse(completed) as string[]) : []
-        // This would need to be enhanced to actually find next lesson
-        return {
-          label: 'Resume Learning',
-          icon: Play,
-          action: () => {
-            router.push('/dashboard')
-          },
-          preview: 'Continue where you left off',
+        const allLessons = getAllLessons()
+        const nextIncompleteLesson = allLessons.find(lesson => !completedIds.includes(lesson.id))
+        
+        if (nextIncompleteLesson) {
+          return {
+            label: 'Resume Learning',
+            icon: Play,
+            action: () => {
+              router.push(`/dashboard/lessons/${nextIncompleteLesson.id}`)
+            },
+            preview: nextIncompleteLesson.title.length > 40 
+              ? `${nextIncompleteLesson.title.substring(0, 40)}...`
+              : nextIncompleteLesson.title,
+          }
+        } else {
+          // All lessons completed!
+          return {
+            label: 'All Complete!',
+            icon: CheckCircle2,
+            action: () => {
+              router.push('/dashboard')
+            },
+            preview: 'View your progress and achievements',
+          }
         }
       }
     }
@@ -153,7 +169,7 @@ export default function FloatingActionButton({
               setIsOpen(true)
             }
           }}
-          className="relative w-14 h-14 md:w-16 md:h-16 rounded-full bg-accent hover:bg-accent-dark text-white shadow-lg hover:shadow-xl transition-all flex items-center justify-center group"
+          className="relative w-14 h-14 md:w-16 md:h-16 rounded-full bg-accent hover:bg-accent-dark dark:bg-accent dark:hover:bg-accent-700 text-white shadow-lg hover:shadow-xl transition-all flex items-center justify-center group"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           aria-label={action.label}

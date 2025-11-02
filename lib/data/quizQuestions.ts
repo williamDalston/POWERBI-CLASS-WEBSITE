@@ -1,6 +1,7 @@
 // Quiz System Data Types and Questions
 
 export type QuestionType = 'multiple-choice' | 'true-false' | 'fill-blank' | 'scenario'
+export type QuizMode = 'learning' | 'practice' | 'exam'
 
 export interface QuizQuestion {
   id: string
@@ -17,6 +18,11 @@ export interface QuizQuestion {
   placeholder?: string
   // For scenario questions
   scenario?: string
+  // Enhanced features
+  imageUrl?: string
+  imageAlt?: string
+  hints?: string[]
+  tags?: string[] // For weakness analysis (e.g., ['DAX', 'CALCULATE', 'Filter Context'])
 }
 
 export interface Quiz {
@@ -39,6 +45,50 @@ export interface QuizAttempt {
   score: number
   passed: boolean
   completedAt: number
+  mode?: QuizMode
+  questionTimes?: Record<string, number> // Time spent per question
+  hintsUsed?: Record<string, number> // Hints used per question
+}
+
+// Quiz mode configuration
+export interface QuizModeConfig {
+  mode: QuizMode
+  showExplanations: boolean
+  showExplanationsDuring: boolean // Show explanations while taking quiz
+  allowRetake: boolean
+  showHints: boolean
+  strictScoring: boolean
+  allowNavigation: boolean // Can go back to previous questions
+}
+
+export const quizModes: Record<QuizMode, QuizModeConfig> = {
+  learning: {
+    mode: 'learning',
+    showExplanations: true,
+    showExplanationsDuring: true, // Show explanations immediately
+    allowRetake: true,
+    showHints: true,
+    strictScoring: false, // Allow partial credit
+    allowNavigation: true,
+  },
+  practice: {
+    mode: 'practice',
+    showExplanations: true,
+    showExplanationsDuring: false, // Show after submission
+    allowRetake: true,
+    showHints: false,
+    strictScoring: true,
+    allowNavigation: true,
+  },
+  exam: {
+    mode: 'exam',
+    showExplanations: false, // No explanations in exam mode
+    showExplanationsDuring: false,
+    allowRetake: false,
+    showHints: false,
+    strictScoring: true,
+    allowNavigation: false, // Can't go back in exam mode
+  },
 }
 
 // Quiz questions for first 5 modules

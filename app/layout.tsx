@@ -3,6 +3,7 @@ import './globals.css'
 import PWAHandler from '@/components/shared/PWAHandler'
 import ThemeProvider from '@/components/shared/ThemeProvider'
 import CommandPalette from '@/components/shared/CommandPalette'
+import MonacoProvider from '@/components/shared/MonacoProvider'
 
 export const metadata: Metadata = {
   title: 'Professional Power BI Course | Master Data Visualization',
@@ -91,6 +92,7 @@ export default function RootLayout({
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link rel="manifest" href="/manifest.json" />
+          <MonacoProvider />
           <PWAHandler />
           <CommandPalette />
           {children}

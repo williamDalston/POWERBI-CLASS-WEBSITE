@@ -1,14 +1,16 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Quiz, QuizQuestion, QuestionType, QuizAttempt } from '@/lib/data/quizQuestions'
+import { useState, useEffect, useRef } from 'react'
+import { Quiz, QuizQuestion, QuestionType, QuizAttempt, QuizMode, quizModes } from '@/lib/data/quizQuestions'
 import CTAButton from '@/components/shared/CTAButton'
+import Image from 'next/image'
 
 interface QuizComponentProps {
   quiz: Quiz
   onComplete?: (attempt: QuizAttempt) => void
   showResults?: boolean
   initialAttempt?: QuizAttempt
+  initialMode?: QuizMode
 }
 
 export default function QuizComponent({
@@ -16,7 +18,10 @@ export default function QuizComponent({
   onComplete,
   showResults = false,
   initialAttempt,
+  initialMode = 'practice',
 }: QuizComponentProps) {
+  const [mode, setMode] = useState<QuizMode>(initialMode)
+  const [modeSelected, setModeSelected] = useState(false)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [answers, setAnswers] = useState<Record<string, string | string[]>>({})
   const [submitted, setSubmitted] = useState(false)
@@ -25,9 +30,31 @@ export default function QuizComponent({
   const [score, setScore] = useState(0)
   const [passed, setPassed] = useState(false)
   const [attempt, setAttempt] = useState<QuizAttempt | null>(null)
+  const [hintsUsed, setHintsUsed] = useState<Record<string, number>>({})
+  const [activeHint, setActiveHint] = useState<Record<string, number>>({})
+  const [questionStartTimes, setQuestionStartTimes] = useState<Record<string, number>>({})
+  const questionTimeRef = useRef<Record<string, number>>({})
 
+  const modeConfig = quizModes[mode]
   const currentQuestion = quiz.questions[currentQuestionIndex]
   const isLastQuestion = currentQuestionIndex === quiz.questions.length - 1
+
+  // Track question start time
+  useEffect(() => {
+    if (!initialAttempt && modeSelected && !submitted) {
+      const questionId = currentQuestion.id
+      const startTime = Date.now()
+      setQuestionStartTimes(prev => ({ ...prev, [questionId]: startTime }))
+      
+      return () => {
+        const elapsed = Date.now() - startTime
+        questionTimeRef.current = {
+          ...questionTimeRef.current,
+          [questionId]: (questionTimeRef.current[questionId] || 0) + elapsed,
+        }
+      }
+    }
+  }, [currentQuestionIndex, modeSelected, submitted, initialAttempt, currentQuestion.id])
 
   // Initialize or use existing attempt
   useEffect(() => {
@@ -37,14 +64,18 @@ export default function QuizComponent({
       setScore(initialAttempt.score)
       setPassed(initialAttempt.passed)
       setShowExplanations(true)
+      setModeSelected(true)
+      if (initialAttempt.mode) {
+        setMode(initialAttempt.mode)
+      }
       return
     }
 
     // Start timer if time limit exists
-    if (quiz.timeLimit) {
+    if (quiz.timeLimit && modeSelected) {
       setTimeRemaining(quiz.timeLimit * 60) // Convert to seconds
     }
-  }, [initialAttempt, quiz.timeLimit])
+  }, [initialAttempt, quiz.timeLimit, modeSelected])
 
   // Timer countdown
   useEffect(() => {
@@ -72,14 +103,33 @@ export default function QuizComponent({
   }
 
   const handleNext = () => {
-    if (currentQuestionIndex < quiz.questions.length - 1) {
+    if (modeConfig.allowNavigation && currentQuestionIndex < quiz.questions.length - 1) {
+      setCurrentQuestionIndex(prev => prev + 1)
+    } else if (!modeConfig.allowNavigation && currentQuestionIndex < quiz.questions.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1)
     }
   }
 
   const handlePrevious = () => {
-    if (currentQuestionIndex > 0) {
+    if (modeConfig.allowNavigation && currentQuestionIndex > 0) {
       setCurrentQuestionIndex(prev => prev - 1)
+    }
+  }
+
+  const handleModeSelect = (selectedMode: QuizMode) => {
+    setMode(selectedMode)
+    setModeSelected(true)
+  }
+
+  const handleShowHint = () => {
+    if (!modeConfig.showHints || !currentQuestion.hints) return
+    
+    const questionId = currentQuestion.id
+    const currentHintIndex = activeHint[questionId] || 0
+    
+    if (currentHintIndex < currentQuestion.hints.length) {
+      setActiveHint(prev => ({ ...prev, [questionId]: currentHintIndex + 1 }))
+      setHintsUsed(prev => ({ ...prev, [questionId]: (prev[questionId] || 0) + 1 }))
     }
   }
 
@@ -105,7 +155,15 @@ export default function QuizComponent({
         : String(userAnswer).toLowerCase() === String(correctAnswer).toLowerCase()
 
       if (isCorrect) {
-        earnedPoints += question.points
+        let pointsEarned = question.points
+        
+        // Reduce points if hints were used (in learning mode)
+        if (modeConfig.showHints && hintsUsed[question.id]) {
+          const hintPenalty = 0.25 // 25% reduction per hint
+          pointsEarned = Math.max(0, pointsEarned * (1 - (hintsUsed[question.id] * hintPenalty)))
+        }
+        
+        earnedPoints += pointsEarned
       }
     })
 
@@ -126,6 +184,9 @@ export default function QuizComponent({
       score: finalScore,
       passed: hasPassed,
       completedAt: Date.now(),
+      mode,
+      questionTimes: questionTimeRef.current,
+      hintsUsed,
     }
 
     setAttempt(newAttempt)
@@ -324,13 +385,94 @@ export default function QuizComponent({
     }
   }
 
+  // Mode selector UI
+  if (!modeSelected && !initialAttempt) {
+    return (
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
+          <h2 className="text-2xl font-bold mb-2">{quiz.title}</h2>
+          <p className="text-blue-100">{quiz.description}</p>
+        </div>
+        
+        <div className="p-8">
+          <h3 className="text-xl font-semibold text-gray-900 mb-6">Choose Quiz Mode</h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            {/* Learning Mode */}
+            <button
+              onClick={() => handleModeSelect('learning')}
+              className="p-6 border-2 border-blue-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 transition-all text-left"
+            >
+              <div className="text-3xl mb-3">📚</div>
+              <h4 className="font-semibold text-lg mb-2">Learning Mode</h4>
+              <p className="text-sm text-gray-600 mb-3">Best for: Understanding concepts</p>
+              <ul className="text-xs text-gray-600 space-y-1">
+                <li>✅ Hints available</li>
+                <li>✅ Immediate explanations</li>
+                <li>✅ Unlimited retakes</li>
+                <li>✅ Can navigate back</li>
+              </ul>
+            </button>
+
+            {/* Practice Mode */}
+            <button
+              onClick={() => handleModeSelect('practice')}
+              className="p-6 border-2 border-purple-200 rounded-lg hover:border-purple-400 hover:bg-purple-50 transition-all text-left"
+            >
+              <div className="text-3xl mb-3">🎯</div>
+              <h4 className="font-semibold text-lg mb-2">Practice Mode</h4>
+              <p className="text-sm text-gray-600 mb-3">Best for: Test preparation</p>
+              <ul className="text-xs text-gray-600 space-y-1">
+                <li>❌ No hints</li>
+                <li>✅ Explanations after</li>
+                <li>✅ Unlimited retakes</li>
+                <li>✅ Can navigate back</li>
+              </ul>
+            </button>
+
+            {/* Exam Mode */}
+            <button
+              onClick={() => handleModeSelect('exam')}
+              className="p-6 border-2 border-red-200 rounded-lg hover:border-red-400 hover:bg-red-50 transition-all text-left"
+            >
+              <div className="text-3xl mb-3">🏆</div>
+              <h4 className="font-semibold text-lg mb-2">Exam Mode</h4>
+              <p className="text-sm text-gray-600 mb-3">Best for: Real exam simulation</p>
+              <ul className="text-xs text-gray-600 space-y-1">
+                <li>❌ No hints</li>
+                <li>❌ No explanations</li>
+                <li>❌ One attempt only</li>
+                <li>❌ Can't go back</li>
+              </ul>
+            </button>
+          </div>
+
+          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+            <p className="text-sm text-blue-900">
+              <strong>Tip:</strong> Start with Learning Mode to understand concepts, then use Practice Mode to prepare, and Exam Mode to simulate the real PL-300 exam experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
         <div className="flex justify-between items-start">
           <div>
-            <h2 className="text-2xl font-bold mb-2">{quiz.title}</h2>
+            <div className="flex items-center gap-3 mb-2">
+              <h2 className="text-2xl font-bold">{quiz.title}</h2>
+              <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                mode === 'learning' ? 'bg-blue-200 text-blue-900' :
+                mode === 'practice' ? 'bg-purple-200 text-purple-900' :
+                'bg-red-200 text-red-900'
+              }`}>
+                {mode === 'learning' ? '📚 Learning' : mode === 'practice' ? '🎯 Practice' : '🏆 Exam'}
+              </span>
+            </div>
             <p className="text-blue-100">{quiz.description}</p>
           </div>
           {timeRemaining !== null && (
@@ -395,34 +537,84 @@ export default function QuizComponent({
           <h3 className="text-xl font-semibold text-gray-900 mb-6">
             {currentQuestion.question}
           </h3>
+          
+          {/* Question Image */}
+          {currentQuestion.imageUrl && (
+            <div className="mb-6 rounded-lg overflow-hidden border-2 border-gray-200">
+              <Image
+                src={currentQuestion.imageUrl}
+                alt={currentQuestion.imageAlt || currentQuestion.question}
+                width={800}
+                height={400}
+                className="w-full h-auto"
+              />
+            </div>
+          )}
+
+          {/* Hints Button */}
+          {!submitted && modeConfig.showHints && currentQuestion.hints && currentQuestion.hints.length > 0 && (
+            <div className="mb-4">
+              <button
+                onClick={handleShowHint}
+                disabled={(activeHint[currentQuestion.id] || 0) >= currentQuestion.hints!.length}
+                className="px-4 py-2 bg-yellow-50 border-2 border-yellow-300 text-yellow-800 rounded-lg text-sm font-medium hover:bg-yellow-100 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                💡 Show Hint ({(activeHint[currentQuestion.id] || 0)}/{currentQuestion.hints.length})
+              </button>
+            </div>
+          )}
+
+          {/* Active Hints */}
+          {!submitted && (activeHint[currentQuestion.id] || 0) > 0 && currentQuestion.hints && (
+            <div className="mb-4 bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
+              {currentQuestion.hints.slice(0, activeHint[currentQuestion.id]).map((hint, idx) => (
+                <p key={idx} className="text-sm text-yellow-900 mb-2">
+                  <strong>Hint {idx + 1}:</strong> {hint}
+                </p>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Answer Options */}
         {getQuestionComponent(currentQuestion)}
 
-        {/* Explanation */}
-        {submitted && showExplanations && currentQuestion.explanation && (
-          <div
-            className={`mt-6 p-4 rounded-lg border-l-4 ${
-              String(answers[currentQuestion.id]).toLowerCase() ===
-              String(currentQuestion.correctAnswer).toLowerCase()
-                ? 'bg-green-50 border-green-500'
-                : 'bg-orange-50 border-orange-500'
-            }`}
-          >
-            <p className="font-medium mb-2">💡 Explanation:</p>
-            <p className="text-gray-700">{currentQuestion.explanation}</p>
-          </div>
+        {/* Explanation - Mode-based display */}
+        {currentQuestion.explanation && (
+          <>
+            {/* Show explanations during quiz in learning mode */}
+            {!submitted && modeConfig.showExplanationsDuring && (
+              <div className="mt-6 p-4 rounded-lg border-l-4 bg-blue-50 border-blue-500">
+                <p className="font-medium mb-2">💡 Explanation:</p>
+                <p className="text-gray-700">{currentQuestion.explanation}</p>
+              </div>
+            )}
+            
+            {/* Show explanations after submission (practice and learning modes) */}
+            {submitted && modeConfig.showExplanations && (
+              <div
+                className={`mt-6 p-4 rounded-lg border-l-4 ${
+                  String(answers[currentQuestion.id] || '').toLowerCase() ===
+                  String(currentQuestion.correctAnswer).toLowerCase()
+                    ? 'bg-green-50 border-green-500'
+                    : 'bg-orange-50 border-orange-500'
+                }`}
+              >
+                <p className="font-medium mb-2">💡 Explanation:</p>
+                <p className="text-gray-700">{currentQuestion.explanation}</p>
+              </div>
+            )}
+          </>
         )}
 
         {/* Navigation */}
         <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
           <button
             onClick={handlePrevious}
-            disabled={currentQuestionIndex === 0}
+            disabled={currentQuestionIndex === 0 || !modeConfig.allowNavigation}
             className="px-6 py-2 rounded-lg border-2 border-gray-300 text-gray-700 font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50"
           >
-            ← Previous
+            ← Previous {!modeConfig.allowNavigation && '(disabled in exam mode)'}
           </button>
 
           {!submitted && (
@@ -446,7 +638,7 @@ export default function QuizComponent({
             </div>
           )}
 
-          {submitted && quiz.allowRetake && !showResults && (
+          {submitted && modeConfig.allowRetake && quiz.allowRetake && !showResults && (
             <CTAButton onClick={handleRetake} variant="primary">
               Retake Quiz
             </CTAButton>

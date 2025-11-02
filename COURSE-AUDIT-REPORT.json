@@ -1,12 +1,12 @@
 {
   "summary": {
     "totalLessons": 97,
-    "lessonsWithIssues": 85,
-    "criticalIssues": 25,
-    "highIssues": 60,
-    "mediumIssues": 93,
+    "lessonsWithIssues": 87,
+    "criticalIssues": 59,
+    "highIssues": 94,
+    "mediumIssues": 96,
     "lowIssues": 0,
-    "averageCompletenessScore": 63
+    "averageCompletenessScore": 51
   },
   "lessons": [
     {
@@ -236,15 +236,15 @@
       "moduleNumber": 1,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 890,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 8,
+      "discussionLength": 610,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 5,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -254,7 +254,7 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 74,
+      "completenessScore": 47,
       "issues": [
         {
           "lessonId": "1-2",
@@ -264,6 +264,24 @@
           "severity": "medium",
           "message": "Concept is too short (48 chars, need 100+)",
           "recommendation": "Expand concept to at least 100 characters with clear explanation"
+        },
+        {
+          "lessonId": "1-2",
+          "lessonTitle": "Installation and Setup (Hands-On Lab)",
+          "moduleNumber": 1,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
+        {
+          "lessonId": "1-2",
+          "lessonTitle": "Installation and Setup (Hands-On Lab)",
+          "moduleNumber": 1,
+          "issueType": "missing_lab_instructions",
+          "severity": "critical",
+          "message": "Lab lesson missing lab instructions",
+          "recommendation": "Add step-by-step lab instructions array"
         },
         {
           "lessonId": "1-2",
@@ -291,7 +309,44 @@
       "moduleNumber": 1,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 360,
+      "discussionLength": 2236,
+      "hasKeyPoints": true,
+      "keyPointsCount": 6,
+      "hasLabs": true,
+      "labsCount": 9,
+      "hasTables": false,
+      "tablesCount": 0,
+      "hasInsiderTips": true,
+      "insiderTipsCount": 8,
+      "hasExerciseMaterials": false,
+      "exerciseMaterialsCount": 0,
+      "hasVideoUrl": false,
+      "hasVideoChapters": false,
+      "hasTags": false,
+      "tagsCount": 1,
+      "hasDifficulty": true,
+      "hasTopic": true,
+      "hasDuration": true,
+      "completenessScore": 79,
+      "issues": [
+        {
+          "lessonId": "1-3",
+          "lessonTitle": "Post-Install: Enabling Preview Features",
+          "moduleNumber": 1,
+          "issueType": "missing_or_insufficient_tags",
+          "severity": "medium",
+          "message": "Missing tags or insufficient tags (1, need 2+)",
+          "recommendation": "Add at least 2 tags for searchability"
+        }
+      ]
+    },
+    {
+      "lessonId": "1-4",
+      "title": "Tour of the Power BI Desktop Interface",
+      "moduleNumber": 1,
+      "hasConcept": true,
+      "hasDiscussion": false,
+      "discussionLength": 0,
       "hasKeyPoints": false,
       "keyPointsCount": 0,
       "hasLabs": false,
@@ -309,62 +364,7 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 47,
-      "issues": [
-        {
-          "lessonId": "1-3",
-          "lessonTitle": "Post-Install: Enabling Preview Features",
-          "moduleNumber": 1,
-          "issueType": "short_discussion",
-          "severity": "high",
-          "message": "Discussion too short (360 chars, need 500+ for effective learning)",
-          "recommendation": "Expand discussion with detailed explanation, examples, and use cases"
-        },
-        {
-          "lessonId": "1-3",
-          "lessonTitle": "Post-Install: Enabling Preview Features",
-          "moduleNumber": 1,
-          "issueType": "missing_key_points",
-          "severity": "high",
-          "message": "Missing key points array",
-          "recommendation": "Add 3-5 key points summarizing the main takeaways"
-        },
-        {
-          "lessonId": "1-3",
-          "lessonTitle": "Post-Install: Enabling Preview Features",
-          "moduleNumber": 1,
-          "issueType": "missing_or_insufficient_tags",
-          "severity": "medium",
-          "message": "Missing tags or insufficient tags (1, need 2+)",
-          "recommendation": "Add at least 2 tags for searchability"
-        }
-      ]
-    },
-    {
-      "lessonId": "1-4",
-      "title": "Tour of the Power BI Desktop Interface",
-      "moduleNumber": 1,
-      "hasConcept": true,
-      "hasDiscussion": true,
-      "discussionLength": 860,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": false,
-      "labsCount": 0,
-      "hasTables": false,
-      "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 5,
-      "hasExerciseMaterials": false,
-      "exerciseMaterialsCount": 0,
-      "hasVideoUrl": false,
-      "hasVideoChapters": false,
-      "hasTags": false,
-      "tagsCount": 1,
-      "hasDifficulty": true,
-      "hasTopic": true,
-      "hasDuration": true,
-      "completenessScore": 63,
+      "completenessScore": 32,
       "issues": [
         {
           "lessonId": "1-4",
@@ -374,6 +374,24 @@
           "severity": "medium",
           "message": "Concept is too short (94 chars, need 100+)",
           "recommendation": "Expand concept to at least 100 characters with clear explanation"
+        },
+        {
+          "lessonId": "1-4",
+          "lessonTitle": "Tour of the Power BI Desktop Interface",
+          "moduleNumber": 1,
+          "issueType": "missing_discussion",
+          "severity": "critical",
+          "message": "Missing discussion field - students cannot learn without detailed explanation",
+          "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+        },
+        {
+          "lessonId": "1-4",
+          "lessonTitle": "Tour of the Power BI Desktop Interface",
+          "moduleNumber": 1,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
         },
         {
           "lessonId": "1-4",
@@ -391,16 +409,16 @@
       "title": "The \"Get Data\" Experience",
       "moduleNumber": 2,
       "hasConcept": true,
-      "hasDiscussion": true,
-      "discussionLength": 992,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
+      "hasDiscussion": false,
+      "discussionLength": 0,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
       "hasLabs": false,
       "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 5,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -410,8 +428,26 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 68,
+      "completenessScore": 37,
       "issues": [
+        {
+          "lessonId": "2-1",
+          "lessonTitle": "The \"Get Data\" Experience",
+          "moduleNumber": 2,
+          "issueType": "missing_discussion",
+          "severity": "critical",
+          "message": "Missing discussion field - students cannot learn without detailed explanation",
+          "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+        },
+        {
+          "lessonId": "2-1",
+          "lessonTitle": "The \"Get Data\" Experience",
+          "moduleNumber": 2,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
         {
           "lessonId": "2-1",
           "lessonTitle": "The \"Get Data\" Experience",
@@ -429,15 +465,15 @@
       "moduleNumber": 2,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 894,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 12,
+      "discussionLength": 402,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 6,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -447,7 +483,7 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 74,
+      "completenessScore": 42,
       "issues": [
         {
           "lessonId": "2-2",
@@ -457,6 +493,33 @@
           "severity": "medium",
           "message": "Concept is too short (52 chars, need 100+)",
           "recommendation": "Expand concept to at least 100 characters with clear explanation"
+        },
+        {
+          "lessonId": "2-2",
+          "lessonTitle": "Connecting to Files (Hands-On Lab)",
+          "moduleNumber": 2,
+          "issueType": "short_discussion",
+          "severity": "high",
+          "message": "Discussion too short (402 chars, need 500+ for effective learning)",
+          "recommendation": "Expand discussion with detailed explanation, examples, and use cases"
+        },
+        {
+          "lessonId": "2-2",
+          "lessonTitle": "Connecting to Files (Hands-On Lab)",
+          "moduleNumber": 2,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
+        {
+          "lessonId": "2-2",
+          "lessonTitle": "Connecting to Files (Hands-On Lab)",
+          "moduleNumber": 2,
+          "issueType": "missing_lab_instructions",
+          "severity": "critical",
+          "message": "Lab lesson missing lab instructions",
+          "recommendation": "Add step-by-step lab instructions array"
         },
         {
           "lessonId": "2-2",
@@ -484,25 +547,25 @@
       "moduleNumber": 2,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 975,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 10,
+      "discussionLength": 204,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 8,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
       "hasVideoChapters": false,
-      "hasTags": true,
-      "tagsCount": 2,
+      "hasTags": false,
+      "tagsCount": 1,
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 79,
+      "completenessScore": 37,
       "issues": [
         {
           "lessonId": "2-3",
@@ -512,6 +575,33 @@
           "severity": "medium",
           "message": "Concept is too short (91 chars, need 100+)",
           "recommendation": "Expand concept to at least 100 characters with clear explanation"
+        },
+        {
+          "lessonId": "2-3",
+          "lessonTitle": "Connecting to Databases",
+          "moduleNumber": 2,
+          "issueType": "very_short_discussion",
+          "severity": "critical",
+          "message": "Discussion very short (204 chars, need 250+)",
+          "recommendation": "Add comprehensive discussion explaining the concept in detail"
+        },
+        {
+          "lessonId": "2-3",
+          "lessonTitle": "Connecting to Databases",
+          "moduleNumber": 2,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
+        {
+          "lessonId": "2-3",
+          "lessonTitle": "Connecting to Databases",
+          "moduleNumber": 2,
+          "issueType": "missing_or_insufficient_tags",
+          "severity": "medium",
+          "message": "Missing tags or insufficient tags (1, need 2+)",
+          "recommendation": "Add at least 2 tags for searchability"
         }
       ]
     },
@@ -677,15 +767,15 @@
       "moduleNumber": 3,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 1040,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 12,
+      "discussionLength": 186,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -695,7 +785,7 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 74,
+      "completenessScore": 37,
       "issues": [
         {
           "lessonId": "3-2",
@@ -705,6 +795,33 @@
           "severity": "medium",
           "message": "Concept is too short (50 chars, need 100+)",
           "recommendation": "Expand concept to at least 100 characters with clear explanation"
+        },
+        {
+          "lessonId": "3-2",
+          "lessonTitle": "Basic Table Transformations (Hands-On Lab)",
+          "moduleNumber": 3,
+          "issueType": "very_short_discussion",
+          "severity": "critical",
+          "message": "Discussion very short (186 chars, need 250+)",
+          "recommendation": "Add comprehensive discussion explaining the concept in detail"
+        },
+        {
+          "lessonId": "3-2",
+          "lessonTitle": "Basic Table Transformations (Hands-On Lab)",
+          "moduleNumber": 3,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
+        {
+          "lessonId": "3-2",
+          "lessonTitle": "Basic Table Transformations (Hands-On Lab)",
+          "moduleNumber": 3,
+          "issueType": "missing_lab_instructions",
+          "severity": "critical",
+          "message": "Lab lesson missing lab instructions",
+          "recommendation": "Add step-by-step lab instructions array"
         },
         {
           "lessonId": "3-2",
@@ -852,15 +969,15 @@
       "moduleNumber": 3,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 977,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 10,
+      "discussionLength": 119,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -870,7 +987,7 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 74,
+      "completenessScore": 37,
       "issues": [
         {
           "lessonId": "3-6",
@@ -880,6 +997,24 @@
           "severity": "medium",
           "message": "Concept is too short (52 chars, need 100+)",
           "recommendation": "Expand concept to at least 100 characters with clear explanation"
+        },
+        {
+          "lessonId": "3-6",
+          "lessonTitle": "Introduction to Parameters",
+          "moduleNumber": 3,
+          "issueType": "very_short_discussion",
+          "severity": "critical",
+          "message": "Discussion very short (119 chars, need 250+)",
+          "recommendation": "Add comprehensive discussion explaining the concept in detail"
+        },
+        {
+          "lessonId": "3-6",
+          "lessonTitle": "Introduction to Parameters",
+          "moduleNumber": 3,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
         },
         {
           "lessonId": "3-6",
@@ -935,52 +1070,15 @@
       "moduleNumber": 3,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 944,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 9,
+      "discussionLength": 194,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
-      "hasExerciseMaterials": false,
-      "exerciseMaterialsCount": 0,
-      "hasVideoUrl": false,
-      "hasVideoChapters": false,
-      "hasTags": true,
-      "tagsCount": 2,
-      "hasDifficulty": true,
-      "hasTopic": true,
-      "hasDuration": true,
-      "completenessScore": 79,
-      "issues": [
-        {
-          "lessonId": "3-8",
-          "lessonTitle": "Introduction to the Advanced Editor (The M Language)",
-          "moduleNumber": 3,
-          "issueType": "short_concept",
-          "severity": "medium",
-          "message": "Concept is too short (82 chars, need 100+)",
-          "recommendation": "Expand concept to at least 100 characters with clear explanation"
-        }
-      ]
-    },
-    {
-      "lessonId": "3-9",
-      "title": "Close & Apply",
-      "moduleNumber": 3,
-      "hasConcept": true,
-      "hasDiscussion": true,
-      "discussionLength": 923,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 10,
-      "hasTables": false,
-      "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -990,7 +1088,71 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 74,
+      "completenessScore": 37,
+      "issues": [
+        {
+          "lessonId": "3-8",
+          "lessonTitle": "Introduction to the Advanced Editor (The M Language)",
+          "moduleNumber": 3,
+          "issueType": "short_concept",
+          "severity": "medium",
+          "message": "Concept is too short (82 chars, need 100+)",
+          "recommendation": "Expand concept to at least 100 characters with clear explanation"
+        },
+        {
+          "lessonId": "3-8",
+          "lessonTitle": "Introduction to the Advanced Editor (The M Language)",
+          "moduleNumber": 3,
+          "issueType": "very_short_discussion",
+          "severity": "critical",
+          "message": "Discussion very short (194 chars, need 250+)",
+          "recommendation": "Add comprehensive discussion explaining the concept in detail"
+        },
+        {
+          "lessonId": "3-8",
+          "lessonTitle": "Introduction to the Advanced Editor (The M Language)",
+          "moduleNumber": 3,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
+        {
+          "lessonId": "3-8",
+          "lessonTitle": "Introduction to the Advanced Editor (The M Language)",
+          "moduleNumber": 3,
+          "issueType": "missing_or_insufficient_tags",
+          "severity": "medium",
+          "message": "Missing tags or insufficient tags (1, need 2+)",
+          "recommendation": "Add at least 2 tags for searchability"
+        }
+      ]
+    },
+    {
+      "lessonId": "3-9",
+      "title": "Close & Apply",
+      "moduleNumber": 3,
+      "hasConcept": true,
+      "hasDiscussion": true,
+      "discussionLength": 142,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
+      "hasTables": false,
+      "tablesCount": 0,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
+      "hasExerciseMaterials": false,
+      "exerciseMaterialsCount": 0,
+      "hasVideoUrl": false,
+      "hasVideoChapters": false,
+      "hasTags": false,
+      "tagsCount": 1,
+      "hasDifficulty": true,
+      "hasTopic": true,
+      "hasDuration": true,
+      "completenessScore": 37,
       "issues": [
         {
           "lessonId": "3-9",
@@ -1000,6 +1162,24 @@
           "severity": "medium",
           "message": "Concept is too short (40 chars, need 100+)",
           "recommendation": "Expand concept to at least 100 characters with clear explanation"
+        },
+        {
+          "lessonId": "3-9",
+          "lessonTitle": "Close & Apply",
+          "moduleNumber": 3,
+          "issueType": "very_short_discussion",
+          "severity": "critical",
+          "message": "Discussion very short (142 chars, need 250+)",
+          "recommendation": "Add comprehensive discussion explaining the concept in detail"
+        },
+        {
+          "lessonId": "3-9",
+          "lessonTitle": "Close & Apply",
+          "moduleNumber": 3,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
         },
         {
           "lessonId": "3-9",
@@ -1018,15 +1198,15 @@
       "moduleNumber": 4,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 903,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 10,
+      "discussionLength": 213,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -1036,8 +1216,26 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 79,
+      "completenessScore": 42,
       "issues": [
+        {
+          "lessonId": "4-1",
+          "lessonTitle": "Introduction to the Visualizations Pane",
+          "moduleNumber": 4,
+          "issueType": "very_short_discussion",
+          "severity": "critical",
+          "message": "Discussion very short (213 chars, need 250+)",
+          "recommendation": "Add comprehensive discussion explaining the concept in detail"
+        },
+        {
+          "lessonId": "4-1",
+          "lessonTitle": "Introduction to the Visualizations Pane",
+          "moduleNumber": 4,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
         {
           "lessonId": "4-1",
           "lessonTitle": "Introduction to the Visualizations Pane",
@@ -1055,15 +1253,15 @@
       "moduleNumber": 4,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 875,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 17,
+      "discussionLength": 272,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -1073,7 +1271,7 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 74,
+      "completenessScore": 42,
       "issues": [
         {
           "lessonId": "4-2",
@@ -1083,6 +1281,33 @@
           "severity": "medium",
           "message": "Concept is too short (50 chars, need 100+)",
           "recommendation": "Expand concept to at least 100 characters with clear explanation"
+        },
+        {
+          "lessonId": "4-2",
+          "lessonTitle": "Creating Core Visuals (Hands-On Lab)",
+          "moduleNumber": 4,
+          "issueType": "short_discussion",
+          "severity": "high",
+          "message": "Discussion too short (272 chars, need 500+ for effective learning)",
+          "recommendation": "Expand discussion with detailed explanation, examples, and use cases"
+        },
+        {
+          "lessonId": "4-2",
+          "lessonTitle": "Creating Core Visuals (Hands-On Lab)",
+          "moduleNumber": 4,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
+        {
+          "lessonId": "4-2",
+          "lessonTitle": "Creating Core Visuals (Hands-On Lab)",
+          "moduleNumber": 4,
+          "issueType": "missing_lab_instructions",
+          "severity": "critical",
+          "message": "Lab lesson missing lab instructions",
+          "recommendation": "Add step-by-step lab instructions array"
         },
         {
           "lessonId": "4-2",
@@ -1109,16 +1334,16 @@
       "title": "Using Slicers for Interactivity",
       "moduleNumber": 4,
       "hasConcept": true,
-      "hasDiscussion": true,
-      "discussionLength": 993,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 8,
+      "hasDiscussion": false,
+      "discussionLength": 0,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 6,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -1128,8 +1353,26 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 79,
+      "completenessScore": 37,
       "issues": [
+        {
+          "lessonId": "4-3",
+          "lessonTitle": "Using Slicers for Interactivity",
+          "moduleNumber": 4,
+          "issueType": "missing_discussion",
+          "severity": "critical",
+          "message": "Missing discussion field - students cannot learn without detailed explanation",
+          "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+        },
+        {
+          "lessonId": "4-3",
+          "lessonTitle": "Using Slicers for Interactivity",
+          "moduleNumber": 4,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
         {
           "lessonId": "4-3",
           "lessonTitle": "Using Slicers for Interactivity",
@@ -1147,15 +1390,15 @@
       "moduleNumber": 4,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 998,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 8,
+      "discussionLength": 188,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -1165,7 +1408,7 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 74,
+      "completenessScore": 37,
       "issues": [
         {
           "lessonId": "4-4",
@@ -1175,6 +1418,24 @@
           "severity": "medium",
           "message": "Concept is too short (54 chars, need 100+)",
           "recommendation": "Expand concept to at least 100 characters with clear explanation"
+        },
+        {
+          "lessonId": "4-4",
+          "lessonTitle": "Displaying Key Metrics: Cards, KPIs, and Gauges",
+          "moduleNumber": 4,
+          "issueType": "very_short_discussion",
+          "severity": "critical",
+          "message": "Discussion very short (188 chars, need 250+)",
+          "recommendation": "Add comprehensive discussion explaining the concept in detail"
+        },
+        {
+          "lessonId": "4-4",
+          "lessonTitle": "Displaying Key Metrics: Cards, KPIs, and Gauges",
+          "moduleNumber": 4,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
         },
         {
           "lessonId": "4-4",
@@ -1484,16 +1745,16 @@
       "title": "Creating Calculated Columns (Hands-On Lab)",
       "moduleNumber": 6,
       "hasConcept": true,
-      "hasDiscussion": true,
-      "discussionLength": 868,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 10,
+      "hasDiscussion": false,
+      "discussionLength": 0,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -1503,8 +1764,35 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 79,
+      "completenessScore": 37,
       "issues": [
+        {
+          "lessonId": "6-3",
+          "lessonTitle": "Creating Calculated Columns (Hands-On Lab)",
+          "moduleNumber": 6,
+          "issueType": "missing_discussion",
+          "severity": "critical",
+          "message": "Missing discussion field - students cannot learn without detailed explanation",
+          "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+        },
+        {
+          "lessonId": "6-3",
+          "lessonTitle": "Creating Calculated Columns (Hands-On Lab)",
+          "moduleNumber": 6,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
+        {
+          "lessonId": "6-3",
+          "lessonTitle": "Creating Calculated Columns (Hands-On Lab)",
+          "moduleNumber": 6,
+          "issueType": "missing_lab_instructions",
+          "severity": "critical",
+          "message": "Lab lesson missing lab instructions",
+          "recommendation": "Add step-by-step lab instructions array"
+        },
         {
           "lessonId": "6-3",
           "lessonTitle": "Creating Calculated Columns (Hands-On Lab)",
@@ -1530,16 +1818,16 @@
       "title": "Creating Measures (Hands-On Lab)",
       "moduleNumber": 6,
       "hasConcept": true,
-      "hasDiscussion": true,
-      "discussionLength": 871,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 10,
+      "hasDiscussion": false,
+      "discussionLength": 0,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 8,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -1549,8 +1837,35 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 79,
+      "completenessScore": 37,
       "issues": [
+        {
+          "lessonId": "6-4",
+          "lessonTitle": "Creating Measures (Hands-On Lab)",
+          "moduleNumber": 6,
+          "issueType": "missing_discussion",
+          "severity": "critical",
+          "message": "Missing discussion field - students cannot learn without detailed explanation",
+          "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+        },
+        {
+          "lessonId": "6-4",
+          "lessonTitle": "Creating Measures (Hands-On Lab)",
+          "moduleNumber": 6,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
+        {
+          "lessonId": "6-4",
+          "lessonTitle": "Creating Measures (Hands-On Lab)",
+          "moduleNumber": 6,
+          "issueType": "missing_lab_instructions",
+          "severity": "critical",
+          "message": "Lab lesson missing lab instructions",
+          "recommendation": "Add step-by-step lab instructions array"
+        },
         {
           "lessonId": "6-4",
           "lessonTitle": "Creating Measures (Hands-On Lab)",
@@ -1576,16 +1891,16 @@
       "title": "Implicit vs. Explicit Measures",
       "moduleNumber": 6,
       "hasConcept": true,
-      "hasDiscussion": true,
-      "discussionLength": 1015,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
+      "hasDiscussion": false,
+      "discussionLength": 0,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
       "hasLabs": false,
       "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -1595,8 +1910,26 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 68,
+      "completenessScore": 37,
       "issues": [
+        {
+          "lessonId": "6-5",
+          "lessonTitle": "Implicit vs. Explicit Measures",
+          "moduleNumber": 6,
+          "issueType": "missing_discussion",
+          "severity": "critical",
+          "message": "Missing discussion field - students cannot learn without detailed explanation",
+          "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+        },
+        {
+          "lessonId": "6-5",
+          "lessonTitle": "Implicit vs. Explicit Measures",
+          "moduleNumber": 6,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
         {
           "lessonId": "6-5",
           "lessonTitle": "Implicit vs. Explicit Measures",
@@ -1614,15 +1947,15 @@
       "moduleNumber": 6,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 1001,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 11,
+      "discussionLength": 193,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -1632,7 +1965,7 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 74,
+      "completenessScore": 37,
       "issues": [
         {
           "lessonId": "6-6",
@@ -1642,6 +1975,24 @@
           "severity": "medium",
           "message": "Concept is too short (96 chars, need 100+)",
           "recommendation": "Expand concept to at least 100 characters with clear explanation"
+        },
+        {
+          "lessonId": "6-6",
+          "lessonTitle": "Using Quick Measures",
+          "moduleNumber": 6,
+          "issueType": "very_short_discussion",
+          "severity": "critical",
+          "message": "Discussion very short (193 chars, need 250+)",
+          "recommendation": "Add comprehensive discussion explaining the concept in detail"
+        },
+        {
+          "lessonId": "6-6",
+          "lessonTitle": "Using Quick Measures",
+          "moduleNumber": 6,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
         },
         {
           "lessonId": "6-6",
@@ -1659,16 +2010,16 @@
       "title": "The \"Secret Sauce\" of DAX: Evaluation Context",
       "moduleNumber": 7,
       "hasConcept": true,
-      "hasDiscussion": true,
-      "discussionLength": 908,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
+      "hasDiscussion": false,
+      "discussionLength": 0,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
       "hasLabs": false,
       "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -1678,8 +2029,26 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 68,
+      "completenessScore": 37,
       "issues": [
+        {
+          "lessonId": "7-1",
+          "lessonTitle": "The \"Secret Sauce\" of DAX: Evaluation Context",
+          "moduleNumber": 7,
+          "issueType": "missing_discussion",
+          "severity": "critical",
+          "message": "Missing discussion field - students cannot learn without detailed explanation",
+          "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+        },
+        {
+          "lessonId": "7-1",
+          "lessonTitle": "The \"Secret Sauce\" of DAX: Evaluation Context",
+          "moduleNumber": 7,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
         {
           "lessonId": "7-1",
           "lessonTitle": "The \"Secret Sauce\" of DAX: Evaluation Context",
@@ -1697,15 +2066,15 @@
       "moduleNumber": 7,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 893,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
+      "discussionLength": 176,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
       "hasLabs": false,
       "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 6,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -1715,7 +2084,7 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 63,
+      "completenessScore": 37,
       "issues": [
         {
           "lessonId": "7-2",
@@ -1725,6 +2094,24 @@
           "severity": "medium",
           "message": "Concept is too short (57 chars, need 100+)",
           "recommendation": "Expand concept to at least 100 characters with clear explanation"
+        },
+        {
+          "lessonId": "7-2",
+          "lessonTitle": "Row Context (The \"Current Row\")",
+          "moduleNumber": 7,
+          "issueType": "very_short_discussion",
+          "severity": "critical",
+          "message": "Discussion very short (176 chars, need 250+)",
+          "recommendation": "Add comprehensive discussion explaining the concept in detail"
+        },
+        {
+          "lessonId": "7-2",
+          "lessonTitle": "Row Context (The \"Current Row\")",
+          "moduleNumber": 7,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
         },
         {
           "lessonId": "7-2",
@@ -1743,15 +2130,15 @@
       "moduleNumber": 7,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 953,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
+      "discussionLength": 338,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
       "hasLabs": false,
       "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -1761,7 +2148,7 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 63,
+      "completenessScore": 42,
       "issues": [
         {
           "lessonId": "7-3",
@@ -1771,6 +2158,24 @@
           "severity": "medium",
           "message": "Concept is too short (67 chars, need 100+)",
           "recommendation": "Expand concept to at least 100 characters with clear explanation"
+        },
+        {
+          "lessonId": "7-3",
+          "lessonTitle": "Filter Context (The \"Current Cell\")",
+          "moduleNumber": 7,
+          "issueType": "short_discussion",
+          "severity": "high",
+          "message": "Discussion too short (338 chars, need 500+ for effective learning)",
+          "recommendation": "Expand discussion with detailed explanation, examples, and use cases"
+        },
+        {
+          "lessonId": "7-3",
+          "lessonTitle": "Filter Context (The \"Current Cell\")",
+          "moduleNumber": 7,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
         },
         {
           "lessonId": "7-3",
@@ -1789,15 +2194,15 @@
       "moduleNumber": 7,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 959,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 7,
+      "discussionLength": 62,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -1807,8 +2212,26 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 79,
+      "completenessScore": 42,
       "issues": [
+        {
+          "lessonId": "7-4",
+          "lessonTitle": "Iterator Functions (SUMX, AVERAGEX, MINX)",
+          "moduleNumber": 7,
+          "issueType": "very_short_discussion",
+          "severity": "critical",
+          "message": "Discussion very short (62 chars, need 250+)",
+          "recommendation": "Add comprehensive discussion explaining the concept in detail"
+        },
+        {
+          "lessonId": "7-4",
+          "lessonTitle": "Iterator Functions (SUMX, AVERAGEX, MINX)",
+          "moduleNumber": 7,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
         {
           "lessonId": "7-4",
           "lessonTitle": "Iterator Functions (SUMX, AVERAGEX, MINX)",
@@ -1826,42 +2249,15 @@
       "moduleNumber": 8,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 862,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 8,
+      "discussionLength": 177,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 8,
-      "hasExerciseMaterials": false,
-      "exerciseMaterialsCount": 0,
-      "hasVideoUrl": false,
-      "hasVideoChapters": false,
-      "hasTags": true,
-      "tagsCount": 2,
-      "hasDifficulty": true,
-      "hasTopic": true,
-      "hasDuration": true,
-      "completenessScore": 84,
-      "issues": []
-    },
-    {
-      "lessonId": "8-2",
-      "title": "Removing Filters with ALL()",
-      "moduleNumber": 8,
-      "hasConcept": true,
-      "hasDiscussion": true,
-      "discussionLength": 924,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 8,
-      "hasTables": false,
-      "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -1871,8 +2267,81 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 79,
+      "completenessScore": 42,
       "issues": [
+        {
+          "lessonId": "8-1",
+          "lessonTitle": "The Most Important Function in DAX: CALCULATE()",
+          "moduleNumber": 8,
+          "issueType": "very_short_discussion",
+          "severity": "critical",
+          "message": "Discussion very short (177 chars, need 250+)",
+          "recommendation": "Add comprehensive discussion explaining the concept in detail"
+        },
+        {
+          "lessonId": "8-1",
+          "lessonTitle": "The Most Important Function in DAX: CALCULATE()",
+          "moduleNumber": 8,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
+        {
+          "lessonId": "8-1",
+          "lessonTitle": "The Most Important Function in DAX: CALCULATE()",
+          "moduleNumber": 8,
+          "issueType": "missing_or_insufficient_tags",
+          "severity": "medium",
+          "message": "Missing tags or insufficient tags (1, need 2+)",
+          "recommendation": "Add at least 2 tags for searchability"
+        }
+      ]
+    },
+    {
+      "lessonId": "8-2",
+      "title": "Removing Filters with ALL()",
+      "moduleNumber": 8,
+      "hasConcept": true,
+      "hasDiscussion": true,
+      "discussionLength": 59,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
+      "hasTables": false,
+      "tablesCount": 0,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
+      "hasExerciseMaterials": false,
+      "exerciseMaterialsCount": 0,
+      "hasVideoUrl": false,
+      "hasVideoChapters": false,
+      "hasTags": false,
+      "tagsCount": 1,
+      "hasDifficulty": true,
+      "hasTopic": true,
+      "hasDuration": true,
+      "completenessScore": 42,
+      "issues": [
+        {
+          "lessonId": "8-2",
+          "lessonTitle": "Removing Filters with ALL()",
+          "moduleNumber": 8,
+          "issueType": "very_short_discussion",
+          "severity": "critical",
+          "message": "Discussion very short (59 chars, need 250+)",
+          "recommendation": "Add comprehensive discussion explaining the concept in detail"
+        },
+        {
+          "lessonId": "8-2",
+          "lessonTitle": "Removing Filters with ALL()",
+          "moduleNumber": 8,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
         {
           "lessonId": "8-2",
           "lessonTitle": "Removing Filters with ALL()",
@@ -1889,16 +2358,16 @@
       "title": "Related ALL Functions: ALLEXCEPT(), ALLSELECTED()",
       "moduleNumber": 8,
       "hasConcept": true,
-      "hasDiscussion": true,
-      "discussionLength": 940,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 8,
+      "hasDiscussion": false,
+      "discussionLength": 0,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -1908,7 +2377,7 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 74,
+      "completenessScore": 32,
       "issues": [
         {
           "lessonId": "8-3",
@@ -1918,6 +2387,24 @@
           "severity": "medium",
           "message": "Concept is too short (52 chars, need 100+)",
           "recommendation": "Expand concept to at least 100 characters with clear explanation"
+        },
+        {
+          "lessonId": "8-3",
+          "lessonTitle": "Related ALL Functions: ALLEXCEPT(), ALLSELECTED()",
+          "moduleNumber": 8,
+          "issueType": "missing_discussion",
+          "severity": "critical",
+          "message": "Missing discussion field - students cannot learn without detailed explanation",
+          "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+        },
+        {
+          "lessonId": "8-3",
+          "lessonTitle": "Related ALL Functions: ALLEXCEPT(), ALLSELECTED()",
+          "moduleNumber": 8,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
         },
         {
           "lessonId": "8-3",
@@ -1936,15 +2423,15 @@
       "moduleNumber": 8,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 976,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 7,
+      "discussionLength": 361,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -1954,8 +2441,26 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 79,
+      "completenessScore": 47,
       "issues": [
+        {
+          "lessonId": "8-4",
+          "lessonTitle": "Context Transition (The Advanced Concept)",
+          "moduleNumber": 8,
+          "issueType": "short_discussion",
+          "severity": "high",
+          "message": "Discussion too short (361 chars, need 500+ for effective learning)",
+          "recommendation": "Expand discussion with detailed explanation, examples, and use cases"
+        },
+        {
+          "lessonId": "8-4",
+          "lessonTitle": "Context Transition (The Advanced Concept)",
+          "moduleNumber": 8,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
         {
           "lessonId": "8-4",
           "lessonTitle": "Context Transition (The Advanced Concept)",
@@ -1972,16 +2477,16 @@
       "title": "Advanced DAX Scenarios (USERELATIONSHIP)",
       "moduleNumber": 8,
       "hasConcept": true,
-      "hasDiscussion": true,
-      "discussionLength": 909,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 8,
+      "hasDiscussion": false,
+      "discussionLength": 0,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -1991,7 +2496,7 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 74,
+      "completenessScore": 32,
       "issues": [
         {
           "lessonId": "8-5",
@@ -2001,6 +2506,24 @@
           "severity": "medium",
           "message": "Concept is too short (42 chars, need 100+)",
           "recommendation": "Expand concept to at least 100 characters with clear explanation"
+        },
+        {
+          "lessonId": "8-5",
+          "lessonTitle": "Advanced DAX Scenarios (USERELATIONSHIP)",
+          "moduleNumber": 8,
+          "issueType": "missing_discussion",
+          "severity": "critical",
+          "message": "Missing discussion field - students cannot learn without detailed explanation",
+          "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+        },
+        {
+          "lessonId": "8-5",
+          "lessonTitle": "Advanced DAX Scenarios (USERELATIONSHIP)",
+          "moduleNumber": 8,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
         },
         {
           "lessonId": "8-5",
@@ -2018,16 +2541,16 @@
       "title": "Introduction to Visual Calculations (Oct 2025 GA)",
       "moduleNumber": 8,
       "hasConcept": true,
-      "hasDiscussion": true,
-      "discussionLength": 1030,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 9,
+      "hasDiscussion": false,
+      "discussionLength": 0,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -2037,8 +2560,27 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 84,
-      "issues": []
+      "completenessScore": 42,
+      "issues": [
+        {
+          "lessonId": "8-6",
+          "lessonTitle": "Introduction to Visual Calculations (Oct 2025 GA)",
+          "moduleNumber": 8,
+          "issueType": "missing_discussion",
+          "severity": "critical",
+          "message": "Missing discussion field - students cannot learn without detailed explanation",
+          "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+        },
+        {
+          "lessonId": "8-6",
+          "lessonTitle": "Introduction to Visual Calculations (Oct 2025 GA)",
+          "moduleNumber": 8,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        }
+      ]
     },
     {
       "lessonId": "9-1",
@@ -2046,15 +2588,15 @@
       "moduleNumber": 9,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 925,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 10,
+      "discussionLength": 211,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -2064,35 +2606,81 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 84,
-      "issues": []
+      "completenessScore": 47,
+      "issues": [
+        {
+          "lessonId": "9-1",
+          "lessonTitle": "The Prerequisite: A Date Table",
+          "moduleNumber": 9,
+          "issueType": "very_short_discussion",
+          "severity": "critical",
+          "message": "Discussion very short (211 chars, need 250+)",
+          "recommendation": "Add comprehensive discussion explaining the concept in detail"
+        },
+        {
+          "lessonId": "9-1",
+          "lessonTitle": "The Prerequisite: A Date Table",
+          "moduleNumber": 9,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        }
+      ]
     },
     {
       "lessonId": "9-2",
       "title": "Year-to-Date (YTD) and Period-to-Date (Hands-On Lab)",
       "moduleNumber": 9,
       "hasConcept": true,
-      "hasDiscussion": true,
-      "discussionLength": 1051,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 9,
+      "hasDiscussion": false,
+      "discussionLength": 0,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
       "hasVideoChapters": false,
-      "hasTags": true,
-      "tagsCount": 2,
+      "hasTags": false,
+      "tagsCount": 1,
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 84,
+      "completenessScore": 37,
       "issues": [
+        {
+          "lessonId": "9-2",
+          "lessonTitle": "Year-to-Date (YTD) and Period-to-Date (Hands-On Lab)",
+          "moduleNumber": 9,
+          "issueType": "missing_discussion",
+          "severity": "critical",
+          "message": "Missing discussion field - students cannot learn without detailed explanation",
+          "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+        },
+        {
+          "lessonId": "9-2",
+          "lessonTitle": "Year-to-Date (YTD) and Period-to-Date (Hands-On Lab)",
+          "moduleNumber": 9,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
+        {
+          "lessonId": "9-2",
+          "lessonTitle": "Year-to-Date (YTD) and Period-to-Date (Hands-On Lab)",
+          "moduleNumber": 9,
+          "issueType": "missing_lab_instructions",
+          "severity": "critical",
+          "message": "Lab lesson missing lab instructions",
+          "recommendation": "Add step-by-step lab instructions array"
+        },
         {
           "lessonId": "9-2",
           "lessonTitle": "Year-to-Date (YTD) and Period-to-Date (Hands-On Lab)",
@@ -2101,6 +2689,15 @@
           "severity": "high",
           "message": "Lab lesson should have exercise materials (datasets, starter files)",
           "recommendation": "Add exercise materials (datasets, .pbix files, code templates)"
+        },
+        {
+          "lessonId": "9-2",
+          "lessonTitle": "Year-to-Date (YTD) and Period-to-Date (Hands-On Lab)",
+          "moduleNumber": 9,
+          "issueType": "missing_or_insufficient_tags",
+          "severity": "medium",
+          "message": "Missing tags or insufficient tags (1, need 2+)",
+          "recommendation": "Add at least 2 tags for searchability"
         }
       ]
     },
@@ -2109,27 +2706,55 @@
       "title": "Prior Period Comparisons",
       "moduleNumber": 9,
       "hasConcept": true,
-      "hasDiscussion": true,
-      "discussionLength": 931,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 9,
+      "hasDiscussion": false,
+      "discussionLength": 0,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
       "hasVideoChapters": false,
-      "hasTags": true,
-      "tagsCount": 2,
+      "hasTags": false,
+      "tagsCount": 1,
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 84,
-      "issues": []
+      "completenessScore": 37,
+      "issues": [
+        {
+          "lessonId": "9-3",
+          "lessonTitle": "Prior Period Comparisons",
+          "moduleNumber": 9,
+          "issueType": "missing_discussion",
+          "severity": "critical",
+          "message": "Missing discussion field - students cannot learn without detailed explanation",
+          "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+        },
+        {
+          "lessonId": "9-3",
+          "lessonTitle": "Prior Period Comparisons",
+          "moduleNumber": 9,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
+        {
+          "lessonId": "9-3",
+          "lessonTitle": "Prior Period Comparisons",
+          "moduleNumber": 9,
+          "issueType": "missing_or_insufficient_tags",
+          "severity": "medium",
+          "message": "Missing tags or insufficient tags (1, need 2+)",
+          "recommendation": "Add at least 2 tags for searchability"
+        }
+      ]
     },
     {
       "lessonId": "9-4",
@@ -2137,15 +2762,15 @@
       "moduleNumber": 9,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 1085,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 8,
+      "discussionLength": 165,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -2155,7 +2780,7 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 79,
+      "completenessScore": 42,
       "issues": [
         {
           "lessonId": "9-4",
@@ -2165,6 +2790,24 @@
           "severity": "medium",
           "message": "Concept is too short (96 chars, need 100+)",
           "recommendation": "Expand concept to at least 100 characters with clear explanation"
+        },
+        {
+          "lessonId": "9-4",
+          "lessonTitle": "Calculating Year-over-Year (YoY) Growth",
+          "moduleNumber": 9,
+          "issueType": "very_short_discussion",
+          "severity": "critical",
+          "message": "Discussion very short (165 chars, need 250+)",
+          "recommendation": "Add comprehensive discussion explaining the concept in detail"
+        },
+        {
+          "lessonId": "9-4",
+          "lessonTitle": "Calculating Year-over-Year (YoY) Growth",
+          "moduleNumber": 9,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
         }
       ]
     },
@@ -2173,27 +2816,55 @@
       "title": "Calculating Rolling Averages",
       "moduleNumber": 9,
       "hasConcept": true,
-      "hasDiscussion": true,
-      "discussionLength": 950,
-      "hasKeyPoints": true,
-      "keyPointsCount": 5,
-      "hasLabs": true,
-      "labsCount": 8,
+      "hasDiscussion": false,
+      "discussionLength": 0,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
+      "hasLabs": false,
+      "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 7,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
       "hasVideoChapters": false,
-      "hasTags": true,
-      "tagsCount": 2,
+      "hasTags": false,
+      "tagsCount": 1,
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 84,
-      "issues": []
+      "completenessScore": 37,
+      "issues": [
+        {
+          "lessonId": "9-5",
+          "lessonTitle": "Calculating Rolling Averages",
+          "moduleNumber": 9,
+          "issueType": "missing_discussion",
+          "severity": "critical",
+          "message": "Missing discussion field - students cannot learn without detailed explanation",
+          "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+        },
+        {
+          "lessonId": "9-5",
+          "lessonTitle": "Calculating Rolling Averages",
+          "moduleNumber": 9,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
+        {
+          "lessonId": "9-5",
+          "lessonTitle": "Calculating Rolling Averages",
+          "moduleNumber": 9,
+          "issueType": "missing_or_insufficient_tags",
+          "severity": "medium",
+          "message": "Missing tags or insufficient tags (1, need 2+)",
+          "recommendation": "Add at least 2 tags for searchability"
+        }
+      ]
     },
     {
       "lessonId": "10-1",
@@ -2522,15 +3193,15 @@
       "moduleNumber": 10,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 1502,
-      "hasKeyPoints": true,
-      "keyPointsCount": 6,
+      "discussionLength": 144,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
       "hasLabs": false,
       "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 9,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -2540,8 +3211,35 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 68,
+      "completenessScore": 37,
       "issues": [
+        {
+          "lessonId": "10-7",
+          "lessonTitle": "Enhancing Reports with Custom Visuals",
+          "moduleNumber": 10,
+          "issueType": "short_concept",
+          "severity": "medium",
+          "message": "Concept is too short (89 chars, need 100+)",
+          "recommendation": "Expand concept to at least 100 characters with clear explanation"
+        },
+        {
+          "lessonId": "10-7",
+          "lessonTitle": "Enhancing Reports with Custom Visuals",
+          "moduleNumber": 10,
+          "issueType": "very_short_discussion",
+          "severity": "critical",
+          "message": "Discussion very short (144 chars, need 250+)",
+          "recommendation": "Add comprehensive discussion explaining the concept in detail"
+        },
+        {
+          "lessonId": "10-7",
+          "lessonTitle": "Enhancing Reports with Custom Visuals",
+          "moduleNumber": 10,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
         {
           "lessonId": "10-7",
           "lessonTitle": "Enhancing Reports with Custom Visuals",
@@ -2660,15 +3358,15 @@
       "moduleNumber": 12,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 1577,
-      "hasKeyPoints": true,
-      "keyPointsCount": 6,
+      "discussionLength": 136,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
       "hasLabs": false,
       "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 9,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -2678,8 +3376,26 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 68,
+      "completenessScore": 42,
       "issues": [
+        {
+          "lessonId": "12-1",
+          "lessonTitle": "Publishing and Exploring the Power BI Service",
+          "moduleNumber": 12,
+          "issueType": "very_short_discussion",
+          "severity": "critical",
+          "message": "Discussion very short (136 chars, need 250+)",
+          "recommendation": "Add comprehensive discussion explaining the concept in detail"
+        },
+        {
+          "lessonId": "12-1",
+          "lessonTitle": "Publishing and Exploring the Power BI Service",
+          "moduleNumber": 12,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
         {
           "lessonId": "12-1",
           "lessonTitle": "Publishing and Exploring the Power BI Service",
@@ -2734,15 +3450,15 @@
       "moduleNumber": 12,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 1713,
-      "hasKeyPoints": true,
-      "keyPointsCount": 6,
+      "discussionLength": 209,
+      "hasKeyPoints": false,
+      "keyPointsCount": 0,
       "hasLabs": false,
       "labsCount": 0,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": true,
-      "insiderTipsCount": 9,
+      "hasInsiderTips": false,
+      "insiderTipsCount": 0,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
@@ -2752,8 +3468,35 @@
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 68,
+      "completenessScore": 37,
       "issues": [
+        {
+          "lessonId": "12-3",
+          "lessonTitle": "Collaboration with Workspaces",
+          "moduleNumber": 12,
+          "issueType": "short_concept",
+          "severity": "medium",
+          "message": "Concept is too short (76 chars, need 100+)",
+          "recommendation": "Expand concept to at least 100 characters with clear explanation"
+        },
+        {
+          "lessonId": "12-3",
+          "lessonTitle": "Collaboration with Workspaces",
+          "moduleNumber": 12,
+          "issueType": "very_short_discussion",
+          "severity": "critical",
+          "message": "Discussion very short (209 chars, need 250+)",
+          "recommendation": "Add comprehensive discussion explaining the concept in detail"
+        },
+        {
+          "lessonId": "12-3",
+          "lessonTitle": "Collaboration with Workspaces",
+          "moduleNumber": 12,
+          "issueType": "missing_key_points",
+          "severity": "high",
+          "message": "Missing key points array",
+          "recommendation": "Add 3-5 key points summarizing the main takeaways"
+        },
         {
           "lessonId": "12-3",
           "lessonTitle": "Collaboration with Workspaces",
@@ -3239,63 +3982,26 @@
       "moduleNumber": 14,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 231,
-      "hasKeyPoints": false,
-      "keyPointsCount": 0,
-      "hasLabs": false,
-      "labsCount": 0,
+      "discussionLength": 1113,
+      "hasKeyPoints": true,
+      "keyPointsCount": 5,
+      "hasLabs": true,
+      "labsCount": 11,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": false,
-      "insiderTipsCount": 0,
+      "hasInsiderTips": true,
+      "insiderTipsCount": 7,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
       "hasVideoChapters": false,
-      "hasTags": false,
-      "tagsCount": 1,
+      "hasTags": true,
+      "tagsCount": 3,
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 37,
-      "issues": [
-        {
-          "lessonId": "14-3",
-          "lessonTitle": "Object-Level Security (OLS)",
-          "moduleNumber": 14,
-          "issueType": "short_concept",
-          "severity": "medium",
-          "message": "Concept is too short (58 chars, need 100+)",
-          "recommendation": "Expand concept to at least 100 characters with clear explanation"
-        },
-        {
-          "lessonId": "14-3",
-          "lessonTitle": "Object-Level Security (OLS)",
-          "moduleNumber": 14,
-          "issueType": "very_short_discussion",
-          "severity": "critical",
-          "message": "Discussion very short (231 chars, need 250+)",
-          "recommendation": "Add comprehensive discussion explaining the concept in detail"
-        },
-        {
-          "lessonId": "14-3",
-          "lessonTitle": "Object-Level Security (OLS)",
-          "moduleNumber": 14,
-          "issueType": "missing_key_points",
-          "severity": "high",
-          "message": "Missing key points array",
-          "recommendation": "Add 3-5 key points summarizing the main takeaways"
-        },
-        {
-          "lessonId": "14-3",
-          "lessonTitle": "Object-Level Security (OLS)",
-          "moduleNumber": 14,
-          "issueType": "missing_or_insufficient_tags",
-          "severity": "medium",
-          "message": "Missing tags or insufficient tags (1, need 2+)",
-          "recommendation": "Add at least 2 tags for searchability"
-        }
-      ]
+      "completenessScore": 84,
+      "issues": []
     },
     {
       "lessonId": "14-4",
@@ -3422,54 +4128,26 @@
       "moduleNumber": 15,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 16,
-      "hasKeyPoints": false,
-      "keyPointsCount": 0,
-      "hasLabs": false,
-      "labsCount": 0,
+      "discussionLength": 1283,
+      "hasKeyPoints": true,
+      "keyPointsCount": 5,
+      "hasLabs": true,
+      "labsCount": 11,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": false,
-      "insiderTipsCount": 0,
+      "hasInsiderTips": true,
+      "insiderTipsCount": 7,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
       "hasVideoChapters": false,
-      "hasTags": false,
-      "tagsCount": 1,
+      "hasTags": true,
+      "tagsCount": 3,
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 42,
-      "issues": [
-        {
-          "lessonId": "15-2",
-          "lessonTitle": "Creating and Using Calculation Groups",
-          "moduleNumber": 15,
-          "issueType": "very_short_discussion",
-          "severity": "critical",
-          "message": "Discussion very short (16 chars, need 250+)",
-          "recommendation": "Add comprehensive discussion explaining the concept in detail"
-        },
-        {
-          "lessonId": "15-2",
-          "lessonTitle": "Creating and Using Calculation Groups",
-          "moduleNumber": 15,
-          "issueType": "missing_key_points",
-          "severity": "high",
-          "message": "Missing key points array",
-          "recommendation": "Add 3-5 key points summarizing the main takeaways"
-        },
-        {
-          "lessonId": "15-2",
-          "lessonTitle": "Creating and Using Calculation Groups",
-          "moduleNumber": 15,
-          "issueType": "missing_or_insufficient_tags",
-          "severity": "medium",
-          "message": "Missing tags or insufficient tags (1, need 2+)",
-          "recommendation": "Add at least 2 tags for searchability"
-        }
-      ]
+      "completenessScore": 84,
+      "issues": []
     },
     {
       "lessonId": "15-3",
@@ -3477,63 +4155,26 @@
       "moduleNumber": 15,
       "hasConcept": true,
       "hasDiscussion": true,
-      "discussionLength": 157,
-      "hasKeyPoints": false,
-      "keyPointsCount": 0,
-      "hasLabs": false,
-      "labsCount": 0,
+      "discussionLength": 1225,
+      "hasKeyPoints": true,
+      "keyPointsCount": 5,
+      "hasLabs": true,
+      "labsCount": 10,
       "hasTables": false,
       "tablesCount": 0,
-      "hasInsiderTips": false,
-      "insiderTipsCount": 0,
+      "hasInsiderTips": true,
+      "insiderTipsCount": 7,
       "hasExerciseMaterials": false,
       "exerciseMaterialsCount": 0,
       "hasVideoUrl": false,
       "hasVideoChapters": false,
-      "hasTags": false,
-      "tagsCount": 1,
+      "hasTags": true,
+      "tagsCount": 3,
       "hasDifficulty": true,
       "hasTopic": true,
       "hasDuration": true,
-      "completenessScore": 37,
-      "issues": [
-        {
-          "lessonId": "15-3",
-          "lessonTitle": "Advanced M Language Concepts",
-          "moduleNumber": 15,
-          "issueType": "short_concept",
-          "severity": "medium",
-          "message": "Concept is too short (51 chars, need 100+)",
-          "recommendation": "Expand concept to at least 100 characters with clear explanation"
-        },
-        {
-          "lessonId": "15-3",
-          "lessonTitle": "Advanced M Language Concepts",
-          "moduleNumber": 15,
-          "issueType": "very_short_discussion",
-          "severity": "critical",
-          "message": "Discussion very short (157 chars, need 250+)",
-          "recommendation": "Add comprehensive discussion explaining the concept in detail"
-        },
-        {
-          "lessonId": "15-3",
-          "lessonTitle": "Advanced M Language Concepts",
-          "moduleNumber": 15,
-          "issueType": "missing_key_points",
-          "severity": "high",
-          "message": "Missing key points array",
-          "recommendation": "Add 3-5 key points summarizing the main takeaways"
-        },
-        {
-          "lessonId": "15-3",
-          "lessonTitle": "Advanced M Language Concepts",
-          "moduleNumber": 15,
-          "issueType": "missing_or_insufficient_tags",
-          "severity": "medium",
-          "message": "Missing tags or insufficient tags (1, need 2+)",
-          "recommendation": "Add at least 2 tags for searchability"
-        }
-      ]
+      "completenessScore": 84,
+      "issues": []
     },
     {
       "lessonId": "15-4",
@@ -4337,12 +4978,12 @@
         "recommendation": "Expand discussion with detailed explanation, examples, and use cases"
       },
       {
-        "lessonId": "1-3",
-        "lessonTitle": "Post-Install: Enabling Preview Features",
-        "moduleNumber": 1,
+        "lessonId": "2-2",
+        "lessonTitle": "Connecting to Files (Hands-On Lab)",
+        "moduleNumber": 2,
         "issueType": "short_discussion",
         "severity": "high",
-        "message": "Discussion too short (360 chars, need 500+ for effective learning)",
+        "message": "Discussion too short (402 chars, need 500+ for effective learning)",
         "recommendation": "Expand discussion with detailed explanation, examples, and use cases"
       },
       {
@@ -4370,6 +5011,33 @@
         "issueType": "short_discussion",
         "severity": "high",
         "message": "Discussion too short (475 chars, need 500+ for effective learning)",
+        "recommendation": "Expand discussion with detailed explanation, examples, and use cases"
+      },
+      {
+        "lessonId": "4-2",
+        "lessonTitle": "Creating Core Visuals (Hands-On Lab)",
+        "moduleNumber": 4,
+        "issueType": "short_discussion",
+        "severity": "high",
+        "message": "Discussion too short (272 chars, need 500+ for effective learning)",
+        "recommendation": "Expand discussion with detailed explanation, examples, and use cases"
+      },
+      {
+        "lessonId": "7-3",
+        "lessonTitle": "Filter Context (The \"Current Cell\")",
+        "moduleNumber": 7,
+        "issueType": "short_discussion",
+        "severity": "high",
+        "message": "Discussion too short (338 chars, need 500+ for effective learning)",
+        "recommendation": "Expand discussion with detailed explanation, examples, and use cases"
+      },
+      {
+        "lessonId": "8-4",
+        "lessonTitle": "Context Transition (The Advanced Concept)",
+        "moduleNumber": 8,
+        "issueType": "short_discussion",
+        "severity": "high",
+        "message": "Discussion too short (361 chars, need 500+ for effective learning)",
         "recommendation": "Expand discussion with detailed explanation, examples, and use cases"
       },
       {
@@ -4456,9 +5124,45 @@
         "recommendation": "Add 3-5 key points summarizing the main takeaways"
       },
       {
-        "lessonId": "1-3",
-        "lessonTitle": "Post-Install: Enabling Preview Features",
+        "lessonId": "1-2",
+        "lessonTitle": "Installation and Setup (Hands-On Lab)",
         "moduleNumber": 1,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "1-4",
+        "lessonTitle": "Tour of the Power BI Desktop Interface",
+        "moduleNumber": 1,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "2-1",
+        "lessonTitle": "The \"Get Data\" Experience",
+        "moduleNumber": 2,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "2-2",
+        "lessonTitle": "Connecting to Files (Hands-On Lab)",
+        "moduleNumber": 2,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "2-3",
+        "lessonTitle": "Connecting to Databases",
+        "moduleNumber": 2,
         "issueType": "missing_key_points",
         "severity": "high",
         "message": "Missing key points array",
@@ -4483,9 +5187,252 @@
         "recommendation": "Add 3-5 key points summarizing the main takeaways"
       },
       {
+        "lessonId": "3-2",
+        "lessonTitle": "Basic Table Transformations (Hands-On Lab)",
+        "moduleNumber": 3,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "3-6",
+        "lessonTitle": "Introduction to Parameters",
+        "moduleNumber": 3,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "3-8",
+        "lessonTitle": "Introduction to the Advanced Editor (The M Language)",
+        "moduleNumber": 3,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "3-9",
+        "lessonTitle": "Close & Apply",
+        "moduleNumber": 3,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "4-1",
+        "lessonTitle": "Introduction to the Visualizations Pane",
+        "moduleNumber": 4,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "4-2",
+        "lessonTitle": "Creating Core Visuals (Hands-On Lab)",
+        "moduleNumber": 4,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "4-3",
+        "lessonTitle": "Using Slicers for Interactivity",
+        "moduleNumber": 4,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "4-4",
+        "lessonTitle": "Displaying Key Metrics: Cards, KPIs, and Gauges",
+        "moduleNumber": 4,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
         "lessonId": "4-5",
         "lessonTitle": "Basic Report Formatting",
         "moduleNumber": 4,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "6-3",
+        "lessonTitle": "Creating Calculated Columns (Hands-On Lab)",
+        "moduleNumber": 6,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "6-4",
+        "lessonTitle": "Creating Measures (Hands-On Lab)",
+        "moduleNumber": 6,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "6-5",
+        "lessonTitle": "Implicit vs. Explicit Measures",
+        "moduleNumber": 6,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "6-6",
+        "lessonTitle": "Using Quick Measures",
+        "moduleNumber": 6,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "7-1",
+        "lessonTitle": "The \"Secret Sauce\" of DAX: Evaluation Context",
+        "moduleNumber": 7,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "7-2",
+        "lessonTitle": "Row Context (The \"Current Row\")",
+        "moduleNumber": 7,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "7-3",
+        "lessonTitle": "Filter Context (The \"Current Cell\")",
+        "moduleNumber": 7,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "7-4",
+        "lessonTitle": "Iterator Functions (SUMX, AVERAGEX, MINX)",
+        "moduleNumber": 7,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "8-1",
+        "lessonTitle": "The Most Important Function in DAX: CALCULATE()",
+        "moduleNumber": 8,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "8-2",
+        "lessonTitle": "Removing Filters with ALL()",
+        "moduleNumber": 8,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "8-3",
+        "lessonTitle": "Related ALL Functions: ALLEXCEPT(), ALLSELECTED()",
+        "moduleNumber": 8,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "8-4",
+        "lessonTitle": "Context Transition (The Advanced Concept)",
+        "moduleNumber": 8,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "8-5",
+        "lessonTitle": "Advanced DAX Scenarios (USERELATIONSHIP)",
+        "moduleNumber": 8,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "8-6",
+        "lessonTitle": "Introduction to Visual Calculations (Oct 2025 GA)",
+        "moduleNumber": 8,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "9-1",
+        "lessonTitle": "The Prerequisite: A Date Table",
+        "moduleNumber": 9,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "9-2",
+        "lessonTitle": "Year-to-Date (YTD) and Period-to-Date (Hands-On Lab)",
+        "moduleNumber": 9,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "9-3",
+        "lessonTitle": "Prior Period Comparisons",
+        "moduleNumber": 9,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "9-4",
+        "lessonTitle": "Calculating Year-over-Year (YoY) Growth",
+        "moduleNumber": 9,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "9-5",
+        "lessonTitle": "Calculating Rolling Averages",
+        "moduleNumber": 9,
         "issueType": "missing_key_points",
         "severity": "high",
         "message": "Missing key points array",
@@ -4540,6 +5487,33 @@
         "lessonId": "10-6",
         "lessonTitle": "The Art of Data Storytelling",
         "moduleNumber": 10,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "10-7",
+        "lessonTitle": "Enhancing Reports with Custom Visuals",
+        "moduleNumber": 10,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "12-1",
+        "lessonTitle": "Publishing and Exploring the Power BI Service",
+        "moduleNumber": 12,
+        "issueType": "missing_key_points",
+        "severity": "high",
+        "message": "Missing key points array",
+        "recommendation": "Add 3-5 key points summarizing the main takeaways"
+      },
+      {
+        "lessonId": "12-3",
+        "lessonTitle": "Collaboration with Workspaces",
+        "moduleNumber": 12,
         "issueType": "missing_key_points",
         "severity": "high",
         "message": "Missing key points array",
@@ -4609,15 +5583,6 @@
         "recommendation": "Add 3-5 key points summarizing the main takeaways"
       },
       {
-        "lessonId": "14-3",
-        "lessonTitle": "Object-Level Security (OLS)",
-        "moduleNumber": 14,
-        "issueType": "missing_key_points",
-        "severity": "high",
-        "message": "Missing key points array",
-        "recommendation": "Add 3-5 key points summarizing the main takeaways"
-      },
-      {
         "lessonId": "14-4",
         "lessonTitle": "Overview of the Power BI Admin Portal",
         "moduleNumber": 14,
@@ -4629,24 +5594,6 @@
       {
         "lessonId": "15-1",
         "lessonTitle": "Introduction to Tabular Editor (External Tool)",
-        "moduleNumber": 15,
-        "issueType": "missing_key_points",
-        "severity": "high",
-        "message": "Missing key points array",
-        "recommendation": "Add 3-5 key points summarizing the main takeaways"
-      },
-      {
-        "lessonId": "15-2",
-        "lessonTitle": "Creating and Using Calculation Groups",
-        "moduleNumber": 15,
-        "issueType": "missing_key_points",
-        "severity": "high",
-        "message": "Missing key points array",
-        "recommendation": "Add 3-5 key points summarizing the main takeaways"
-      },
-      {
-        "lessonId": "15-3",
-        "lessonTitle": "Advanced M Language Concepts",
         "moduleNumber": 15,
         "issueType": "missing_key_points",
         "severity": "high",
@@ -4872,6 +5819,15 @@
         "recommendation": "Add at least 2 tags for searchability"
       },
       {
+        "lessonId": "2-3",
+        "lessonTitle": "Connecting to Databases",
+        "moduleNumber": 2,
+        "issueType": "missing_or_insufficient_tags",
+        "severity": "medium",
+        "message": "Missing tags or insufficient tags (1, need 2+)",
+        "recommendation": "Add at least 2 tags for searchability"
+      },
+      {
         "lessonId": "2-4",
         "lessonTitle": "Connecting to Web and Cloud Services",
         "moduleNumber": 2,
@@ -4946,6 +5902,15 @@
       {
         "lessonId": "3-7",
         "lessonTitle": "Combining Queries: Merge vs. Append (A Critical Concept)",
+        "moduleNumber": 3,
+        "issueType": "missing_or_insufficient_tags",
+        "severity": "medium",
+        "message": "Missing tags or insufficient tags (1, need 2+)",
+        "recommendation": "Add at least 2 tags for searchability"
+      },
+      {
+        "lessonId": "3-8",
+        "lessonTitle": "Introduction to the Advanced Editor (The M Language)",
         "moduleNumber": 3,
         "issueType": "missing_or_insufficient_tags",
         "severity": "medium",
@@ -5097,6 +6062,15 @@
         "recommendation": "Add at least 2 tags for searchability"
       },
       {
+        "lessonId": "8-1",
+        "lessonTitle": "The Most Important Function in DAX: CALCULATE()",
+        "moduleNumber": 8,
+        "issueType": "missing_or_insufficient_tags",
+        "severity": "medium",
+        "message": "Missing tags or insufficient tags (1, need 2+)",
+        "recommendation": "Add at least 2 tags for searchability"
+      },
+      {
         "lessonId": "8-2",
         "lessonTitle": "Removing Filters with ALL()",
         "moduleNumber": 8,
@@ -5127,6 +6101,33 @@
         "lessonId": "8-5",
         "lessonTitle": "Advanced DAX Scenarios (USERELATIONSHIP)",
         "moduleNumber": 8,
+        "issueType": "missing_or_insufficient_tags",
+        "severity": "medium",
+        "message": "Missing tags or insufficient tags (1, need 2+)",
+        "recommendation": "Add at least 2 tags for searchability"
+      },
+      {
+        "lessonId": "9-2",
+        "lessonTitle": "Year-to-Date (YTD) and Period-to-Date (Hands-On Lab)",
+        "moduleNumber": 9,
+        "issueType": "missing_or_insufficient_tags",
+        "severity": "medium",
+        "message": "Missing tags or insufficient tags (1, need 2+)",
+        "recommendation": "Add at least 2 tags for searchability"
+      },
+      {
+        "lessonId": "9-3",
+        "lessonTitle": "Prior Period Comparisons",
+        "moduleNumber": 9,
+        "issueType": "missing_or_insufficient_tags",
+        "severity": "medium",
+        "message": "Missing tags or insufficient tags (1, need 2+)",
+        "recommendation": "Add at least 2 tags for searchability"
+      },
+      {
+        "lessonId": "9-5",
+        "lessonTitle": "Calculating Rolling Averages",
+        "moduleNumber": 9,
         "issueType": "missing_or_insufficient_tags",
         "severity": "medium",
         "message": "Missing tags or insufficient tags (1, need 2+)",
@@ -5268,15 +6269,6 @@
         "recommendation": "Add at least 2 tags for searchability"
       },
       {
-        "lessonId": "14-3",
-        "lessonTitle": "Object-Level Security (OLS)",
-        "moduleNumber": 14,
-        "issueType": "missing_or_insufficient_tags",
-        "severity": "medium",
-        "message": "Missing tags or insufficient tags (1, need 2+)",
-        "recommendation": "Add at least 2 tags for searchability"
-      },
-      {
         "lessonId": "14-4",
         "lessonTitle": "Overview of the Power BI Admin Portal",
         "moduleNumber": 14,
@@ -5288,24 +6280,6 @@
       {
         "lessonId": "15-1",
         "lessonTitle": "Introduction to Tabular Editor (External Tool)",
-        "moduleNumber": 15,
-        "issueType": "missing_or_insufficient_tags",
-        "severity": "medium",
-        "message": "Missing tags or insufficient tags (1, need 2+)",
-        "recommendation": "Add at least 2 tags for searchability"
-      },
-      {
-        "lessonId": "15-2",
-        "lessonTitle": "Creating and Using Calculation Groups",
-        "moduleNumber": 15,
-        "issueType": "missing_or_insufficient_tags",
-        "severity": "medium",
-        "message": "Missing tags or insufficient tags (1, need 2+)",
-        "recommendation": "Add at least 2 tags for searchability"
-      },
-      {
-        "lessonId": "15-3",
-        "lessonTitle": "Advanced M Language Concepts",
         "moduleNumber": 15,
         "issueType": "missing_or_insufficient_tags",
         "severity": "medium",
@@ -5540,6 +6514,24 @@
         "recommendation": "Expand concept to at least 100 characters with clear explanation"
       },
       {
+        "lessonId": "10-7",
+        "lessonTitle": "Enhancing Reports with Custom Visuals",
+        "moduleNumber": 10,
+        "issueType": "short_concept",
+        "severity": "medium",
+        "message": "Concept is too short (89 chars, need 100+)",
+        "recommendation": "Expand concept to at least 100 characters with clear explanation"
+      },
+      {
+        "lessonId": "12-3",
+        "lessonTitle": "Collaboration with Workspaces",
+        "moduleNumber": 12,
+        "issueType": "short_concept",
+        "severity": "medium",
+        "message": "Concept is too short (76 chars, need 100+)",
+        "recommendation": "Expand concept to at least 100 characters with clear explanation"
+      },
+      {
         "lessonId": "13-4",
         "lessonTitle": "Optimizing for Big Data (Aggregations)",
         "moduleNumber": 13,
@@ -5558,30 +6550,12 @@
         "recommendation": "Expand concept to at least 100 characters with clear explanation"
       },
       {
-        "lessonId": "14-3",
-        "lessonTitle": "Object-Level Security (OLS)",
-        "moduleNumber": 14,
-        "issueType": "short_concept",
-        "severity": "medium",
-        "message": "Concept is too short (58 chars, need 100+)",
-        "recommendation": "Expand concept to at least 100 characters with clear explanation"
-      },
-      {
         "lessonId": "14-4",
         "lessonTitle": "Overview of the Power BI Admin Portal",
         "moduleNumber": 14,
         "issueType": "short_concept",
         "severity": "medium",
         "message": "Concept is too short (73 chars, need 100+)",
-        "recommendation": "Expand concept to at least 100 characters with clear explanation"
-      },
-      {
-        "lessonId": "15-3",
-        "lessonTitle": "Advanced M Language Concepts",
-        "moduleNumber": 15,
-        "issueType": "short_concept",
-        "severity": "medium",
-        "message": "Concept is too short (51 chars, need 100+)",
         "recommendation": "Expand concept to at least 100 characters with clear explanation"
       },
       {
@@ -5628,6 +6602,80 @@
         "severity": "medium",
         "message": "Concept is too short (35 chars, need 100+)",
         "recommendation": "Expand concept to at least 100 characters with clear explanation"
+      }
+    ],
+    "missing_lab_instructions": [
+      {
+        "lessonId": "1-2",
+        "lessonTitle": "Installation and Setup (Hands-On Lab)",
+        "moduleNumber": 1,
+        "issueType": "missing_lab_instructions",
+        "severity": "critical",
+        "message": "Lab lesson missing lab instructions",
+        "recommendation": "Add step-by-step lab instructions array"
+      },
+      {
+        "lessonId": "2-2",
+        "lessonTitle": "Connecting to Files (Hands-On Lab)",
+        "moduleNumber": 2,
+        "issueType": "missing_lab_instructions",
+        "severity": "critical",
+        "message": "Lab lesson missing lab instructions",
+        "recommendation": "Add step-by-step lab instructions array"
+      },
+      {
+        "lessonId": "3-2",
+        "lessonTitle": "Basic Table Transformations (Hands-On Lab)",
+        "moduleNumber": 3,
+        "issueType": "missing_lab_instructions",
+        "severity": "critical",
+        "message": "Lab lesson missing lab instructions",
+        "recommendation": "Add step-by-step lab instructions array"
+      },
+      {
+        "lessonId": "4-2",
+        "lessonTitle": "Creating Core Visuals (Hands-On Lab)",
+        "moduleNumber": 4,
+        "issueType": "missing_lab_instructions",
+        "severity": "critical",
+        "message": "Lab lesson missing lab instructions",
+        "recommendation": "Add step-by-step lab instructions array"
+      },
+      {
+        "lessonId": "6-3",
+        "lessonTitle": "Creating Calculated Columns (Hands-On Lab)",
+        "moduleNumber": 6,
+        "issueType": "missing_lab_instructions",
+        "severity": "critical",
+        "message": "Lab lesson missing lab instructions",
+        "recommendation": "Add step-by-step lab instructions array"
+      },
+      {
+        "lessonId": "6-4",
+        "lessonTitle": "Creating Measures (Hands-On Lab)",
+        "moduleNumber": 6,
+        "issueType": "missing_lab_instructions",
+        "severity": "critical",
+        "message": "Lab lesson missing lab instructions",
+        "recommendation": "Add step-by-step lab instructions array"
+      },
+      {
+        "lessonId": "9-2",
+        "lessonTitle": "Year-to-Date (YTD) and Period-to-Date (Hands-On Lab)",
+        "moduleNumber": 9,
+        "issueType": "missing_lab_instructions",
+        "severity": "critical",
+        "message": "Lab lesson missing lab instructions",
+        "recommendation": "Add step-by-step lab instructions array"
+      },
+      {
+        "lessonId": "12-3",
+        "lessonTitle": "Collaboration with Workspaces",
+        "moduleNumber": 12,
+        "issueType": "missing_lab_instructions",
+        "severity": "critical",
+        "message": "Lab lesson missing lab instructions",
+        "recommendation": "Add step-by-step lab instructions array"
       }
     ],
     "missing_exercise_materials": [
@@ -5705,6 +6753,123 @@
       }
     ],
     "missing_discussion": [
+      {
+        "lessonId": "1-4",
+        "lessonTitle": "Tour of the Power BI Desktop Interface",
+        "moduleNumber": 1,
+        "issueType": "missing_discussion",
+        "severity": "critical",
+        "message": "Missing discussion field - students cannot learn without detailed explanation",
+        "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+      },
+      {
+        "lessonId": "2-1",
+        "lessonTitle": "The \"Get Data\" Experience",
+        "moduleNumber": 2,
+        "issueType": "missing_discussion",
+        "severity": "critical",
+        "message": "Missing discussion field - students cannot learn without detailed explanation",
+        "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+      },
+      {
+        "lessonId": "4-3",
+        "lessonTitle": "Using Slicers for Interactivity",
+        "moduleNumber": 4,
+        "issueType": "missing_discussion",
+        "severity": "critical",
+        "message": "Missing discussion field - students cannot learn without detailed explanation",
+        "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+      },
+      {
+        "lessonId": "6-3",
+        "lessonTitle": "Creating Calculated Columns (Hands-On Lab)",
+        "moduleNumber": 6,
+        "issueType": "missing_discussion",
+        "severity": "critical",
+        "message": "Missing discussion field - students cannot learn without detailed explanation",
+        "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+      },
+      {
+        "lessonId": "6-4",
+        "lessonTitle": "Creating Measures (Hands-On Lab)",
+        "moduleNumber": 6,
+        "issueType": "missing_discussion",
+        "severity": "critical",
+        "message": "Missing discussion field - students cannot learn without detailed explanation",
+        "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+      },
+      {
+        "lessonId": "6-5",
+        "lessonTitle": "Implicit vs. Explicit Measures",
+        "moduleNumber": 6,
+        "issueType": "missing_discussion",
+        "severity": "critical",
+        "message": "Missing discussion field - students cannot learn without detailed explanation",
+        "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+      },
+      {
+        "lessonId": "7-1",
+        "lessonTitle": "The \"Secret Sauce\" of DAX: Evaluation Context",
+        "moduleNumber": 7,
+        "issueType": "missing_discussion",
+        "severity": "critical",
+        "message": "Missing discussion field - students cannot learn without detailed explanation",
+        "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+      },
+      {
+        "lessonId": "8-3",
+        "lessonTitle": "Related ALL Functions: ALLEXCEPT(), ALLSELECTED()",
+        "moduleNumber": 8,
+        "issueType": "missing_discussion",
+        "severity": "critical",
+        "message": "Missing discussion field - students cannot learn without detailed explanation",
+        "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+      },
+      {
+        "lessonId": "8-5",
+        "lessonTitle": "Advanced DAX Scenarios (USERELATIONSHIP)",
+        "moduleNumber": 8,
+        "issueType": "missing_discussion",
+        "severity": "critical",
+        "message": "Missing discussion field - students cannot learn without detailed explanation",
+        "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+      },
+      {
+        "lessonId": "8-6",
+        "lessonTitle": "Introduction to Visual Calculations (Oct 2025 GA)",
+        "moduleNumber": 8,
+        "issueType": "missing_discussion",
+        "severity": "critical",
+        "message": "Missing discussion field - students cannot learn without detailed explanation",
+        "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+      },
+      {
+        "lessonId": "9-2",
+        "lessonTitle": "Year-to-Date (YTD) and Period-to-Date (Hands-On Lab)",
+        "moduleNumber": 9,
+        "issueType": "missing_discussion",
+        "severity": "critical",
+        "message": "Missing discussion field - students cannot learn without detailed explanation",
+        "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+      },
+      {
+        "lessonId": "9-3",
+        "lessonTitle": "Prior Period Comparisons",
+        "moduleNumber": 9,
+        "issueType": "missing_discussion",
+        "severity": "critical",
+        "message": "Missing discussion field - students cannot learn without detailed explanation",
+        "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+      },
+      {
+        "lessonId": "9-5",
+        "lessonTitle": "Calculating Rolling Averages",
+        "moduleNumber": 9,
+        "issueType": "missing_discussion",
+        "severity": "critical",
+        "message": "Missing discussion field - students cannot learn without detailed explanation",
+        "recommendation": "Add discussion with at least 500 characters explaining the concept thoroughly"
+      },
       {
         "lessonId": "10-2",
         "lessonTitle": "Advanced Interactivity: Drill-through Pages",
@@ -5798,12 +6963,165 @@
     ],
     "very_short_discussion": [
       {
+        "lessonId": "2-3",
+        "lessonTitle": "Connecting to Databases",
+        "moduleNumber": 2,
+        "issueType": "very_short_discussion",
+        "severity": "critical",
+        "message": "Discussion very short (204 chars, need 250+)",
+        "recommendation": "Add comprehensive discussion explaining the concept in detail"
+      },
+      {
+        "lessonId": "3-2",
+        "lessonTitle": "Basic Table Transformations (Hands-On Lab)",
+        "moduleNumber": 3,
+        "issueType": "very_short_discussion",
+        "severity": "critical",
+        "message": "Discussion very short (186 chars, need 250+)",
+        "recommendation": "Add comprehensive discussion explaining the concept in detail"
+      },
+      {
+        "lessonId": "3-6",
+        "lessonTitle": "Introduction to Parameters",
+        "moduleNumber": 3,
+        "issueType": "very_short_discussion",
+        "severity": "critical",
+        "message": "Discussion very short (119 chars, need 250+)",
+        "recommendation": "Add comprehensive discussion explaining the concept in detail"
+      },
+      {
+        "lessonId": "3-8",
+        "lessonTitle": "Introduction to the Advanced Editor (The M Language)",
+        "moduleNumber": 3,
+        "issueType": "very_short_discussion",
+        "severity": "critical",
+        "message": "Discussion very short (194 chars, need 250+)",
+        "recommendation": "Add comprehensive discussion explaining the concept in detail"
+      },
+      {
+        "lessonId": "3-9",
+        "lessonTitle": "Close & Apply",
+        "moduleNumber": 3,
+        "issueType": "very_short_discussion",
+        "severity": "critical",
+        "message": "Discussion very short (142 chars, need 250+)",
+        "recommendation": "Add comprehensive discussion explaining the concept in detail"
+      },
+      {
+        "lessonId": "4-1",
+        "lessonTitle": "Introduction to the Visualizations Pane",
+        "moduleNumber": 4,
+        "issueType": "very_short_discussion",
+        "severity": "critical",
+        "message": "Discussion very short (213 chars, need 250+)",
+        "recommendation": "Add comprehensive discussion explaining the concept in detail"
+      },
+      {
+        "lessonId": "4-4",
+        "lessonTitle": "Displaying Key Metrics: Cards, KPIs, and Gauges",
+        "moduleNumber": 4,
+        "issueType": "very_short_discussion",
+        "severity": "critical",
+        "message": "Discussion very short (188 chars, need 250+)",
+        "recommendation": "Add comprehensive discussion explaining the concept in detail"
+      },
+      {
+        "lessonId": "6-6",
+        "lessonTitle": "Using Quick Measures",
+        "moduleNumber": 6,
+        "issueType": "very_short_discussion",
+        "severity": "critical",
+        "message": "Discussion very short (193 chars, need 250+)",
+        "recommendation": "Add comprehensive discussion explaining the concept in detail"
+      },
+      {
+        "lessonId": "7-2",
+        "lessonTitle": "Row Context (The \"Current Row\")",
+        "moduleNumber": 7,
+        "issueType": "very_short_discussion",
+        "severity": "critical",
+        "message": "Discussion very short (176 chars, need 250+)",
+        "recommendation": "Add comprehensive discussion explaining the concept in detail"
+      },
+      {
+        "lessonId": "7-4",
+        "lessonTitle": "Iterator Functions (SUMX, AVERAGEX, MINX)",
+        "moduleNumber": 7,
+        "issueType": "very_short_discussion",
+        "severity": "critical",
+        "message": "Discussion very short (62 chars, need 250+)",
+        "recommendation": "Add comprehensive discussion explaining the concept in detail"
+      },
+      {
+        "lessonId": "8-1",
+        "lessonTitle": "The Most Important Function in DAX: CALCULATE()",
+        "moduleNumber": 8,
+        "issueType": "very_short_discussion",
+        "severity": "critical",
+        "message": "Discussion very short (177 chars, need 250+)",
+        "recommendation": "Add comprehensive discussion explaining the concept in detail"
+      },
+      {
+        "lessonId": "8-2",
+        "lessonTitle": "Removing Filters with ALL()",
+        "moduleNumber": 8,
+        "issueType": "very_short_discussion",
+        "severity": "critical",
+        "message": "Discussion very short (59 chars, need 250+)",
+        "recommendation": "Add comprehensive discussion explaining the concept in detail"
+      },
+      {
+        "lessonId": "9-1",
+        "lessonTitle": "The Prerequisite: A Date Table",
+        "moduleNumber": 9,
+        "issueType": "very_short_discussion",
+        "severity": "critical",
+        "message": "Discussion very short (211 chars, need 250+)",
+        "recommendation": "Add comprehensive discussion explaining the concept in detail"
+      },
+      {
+        "lessonId": "9-4",
+        "lessonTitle": "Calculating Year-over-Year (YoY) Growth",
+        "moduleNumber": 9,
+        "issueType": "very_short_discussion",
+        "severity": "critical",
+        "message": "Discussion very short (165 chars, need 250+)",
+        "recommendation": "Add comprehensive discussion explaining the concept in detail"
+      },
+      {
         "lessonId": "10-5",
         "lessonTitle": "Enhancing Visuals: Conditional Formatting",
         "moduleNumber": 10,
         "issueType": "very_short_discussion",
         "severity": "critical",
         "message": "Discussion very short (145 chars, need 250+)",
+        "recommendation": "Add comprehensive discussion explaining the concept in detail"
+      },
+      {
+        "lessonId": "10-7",
+        "lessonTitle": "Enhancing Reports with Custom Visuals",
+        "moduleNumber": 10,
+        "issueType": "very_short_discussion",
+        "severity": "critical",
+        "message": "Discussion very short (144 chars, need 250+)",
+        "recommendation": "Add comprehensive discussion explaining the concept in detail"
+      },
+      {
+        "lessonId": "12-1",
+        "lessonTitle": "Publishing and Exploring the Power BI Service",
+        "moduleNumber": 12,
+        "issueType": "very_short_discussion",
+        "severity": "critical",
+        "message": "Discussion very short (136 chars, need 250+)",
+        "recommendation": "Add comprehensive discussion explaining the concept in detail"
+      },
+      {
+        "lessonId": "12-3",
+        "lessonTitle": "Collaboration with Workspaces",
+        "moduleNumber": 12,
+        "issueType": "very_short_discussion",
+        "severity": "critical",
+        "message": "Discussion very short (209 chars, need 250+)",
         "recommendation": "Add comprehensive discussion explaining the concept in detail"
       },
       {
@@ -5852,39 +7170,12 @@
         "recommendation": "Add comprehensive discussion explaining the concept in detail"
       },
       {
-        "lessonId": "14-3",
-        "lessonTitle": "Object-Level Security (OLS)",
-        "moduleNumber": 14,
-        "issueType": "very_short_discussion",
-        "severity": "critical",
-        "message": "Discussion very short (231 chars, need 250+)",
-        "recommendation": "Add comprehensive discussion explaining the concept in detail"
-      },
-      {
         "lessonId": "14-4",
         "lessonTitle": "Overview of the Power BI Admin Portal",
         "moduleNumber": 14,
         "issueType": "very_short_discussion",
         "severity": "critical",
         "message": "Discussion very short (249 chars, need 250+)",
-        "recommendation": "Add comprehensive discussion explaining the concept in detail"
-      },
-      {
-        "lessonId": "15-2",
-        "lessonTitle": "Creating and Using Calculation Groups",
-        "moduleNumber": 15,
-        "issueType": "very_short_discussion",
-        "severity": "critical",
-        "message": "Discussion very short (16 chars, need 250+)",
-        "recommendation": "Add comprehensive discussion explaining the concept in detail"
-      },
-      {
-        "lessonId": "15-3",
-        "lessonTitle": "Advanced M Language Concepts",
-        "moduleNumber": 15,
-        "issueType": "very_short_discussion",
-        "severity": "critical",
-        "message": "Discussion very short (157 chars, need 250+)",
         "recommendation": "Add comprehensive discussion explaining the concept in detail"
       },
       {
@@ -5923,26 +7214,15 @@
         "message": "Discussion very short (160 chars, need 250+)",
         "recommendation": "Add comprehensive discussion explaining the concept in detail"
       }
-    ],
-    "missing_lab_instructions": [
-      {
-        "lessonId": "12-3",
-        "lessonTitle": "Collaboration with Workspaces",
-        "moduleNumber": 12,
-        "issueType": "missing_lab_instructions",
-        "severity": "critical",
-        "message": "Lab lesson missing lab instructions",
-        "recommendation": "Add step-by-step lab instructions array"
-      }
     ]
   },
   "recommendations": [
-    "CRITICAL: 25 critical issues found. These prevent effective learning and must be fixed immediately.",
-    "Add discussion fields to 10 lessons - this is essential for video-independent learning.",
-    "Expand discussion content in 26 lessons to at least 500 characters for comprehensive learning.",
-    "Add key points arrays to 40 lessons to help students identify main takeaways.",
-    "Add detailed lab instructions to 1 lab lessons for hands-on practice.",
-    "40 lessons have completeness scores below 60% and need significant content enhancement.",
-    "PRIORITY: 35 lessons have completeness scores below 50% - focus on these first."
+    "CRITICAL: 59 critical issues found. These prevent effective learning and must be fixed immediately.",
+    "Add discussion fields to 23 lessons - this is essential for video-independent learning.",
+    "Expand discussion content in 43 lessons to at least 500 characters for comprehensive learning.",
+    "Add key points arrays to 71 lessons to help students identify main takeaways.",
+    "Add detailed lab instructions to 8 lab lessons for hands-on practice.",
+    "71 lessons have completeness scores below 60% and need significant content enhancement.",
+    "PRIORITY: 66 lessons have completeness scores below 50% - focus on these first."
   ]
 }

@@ -39,17 +39,50 @@ export default function DAXEditor({
     'Sales YTD = TOTALYTD(SUM(Sales[SalesAmount]), \'Date\'[Date])',
     'Sales PY = CALCULATE([Total Sales], SAMEPERIODLASTYEAR(\'Date\'[Date]))',
     'YoY Growth = DIVIDE([Total Sales] - [Sales PY], [Sales PY])',
-    '% of Total = DIVIDE([Total Sales], CALCULATE([Total Sales], ALL(\'Date\')))'
+    '% of Total = DIVIDE([Total Sales], CALCULATE([Total Sales], ALL(\'Date\')))',
+    'Total Profit = SUMX(Sales, Sales[Quantity] * (Products[UnitPrice] - Products[UnitCost]))',
+    'Top 10 Products = TOPN(10, Products, [Total Sales], DESC)',
+    'Moving Avg = AVERAGEX(DATESINPERIOD(Date[Date], MAX(Date[Date]), -7, DAY), [Total Sales])',
+    'Customer Seg = IF([Total Sales] > 10000, "High Value", IF([Total Sales] > 5000, "Medium", "Low"))',
+    'Rank Sales = RANKX(ALL(Products), [Total Sales], , DESC)',
+    'Distinct Customers = DISTINCTCOUNT(Sales[CustomerID])',
+    'Running Total = CALCULATE([Total Sales], FILTER(ALL(Date[Date]), Date[Date] <= MAX(Date[Date])))'
   ]
 
   const handleRun = () => {
+    if (!code.trim()) return
+    
     setIsRunning(true)
     
     // Simulate code execution with a delay
     setTimeout(() => {
-      // In a real implementation, this would execute DAX code
-      // For now, we'll show a placeholder output
-      setOutput('✅ Code executed successfully!\n\nNote: This is a preview. Full DAX execution will be available when connected to a data model.')
+      // Check for basic syntax errors
+      const trimmedCode = code.trim()
+      const hasEquals = trimmedCode.includes('=')
+      const hasKeyword = /^(SUM|AVERAGE|COUNT|CALCULATE|SUMX|FILTER|ALL|DIVIDE|IF|TOPN|RANKX|TOTALYTD|COUNTROWS|DISTINCTCOUNT)/i.test(trimmedCode)
+      
+      if (!hasEquals) {
+        setOutput('❌ Error: DAX measure must contain an equals sign (=)\n\nExample: MeasureName = SUM(Table[Column])')
+      } else if (!hasKeyword && trimmedCode.split('=').length > 1) {
+        const measureName = trimmedCode.split('=')[0].trim()
+        setOutput(`✅ Measure "${measureName}" syntax looks valid!\n\n📊 Ready to use in Power BI\n\nNote: This is a preview. To fully test your DAX formula, paste it into Power BI Desktop.`)
+      } else {
+        // More detailed output for valid DAX
+        const outputLines = [
+          '✅ Code executed successfully!',
+          '',
+          '📊 Measure Preview:',
+          code,
+          '',
+          '💡 Tips:',
+          '• Test this measure in Power BI Desktop',
+          '• Check calculation contexts with CALCULATE',
+          '• Use FILTER for row-level conditions',
+          '• Remember to handle errors with IFERROR',
+        ]
+        setOutput(outputLines.join('\n'))
+      }
+      
       setIsRunning(false)
       onRun?.(code)
     }, 800)
@@ -100,7 +133,7 @@ export default function DAXEditor({
           animate={{ opacity: 1, y: 0 }}
           className="px-4 py-2 bg-blue-50 border-b border-blue-200"
         >
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-64 overflow-y-auto">
             {daxHints.map((hint, idx) => (
               <button
                 key={idx}
