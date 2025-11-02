@@ -2123,3 +2123,18 @@ export function getLessonsWithQuizzes(): string[] {
   return []
 }
 
+// Helper function to get module assessment by module number
+export function getModuleAssessment(moduleNumber: number): Quiz | undefined {
+  return quizData.find(q => q.id === `module-${moduleNumber}-assessment`)
+}
+
+// Helper function to get PL-300 Mock Exam
+export function getPL300MockExam(): Quiz | undefined {
+  return quizData.find(q => q.id === 'pl300-mock-exam')
+}
+
+// Helper function to get all assessments (module + mock exam)
+export function getAllAssessments(): Quiz[] {
+  return quizData.filter(q => q.quizType === 'module' || q.quizType === 'mock-exam')
+}
+
