@@ -1801,14 +1801,71 @@ export const courseData: Part[] = [
             moduleNumber: 7,
             lessonNumber: 3,
             title: "Filter Context (The \"Current Cell\")",
-            description: "The set of all filters applied to a measure before it is calculated",
-            duration: 10,
+            description: "Filter context is the set of all filters applied to a measure before it is calculated. Understanding filter context is critical for mastering DAX.",
+            duration: 25,
             difficulty: 'intermediate',
-            tags: ["Power BI Fundamentals"],
-            topic: 'Business Intelligence',
+            tags: ["DAX", "Filter Context", "Critical Concept"],
+            topic: 'DAX',
             content: {
-              concept: "The set of all filters applied to a measure before it is calculated",
-              discussion: "Imagine a matrix visual with Total Sales in the Values, Region on Rows, and Year on Columns. The Total Sales value for the cell at the intersection of \"East\" and \"2023\" is calculated within a filter context of  = \"East\" AND  = 2023. Slicers, filters on other visuals, and the visual's own coordinates all contribute to this filter context",
+              concept: "Filter context is the set of all filters applied to a measure before it is calculated. Unlike row context (which operates on one row at a time), filter context operates across all visible rows that match the current filter conditions. Every measure calculation occurs within some filter context - understanding this is critical for mastering DAX.",
+              discussion: "Imagine a matrix visual with Total Sales in the Values, Region on Rows, and Year on Columns. The Total Sales value for the cell at the intersection of \"East\" and \"2023\" is calculated within a filter context of Region = \"East\" AND Year = 2023. This filter context includes multiple contributors: slicers on the page (user selections), page-level filters (applied to all visuals on a page), visual-level filters (specific to one visual), report-level filters (applied globally), and the visual's own axes/rows/columns (determining which data points to calculate). Filter context is additive - all these filters combine to create the final filter context. When you write a measure like Total Sales = SUM(Sales[Amount]), DAX automatically respects whatever filter context is active. This is why the same measure shows different values in different cells of a matrix or when different slicers are selected. Understanding that measures are context-aware is the key insight that separates DAX from Excel formulas.",
+              keyPoints: [
+                "Filter context = all active filters that determine which rows are visible for calculation",
+                "Filter context contributors: slicers, page filters, visual filters, visual axes, report filters",
+                "Filter context is additive - all active filters combine together",
+                "Every measure calculation occurs within some filter context",
+                "Same measure = different values depending on filter context",
+                "Understanding filter context is the foundation of advanced DAX"
+              ],
+              insiderTips: [
+                "Filter context is invisible - always mentally ask 'What filters are active here?' when writing DAX",
+                "Visual axes create filter context - dragging Region to Rows creates implicit filters",
+                "Slicers modify filter context - selecting '2024' adds that filter globally to all visuals",
+                "Use Performance Analyzer to see the DAX query generated for a visual cell",
+                "The DAX query will show the filter context explicitly: FILTER(Table, [Region]=\"East\" AND [Year]=2023)",
+                "CALCULATE() is the ONLY function that can modify filter context - remember this!",
+                "Test your measures with different slicers to verify they respond to filter context correctly",
+                "Filter context flows from dimensions to facts via relationships - that's how it works"
+              ],
+              labs: [
+                "Create a simple measure: Total Sales = SUM(Sales[Amount])",
+                "Add a matrix visual: Region on Rows, Year on Columns, Total Sales in Values",
+                "Observe different values in each cell - these represent different filter contexts",
+                "Add a slicer: Select 'East' region",
+                "Notice matrix updates - filter context changed",
+                "Add another slicer: Select '2023' year",
+                "Notice matrix updates again - filter context now includes both filters",
+                "Remove slicers one by one, observing how values change",
+                "Click on different matrix cells to see how filter context affects values",
+                "Practice: Create different visuals and observe how same measure shows different values",
+                "Verify filter context works by checking calculations manually"
+              ],
+              tables: [
+                {
+                  title: "Filter Context Contributors",
+                  headers: ["Contributor", "Where Applied", "Example", "Can Be Modified?"],
+                  rows: [
+                    ["Slicers", "All visuals on page", "Region slicer selecting 'East'", "User can change"],
+                    ["Page Filters", "All visuals on specific page", "Date range filter", "User can change"],
+                    ["Visual Filters", "One visual only", "Top 10 products filter", "User can change"],
+                    ["Visual Axes", "The visual itself", "Region on Rows", "Visual layout"],
+                    ["Report Filters", "All pages in report", "Active Users Only", "User can change"]
+                  ]
+                },
+                {
+                  title: "Understanding Filter Context Flow",
+                  headers: ["Step", "What Happens", "Example"],
+                  rows: [
+                    ["1. User selects slicer", "Filter context adds condition", "Region = 'East'"],
+                    ["2. Visual queries data", "DAX measure is called", "Total Sales = SUM(Sales)"],
+                    ["3. Measure evaluates", "Filter context applied", "Only East region sales summed"],
+                    ["4. Result displayed", "Value appears in visual", "Sales for East region shown"],
+                    ["5. User changes filter", "Filter context updates", "Region = 'West'"],
+                    ["6. Measure re-evaluates", "New context applied", "Only West region sales summed"],
+                    ["7. New result displayed", "Updated value", "Sales for West region shown"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -1816,14 +1873,81 @@ export const courseData: Part[] = [
             moduleNumber: 7,
             lessonNumber: 4,
             title: "Iterator Functions (SUMX, AVERAGEX, MINX)",
-            description: "Iterators, or \"X-functions,\" are functions that create a row context within a measure, allowing for row-by-row calculations",
-            duration: 10,
+            description: "Iterator functions (X-functions) create a row context within a measure, allowing for row-by-row calculations. This is the correct solution to the \"Total Price\" problem from earlier.",
+            duration: 30,
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'What are Iterator Functions?', timestamp: 0 },
+              { title: 'SUMX: Sum with Expression', timestamp: 240 },
+              { title: 'AVERAGEX and Other X-Functions', timestamp: 720 },
+              { title: 'When to Use Iterators', timestamp: 1200 },
+              { title: 'Performance Considerations', timestamp: 1500 },
+              { title: 'Lab: Iterator Functions', timestamp: 1680 }
+            ],
             difficulty: 'intermediate',
-            tags: ["Power BI Fundamentals"],
-            topic: 'Business Intelligence',
+            tags: ["DAX", "Iterators", "X-Functions"],
+            topic: 'DAX',
             content: {
-              concept: "Iterators, or \"X-functions,\" are functions that create a row context within a measure, allowing for row-by-row calculations",
-              discussion: "This is the correct solution to the \"Total Price\" problem from",
+              concept: "Iterator functions (X-functions) like SUMX, AVERAGEX, and MINX create a row context within a measure, allowing for row-by-row calculations. These functions are essential when you need to perform calculations that can't be done with simple aggregations. For example, instead of multiplying Quantity * UnitPrice in a calculated column, you use SUMX(Sales, Sales[Quantity] * Sales[UnitPrice]) to calculate total revenue dynamically.",
+              discussion: "This is the correct solution to the \"Total Price\" problem from earlier lessons. Instead of creating a calculated column [TotalPrice] = [Quantity] * [UnitPrice] (which consumes memory), you create a measure: Total Sales = SUMX(Sales, Sales[Quantity] * Sales[UnitPrice]). How iterators work: 1) SUMX iterates through the Sales table (within current filter context), 2) For each row, calculates Quantity * UnitPrice, 3) Stores result temporarily, 4) Sums all results. This provides the correct aggregation without bloating the model. Common iterator functions include: SUMX (sum with expression), AVERAGEX (average with expression), MINX (minimum with expression), MAXX (maximum with expression), COUNTX (count with expression), and CONCATENATEX (concatenate with expression). Iterators follow the pattern: FUNCTIONX(table, expression) where the expression is evaluated for each row. Performance note: Iterators are slower than simple aggregations like SUM() because they evaluate the expression for every row. For large tables, consider pre-calculating in Power Query if possible, or use aggregation patterns when appropriate. However, iterators are still the right choice when you need dynamic, context-aware calculations.",
+              keyPoints: [
+                "Iterator functions create row context within measures for row-by-row calculations",
+                "Pattern: FUNCTIONX(table, expression) - expression evaluated for each row",
+                "Common iterators: SUMX, AVERAGEX, MINX, MAXX, COUNTX, CONCATENATEX",
+                "Use iterators when you need per-row calculations that can't be aggregated directly",
+                "Iterators are slower than simple aggregations but provide flexibility",
+                "This solves the 'Total Price' problem without calculated columns"
+              ],
+              insiderTips: [
+                "Use SUMX for row-by-row multiplication then sum: SUMX(Table, [Qty] * [Price])",
+                "AVERAGEX is perfect for weighted averages: AVERAGEX(Sales, Sales[Amount])",
+                "Performance: Iterators evaluate for EVERY row - use on filtered tables when possible",
+                "Test iterators on small tables first to verify logic before applying to large datasets",
+                "When possible, do calculations in Power Query instead of iterators for better performance",
+                "Iterators work with filter context - they respect all active filters automatically",
+                "Don't overuse iterators - simple SUM() is faster than SUMX() when you don't need per-row logic",
+                "Common pattern: SUMX(RELATEDTABLE(...), expression) to iterate related rows"
+              ],
+              labs: [
+                "Create Total Sales measure with SUMX:",
+                "  Total Sales = SUMX(Sales, Sales[Quantity] * Sales[UnitPrice])",
+                "  Compare to alternative: Total Sales (column) = SUM([TotalPrice])",
+                "  Verify both give same results but measure is better",
+                "Create Average Order Value with AVERAGEX:",
+                "  Avg Order Value = AVERAGEX(Sales, Sales[Quantity] * Sales[UnitPrice])",
+                "  This calculates average of individual line item values",
+                "Create Percentage of Sales per Customer with SUMX:",
+                "  % of Total = DIVIDE([CustomerSales], SUMX(ALL(Customer), [CustomerSales]))",
+                "  Uses SUMX with ALL to calculate total across all customers",
+                "Practice: Create different iterator measures and test them in visuals",
+                "Observe: Iterators recalculate based on filter context automatically",
+                "Performance test: Compare SUMX on large table vs filtered table"
+              ],
+              tables: [
+                {
+                  title: "Common Iterator Functions",
+                  headers: ["Function", "Returns", "Use Case", "Example"],
+                  rows: [
+                    ["SUMX", "Sum of expression", "Row-by-row multiplication then sum", "SUMX(Sales, Qty*Price)"],
+                    ["AVERAGEX", "Average of expression", "Weighted averages, per-row calculations", "AVERAGEX(Sales, Amount)"],
+                    ["MINX", "Minimum of expression", "Smallest value across rows", "MINX(Product, [Price]*[Qty])"],
+                    ["MAXX", "Maximum of expression", "Largest value across rows", "MAXX(Customer, [Sales])"],
+                    ["COUNTX", "Count with filter", "Count rows where condition is true", "COUNTX(Sales, Sales>1000)"],
+                    ["CONCATENATEX", "Concatenate values", "Combine text values with delimiters", "CONCATENATEX(Orders, [Item], \", \")"]
+                  ]
+                },
+                {
+                  title: "When to Use Iterators vs Simple Aggregations",
+                  headers: ["Scenario", "Use", "Example", "Why"],
+                  rows: [
+                    ["Multiplication then sum", "SUMX", "SUMX(Sales, Qty*Price)", "Can't use SUM on product"],
+                    ["Simple addition", "SUM", "SUM(Sales[Amount])", "Faster, simpler"],
+                    ["Per-row calculations", "Iterators", "SUMX(Sales, [Amount]*[Margin])", "Need expression evaluation"],
+                    ["Aggregation only", "Aggregations", "SUM, AVERAGE, COUNT", "Faster performance"],
+                    ["Related table iterations", "Iterator", "SUMX(RELATEDTABLE(...))", "Multiple rows per parent"]
+                  ]
+                }
+              ]
             },
           },
         ],
@@ -1839,14 +1963,82 @@ export const courseData: Part[] = [
             moduleNumber: 8,
             lessonNumber: 1,
             title: "The Most Important Function in DAX: CALCULATE()",
-            description: "CALCULATE() is the most powerful and important function in DAX. It is the only function that can modify the filter context.90Syntax: CALCULATE( <expression>, <filter1>, <filter2>,... )",
-            duration: 10,
+            description: "CALCULATE() is the most powerful and important function in DAX. It is the ONLY function that can modify filter context. Master CALCULATE() to unlock advanced DAX.",
+            duration: 40,
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Why CALCULATE() is Critical', timestamp: 0 },
+              { title: 'CALCULATE() Syntax and Basics', timestamp: 360 },
+              { title: 'Adding Filters with CALCULATE()', timestamp: 900 },
+              { title: 'Removing Filters with CALCULATE()', timestamp: 1440 },
+              { title: 'Multiple Filters in CALCULATE()', timestamp: 1920 },
+              { title: 'Lab: CALCULATE() Practice', timestamp: 2160 }
+            ],
             difficulty: 'intermediate',
-            tags: ["DAX"],
+            tags: ["DAX", "CALCULATE", "Critical Concept"],
             topic: 'DAX',
             content: {
-              concept: "CALCULATE() is the most powerful and important function in DAX. It is the only function that can modify the filter context.90Syntax: CALCULATE( <expression>, <filter1>, <filter2>,... )",
-              discussion: "The first argument is the measure to be evaluated (e.g., ``). All subsequent arguments are new filters that are applied, which can override or add to the existing filter context",
+              concept: "CALCULATE() is the most powerful and important function in DAX. It is the ONLY function that can modify filter context. Most advanced DAX calculations rely on CALCULATE() to override or add filters. Syntax: CALCULATE(<expression>, <filter1>, <filter2>, ...). The first argument is the measure or expression to evaluate, and all subsequent arguments are new filters that modify the context.",
+              discussion: "The first argument is the measure to be evaluated (e.g., [Total Sales]). All subsequent arguments are new filters that are applied, which can override or add to the existing filter context. How CALCULATE() works: 1) Takes the existing filter context, 2) Applies new filters from its arguments, 3) Evaluates the expression in this modified context, 4) Returns the result. CALCULATE() is the key to creating measures that behave differently based on context - like 'Sales for this region' vs 'Total Sales across all regions'. Common uses include: adding filters (Sales in East = CALCULATE([Total Sales], Region=\"East\")), removing filters (Total Sales = CALCULATE([Total Sales], ALL(Region))), and replacing filters (Sales FYTD = CALCULATE([Total Sales], FILTER(ALL(Date), Date[Year]=YEAR(TODAY())))). Understanding CALCULATE() is essential because it's the foundation of advanced DAX calculations. Without CALCULATE(), you can't create measures that modify the existing filter context. Most real-world DAX measures contain at least one CALCULATE().",
+              keyPoints: [
+                "CALCULATE() is the ONLY function that can modify filter context",
+                "Syntax: CALCULATE(expression, filter1, filter2, ...)",
+                "First argument = what to calculate, remaining arguments = how to filter",
+                "CALCULATE() modifies existing filter context, it doesn't replace it",
+                "Used in 90%+ of advanced DAX measures",
+                "Understanding CALCULATE() is essential for DAX mastery"
+              ],
+              insiderTips: [
+                "CALCULATE() is the most important DAX function - master it completely",
+                "Remember: CALCULATE() modifies context, doesn't replace it entirely",
+                "You can stack multiple filters: CALCULATE(expression, filter1, filter2, filter3)",
+                "CALCULATE() can both add filters and remove them (using ALL, ALLEXCEPT)",
+                "When CALCULATE() seems confusing, ask: 'What context am I starting with? What filters am I adding?'",
+                "Practice reading CALCULATE() as natural language: 'Calculate Total Sales where Region equals East'",
+                "All filter arguments in CALCULATE() are applied AND conditions (all must be true)",
+                "Pro tip: Start with simple CALCULATE() examples and gradually add complexity"
+              ],
+              labs: [
+                "Create basic CALCULATE() measure:",
+                "  East Sales = CALCULATE([Total Sales], Sales[Region]=\"East\")",
+                "  Test in visual - should show only East region sales",
+                "Add multiple filters:",
+                "  East 2024 Sales = CALCULATE([Total Sales], Sales[Region]=\"East\", Sales[Year]=2024)",
+                "  This filters for both conditions",
+                "Remove filters:",
+                "  All Region Sales = CALCULATE([Total Sales], ALL(Sales[Region]))",
+                "  This removes Region filter to show total across all regions",
+                "Practice filter combinations:",
+                "  Try different filter combinations in CALCULATE()",
+                "  Observe how filters interact",
+                "Build practical measures:",
+                "  Sales % = DIVIDE([This Region Sales], CALCULATE([Total Sales], ALL(Region)))",
+                "  This calculates percentage of regional sales vs total",
+                "Test: Use different slicers to verify CALCULATE() behavior"
+              ],
+              tables: [
+                {
+                  title: "CALCULATE() Patterns",
+                  headers: ["Pattern", "Syntax", "What It Does", "Example"],
+                  rows: [
+                    ["Add Single Filter", "CALCULATE(expr, column=value)", "Adds one filter condition", "CALCULATE(Sales, Region=\"East\")"],
+                    ["Add Multiple Filters", "CALCULATE(expr, f1, f2, f3)", "Adds AND conditions", "CALCULATE(Sales, Region=\"E\", Year=2024)"],
+                    ["Remove Filter", "CALCULATE(expr, ALL(column))", "Removes column filter", "CALCULATE(Sales, ALL(Region))"],
+                    ["Remove Some Filters", "CALCULATE(expr, ALLEXCEPT(table, col))", "Keeps only specified column", "CALCULATE(Sales, ALLEXCEPT(Sales, Year))"],
+                    ["Replace Filter", "CALCULATE(expr, FILTER(...))", "Complex filter logic", "CALCULATE(Sales, FILTER(ALL(Date), ...))"]
+                  ]
+                },
+                {
+                  title: "CALCULATE() vs Without CALCULATE()",
+                  headers: ["Scenario", "Without CALCULATE()", "With CALCULATE()", "Result"],
+                  rows: [
+                    ["Same filter context", "[Total Sales]", "[Total Sales]", "Same result"],
+                    ["Different filter", "Can't change context", "CALCULATE([Total Sales], Region=\"East\")", "Different result"],
+                    ["Percentage of total", "Impossible", "CALCULATE(...) / CALCULATE(..., ALL(...))", "Possible"],
+                    ["Complex logic", "Limited", "CALCULATE with FILTER", "Full power"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -1854,14 +2046,82 @@ export const courseData: Part[] = [
             moduleNumber: 8,
             lessonNumber: 2,
             title: "Removing Filters with ALL()",
-            description: "The ALL() function removes filters from a table or column.96 Its primary use is as a filter modifier inside CALCULATE()",
-            duration: 10,
+            description: "The ALL() function removes filters from a table or column. Its primary use is as a filter modifier inside CALCULATE(). This is the key to creating \"Percent of Total\" calculations.",
+            duration: 30,
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'What is ALL()?', timestamp: 0 },
+              { title: 'ALL() with CALCULATE()', timestamp: 240 },
+              { title: 'Percent of Total Pattern', timestamp: 720 },
+              { title: 'ALL() vs ALLEXCEPT() vs ALLSELECTED()', timestamp: 1200 },
+              { title: 'Common Use Cases', timestamp: 1560 },
+              { title: 'Lab: ALL() Practice', timestamp: 1800 }
+            ],
             difficulty: 'intermediate',
-            tags: ["Power BI Fundamentals"],
-            topic: 'Business Intelligence',
+            tags: ["DAX", "ALL", "Filter Modifiers"],
+            topic: 'DAX',
             content: {
-              concept: "The ALL() function removes filters from a table or column.96 Its primary use is as a filter modifier inside CALCULATE()",
-              discussion: "This is the key to creating \"Percent of Total\" calculations",
+              concept: "The ALL() function removes filters from a table or column. Its primary use is as a filter modifier inside CALCULATE(). When used inside CALCULATE(), ALL() overrides the existing filter context for the specified table or column, allowing you to calculate totals across all data regardless of active filters. This is the key to creating 'Percent of Total' calculations and many other advanced DAX patterns.",
+              discussion: "ALL() is a table-returning function that returns all rows in a table (or all unique values in a column) regardless of filter context. When used inside CALCULATE(), it effectively says 'ignore all filters on this table/column'. For example, CALCULATE([Total Sales], ALL(Customer)) calculates total sales ignoring any Customer filters. This is the foundation of percentage calculations: Percent of Total Sales = DIVIDE([Regional Sales], CALCULATE([Regional Sales], ALL(Region))). In this pattern, the numerator respects filters (showing regional sales), while the denominator removes the Region filter (showing total sales), resulting in a percentage. ALL() variations: ALL(table) removes all filters on the table, ALL(column) removes filter on that column, ALL(table[column]) removes filter on that specific column, ALLEXCEPT(table, columns...) removes all filters except specified columns, and ALLSELECTED() removes visual filters but keeps slicer filters. Understanding these variations is crucial for advanced DAX.",
+              keyPoints: [
+                "ALL() returns all rows/values, ignoring filter context",
+                "Used inside CALCULATE() to override existing filters",
+                "Key to percentage calculations: numerator with filter, denominator with ALL()",
+                "ALL(table) removes all table filters, ALL(column) removes column filter",
+                "ALLEXCEPT() removes all filters except specified columns",
+                "ALLSELECTED() removes visual filters but keeps slicer filters"
+              ],
+              insiderTips: [
+                "ALL() by itself does nothing - it must be inside CALCULATE() to remove filters",
+                "Common pattern: % of Total = DIVIDE(measure, CALCULATE(measure, ALL(...)))",
+                "ALL(column) vs ALL(table[column]) - use ALL(column) unless you need specificity",
+                "Performance: ALL() on large tables can be slow - use ALL(column) when possible",
+                "ALLEXCEPT is powerful: ALLEXCEPT(Sales, [Date]) keeps Date filter, removes others",
+                "ALLSELECTED is tricky: Understand when you want slicers vs visual filters",
+                "Test ALL() with slicers to verify it's removing filters correctly",
+                "Remember: ALL() removes filters - use it when you need 'ignore this filter' logic"
+              ],
+              labs: [
+                "Create Total Sales measure: Total Sales = SUM(Sales[Amount])",
+                "Create Regional Sales: Regional Sales = [Total Sales] (inherits Region filter)",
+                "Create Total All Regions with ALL:",
+                "  Total All Regions = CALCULATE([Total Sales], ALL(Sales[Region]))",
+                "  This removes Region filter to show total across all regions",
+                "Create Percent of Total:",
+                "  % of Total = DIVIDE([Regional Sales], [Total All Regions])",
+                "  Shows each region as percentage of total",
+                "Test with slicers:",
+                "  Add Region slicer, observe how % changes",
+                "  Verify numerator changes but denominator stays total",
+                "Practice ALLEXCEPT:",
+                "  ALLEXCEPT Sales = CALCULATE([Total Sales], ALLEXCEPT(Sales, [Year]))",
+                "  This keeps Year filter, removes all other Sales filters",
+                "Compare ALL vs ALLEXCEPT vs ALLSELECTED in different scenarios"
+              ],
+              tables: [
+                {
+                  title: "ALL() Function Variations",
+                  headers: ["Function", "What It Does", "Use Case", "Example"],
+                  rows: [
+                    ["ALL(table)", "Removes all filters on table", "Total across entire table", "ALL(Sales)"],
+                    ["ALL(column)", "Removes filter on column", "Total across column categories", "ALL(Sales[Region])"],
+                    ["ALL(table[column])", "Explicit column reference", "Same as ALL(column)", "ALL(Sales[Region])"],
+                    ["ALLEXCEPT(table, cols)", "Keep specified columns, remove others", "Keep one filter, remove rest", "ALLEXCEPT(Sales, [Year])"],
+                    ["ALLSELECTED()", "Remove visual filters, keep slicers", "Slicer-aware totals", "ALLSELECTED(Sales[Region])"]
+                  ]
+                },
+                {
+                  title: "Common ALL() Patterns",
+                  headers: ["Pattern", "Formula", "When to Use", "Example Result"],
+                  rows: [
+                    ["% of Total", "DIVIDE(measure, CALCULATE(measure, ALL(...)))", "Show percentage", "East = 25% of total"],
+                    ["Total ignoring filter", "CALCULATE(measure, ALL(...))", "Need grand total", "Show total across all regions"],
+                    ["Compare to total", "measure / CALCULATE(measure, ALL(...))", "Ratio to total", "This region / all regions"],
+                    ["Ranking", "RANKX(ALL(...), measure)", "Rank across all", "Rank 1-4 for 4 regions"],
+                    ["Pareto", "CALCULATE(measure, filter(<80%)) / CALCULATE(measure, ALL(...))", "80/20 analysis", "Top products = 80%"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -1869,13 +2129,81 @@ export const courseData: Part[] = [
             moduleNumber: 8,
             lessonNumber: 3,
             title: "Related ALL Functions: ALLEXCEPT(), ALLSELECTED()",
-            description: "Nuanced versions of ALL() for more complex scenarios",
-            duration: 10,
+            description: "Nuanced versions of ALL() for more complex scenarios. Learn ALLEXCEPT(), ALLSELECTED(), and when to use each one.",
+            duration: 30,
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'ALL() Function Family Overview', timestamp: 0 },
+              { title: 'ALLEXCEPT() Deep Dive', timestamp: 300 },
+              { title: 'ALLSELECTED() Deep Dive', timestamp: 780 },
+              { title: 'When to Use Each Function', timestamp: 1260 },
+              { title: 'Complex Scenarios', timestamp: 1620 },
+              { title: 'Lab: All ALL() Functions', timestamp: 1860 }
+            ],
             difficulty: 'intermediate',
-            tags: ["Power BI Fundamentals"],
-            topic: 'Business Intelligence',
+            tags: ["DAX", "Filter Modifiers", "ALL Variations"],
+            topic: 'DAX',
             content: {
-              concept: "Nuanced versions of ALL() for more complex scenarios",
+              concept: "ALLEXCEPT() and ALLSELECTED() are nuanced versions of ALL() for more complex filter scenarios. ALLEXCEPT() removes all filters except specified columns - perfect when you want to keep some filters while removing others. ALLSELECTED() removes visual-level filters but keeps slicer/filter pane filters - enabling slicer-aware calculations. Understanding these variations is essential for advanced DAX patterns.",
+              discussion: "ALLEXCEPT() syntax is ALLEXCEPT(table, column1, column2, ...) and removes all filters from the table EXCEPT the specified columns. For example, ALLEXCEPT(Sales, [Year], [Region]) keeps Year and Region filters active while removing all other Sales table filters. This is powerful when you want partial totals - like 'show total for this year and region across all products'. ALLSELECTED() syntax is ALLSELECTED(table) and removes filters created by visual axes/rows/columns but keeps filters from slicers and filter panes. For example, if you have a matrix with Product on rows and Region on slicer, ALLSELECTED(Sales[Product]) would show total across all products (ignoring the matrix rows) but still respect the Region slicer. This enables calculations like 'this product / all selected products' which can be useful for contribution analysis. Common use cases: ALLEXCEPT() for keeping specific filters while removing others (e.g., year-to-date ignoring time periods), ALLSELECTED() for slicer-aware totals (e.g., ranking within selected items), and combining them for complex filter scenarios. These functions are advanced and require understanding of filter context interaction.",
+              keyPoints: [
+                "ALLEXCEPT() removes all filters EXCEPT specified columns",
+                "ALLSELECTED() removes visual filters but keeps slicer/filter pane filters",
+                "ALLEXCEPT() is perfect for keeping some filters while removing others",
+                "ALLSELECTED() enables slicer-aware calculations",
+                "Use ALLEXCEPT() when you need partial totals",
+                "Use ALLSELECTED() when you need slicer-aware measures"
+              ],
+              insiderTips: [
+                "ALLEXCEPT(Sales, [Year]) keeps Year, removes all other Sales filters",
+                "ALLEXCEPT can take multiple columns: ALLEXCEPT(Sales, [Year], [Region])",
+                "ALLSELECTED respects slicers but ignores visual axes - test carefully",
+                "Performance: ALLSELECTED can be slower than ALL - profile your measures",
+                "Common mistake: Using ALLSELECTED when you really need ALL",
+                "Test ALLSELECTED with and without slicers to verify behavior",
+                "ALLEXCEPT is powerful for year-over-year calculations keeping year filter",
+                "ALLSELECTED is key for dashboard-level filtering scenarios"
+              ],
+              labs: [
+                "Create ALLEXCEPT() measure:",
+                "  Total by Year = CALCULATE([Total Sales], ALLEXCEPT(Sales, [Year]))",
+                "  This keeps Year filter, removes all other filters",
+                "Use ALLEXCEPT for YTD calculations:",
+                "  Sales YTD = CALCULATE([Total Sales], ALLEXCEPT(DateTable, [Year]))",
+                "  Keeps Year, removes Month/Day filters",
+                "Create ALLSELECTED() measure:",
+                "  Selected Total = CALCULATE([Total Sales], ALLSELECTED(Sales[Product]))",
+                "  This ignores Product rows but respects other filters",
+                "Test with slicers:",
+                "  Add Region slicer, Product slicer",
+                "  Observe how ALLSELECTED responds to slicers",
+                "Combine ALL functions:",
+                "  Complex Total = CALCULATE([Total Sales], ALLEXCEPT(Sales, [Year]), ALLSELECTED(Region))",
+                "  Keep Year filter, remove visual filters, keep slicer filters",
+                "Practice: Build measures using each ALL variation"
+              ],
+              tables: [
+                {
+                  title: "ALL() Function Family Comparison",
+                  headers: ["Function", "Removes", "Keeps", "Use Case"],
+                  rows: [
+                    ["ALL(table)", "All table filters", "Nothing", "Grand total"],
+                    ["ALL(column)", "One column filter", "All other filters", "Total for this column"],
+                    ["ALLEXCEPT(table, cols)", "All except specified", "Specified columns", "Partial totals"],
+                    ["ALLSELECTED(table)", "Visual axes filters", "Slicers, filter panes", "Slicer-aware calculations"]
+                  ]
+                },
+                {
+                  title: "Choosing the Right ALL Function",
+                  headers: ["Need", "Function", "Example", "Result"],
+                  rows: [
+                    ["Grand total", "ALL(table)", "ALL(Sales)", "Total across everything"],
+                    ["Total for one column", "ALL(column)", "ALL(Sales[Region])", "Total ignoring Region"],
+                    ["Keep some filters", "ALLEXCEPT", "ALLEXCEPT(Sales, [Year])", "Keep Year, remove rest"],
+                    ["Slicer-aware total", "ALLSELECTED", "ALLSELECTED(Sales[Product])", "Total respecting slicers"]
+                  ]
+                }
+              ]
             },
           },
           {
