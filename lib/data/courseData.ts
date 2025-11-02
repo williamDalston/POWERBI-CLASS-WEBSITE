@@ -2465,14 +2465,88 @@ export const courseData: Part[] = [
             moduleNumber: 9,
             lessonNumber: 1,
             title: "The Prerequisite: A Date Table",
-            description: "DAX Time Intelligence functions will not work unless a proper, dedicated Date table exists in the model",
-            duration: 10,
+            description: "DAX Time Intelligence functions require a proper, dedicated Date table in the model. Learn how to create and configure a Date table for time intelligence calculations.",
+            duration: 25,
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Why Date Tables Are Required', timestamp: 0 },
+              { title: 'Date Table Requirements', timestamp: 300 },
+              { title: 'Creating Date Table in Power Query', timestamp: 720 },
+              { title: 'Creating Date Table with DAX', timestamp: 1140 },
+              { title: 'Marking as Date Table', timestamp: 1500 },
+              { title: 'Lab: Create and Configure Date Table', timestamp: 1680 }
+            ],
             difficulty: 'intermediate',
             tags: ["Time Intelligence", "DAX", "Power Query"],
             topic: 'DAX',
             content: {
-              concept: "DAX Time Intelligence functions will not work unless a proper, dedicated Date table exists in the model",
-              discussion: "This table must contain one row for every day in the desired range, with no gaps. It must be \"Marked as Date Table\" in the Model View. This table can be created in Power Query or using DAX (e.g., CALENDARAUTO())",
+              concept: "DAX Time Intelligence functions will not work unless a proper, dedicated Date table exists in the model. This table serves as the foundation for all time-based calculations and must meet specific requirements for time intelligence functions to operate correctly. Without a properly configured Date table, functions like TOTALYTD, SAMEPERIODLASTYEAR, and other time intelligence functions simply won't work.",
+              discussion: "A Date table must contain one row for every day in the desired range with no gaps. If your data spans 2020-2025, the Date table needs every single day in that range with no missing dates. This table must be \"Marked as Date Table\" in the Model View to enable time intelligence functions. The Date table can be created in Power Query (using 'New Table' or 'Blank Query' with date generation functions) or using DAX (e.g., CALENDARAUTO() which automatically detects the date range from your data). Power Query approach: Create a new query, use List.Dates to generate dates, convert to table, add date-related columns (Year, Month, Quarter, etc.), and load. DAX approach: Use CALENDARAUTO() or CALENDAR() functions to generate dates, then add calculated columns for Year, MonthName, Quarter, etc. After creating the Date table, go to Model View, right-click the table, select 'Mark as date table', and choose the date column. This is critical - time intelligence functions won't work until this is done. Best practice: Create a comprehensive Date table with many columns (Year, Quarter, Month, Week, Day of Week, etc.) for maximum flexibility in time calculations.",
+              keyPoints: [
+                "Date table required: Time intelligence functions won't work without it",
+                "One row per day: No gaps in the date range",
+                "Must be marked: 'Mark as date table' in Model View",
+                "Can create in Power Query or DAX: Both methods work",
+                "Include date columns: Year, Month, Quarter, Week for flexibility",
+                "Use CALENDARAUTO() for automatic range detection"
+              ],
+              insiderTips: [
+                "Always create a Date table for any model with time-based data",
+                "CALENDARAUTO() is easiest - automatically detects your data's date range",
+                "Power Query method gives more control over columns and structure",
+                "Marking as Date table is REQUIRED - functions won't work without it",
+                "Include more columns than you think you need: Year, Quarter, Month, Week, Day",
+                "Consider adding fiscal year columns if your business uses fiscal calendars",
+                "The Date table doesn't need to join to facts if you create date columns in facts",
+                "Use continuous dates - avoid business days only unless required"
+              ],
+              labs: [
+                "Method 1: Create Date Table with DAX:",
+                "  In Data View, click 'New Table'",
+                "  Enter: DateTable = CALENDARAUTO()",
+                "  Table is created with one column 'Date'",
+                "  Add columns: Year = YEAR([Date]), Month = MONTH([Date]), etc.",
+                "Method 2: Create in Power Query:",
+                "  Click 'New Source' > 'Blank Query'",
+                "  In Advanced Editor, enter M code to generate dates",
+                "  Add columns: Year, Month, Quarter, Week using transformations",
+                "  Close & Apply",
+                "Mark as Date Table:",
+                "  Switch to Model View",
+                "  Right-click DateTable, select 'Mark as date table'",
+                "  Select the Date column (primary date column)",
+                "  Time intelligence functions are now enabled",
+                "Verify:",
+                "  Try a simple measure: Test = CALENDAR(2020,1,1, 2025,12,31)",
+                "  Or create: Sales YTD = TOTALYTD(SUM(Sales[Amount]), 'DateTable'[Date])",
+                "  If it works, Date table is configured correctly"
+              ],
+              tables: [
+                {
+                  title: "Date Table Creation Methods",
+                  headers: ["Method", "Code/Steps", "Pros", "Cons"],
+                  rows: [
+                    ["DAX CALENDARAUTO()", "DateTable = CALENDARAUTO()", "Automatic range detection, quick", "Less control over structure"],
+                    ["DAX CALENDAR()", "DateTable = CALENDAR(2020,1,1,2025,12,31)", "Full control over range", "Must specify dates manually"],
+                    ["Power Query", "List.Dates or Blank Query", "Visual transformation, flexible", "More steps, requires Power Query knowledge"],
+                    ["External Source", "Connect to date data", "Can include business logic", "Depends on external system"]
+                  ]
+                },
+                {
+                  title: "Essential Date Table Columns",
+                  headers: ["Column", "Purpose", "Example", "Used By"],
+                  rows: [
+                    ["Date", "Primary date column", "2024-03-15", "All time functions"],
+                    ["Year", "Year number", "2024", "TOTALYTD, SAMEPERIODLASTYEAR"],
+                    ["Quarter", "Quarter number", "Q1, Q2, Q3, Q4", "Quarter-based calculations"],
+                    ["Month", "Month number/name", "3 or 'March'", "Monthly aggregations"],
+                    ["Week", "Week number", "11", "Weekly analysis"],
+                    ["DayOfWeek", "Day name", "Monday, Tuesday...", "Day-of-week analysis"],
+                    ["IsWeekend", "True/False", "false", "Filter business days only"],
+                    ["FiscalYear", "Custom FY", "FY2024", "Fiscal calendars"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -2480,13 +2554,82 @@ export const courseData: Part[] = [
             moduleNumber: 9,
             lessonNumber: 2,
             title: "Year-to-Date (YTD) and Period-to-Date (Hands-On Lab)",
-            description: "Calculating running totals for common time periods.99Lab: Create Sales YTD = TOTALYTD(, 'Date' ).99 This single function replaces complex, manual sum logic",
-            duration: 10,
+            description: "Calculating running totals for common time periods using time intelligence functions. TOTALYTD() and similar functions replace complex manual sum logic with elegant, reusable measures.",
+            duration: 30,
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Understanding YTD', timestamp: 0 },
+              { title: 'TOTALYTD Function', timestamp: 300 },
+              { title: 'Quarter-to-Date (QTD)', timestamp: 720 },
+              { title: 'Month-to-Date (MTD)', timestamp: 1140 },
+              { title: 'Combining Period Calculations', timestamp: 1500 },
+              { title: 'Lab: Create All Period Measures', timestamp: 1740 }
+            ],
             difficulty: 'intermediate',
-            tags: ["Time Intelligence"],
-            topic: 'Business Intelligence',
+            tags: ["Time Intelligence", "DAX"],
+            topic: 'DAX',
             content: {
-              concept: "Calculating running totals for common time periods.99Lab: Create Sales YTD = TOTALYTD(, 'Date' ).99 This single function replaces complex, manual sum logic",
+              concept: "Calculating running totals for common time periods is a fundamental business analytics requirement. Time intelligence functions like TOTALYTD(), TOTALQTD(), and TOTALMTD() make this simple and elegant. These functions automatically calculate running totals from the beginning of the period to the current date, replacing complex manual sum logic with reusable measures that dynamically update based on context.",
+              discussion: "TOTALYTD() calculates the running total from January 1st of the current year to today (or the selected date). Syntax: Sales YTD = TOTALYTD(SUM(Sales[Amount]), 'Date'[Date]). This single function replaces complex DAX that would require DATESBETWEEN(), FILTER(), and manual date logic. TOTALYTD works because it knows about your Date table (marked as date table) and automatically understands the period boundaries. TOTALQTD() (Quarter-to-Date) calculates from the start of the current quarter, and TOTALMTD() (Month-to-Date) calculates from the start of the current month. These functions all follow the same pattern: FUNCTION(expression, date_column). Optional parameters allow you to specify the end date (for end-of-period calculations) and filters. These functions are context-aware - when placed in a visual by month, they show cumulative totals through that month; when placed in a visual by day, they show YTD through that day. This automatic context awareness is what makes time intelligence functions powerful - one measure works everywhere.",
+              keyPoints: [
+                "TOTALYTD calculates running total from year start to current date",
+                "TOTALQTD calculates running total from quarter start",
+                "TOTALMTD calculates running total from month start",
+                "All follow same pattern: FUNCTION(expression, date_column)",
+                "Automatic context awareness - one measure works in any visual",
+                "Requires marked Date table to work correctly"
+              ],
+              insiderTips: [
+                "TOTALYTD is the most commonly used time intelligence function",
+                "End date parameter: TOTALYTD(expr, date, end_date) for fiscal years",
+                "All functions work with filters - they respect slicer selections",
+                "Test YTD measures in different visuals to verify context behavior",
+                "Use these functions instead of manual date filtering - much simpler",
+                "Combine with ALLEXCEPT for partial year totals",
+                "Fiscal year: Use end date parameter for non-calendar fiscal years",
+                "Multiple dates: Use USERELATIONSHIP when you have multiple date columns"
+              ],
+              labs: [
+                "Create Sales YTD measure:",
+                "  Sales YTD = TOTALYTD(SUM(Sales[Amount]), 'Date'[Date])",
+                "  Add to line chart with Date on X-axis",
+                "  Observe cumulative behavior",
+                "Create Sales QTD measure:",
+                "  Sales QTD = TOTALQTD(SUM(Sales[Amount]), 'Date'[Date])",
+                "  Add to visual - shows quarter cumulative",
+                "Create Sales MTD measure:",
+                "  Sales MTD = TOTALMTD(SUM(Sales[Amount]), 'Date'[Date])",
+                "  Add to visual - shows month cumulative",
+                "Compare measures:",
+                "  Add all three to same visual",
+                "  See how they differ based on period",
+                "Test with filters:",
+                "  Add Year slicer, select specific year",
+                "  Verify YTD resets per year",
+                "Practice: Build dashboard with YTD, QTD, and MTD metrics"
+              ],
+              tables: [
+                {
+                  title: "Period-to-Date Functions",
+                  headers: ["Function", "Period", "Starts From", "Syntax"],
+                  rows: [
+                    ["TOTALYTD", "Year-to-Date", "January 1 of current year", "TOTALYTD(expr, date)"],
+                    ["TOTALQTD", "Quarter-to-Date", "Start of current quarter", "TOTALQTD(expr, date)"],
+                    ["TOTALMTD", "Month-to-Date", "First day of current month", "TOTALMTD(expr, date)"],
+                    ["TOTALWTD", "Week-to-Date", "Start of current week", "TOTALWTD(expr, date)"]
+                  ]
+                },
+                {
+                  title: "Time Intelligence vs Manual Approach",
+                  headers: ["Approach", "Complexity", "Flexibility", "Maintenance", "Best For"],
+                  rows: [
+                    ["Time Intelligence", "Simple", "Automatic context", "Easy", "Most scenarios"],
+                    ["Manual DAX", "Complex", "Custom logic", "Difficult", "Custom periods"],
+                    ["Power Query", "Simple", "Static only", "Easy", "Historical analysis"],
+                    ["CALCULATE + FILTER", "Medium", "Full control", "Medium", "Custom requirements"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -2494,13 +2637,71 @@ export const courseData: Part[] = [
             moduleNumber: 9,
             lessonNumber: 3,
             title: "Prior Period Comparisons",
-            description: "Comparing performance to the equivalent period in the past.99Lab: Create Sales PY = CALCULATE(, SAMEPERIODLASTYEAR('Date') ).99 Also demonstrate DATEADD and PARALLELPERIOD for more flexible period shi",
-            duration: 10,
+            description: "Comparing performance to the equivalent period in the past using SAMEPERIODLASTYEAR(), DATEADD(), and PARALLELPERIOD(). Learn how to create prior period measures.",
+            duration: 30,
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Prior Year Comparisons', timestamp: 0 },
+              { title: 'SAMEPERIODLASTYEAR Function', timestamp: 300 },
+              { title: 'DATEADD for Flexible Shifts', timestamp: 900 },
+              { title: 'PARALLELPERIOD Explained', timestamp: 1440 },
+              { title: 'Practical Use Cases', timestamp: 1920 },
+              { title: 'Lab: Create Prior Period Measures', timestamp: 2160 }
+            ],
             difficulty: 'intermediate',
-            tags: ["Performance"],
-            topic: 'Performance',
+            tags: ["Time Intelligence", "DAX"],
+            topic: 'DAX',
             content: {
-              concept: "Comparing performance to the equivalent period in the past.99Lab: Create Sales PY = CALCULATE(, SAMEPERIODLASTYEAR('Date') ).99 Also demonstrate DATEADD and PARALLELPERIOD for more flexible period shifts",
+              concept: "Comparing performance to the equivalent period in the past is essential for business analytics. Functions like SAMEPERIODLASTYEAR(), DATEADD(), and PARALLELPERIOD() enable you to shift time periods and compare current performance to historical periods. These comparisons help identify trends, seasonality, and year-over-year growth.",
+              discussion: "SAMEPERIODLASTYEAR() is the most straightforward prior period function. It shifts dates exactly one year into the past: Sales PY = CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Date'[Date])). This function works for any period - if you're looking at March 2024, it returns March 2023. It respects your current filter context (month, quarter, etc.) and shifts the entire period back one year. DATEADD() is more flexible - it allows you to shift by any number of periods in any direction: Sales Last Quarter = CALCULATE([Total Sales], DATEADD('Date'[Date], -1, QUARTER)). The syntax is DATEADD(date_column, number_of_periods, interval) where interval can be YEAR, QUARTER, MONTH, DAY. Use positive numbers to shift forward, negative to shift backward. PARALLELPERIOD() shifts to the corresponding period in the previous/next interval: PARALLELPERIOD('Date'[Date], -1, YEAR) shifts back exactly one year, but the period length matches your current filter. These functions are used inside CALCULATE() to modify the date filter context. They're powerful because they automatically handle leap years, month-end differences, and other date complexities.",
+              keyPoints: [
+                "SAMEPERIODLASTYEAR shifts dates back exactly one year",
+                "DATEADD provides flexible shifting by any period count",
+                "PARALLELPERIOD shifts to corresponding period in adjacent interval",
+                "All must be used inside CALCULATE() to modify filter context",
+                "Automatically handles date edge cases (leap years, month lengths)",
+                "Essential for year-over-year, quarter-over-quarter comparisons"
+              ],
+              insiderTips: [
+                "SAMEPERIODLASTYEAR is simplest for year-over-year comparisons",
+                "DATEADD is most flexible: can shift by any number of months/quarters/years",
+                "Use negative numbers in DATEADD to go backwards, positive to go forwards",
+                "PARALLELPERIOD is great for consistent period comparisons",
+                "All functions respect current filter context and shift appropriately",
+                "Test with different date ranges to verify calculations are correct",
+                "Combine with TOTALYTD: Prior Year YTD for cumulative comparisons",
+                "Handle leap year differences - DATEADD and SAMEPERIODLASTYEAR do this automatically"
+              ],
+              labs: [
+                "Create Prior Year measure:",
+                "  Sales PY = CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Date'[Date]))",
+                "  Add to visual with current sales - shows year-over-year comparison",
+                "Create Prior Quarter with DATEADD:",
+                "  Sales PQ = CALCULATE([Total Sales], DATEADD('Date'[Date], -1, QUARTER))",
+                "  Shows previous quarter sales",
+                "Create Prior Month:",
+                "  Sales PM = CALCULATE([Total Sales], DATEADD('Date'[Date], -1, MONTH))",
+                "  Shows previous month sales",
+                "Use PARALLELPERIOD:",
+                "  Sales Parallel = CALCULATE([Total Sales], PARALLELPERIOD('Date'[Date], -1, YEAR))",
+                "  Similar to SAMEPERIODLASTYEAR",
+                "Compare functions:",
+                "  Create measures with each function",
+                "  Observe differences in results",
+                "Practice: Build dashboard with current vs prior period comparisons"
+              ],
+              tables: [
+                {
+                  title: "Prior Period Functions Comparison",
+                  headers: ["Function", "Syntax", "What It Does", "Example Result"],
+                  rows: [
+                    ["SAMEPERIODLASTYEAR", "SAMEPERIODLASTYEAR(date)", "Same period, last year", "March 2024 → March 2023"],
+                    ["DATEADD", "DATEADD(date, N, period)", "Shift N periods", "March 2024, -1, MONTH → Feb 2024"],
+                    ["PARALLELPERIOD", "PARALLELPERIOD(date, N, interval)", "Corresponding period N away", "Q1 2024, -1, YEAR → Q1 2023"],
+                    ["Same quarter last year", "DATEADD(date, -4, QUARTER)", "Custom period shift", "Q4 2024 → Q4 2023"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -2508,14 +2709,73 @@ export const courseData: Part[] = [
             moduleNumber: 9,
             lessonNumber: 4,
             title: "Calculating Year-over-Year (YoY) Growth",
-            description: "Combining the previous measures to create a key business KPI.Lab: Sales YoY % = DIVIDE( ( - ), )",
-            duration: 10,
+            description: "Combining prior period measures with current period to create essential business KPIs. Learn how to calculate growth rates and percentage changes.",
+            duration: 25,
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Understanding Growth KPIs', timestamp: 0 },
+              { title: 'YoY Growth Calculation', timestamp: 300 },
+              { title: 'Percentage Change Formula', timestamp: 720 },
+              { title: 'Handling Negative Growth', timestamp: 1020 },
+              { title: 'Formatting Growth Metrics', timestamp: 1320 },
+              { title: 'Lab: Create Growth Measures', timestamp: 1500 }
+            ],
             difficulty: 'intermediate',
-            tags: ["DAX", "Time Intelligence"],
+            tags: ["DAX", "Time Intelligence", "KPIs"],
             topic: 'DAX',
             content: {
-              concept: "Combining the previous measures to create a key business KPI.Lab: Sales YoY % = DIVIDE( ( - ), )",
-              discussion: "This lesson highlights the elegance of DAX. Three simple, reusable measures (, , ``) are stacked on top of each other to produce a sophisticated and critical insight",
+              concept: "Combining prior period measures with current period data creates essential business KPIs like Year-over-Year (YoY) growth, Month-over-Month (MoM) growth, and Quarter-over-Quarter (QoQ) growth. These metrics transform raw numbers into actionable insights by showing how performance is trending. The elegance of DAX allows you to build these sophisticated metrics by simply combining reusable measures.",
+              discussion: "Year-over-Year growth is calculated as: Sales YoY % = DIVIDE(([Total Sales] - [Sales PY]), [Sales PY]). This formula uses DIVIDE() instead of division operator (/) because DIVIDE() handles division by zero gracefully, returning blank instead of an error. The formula calculates: (Current Period - Prior Period) / Prior Period × 100%. For example, if current sales are $1,200 and prior year sales are $1,000, YoY growth = ($1,200 - $1,000) / $1,000 = 20%. You can calculate this in one measure or build it from reusable components. Best practice: Create separate measures for Current, Prior, Change, and Change % to maintain clarity and reusability. Negative growth is displayed as-is (e.g., -15%) - DAX handles this automatically. For formatting, apply percentage format to the measure and adjust decimal places. You can also create conditional formatting or color coding: Green for positive growth, Red for negative. This pattern works for any period comparison: YoY, QoQ, MoM. The power is in the reusability - one growth pattern, many applications.",
+              keyPoints: [
+                "YoY Growth = (Current - Prior) / Prior × 100%",
+                "Use DIVIDE() instead of / to handle division by zero",
+                "Build from reusable measures: Current, Prior, Change, Change %",
+                "DIVIDE returns blank on divide by zero, not an error",
+                "Format as percentage for clarity",
+                "Works for any period: YoY, QoQ, MoM"
+              ],
+              insiderTips: [
+                "Always use DIVIDE() for any division to avoid errors",
+                "Create separate measures for Current, Prior, Change, and Change %",
+                "Reusable measures make it easy to create many growth metrics",
+                "Format growth metrics as percentage with appropriate decimals",
+                "Handle negative numbers - DAX displays them correctly",
+                "Use conditional formatting for visual growth indicators",
+                "Combine with TOTALYTD for cumulative growth comparisons",
+                "Consider currency changes when comparing across years",
+                "Test edge cases: zero prior period, negative values, etc."
+              ],
+              labs: [
+                "Create base measures:",
+                "  Total Sales = SUM(Sales[Amount])",
+                "  Sales PY = CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Date'[Date]))",
+                "Calculate YoY Growth:",
+                "  Sales YoY Change = [Total Sales] - [Sales PY]",
+                "  Sales YoY % = DIVIDE([Sales YoY Change], [Sales PY])",
+                "Create QoQ Growth:",
+                "  Sales PQ = CALCULATE([Total Sales], DATEADD('Date'[Date], -1, QUARTER))",
+                "  Sales QoQ % = DIVIDE([Total Sales] - [Sales PQ], [Sales PQ])",
+                "Format measures:",
+                "  Apply percentage format to growth % measures",
+                "  Set decimal places (e.g., 1 decimal)",
+                "Test in visuals:",
+                "  Create card showing Total Sales",
+                "  Create card showing Sales YoY %",
+                "  Observe growth trends",
+                "Practice: Build KPI dashboard with growth metrics"
+              ],
+              tables: [
+                {
+                  title: "Growth Calculation Patterns",
+                  headers: ["Growth Type", "Prior Period", "Formula", "Example"],
+                  rows: [
+                    ["Year-over-Year", "Sales PY", "DIVIDE((Current-PY), PY)", "20% growth"],
+                    ["Quarter-over-Quarter", "Sales PQ", "DIVIDE((Current-PQ), PQ)", "-5% decline"],
+                    ["Month-over-Month", "Sales PM", "DIVIDE((Current-PM), PM)", "15% increase"],
+                    ["Week-over-Week", "Sales PW", "DIVIDE((Current-PW), PW)", "8% growth"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -2523,13 +2783,72 @@ export const courseData: Part[] = [
             moduleNumber: 9,
             lessonNumber: 5,
             title: "Calculating Rolling Averages",
-            description: "Smoothing volatile data by calculating rolling averages (e.g., 3-month rolling average).Lab: Demonstrate using DATESINPERIOD inside a CALCULATE function to achieve a rolling average calculation",
-            duration: 10,
+            description: "Smoothing volatile data by calculating rolling averages using DATESINPERIOD. Learn how to create moving averages for trend analysis.",
+            duration: 30,
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Why Rolling Averages?', timestamp: 0 },
+              { title: 'DATESINPERIOD Function', timestamp: 300 },
+              { title: '3-Month Rolling Average', timestamp: 840 },
+              { title: 'Custom Period Lengths', timestamp: 1260 },
+              { title: 'Rolling vs Static Averages', timestamp: 1680 },
+              { title: 'Lab: Create Rolling Average', timestamp: 1980 }
+            ],
             difficulty: 'intermediate',
-            tags: ["Power BI Fundamentals"],
-            topic: 'Business Intelligence',
+            tags: ["Time Intelligence", "DAX"],
+            topic: 'DAX',
             content: {
-              concept: "Smoothing volatile data by calculating rolling averages (e.g., 3-month rolling average).Lab: Demonstrate using DATESINPERIOD inside a CALCULATE function to achieve a rolling average calculation",
+              concept: "Smoothing volatile data by calculating rolling averages helps identify underlying trends by reducing noise from day-to-day fluctuations. A rolling average (also called moving average) calculates the average over a specific period (e.g., 3 months, 12 months) ending at each date. This technique is essential for trend analysis and forecasting. DATESINPERIOD is the key DAX function for creating rolling averages.",
+              discussion: "DATESINPERIOD() returns a table of dates within a specified period relative to a given date. Syntax: DATESINPERIOD(date_column, start_date, number_of_intervals, interval_type). For a 3-month rolling average: Sales 3-Month Avg = CALCULATE(AVERAGE([Total Sales]), DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -3, MONTH)). This returns a table of dates from 3 months ago to today, then AVERAGE calculates the average sales over that period. The key is the start_date (MAX('Date'[Date])) which ensures the period ends at the current row's date. The interval_type can be YEAR, QUARTER, MONTH, WEEK, or DAY. For different averages: 12-month rolling average uses -12, MONTH; 4-quarter rolling average uses -4, QUARTER. The negative number goes backwards in time. DATESINPERIOD is similar to DATEADD but returns a table of dates instead of just shifting the date. This makes it perfect for calculating averages over time periods. Rolling averages help identify trends, reduce noise, and make data more readable, especially for volatile metrics like daily sales or stock prices. They're commonly used in finance, inventory management, and sales forecasting.",
+              keyPoints: [
+                "DATESINPERIOD returns table of dates within a specified period",
+                "Rolling average smooths volatile data to show trends",
+                "Syntax: DATESINPERIOD(date, start, number, interval)",
+                "Use MAX('Date'[Date]) as start to end at current row",
+                "Negative numbers go backwards in time",
+                "Works with AVERAGE, SUM, or other aggregations"
+              ],
+              insiderTips: [
+                "Use MAX('Date'[Date]) as start_date for rolling period",
+                "Negative number goes backwards, positive goes forwards",
+                "3-month and 12-month rolling averages are most common",
+                "Use with AVERAGE for trend lines in visuals",
+                "Helps identify seasonality and trends in noisy data",
+                "Consider business cycles when choosing period length",
+                "Can create faster- or slower-moving averages by adjusting period",
+                "Test different periods to find best fit for your data",
+                "Rolling average should complement, not replace, actual values"
+              ],
+              labs: [
+                "Create 3-Month Rolling Average:",
+                "  Sales 3M Avg = CALCULATE(AVERAGE([Total Sales]), DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -3, MONTH))",
+                "  Add to line chart with daily sales - observe smoothing",
+                "Create 12-Month Rolling Average:",
+                "  Sales 12M Avg = CALCULATE(AVERAGE([Total Sales]), DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -12, MONTH))",
+                "  Shows yearly trend, good for long-term analysis",
+                "Create 4-Quarter Rolling:",
+                "  Sales 4Q Avg = CALCULATE(AVERAGE([Total Sales]), DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -4, QUARTER))",
+                "  Annual smoothing on quarterly data",
+                "Compare in visuals:",
+                "  Create line chart with actual values and rolling averages",
+                "  Observe how rolling averages smooth volatility",
+                "  Identify trends and patterns",
+                "Practice: Build trend analysis dashboard with rolling averages"
+              ],
+              tables: [
+                {
+                  title: "Common Rolling Average Periods",
+                  headers: ["Period Length", "Use Case", "Interval", "Purpose"],
+                  rows: [
+                    ["3-Month", "Short-term trend", "Month", "Quarterly smoothing"],
+                    ["6-Month", "Mid-term trend", "Month", "Half-year smoothing"],
+                    ["12-Month", "Annual trend", "Month", "Year-over-year smoothing"],
+                    ["4-Quarter", "Long-term", "Quarter", "Annual smoothing"],
+                    ["7-Day", "Weekly trend", "Day", "Weekly smoothing"],
+                    ["30-Day", "Monthly trend", "Day", "Monthly smoothing"]
+                  ]
+                }
+              ]
             },
           },
         ],
