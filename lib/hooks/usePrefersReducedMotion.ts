@@ -4,6 +4,9 @@ export function usePrefersReducedMotion() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
 
   useEffect(() => {
+    // Check if window is available (client-side only)
+    if (typeof window === 'undefined') return
+
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     
     setPrefersReducedMotion(mediaQuery.matches)

@@ -26,6 +26,9 @@ export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
     const element = elementRef.current
     if (!element) return
 
+    // Check if window is available (client-side only)
+    if (typeof window === 'undefined') return
+
     // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia(
       '(prefers-reduced-motion: reduce)'

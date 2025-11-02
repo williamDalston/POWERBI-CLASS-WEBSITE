@@ -236,7 +236,10 @@ export default function LessonPage() {
       )}
 
       {/* Floating Action Button */}
-      <FloatingActionButton />
+      <FloatingActionButton 
+        lessonId={lessonId}
+        isLessonComplete={lesson.isCompleted}
+      />
 
       {/* Notes Panel */}
       <LessonNotesPanel

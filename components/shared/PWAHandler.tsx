@@ -5,6 +5,9 @@ import { registerServiceWorker, setDeferredPrompt, type BeforeInstallPromptEvent
 
 export default function PWAHandler() {
   useEffect(() => {
+    // Check if window is available (client-side only)
+    if (typeof window === 'undefined') return
+
     // Register service worker
     if ('serviceWorker' in navigator) {
       registerServiceWorker().catch((error) => {

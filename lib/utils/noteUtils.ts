@@ -130,7 +130,7 @@ function markdownToHTML(markdown: string): string {
     .replace(/\n/gim, '<br>')
 
   // Wrap lists
-  html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
+  html = html.replace(/(<li>[\s\S]*?<\/li>)/g, '<ul>$1</ul>')
 
   return `<p>${html}</p>`
 }
