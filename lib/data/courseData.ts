@@ -1811,8 +1811,25 @@ export const courseData: Part[] = [
             tags: ["DAX"],
             topic: 'DAX',
             content: {
-              concept: "Using Power BI's UI-driven \"Quick Measures\" gallery to auto-generate DAX for common calculations",
-              discussion: "Demonstrate creating a running total or percent of grand total using the Quick Measure tool, and then review the DAX code that Power BI generated. This is a powerful learning tool for beginners",
+              concept: "Using Power BI's UI-driven \"Quick Measures\" gallery to auto-generate DAX for common calculations is a powerful learning tool. Quick Measures let you create complex DAX formulas through a visual interface, then show you the generated DAX code. This is excellent for beginners learning DAX patterns and for experienced users who want to quickly create common calculations without writing DAX from scratch.",
+              discussion: "Demonstrate creating a running total or percent of grand total using the Quick Measure tool, and then review the DAX code that Power BI generated. Quick Measures are accessed via the Modeling ribbon > Quick Measures, or by right-clicking a table > New Quick Measure. The gallery offers 30+ common calculation patterns: Running Total, Percent of Grand Total, Year-over-Year Growth, Moving Average, Rank, and many more. Each pattern has a visual form where you select measures, columns, and parameters. Power BI then generates the DAX code automatically. This is a powerful learning tool for beginners because you can see how complex DAX patterns are constructed. After creating a Quick Measure, you can edit the generated DAX code to customize it further. Quick Measures create explicit measures (not implicit), so they follow professional best practices. Common use cases: Running totals for time series, Percent calculations for breakdowns, Year-over-year comparisons, Rankings and percentiles.",
+              keyPoints: [
+                "Quick Measures generate complex DAX through a visual interface",
+                "Quick Measures create explicit measures - professional best practice",
+                "30+ calculation patterns available: Running Total, YoY, Percent of Total, etc.",
+                "Generated DAX code is visible and editable - excellent for learning",
+                "Quick Measures speed up development for common calculation patterns"
+              ],
+              insiderTips: [
+                "Use Quick Measures to learn DAX patterns - study the generated code",
+                "Edit Quick Measures after creation to customize the generated DAX",
+                "Quick Measures are explicit measures - they appear in Fields pane with calculator icon",
+                "Common patterns: Running Total, Percent of Grand Total, Year-over-Year Growth",
+                "Quick Measures work with any measure - select your measure in the interface",
+                "Don't rely on Quick Measures forever - learn to write DAX yourself for flexibility",
+                "Quick Measures are great starting points - modify them for advanced requirements",
+                "Use Quick Measures when you need a common calculation fast - then study the code"
+              ]
             },
           },
         ],
@@ -1956,8 +1973,25 @@ export const courseData: Part[] = [
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
             content: {
-              concept: "Iterators, or \"X-functions,\" are functions that create a row context within a measure, allowing for row-by-row calculations",
-              discussion: "This is the correct solution to the \"Total Price\" problem from",
+              concept: "Iterators, or \"X-functions,\" are functions that create a row context within a measure, allowing for row-by-row calculations. Iterator functions are the correct solution when you need row-by-row calculations in measures. Unlike calculated columns which have row context automatically, measures need iterator functions to create row context explicitly.",
+              discussion: "This is the correct solution to the \"Total Price\" problem. If you want to calculate Total Price ([Quantity] * [UnitPrice]) as a measure, you can't use a calculated column because you need aggregation. The solution is to use SUMX() which creates row context and iterates through each row. The formula would be: Total Price = SUMX(Sales, Sales[Quantity] * Sales[UnitPrice]). SUMX() iterates through the Sales table, creates row context for each row, evaluates [Quantity] * [UnitPrice] for each row, then sums all the results. Common iterator functions include: SUMX() - sums expression evaluated row-by-row, AVERAGEX() - averages expression evaluated row-by-row, MINX() - finds minimum expression value row-by-row, MAXX() - finds maximum expression value row-by-row, COUNTX() - counts rows where expression is not blank. Iterator functions are essential when you need row-by-row calculations that aggregate to a single value in a measure. They're also useful when you need to iterate through a filtered table or when the calculation requires access to multiple columns from the same row.",
+              keyPoints: [
+                "Iterator functions (X-functions) create row context within measures",
+                "SUMX() iterates through table, evaluates expression row-by-row, then sums results",
+                "Common iterators: SUMX, AVERAGEX, MINX, MAXX, COUNTX",
+                "Iterators are essential for row-by-row calculations in measures",
+                "This is the correct solution for 'Total Price' type calculations in measures"
+              ],
+              insiderTips: [
+                "When you need row-by-row calculation in a measure, use an iterator (SUMX, AVERAGEX, etc.)",
+                "SUMX(Table, Expression) syntax: Table to iterate, Expression to evaluate per row",
+                "Iterators can be slow on large tables - use judiciously",
+                "SUMX() is the most common iterator - you'll use it frequently",
+                "Common pattern: SUMX(FactTable, FactTable[Column1] * FactTable[Column2])",
+                "Iterators evaluate in filter context - they respect slicers and filters automatically",
+                "Performance tip: Prefer calculated columns for row-by-row math IF you need the column in slicers/axes",
+                "If your measure needs row-by-row calculation, an iterator is usually the right solution"
+              ]
             },
           },
         ],
@@ -1985,8 +2019,25 @@ export const courseData: Part[] = [
             tags: ["DAX"],
             topic: 'DAX',
             content: {
-              concept: "CALCULATE() is the most powerful and important function in DAX. It is the only function that can modify the filter context.90Syntax: CALCULATE( <expression>, <filter1>, <filter2>,... )",
-              discussion: "The first argument is the measure to be evaluated (e.g., ``). All subsequent arguments are new filters that are applied, which can override or add to the existing filter context",
+              concept: "CALCULATE() is the most powerful and important function in DAX. It is the only function that can modify the filter context. Syntax: CALCULATE(<expression>, <filter1>, <filter2>, ...). CALCULATE() is the gateway to advanced DAX - mastery of CALCULATE() separates intermediate from advanced DAX users. Almost every complex DAX formula uses CALCULATE() to modify filter context.",
+              discussion: "The first argument is the measure or expression to be evaluated (e.g., [Total Sales]). All subsequent arguments are new filters that are applied, which can override or add to the existing filter context. CALCULATE() evaluates the expression in a modified filter context. The filters you provide in CALCULATE() can: Add new filters (e.g., CALCULATE([Total Sales], Dim_Product[Category] = \"Electronics\")), Remove existing filters (e.g., CALCULATE([Total Sales], ALL(Dim_Date)) removes date filters), Override existing filters (e.g., CALCULATE([Total Sales], Dim_Date[Year] = 2024) overrides year filter). Filter modification order: 1. CALCULATE first removes filters (using ALL, ALLEXCEPT, etc.), 2. Then applies new filters you specify, 3. Then evaluates the expression. This order is crucial - filters are evaluated in sequence. Common use cases: Filtering measures by specific categories, Removing filters to calculate totals, Comparing current vs. previous period, Implementing complex business logic through filter modifications.",
+              keyPoints: [
+                "CALCULATE() is the ONLY function that can modify filter context in DAX",
+                "Syntax: CALCULATE(expression, filter1, filter2, ...) - expression first, then filters",
+                "CALCULATE() can add, remove, or override filters in the current context",
+                "Filter modification happens in sequence: Remove filters, then apply new filters",
+                "CALCULATE() is essential for advanced DAX calculations"
+              ],
+              insiderTips: [
+                "CALCULATE() is the most important function in DAX - invest time learning it deeply",
+                "When a measure needs different filtering, wrap it in CALCULATE() with new filters",
+                "CALCULATE() respects existing filters unless you use ALL() to remove them",
+                "Common pattern: CALCULATE([Measure], Dim_Table[Column] = \"Value\")",
+                "CALCULATE() can have multiple filter arguments - they combine with AND logic",
+                "Use CALCULATE() with ALL() to remove filters: CALCULATE([Total], ALL(Dim_Date))",
+                "Filter modification order matters - CALCULATE removes filters before applying new ones",
+                "When debugging DAX, check CALCULATE() first - it's usually involved in complex formulas"
+              ]
             },
           },
           {
@@ -2006,8 +2057,25 @@ export const courseData: Part[] = [
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
             content: {
-              concept: "The ALL() function removes filters from a table or column.96 Its primary use is as a filter modifier inside CALCULATE()",
-              discussion: "This is the key to creating \"Percent of Total\" calculations",
+              concept: "The ALL() function removes filters from a table or column. Its primary use is as a filter modifier inside CALCULATE(). ALL() is essential for calculating totals that ignore current filter context. This is the key to creating \"Percent of Total\" calculations and many other common business metrics.",
+              discussion: "This is the key to creating \"Percent of Total\" calculations. ALL() can remove filters from: A table (e.g., ALL(Sales) removes all filters from Sales table), A column (e.g., ALL(Dim_Product[Category]) removes filters from Category column), Multiple columns (e.g., ALL(Dim_Product[Category], Dim_Product[Subcategory]) removes filters from both columns). When used inside CALCULATE(), ALL() removes filters before the expression is evaluated. For example: Sales Percent of Total = DIVIDE([Total Sales], CALCULATE([Total Sales], ALL(Dim_Product))). This calculates Total Sales divided by Total Sales ignoring all Product filters - resulting in a percent of total. ALL() is often used with CALCULATE() to create totals that ignore slicer selections or visual filters. Common use cases: Percent of Total calculations, Comparisons to overall totals, Rank calculations that ignore current filters, YoY calculations that need unfiltered totals.",
+              keyPoints: [
+                "ALL() removes filters from tables or columns",
+                "ALL() is typically used inside CALCULATE() as a filter modifier",
+                "ALL() removes filters BEFORE the expression in CALCULATE() is evaluated",
+                "This enables \"Percent of Total\" calculations and total comparisons",
+                "ALL() can remove filters from entire tables or specific columns"
+              ],
+              insiderTips: [
+                "ALL() inside CALCULATE() removes filters before evaluation - essential for totals",
+                "Pattern: CALCULATE([Measure], ALL(Table)) removes all filters from that table",
+                "Percent of Total pattern: DIVIDE([Measure], CALCULATE([Measure], ALL(...)))",
+                "ALL() works on table, column, or multiple columns - be specific",
+                "Use ALL() to calculate overall totals that ignore current filter context",
+                "Common mistake: Forgetting ALL() when you need unfiltered totals",
+                "ALL() is read-only - it doesn't modify data, just removes filter context",
+                "Test ALL() calculations with slicers - totals should remain constant"
+              ]
             },
           },
           {
@@ -2027,7 +2095,25 @@ export const courseData: Part[] = [
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
             content: {
-              concept: "Nuanced versions of ALL() for more complex scenarios",
+              concept: "Nuanced versions of ALL() for more complex scenarios provide more precise filter control than ALL(). ALLEXCEPT() and ALLSELECTED() are powerful filter modifiers that handle advanced filtering requirements. These functions give you granular control over which filters to remove and which to preserve.",
+              discussion: "ALLEXCEPT() removes filters from all columns EXCEPT those you specify. Syntax: ALLEXCEPT(Table, Column1, Column2, ...). This is useful when you want to preserve some filters while removing others. For example: ALLEXCEPT(Dim_Product, Dim_Product[Category]) removes all Product filters except Category - useful for calculating totals within a category. ALLSELECTED() removes filters EXCEPT those explicitly selected by the user in slicers or visual selections. Syntax: ALLSELECTED(Table or Column). This is useful for calculating totals that respect user selections but ignore other filters. For example, if a user selects \"2023\" and \"Electronics\" in slicers, ALLSELECTED() preserves those selections while removing other filters. Common use cases: ALLEXCEPT() - Calculate subtotals within categories while preserving category filter, Rank calculations within groups, Filtered totals that preserve some dimensions. ALLSELECTED() - Totals that respect explicit user selections, Dynamic comparisons based on user selection, Percent calculations relative to selected context.",
+              keyPoints: [
+                "ALLEXCEPT() removes all filters EXCEPT specified columns",
+                "ALLSELECTED() preserves filters from explicit user selections (slicers, visuals)",
+                "These functions provide granular control over filter removal",
+                "ALLEXCEPT() is useful for preserving some filters while removing others",
+                "ALLSELECTED() is useful for totals that respect user selections"
+              ],
+              insiderTips: [
+                "ALLEXCEPT() syntax: ALLEXCEPT(Table, Column1, Column2) - keep these, remove others",
+                "ALLSELECTED() preserves slicer selections - useful for user-driven totals",
+                "Use ALLEXCEPT() when you need subtotals within categories",
+                "ALLSELECTED() is powerful for creating dynamic comparisons",
+                "Common pattern: CALCULATE([Measure], ALLEXCEPT(Dim_Table, Dim_Table[Column]))",
+                "ALLSELECTED() respects visual selections too - not just slicers",
+                "Test ALLEXCEPT() and ALLSELECTED() carefully - filter behavior can be subtle",
+                "These functions are advanced - master ALL() first, then learn these"
+              ]
             },
           },
           {
@@ -2047,8 +2133,25 @@ export const courseData: Part[] = [
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
             content: {
-              concept: "When CALCULATE() is used inside a row context (such as in a calculated column), it performs \"Context Transition\"",
-              discussion: "This complex but powerful mechanism transitions the current row's values into an equivalent filter context.89Example: Create a calculated column in the Customer table: Total Spend = CALCULATE(SUM(Sales)).98 For each row in the Customer table, context transition converts the CustomerKey into a filter, calculating the total sales for only that specific customer",
+              concept: "When CALCULATE() is used inside a row context (such as in a calculated column), it performs \"Context Transition\". This complex but powerful mechanism transitions the current row's values into an equivalent filter context. Context Transition is one of DAX's most confusing concepts, but understanding it unlocks advanced DAX capabilities.",
+              discussion: "This complex but powerful mechanism transitions the current row's values into an equivalent filter context. Example: Create a calculated column in the Customer table: Total Spend = CALCULATE(SUM(Sales[SalesAmount])). For each row in the Customer table, context transition converts the CustomerKey into a filter, calculating the total sales for only that specific customer. Here's what happens: 1. Row Context: DAX iterates through Customer table row-by-row, 2. CALCULATE() triggers Context Transition: Current row's CustomerKey becomes a filter, 3. Filter Context: The measure (SUM(Sales)) evaluates with CustomerKey = current row's value, 4. Result: Each row gets the total sales for that specific customer. Context Transition only occurs when CALCULATE() is used inside row context. This is why calculated columns with CALCULATE() behave differently than measures. Common use cases: Calculating totals for each row (e.g., customer's total spend), Comparing row-level values to totals, Implementing row-level security, Creating aggregations within calculated columns.",
+              keyPoints: [
+                "Context Transition occurs when CALCULATE() is used inside row context",
+                "Context Transition converts row context (current row) into filter context (filter)",
+                "This enables row-level aggregations in calculated columns",
+                "Context Transition only happens with CALCULATE() - other functions don't trigger it",
+                "Understanding Context Transition is essential for advanced DAX"
+              ],
+              insiderTips: [
+                "Context Transition is confusing - study examples carefully",
+                "Pattern: Calculated Column = CALCULATE([Measure]) - triggers context transition",
+                "Context Transition is automatic - you don't write code to trigger it",
+                "This is why CALCULATE() in calculated columns works differently than expected",
+                "Use Context Transition to calculate row-level totals (e.g., customer's total spend)",
+                "Performance warning: Context Transition in calculated columns can be slow on large tables",
+                "Consider using measures instead of calculated columns with CALCULATE() when possible",
+                "Context Transition is one of DAX's most powerful and confusing features"
+              ]
             },
           },
           {
