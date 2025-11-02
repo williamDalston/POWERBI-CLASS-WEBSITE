@@ -2211,14 +2211,80 @@ export const courseData: Part[] = [
             moduleNumber: 8,
             lessonNumber: 4,
             title: "Context Transition (The Advanced Concept)",
-            description: "When CALCULATE() is used inside a row context (such as in a calculated column), it performs \"Context Transition\"",
-            duration: 10,
+            description: "When CALCULATE() is used inside a row context (such as in a calculated column), it performs \"Context Transition\" - a powerful but complex mechanism that converts row context to filter context.",
+            duration: 30,
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'What is Context Transition?', timestamp: 0 },
+              { title: 'Row Context to Filter Context', timestamp: 300 },
+              { title: 'Context Transition in Calculated Columns', timestamp: 720 },
+              { title: 'Understanding the Mechanism', timestamp: 1140 },
+              { title: 'Performance Implications', timestamp: 1500 },
+              { title: 'Lab: Context Transition Examples', timestamp: 1680 }
+            ],
             difficulty: 'intermediate',
-            tags: ["Power BI Fundamentals"],
-            topic: 'Business Intelligence',
+            tags: ["DAX", "Context Transition", "Advanced DAX"],
+            topic: 'DAX',
             content: {
-              concept: "When CALCULATE() is used inside a row context (such as in a calculated column), it performs \"Context Transition\"",
-              discussion: "This complex but powerful mechanism transitions the current row's values into an equivalent filter context.89Example: Create a calculated column in the Customer table: Total Spend = CALCULATE(SUM(Sales)).98 For each row in the Customer table, context transition converts the CustomerKey into a filter, calculating the total sales for only that specific customer",
+              concept: "When CALCULATE() is used inside a row context (such as in a calculated column), it performs \"Context Transition\" - a complex but powerful mechanism that automatically converts row context into an equivalent filter context. This allows you to create column-level calculations that behave like measures, making calculated columns more powerful but also potentially slower.",
+              discussion: "Context transition is an automatic process that occurs when CALCULATE() appears in a row context. Here's what happens: 1) Power BI identifies the current row's values, 2) CALCULATE() converts those row values into an equivalent filter context, 3) The filter context is then used to evaluate the expression. Example: Create a calculated column in the Customer table: Total Spend = CALCULATE(SUM(Sales)). For each row in the Customer table, context transition automatically converts the current row's CustomerKey into a filter (CustomerKey = current value), then calculates the total sales for only that specific customer. This is powerful because it allows you to create per-row aggregations without explicit filter logic. However, context transition has performance implications - it's relatively expensive because it creates and applies filters for every row. This is why context transition in calculated columns can slow down model refresh. Context transition also occurs in iterator functions (like SUMX), where CALCULATE() inside the expression triggers the transition for each row being iterated. Understanding context transition is key to mastering advanced DAX and avoiding performance pitfalls.",
+              keyPoints: [
+                "Context transition converts row context into filter context when CALCULATE() is involved",
+                "Occurs in calculated columns and iterator functions automatically",
+                "Allows row-level aggregations without explicit filter logic",
+                "Performance cost: context transition is expensive",
+                "Use when you need row-level aggregations in calculated columns",
+                "Consider alternatives (measures or Power Query) for better performance"
+              ],
+              insiderTips: [
+                "Context transition is automatic with CALCULATE() in row context - you can't turn it off",
+                "Example in calculated column: Customer[TotalSpend] = CALCULATE(SUM(Sales[Amount]))",
+                "Performance issue: Context transition in large tables can significantly slow refresh",
+                "Alternative: Consider using measures with RELATEDTABLE() instead of context transition",
+                "Context transition in iterators (SUMX): One transition per row being iterated",
+                "Use context transition sparingly - prefer measures for aggregations when possible",
+                "Test performance: Compare context transition in column vs. measure approach",
+                "Advanced: Context transition is the key to understanding calculated columns with aggregations"
+              ],
+              labs: [
+                "Create calculated column with context transition:",
+                "  In Customer table: Total Spend = CALCULATE(SUM(Sales[Amount]))",
+                "  This transitions CustomerKey from row context to filter context",
+                "Verify behavior:",
+                "  Each row shows total sales for that specific customer",
+                "Compare to measure:",
+                "  Create measure: Customer Sales Measure = SUM(Sales[Amount])",
+                "  Note difference: column = one calculation per customer, measure = dynamic",
+                "Use in iterator:",
+                "  Create measure: Avg Customer Sales = AVERAGEX(Customer, CALCULATE(SUM(Sales)))",
+                "  Context transition happens for each customer row",
+                "Performance test:",
+                "  Create column with context transition on large table",
+                "  Compare refresh time to equivalent measure approach",
+                "Practice: Build different context transition scenarios"
+              ],
+              tables: [
+                {
+                  title: "Context Transition Scenarios",
+                  headers: ["Location", "Example", "When It Happens", "Performance Impact"],
+                  rows: [
+                    ["Calculated Column", "CALCULATE(SUM(Sales))", "Every row in table", "High - once per row"],
+                    ["Inside SUMX", "SUMX(Table, CALCULATE(measure))", "Every row iterated", "High - once per iteration"],
+                    ["Inside FILTER", "FILTER(Table, CALCULATE(measure))", "Every row filtered", "Very High - iteration + filter"],
+                    ["In Measure", "Not applicable", "Doesn't occur in pure measures", "None - only filter context"]
+                  ]
+                },
+                {
+                  title: "Context Transition vs Alternatives",
+                  headers: ["Approach", "When to Use", "Performance", "Flexibility"],
+                  rows: [
+                    ["Context Transition", "Need row-level aggregation", "Slower", "Less flexible"],
+                    ["Measure with RELATEDTABLE", "Need related table aggregation", "Medium", "More flexible"],
+                    ["Power Query Group By", "Can pre-calculate", "Fast", "Static"],
+                    ["Simple Measure", "Standard aggregation", "Fastest", "Most flexible"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -2226,13 +2292,80 @@ export const courseData: Part[] = [
             moduleNumber: 8,
             lessonNumber: 5,
             title: "Advanced DAX Scenarios (USERELATIONSHIP)",
-            description: "Solving complex modeling problems with DAX",
-            duration: 10,
+            description: "Solving complex modeling problems with DAX. Learn USERELATIONSHIP() to activate inactive relationships for specific measures.",
+            duration: 25,
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Inactive Relationships Concept', timestamp: 0 },
+              { title: 'Introducing USERELATIONSHIP()', timestamp: 300 },
+              { title: 'Role-Playing Dimensions', timestamp: 600 },
+              { title: 'Using USERELATIONSHIP()', timestamp: 960 },
+              { title: 'Common Use Cases', timestamp: 1260 },
+              { title: 'Lab: USERELATIONSHIP() Practice', timestamp: 1500 }
+            ],
             difficulty: 'intermediate',
-            tags: ["DAX"],
+            tags: ["DAX", "Relationships", "Advanced DAX"],
             topic: 'DAX',
             content: {
-              concept: "Solving complex modeling problems with DAX",
+              concept: "Solving complex modeling problems with DAX sometimes requires activating different relationships for different measures. USERELATIONSHIP() is a filter modifier used inside CALCULATE() to override which relationship is active for a specific calculation. This is essential when you have role-playing dimensions (like a Date dimension used for multiple purposes) or need to switch between alternative relationships.",
+              discussion: "Power BI allows only one active relationship between two tables at a time. However, you can have multiple inactive relationships. USERELATIONSHIP() enables you to activate an inactive relationship for a specific calculation. Common scenario: A sales fact table has OrderDate and ShipDate, both connecting to the same Date dimension. One relationship is active (typically OrderDate), while ShipDate is inactive. To create a 'Sales by Ship Date' measure, use: Ship Date Sales = CALCULATE([Total Sales], USERELATIONSHIP(Sales[ShipDate], Date[Date])). This activates the ShipDate relationship just for this measure while leaving others to use the active OrderDate relationship. Syntax: USERELATIONSHIP(column1, column2) where these columns define the inactive relationship. It must be used inside CALCULATE() and requires the specified columns to have an inactive relationship between them. This pattern is common for time-based scenarios (multiple dates in fact table) but can be used whenever you need to alternate between different relationships.",
+              keyPoints: [
+                "USERELATIONSHIP() activates inactive relationships for specific calculations",
+                "Used inside CALCULATE() to override the active relationship",
+                "Essential for role-playing dimensions (multiple relationships to same table)",
+                "Common use: Multiple date columns (Order Date, Ship Date, etc.)",
+                "Only one relationship can be active at a time by default",
+                "USERELATIONSHIP() lets you use alternative relationships per measure"
+              ],
+              insiderTips: [
+                "USERELATIONSHIP() requires an existing inactive relationship - create it first in Model View",
+                "Syntax: USERELATIONSHIP(column1, column2) - specify both sides of the relationship",
+                "Most common use: Role-playing date dimensions (Order Date vs Ship Date vs Due Date)",
+                "Performance: USERELATIONSHIP adds slight overhead - use sparingly",
+                "Alternative: Create separate date tables for each role (rare, usually not worth it)",
+                "Test USERELATIONSHIP thoroughly - wrong relationship yields incorrect results",
+                "Document which measures use which relationships for future maintenance",
+                "Common PL-300 exam topic: identifying when USERELATIONSHIP is needed"
+              ],
+              labs: [
+                "Create inactive relationship:",
+                "  In Model View, drag ShipDate from Sales to Date[Date]",
+                "  Relationship is created but inactive",
+                "  Active relationship: OrderDate to Date[Date]",
+                "Create measure with USERELATIONSHIP:",
+                "  Ship Date Sales = CALCULATE([Total Sales], USERELATIONSHIP(Sales[ShipDate], Date[Date]))",
+                "  This activates the ShipDate relationship for this measure",
+                "Compare measures:",
+                "  Create: Order Date Sales = [Total Sales] (uses active relationship)",
+                "  Create: Ship Date Sales = CALCULATE([Total Sales], USERELATIONSHIP(Sales[ShipDate], Date[Date]))",
+                "  Add both to visual to see different dates",
+                "Test with time intelligence:",
+                "  Ship Date YTD = TOTALYTD(CALCULATE([Total Sales], USERELATIONSHIP(Sales[ShipDate], Date[Date])), Date)",
+                "  Verify it calculates year-to-date by ship date, not order date",
+                "Practice: Build multiple measures using different relationships"
+              ],
+              tables: [
+                {
+                  title: "USERELATIONSHIP() Use Cases",
+                  headers: ["Scenario", "Why USERELATIONSHIP?", "Example", "Alternative"],
+                  rows: [
+                    ["Multiple dates", "Need different dates for different measures", "Order Date Sales vs Ship Date Sales", "Separate date tables"],
+                    ["Multiple relationships", "Need alternative joins", "Customer Sales vs Salesperson Sales", "Restructure model"],
+                    ["Time intelligence", "Different period calculations", "Order YTD vs Ship YTD", "Multiple models"],
+                    ["Role-playing dims", "Same dim in multiple contexts", "Purchase Date vs Sell Date", "Duplicate dimension"]
+                  ]
+                },
+                {
+                  title: "USERELATIONSHIP() vs Alternatives",
+                  headers: ["Approach", "Pros", "Cons", "When to Use"],
+                  rows: [
+                    ["USERELATIONSHIP()", "Single relationship, flexible", "Slight performance cost", "Common pattern"],
+                    ["Multiple dims", "Better performance", "More complex model", "Rare"],
+                    ["Snowflake", "Normalized design", "Slower, complex", "Avoid in Power BI"],
+                    ["Calculate columns", "No relationship switch", "Storage overhead", "Not for dates"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -2240,13 +2373,83 @@ export const courseData: Part[] = [
             moduleNumber: 8,
             lessonNumber: 6,
             title: "Introduction to Visual Calculations (Oct 2025 GA)",
-            description: "A new, simpler way to add calculations (like running totals or moving averages) directly on a visual, operating on the visual's data matrix rather than the full data model.Lab: Create a \"Running Total",
-            duration: 10,
+            description: "Visual Calculations (GA Oct 2025) provide a simpler way to add calculations like running totals or moving averages directly on a visual, operating on the visual's data matrix rather than the full data model.",
+            duration: 25,
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'What are Visual Calculations?', timestamp: 0 },
+              { title: 'Visual Calculations vs DAX', timestamp: 240 },
+              { title: 'Creating Visual Calculations', timestamp: 600 },
+              { title: 'Common Visual Calculation Types', timestamp: 960 },
+              { title: 'Running Totals and Averages', timestamp: 1320 },
+              { title: 'Lab: Visual Calculations Practice', timestamp: 1560 }
+            ],
             difficulty: 'intermediate',
-            tags: ["DAX", "2025 Features"],
+            tags: ["DAX", "2025 Features", "Visual Calculations"],
             topic: 'DAX',
             content: {
-              concept: "A new, simpler way to add calculations (like running totals or moving averages) directly on a visual, operating on the visual's data matrix rather than the full data model.Lab: Create a \"Running Total\" and a \"Moving Average\" using the new Visual Calculations interface, and compare this to the traditional DAX measure approach",
+              concept: "Visual Calculations (GA Oct 2025) provide a new, simpler way to add calculations like running totals or moving averages directly on a visual, operating on the visual's data matrix rather than the full data model. This eliminates the need for complex DAX for common calculation patterns, making Power BI more accessible to users who find DAX challenging.",
+              discussion: "Visual Calculations are a breakthrough feature that allows you to add calculations directly to visuals without writing DAX measures. They operate on the visual's data structure (the rows/columns you've added), making them intuitive and easier to understand than traditional DAX. Common visual calculation types include: Running Total (sum of values up to current row), Running Average (average of values up to current row), Percent of Total (value as percentage of grand total), Difference from Previous (change from previous period), and Rank (rank of current value). To create a visual calculation, right-click on a visual field, select 'New calculation', then choose the calculation type. The calculation is specific to that visual and operates on its data structure. This makes complex DAX patterns like running totals much simpler - instead of writing TOTALYTD or cumulative DAX, you can add a visual calculation in seconds. Visual calculations respect the visual's filters but operate independently of the data model, making them perfect for calculations that only need to work within the visual's context. This feature democratizes advanced calculations, making them accessible to users who might struggle with DAX.",
+              keyPoints: [
+                "Visual Calculations add calculations directly to visuals without DAX",
+                "Operate on the visual's data matrix, not the full data model",
+                "Common types: Running Total, Running Average, Percent of Total, Rank",
+                "Visual-specific: Each calculation is tied to one visual",
+                "2025 Feature: Generally available as of October 2025",
+                "Simpler alternative to complex DAX for common patterns"
+              ],
+              insiderTips: [
+                "Visual calculations are visual-specific - they don't create reusable measures",
+                "Perfect for running totals, moving averages, and ranking without DAX",
+                "Much simpler than DAX TOTALYTD or cumulative patterns",
+                "Operate on visual's filtered data - great for visual-level calculations",
+                "Can't be used across multiple visuals - need DAX for that",
+                "Test visual calculations to ensure they work as expected",
+                "Combine visual calculations with DAX for maximum flexibility",
+                "Visual calculations are the future of simple calculations in Power BI"
+              ],
+              labs: [
+                "Create a line chart with Sales by Month",
+                "Add Running Total calculation:",
+                "  Right-click Sales field, select 'New calculation'",
+                "  Choose 'Running Total'",
+                "  Visual calculates running total across months",
+                "Add Moving Average calculation:",
+                "  Create new calculation, choose 'Moving Average'",
+                "  Set period (e.g., 3 months)",
+                "  Visual shows smoothed trend",
+                "Add Percent of Total:",
+                "  Create calculation, choose 'Percent of Total'",
+                "  Shows each month as % of total",
+                "Compare to DAX:",
+                "  Create equivalent DAX measure for Running Total",
+                "  Compare complexity - visual calculations are simpler",
+                "Practice: Add multiple visual calculations to same visual"
+              ],
+              tables: [
+                {
+                  title: "Visual Calculations vs DAX",
+                  headers: ["Aspect", "Visual Calculations", "DAX Measures", "Best For"],
+                  rows: [
+                    ["Complexity", "Simple, visual interface", "Requires DAX knowledge", "Visual calculations for speed"],
+                    ["Reusability", "Visual-specific only", "Works across all visuals", "DAX for reusability"],
+                    ["Flexibility", "Limited to predefined types", "Unlimited calculation logic", "DAX for complex logic"],
+                    ["Learning Curve", "Easy, no coding", "Steeper, requires training", "Visual for beginners"],
+                    ["Performance", "Visual-level only", "Model-level optimization", "DAX for performance"]
+                  ]
+                },
+                {
+                  title: "Common Visual Calculation Types",
+                  headers: ["Calculation Type", "What It Does", "DAX Equivalent", "Use Case"],
+                  rows: [
+                    ["Running Total", "Sum from first to current", "TOTALYTD, cumulative SUMX", "YTD, cumulative trends"],
+                    ["Moving Average", "Average of N periods", "AVERAGEX with DATESINPERIOD", "Smooth trends"],
+                    ["% of Total", "Value / grand total", "CALCULATE with ALL", "Contribution analysis"],
+                    ["Rank", "Rank of current value", "RANKX", "Performance ranking"],
+                    ["Difference from Previous", "Current - previous", "Custom DAX", "Period-over-period"]
+                  ]
+                }
+              ]
             },
           },
         ],
