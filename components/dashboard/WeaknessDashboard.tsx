@@ -15,10 +15,8 @@ import {
 import Link from 'next/link'
 
 export default function WeaknessDashboard() {
-  const { getAllAttempts } = useQuizAttempts()
+  const { attempts: allAttempts } = useQuizAttempts()
   const [activeTab, setActiveTab] = useState<'overview' | 'modules' | 'topics'>('overview')
-
-  const allAttempts = getAllAttempts()
   const weaknesses = analyzeWeaknesses(allAttempts)
   const moduleWeaknesses = analyzeModuleWeaknesses(allAttempts)
   const tagWeaknesses = analyzeTagWeaknesses(allAttempts)

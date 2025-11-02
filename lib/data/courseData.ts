@@ -2818,8 +2818,27 @@ export const courseData: Part[] = [
             tags: ["Visualizations"],
             topic: 'Visualizations',
             content: {
-              concept: "A report should be more than a collection of charts; it must be a narrative that leads to a decision",
-              discussion: "An effective data story follows a clear flow: 1. Set the Context (what are we looking at?). 2. Present the key Finding (e.g., \"Sales are down 15%\"). 3. Drill down to the \"Why\" (e.g., \"...this is driven entirely by the East region\"). 4. Propose an Action (e.g., \"Investigate East region logistics\").108 This can be enhanced with annotations and dynamic text measures",
+              concept: "A report should be more than a collection of charts; it must be a narrative that leads to a decision. Data storytelling transforms raw analytics into compelling narratives that drive action and change behavior. The difference between a good report and a great report is the story it tells.",
+              discussion: "An effective data story follows a clear flow that guides the reader from insight to action: 1. Set the Context (what are we looking at?). This establishes the background and explains why this analysis matters. Without context, numbers are meaningless. Use annotations, titles, and introductory visuals to set the stage. 2. Present the key Finding (e.g., \"Sales are down 15%\"). This is your hook—the main insight that demands attention. Use prominent visuals, KPIs, and clear headlines to make this finding impossible to miss. 3. Drill down to the \"Why\" (e.g., \"...this is driven entirely by the East region\"). This is where analysis becomes storytelling—you reveal the root cause. Use drill-through pages, bookmarks, and hierarchical navigation to guide users deeper into the data. 4. Propose an Action (e.g., \"Investigate East region logistics\"). This transforms insight into impact—you provide a clear recommendation. Use dynamic text measures, annotations, and action-oriented language. Master-level storytelling techniques include: Dynamic Text Measures (use DAX to create contextual narratives that change based on filters), Annotations (add context and explanations directly on visuals), Bookmarks (create guided tours that walk users through your narrative), Drill-through Pages (enable deep exploration while maintaining narrative structure), and Visual Hierarchy (guide the eye using size, color, and positioning). The key insight: People remember stories, not numbers. A well-told data story makes insights memorable, actionable, and impactful. This is what separates good analysts from great ones—the ability to communicate insights that drive decisions. Effective storytelling requires understanding your audience: Executives need high-level insights with clear recommendations, Analysts need detailed breakdowns with drill-down capabilities, and Managers need actionable insights with context. Tailor your narrative to your audience. The best reports don't just show data—they tell a story that leads to a decision. This can be enhanced with annotations, dynamic text measures, bookmarks, and careful visual design.",
+              keyPoints: [
+                "Data storytelling transforms analytics into narratives that drive action",
+                "Effective stories follow: Context → Finding → Why → Action",
+                "Use dynamic text measures, annotations, and bookmarks to guide narrative",
+                "Visual hierarchy guides the eye and emphasizes key insights",
+                "Tailor your story to your audience (Executives, Analysts, Managers)",
+                "Great reports don't just show data—they tell a story that leads to decisions"
+              ],
+              insiderTips: [
+                "Master storytellers use bookmarks to create guided tours—walk users through your narrative step-by-step",
+                "Dynamic text measures are powerful—they create contextual narratives that adapt to filters",
+                "Annotations provide crucial context—don't assume users understand why a number matters",
+                "Start with the conclusion—executives want the answer first, details second",
+                "Use visual hierarchy to guide attention—make the most important insight the most prominent",
+                "The 'Why' is crucial—never present a finding without explaining the root cause",
+                "End with action—every story should have a clear recommendation or next step",
+                "Test your story—if users can't explain the insight after viewing, your story needs work",
+                "Pro tip: Create multiple versions of the same report for different audiences (executive summary vs detailed analysis)"
+              ]
             },
           },
           {
@@ -3769,7 +3788,39 @@ export const courseData: Part[] = [
             tags: ["AI Features", "Visualizations"],
             topic: 'Visualizations',
             content: {
-              concept: "Using the new Copilot pane to summarize reports and generate insights using natural language.Lab: Use the Copilot pane to \"Summarize sales trends\" on a report page and ask follow-up questions about the data",
+              concept: "Using the new Copilot pane to summarize reports and generate insights using natural language transforms how users interact with Power BI reports. Copilot (GA Oct 2025) is an AI-powered assistant that understands your data and can answer questions, generate insights, and explain visualizations in plain English, making Power BI accessible to users without deep analytical expertise.",
+              discussion: "Copilot is Microsoft's AI assistant integrated directly into Power BI Service and Desktop (Oct 2025 GA). It uses advanced language models to understand your data model and report context, allowing users to ask questions in natural language and receive intelligent answers. Key capabilities include: Report Summarization (Copilot can analyze an entire report page and provide a narrative summary of key insights), Insight Generation (Ask questions like 'What are the main trends in sales?' and Copilot analyzes the data to provide answers), Visual Explanations (Hover over a visual and ask Copilot 'What does this chart show?' for context-aware explanations), and Follow-up Questions (Have a conversation with your data—ask follow-up questions based on previous answers). Copilot represents the future of BI interaction—moving from 'building reports' to 'having conversations with data.' This democratizes analytics, making advanced data analysis accessible to business users who don't know DAX or data modeling. For analysts, Copilot accelerates insight generation by handling routine queries, allowing you to focus on complex analysis. For executives, Copilot provides instant answers without waiting for analysts. The key insight: Copilot doesn't replace analytical skills—it augments them. You still need to understand data modeling and DAX to build effective reports, but Copilot makes consuming and exploring reports dramatically easier. Best practices: Use Copilot for quick insights and report summaries, Verify Copilot's insights—always validate AI-generated findings with your own analysis, Use Copilot to explore data before building formal reports, Combine Copilot with traditional analysis for comprehensive insights, and Understand Copilot's limitations—it's powerful but not infallible.",
+              keyPoints: [
+                "Copilot is an AI assistant that understands your data and answers questions in natural language",
+                "Can summarize reports, generate insights, and explain visualizations",
+                "Democratizes analytics—makes advanced analysis accessible to non-technical users",
+                "Augments analytical skills—doesn't replace understanding data modeling and DAX",
+                "Represents the future of BI interaction—conversational analytics",
+                "Use Copilot for quick insights and report summaries, verify findings with your own analysis"
+              ],
+              insiderTips: [
+                "Copilot (GA Oct 2025) requires Power BI Premium or Pro license—check your tenant settings",
+                "Use Copilot to explore data before building formal reports—faster than manual analysis",
+                "Verify Copilot's insights—AI can be confident but wrong, always validate findings",
+                "Copilot works best with well-structured data models—poor models = poor AI insights",
+                "Use follow-up questions to dive deeper—Copilot maintains context throughout the conversation",
+                "Copilot can generate narrative summaries for executive presentations—saves time",
+                "Combine Copilot with traditional analysis—AI insights + human expertise = best results",
+                "Pro tip: Use Copilot to explain complex DAX measures to non-technical stakeholders",
+                "Master users understand Copilot's limitations—use it as a tool, not a replacement for analytical thinking"
+              ],
+              labs: [
+                "Open Power BI Service or Desktop with Copilot enabled",
+                "Navigate to a report page with multiple visuals",
+                "Open the Copilot pane (typically in the sidebar or ribbon)",
+                "Ask Copilot: 'Summarize sales trends on this page'",
+                "Review Copilot's summary and key insights",
+                "Ask follow-up question: 'What region has the highest growth?'",
+                "Observe how Copilot maintains context from previous questions",
+                "Ask: 'Explain this chart' while hovering over a visual",
+                "Test Copilot's understanding: Ask complex questions about relationships between metrics",
+                "Compare Copilot insights to your own analysis to verify accuracy"
+              ]
             },
           },
           {
