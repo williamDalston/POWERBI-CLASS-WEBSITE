@@ -732,13 +732,36 @@ export const courseData: Part[] = [
             lessonNumber: 6,
             title: "Advanced Modeling Concepts (PL-300)",
             description: "Handling more complex modeling scenarios required for the PL-300 exam",
-            duration: 10,
+            duration: 30,
             difficulty: 'intermediate',
-            tags: ["Power BI Fundamentals"],
+            tags: ["Data Modeling", "PL-300"],
             topic: 'Data Modeling',
             content: {
-              concept: "Handling more complex modeling scenarios required for the PL-300 exam",
+              concept: "Real-world data models require handling complex scenarios that go beyond simple star schemas. Three critical advanced concepts are role-playing dimensions, calculated tables, and bridge tables. Mastery of these patterns is essential for the PL-300 exam and senior analyst roles.",
+              discussion: "Role-playing dimensions occur when a single dimension table (most commonly a Date table) needs to filter the same fact table through multiple foreign keys. For example, a sales fact table might have OrderDateKey, ShipDateKey, and DueDateKey - all connecting to the same Dim_Date table. Power BI allows only one active relationship per pair of tables, so you create one active relationship and mark others as inactive. Then use USERELATIONSHIP() in DAX to activate specific relationships for different measures. Calculated tables are tables created entirely within DAX using functions like CALENDARAUTO(), DATESBETWEEN(), SUMMARIZE(), or CROSSJOIN(). They're computed at model refresh and useful for creating custom date tables, aggregated tables, or bridge tables. Bridge tables resolve many-to-many relationships by creating an intermediate table that breaks the complex relationship into two simpler one-to-many relationships.",
+              keyPoints: [
+                "Role-playing dimensions: One dimension used in multiple contexts (e.g., multiple date columns in fact table)",
+                "Only one active relationship per table pair - mark others inactive and use USERELATIONSHIP()",
+                "Calculated tables: Created with DAX at refresh time (CALENDARAUTO(), SUMMARIZE(), etc.)",
+                "Bridge tables: Resolve many-to-many relationships through intermediate junction table",
+                "These patterns are essential for PL-300 certification and real-world modeling"
+              ],
+              insiderTips: [
+                "Role-playing dimensions are most common with Date tables but can occur with other dimensions",
+                "Always name inactive relationships clearly in Manage Relationships dialog for easy debugging",
+                "USERELATIONSHIP() in CALCULATE() requires inactive relationship - plan your model accordingly",
+                "Calculated tables refresh with model but don't support DirectQuery - be aware of limitations",
+                "Bridge tables: Create in Power Query or DAX, then connect both sides with one-to-many",
+                "Bridge table cardinality: Always Many-to-Many-to-One (Fact-Bridge-Dimension)",
+                "Test role-playing dimensions carefully - wrong USERELATIONSHIP() usage is a common exam trap",
+                "Calculated tables vs Power Query: Use calculated for business logic, Power Query for ETL",
+                "Many-to-many patterns are a red flag on PL-300 - always propose bridge table solution"
+              ]
             },
+            exerciseMaterials: [
+              { name: "Advanced Modeling Lab", url: "/resources/module-5-advanced-lab.pbix", type: "pbix" },
+              { name: "PL-300 Modeling Practice", url: "/resources/pl300-modeling-scenarios.xlsx", type: "dataset" }
+            ]
           },
         ],
       },
@@ -754,14 +777,33 @@ export const courseData: Part[] = [
             lessonNumber: 1,
             title: "What is DAX?",
             description: "DAX (Data Analysis Expressions) is the formula language used in Power BI, as well as in SQL Server Analysis Services (SSAS) Tabular and Power Pivot in Excel",
-            duration: 10,
+            duration: 20,
             difficulty: 'intermediate',
             tags: ["DAX"],
             topic: 'DAX',
             content: {
-              concept: "DAX (Data Analysis Expressions) is the formula language used in Power BI, as well as in SQL Server Analysis Services (SSAS) Tabular and Power Pivot in Excel",
-              discussion: "It is not a query language like SQL, nor is it a cell-based language like Excel. It is a functional language that operates on entire tables and columns within the data model",
+              concept: "DAX (Data Analysis Expressions) is the formula language used in Power BI, as well as in SQL Server Analysis Services (SSAS) Tabular and Power Pivot in Excel. It's a functional, time-aware language designed specifically for analytical calculations on columnar, in-memory data models.",
+              discussion: "DAX is fundamentally different from both SQL and Excel formulas. SQL is a query language for retrieving data from databases. Excel formulas work on individual cells. DAX operates on entire tables and columns within an in-memory model called VertiPaq. This means DAX expressions evaluate in the context of the data model and can dynamically respond to filters, slicers, and visual selections. DAX is case-insensitive, doesn't use semicolons, and provides powerful time intelligence functions for business analytics. Understanding this paradigm shift is critical - DAX isn't Excel with better functions; it's an entirely different way of thinking about data calculations.",
+              keyPoints: [
+                "DAX is a functional language designed for in-memory columnar data models (VertiPaq)",
+                "DAX operates on entire tables and columns, not individual cells or rows like Excel",
+                "DAX is context-aware - results change based on filters and visual selections",
+                "Time intelligence functions make DAX uniquely powerful for business analytics",
+                "Case-insensitive syntax makes DAX forgiving but naming consistency matters for collaboration"
+              ],
+              insiderTips: [
+                "Don't try to 'translate' Excel formulas to DAX - think in terms of tables and filters instead",
+                "DAX has over 250 functions organized by category: Aggregation, Filter, Time Intelligence, etc.",
+                "The DAX formula bar provides IntelliSense - use it to explore functions as you type",
+                "Comments in DAX use // for single-line or /* */ for multi-line",
+                "White space is your friend - format DAX with line breaks for readability",
+                "The VertiPaq engine compresses data 10x on average, making DAX fast on large datasets",
+                "Pro tip: Keep DAX reference material handy - even experts don't memorize all 250+ functions"
+              ]
             },
+            exerciseMaterials: [
+              { name: "DAX Function Reference Card", url: "/resources/dax-function-reference.pdf", type: "pdf" }
+            ]
           },
           {
             id: "6-2",
