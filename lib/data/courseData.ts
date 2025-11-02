@@ -121,12 +121,46 @@ export const courseData: Part[] = [
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
             content: {
-              concept: "This lesson positions Power BI within its competitive landscape to establish why it is a critical tool to learn",
-              discussion: "The choice of a BI tool is not purely technical; it is strategic",
+              concept: "This lesson positions Power BI within its competitive landscape to establish why it is a critical tool to learn. The choice of a BI tool is not purely technical; it is strategic and impacts your organization's data culture, cost structure, and scalability.",
+              discussion: "Each BI tool serves different needs. Excel excels at ad-hoc analysis for small datasets, Tableau focuses on powerful visualization capabilities for large datasets, while Power BI provides an end-to-end solution from data ingestion to sharing, with seamless Microsoft ecosystem integration. Understanding these differences helps you make informed decisions and understand Power BI's unique value proposition. Power BI's integration with Microsoft Fabric (OneLake) positions it as the future of analytics in the Microsoft ecosystem, offering unlimited data scale and modern AI capabilities like Copilot.",
+              tables: [
+                {
+                  title: "BI Tool Comparison (Updated Nov 2025)",
+                  headers: ["Feature", "Excel", "Tableau", "Power BI"],
+                  rows: [
+                    ["Strength", "Ad-hoc analysis", "Viz-first approach", "End-to-End + Fabric"],
+                    ["Data Volume", "Small (< 1M rows)", "Large", "Unlimited (OneLake)"],
+                    ["Cost", "Free (basic)", "$$$ (per user)", "Free Desktop + Pro $10/mo"],
+                    ["AI Capabilities", "Basic", "Limited", "Copilot GA (Oct 2025)"],
+                    ["Microsoft Integration", "Native", "Limited", "Seamless"],
+                    ["Learning Curve", "Low (familiar)", "Moderate", "Low to Moderate"],
+                    ["Best For", "Personal analysis, small teams", "Visualization-focused orgs", "Enterprise BI, Microsoft shops"]
+                  ]
+                }
+              ],
+              keyPoints: [
+                "Power BI provides the best balance of capability, cost, and Microsoft ecosystem integration",
+                "OneLake integration makes Power BI future-proof for enterprise data scenarios",
+                "Copilot integration gives Power BI a significant AI advantage over competitors",
+                "Free Desktop version makes Power BI accessible for learning and small teams"
+              ],
+              insiderTips: [
+                "If your organization uses Microsoft 365, Power BI is often the natural choice for seamless integration",
+                "Power BI's cost structure (free Desktop + affordable Pro) makes it accessible for individuals and small businesses",
+                "The Fabric ecosystem positions Power BI as more than just a visualization tool - it's a complete analytics platform",
+                "Copilot features are continuously improving, making Power BI increasingly competitive in the AI space"
+              ]
             },
           },
         ],
       },
+    ],
+  },
+  {
+    id: "part-1",
+    title: "The Power BI Beginner – From Blank Canvas to First Report",
+    description: "Learn to connect to data, transform it with Power Query, and build your first interactive reports",
+    modules: [
       {
         id: "module-1",
         title: "The Power BI Ecosystem: Components and Setup",
@@ -144,8 +178,31 @@ export const courseData: Part[] = [
             tags: ["Visualizations"],
             topic: 'Data Modeling',
             content: {
-              concept: "Power BI is not a single program but a collection of software services, apps, and connectors that work together",
-              discussion: "A student's foundational mental model must include these three components and their interactions (including cloud vs. on-premises options 10):Power BI Desktop: A free, standalone Windows application.12 This is the primary \"authoring\" tool. All development—connecting to data, transforming, modeling, and building reports—happens here.10Power BI Service: The cloud-based Software-as-a-Service (SaaS) offering.12 This is the \"collaboration and sharing\" hub. Reports from Desktop are published to the Service to be shared, collaborated on, and assembled into dashboards.10Power BI Mobile: Native apps for iOS and Android devices.22 This is the \"consumption\" tool, allowing users to access and interact with their reports and dashboards on the go",
+              concept: "Power BI is not a single program but a collection of software services, apps, and connectors that work together. Understanding this ecosystem is crucial for effective Power BI usage.",
+              discussion: "A student's foundational mental model must include these three components and their interactions (including cloud vs. on-premises options): Power BI Desktop is a free, standalone Windows application and the primary \"authoring\" tool where all development happens—connecting to data, transforming, modeling, and building reports. Power BI Service is the cloud-based SaaS offering that serves as the \"collaboration and sharing\" hub where reports from Desktop are published, shared, collaborated on, and assembled into dashboards. Power BI Mobile provides native apps for iOS and Android devices, serving as the \"consumption\" tool that allows users to access and interact with reports and dashboards on the go.",
+              tables: [
+                {
+                  title: "Power BI Ecosystem Components",
+                  headers: ["Component", "Primary Use", "Key Action", "Environment"],
+                  rows: [
+                    ["Power BI Desktop", "Authoring & Development", "Build Reports", "Windows PC / ARM"],
+                    ["Power BI Service", "Sharing & Collaboration", "Create Dashboards", "Cloud (Browser)"],
+                    ["Power BI Mobile", "Consumption & Viewing", "Access Anywhere", "Phone/Tablet"]
+                  ]
+                }
+              ],
+              keyPoints: [
+                "Desktop is where you BUILD, Service is where you SHARE, Mobile is where you CONSUME",
+                "All three components work together to provide a complete BI solution",
+                "Desktop is free forever, making Power BI accessible for learning and professional development",
+                "Service requires a Pro license ($10/month) or Premium capacity for sharing"
+              ],
+              insiderTips: [
+                "Always build and test in Desktop first before publishing to Service",
+                "Use Desktop's free license to learn Power BI without any cost barriers",
+                "Mobile apps are perfect for executives who need quick insights on the go",
+                "ARM support (2025) means Power BI Desktop now works on modern Windows laptops without x86 emulation"
+              ]
             },
           },
           {
@@ -270,7 +327,31 @@ export const courseData: Part[] = [
             tags: ["Performance"],
             topic: 'Performance',
             content: {
-              concept: "When connecting to a data source, the user must choose how the data is accessed. This choice has profound and lasting implications for performance, data freshness, and their trade-offs",
+              concept: "When connecting to a data source, the user must choose how the data is accessed. This choice has profound and lasting implications for performance, data freshness, and their trade-offs. This is one of the first and most critical architectural decisions you'll make in Power BI.",
+              discussion: "Import mode is the default, most common, and highest-performance option. Power BI makes a copy of the data and stores it in its highly compressed in-memory (VertiPaq) engine inside the .pbix file. Reports are very fast because all data is local, but the data is only as fresh as the last refresh. DirectQuery mode does not copy the data—instead, it sends queries directly to the source database in real-time. This is ideal for extremely large datasets (that would exceed file size limits) or when \"live\" data is a strict requirement. The trade-off is that report performance is now dependent on the speed of the underlying database. Composite mode allows a \"mix\" of both approaches, enabling a developer to Import dimension tables (small, rarely changing) while using DirectQuery for a massive fact table. This choice is the first and most critical performance decision a developer makes. The choice of \"Import\" necessitates learning about data refresh schedules and gateways (covered in Module 12). The choice of \"DirectQuery\" necessitates learning about query optimization and database performance (covered in Module 13).",
+              tables: [
+                {
+                  title: "Connection Mode Comparison (Import vs. DirectQuery)",
+                  headers: ["Mode", "Data Location", "Report Performance", "Data Freshness", "Common Use Case"],
+                  rows: [
+                    ["Import", "Stored inside Power BI file", "Very Fast (seconds)", "Stale (snapshot)", "Most standard reports (< 100M rows)"],
+                    ["DirectQuery", "Stays in source database", "Depends on source DB (seconds to minutes)", "Real-time (live)", "Massive datasets; real-time needs"],
+                    ["Composite", "Mix: Dims imported, Facts queried", "Variable (depends on query)", "Hybrid", "Large fact tables with small dimensions"]
+                  ]
+                }
+              ],
+              keyPoints: [
+                "Import is the default choice and works for 90% of use cases",
+                "DirectQuery requires careful database optimization and can lead to slower reports",
+                "Composite mode offers a middle ground but adds complexity",
+                "This decision impacts everything: refresh schedules, gateway requirements, and report performance"
+              ],
+              insiderTips: [
+                "Always start with Import unless you have a specific reason not to (e.g., data too large, real-time requirement)",
+                "DirectQuery works best with well-indexed databases and simple queries",
+                "Composite mode is advanced—master Import and DirectQuery separately first",
+                "File size limits: Import mode is limited by .pbix file size (1GB compressed, 10GB uncompressed) and Pro license limits"
+              ]
             },
           },
         ],
@@ -322,7 +403,31 @@ export const courseData: Part[] = [
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
             content: {
-              concept: "Fixing \"dirty\" data to make it usable for analysis",
+              concept: "Fixing \"dirty\" data to make it usable for analysis is a fundamental skill in Power BI. Real-world data is rarely clean and ready for visualization.",
+              discussion: "Data cleaning involves identifying and fixing issues that prevent accurate analysis. Common problems include misspellings, inconsistent formatting, missing values, and incorrect data types. Replace Values corrects misspellings or standardizes categories (e.g., 'USA', 'United States', 'U.S.A.' → 'United States'). Change Data Type converts columns from text to whole numbers, decimals, or dates—critical for proper calculations and sorting. Handle Errors removes or replaces error values that occur during transformations. Fill Down/Up is a powerful tool for \"un-merging\" cells from messy Excel exports where merged cells create blank values. Split and Merge Columns allows combining or separating text data (e.g., splitting 'John Smith' into 'First Name' and 'Last Name', or merging them back).",
+              labs: [
+                "Open a messy dataset with various data quality issues",
+                "Use Replace Values to standardize category names (e.g., all variations of 'USA' to 'United States')",
+                "Change data types: Convert text numbers to numeric types, text dates to date types",
+                "Handle errors: Remove rows with errors or replace error values with nulls",
+                "Use Fill Down to complete missing values in merged cell scenarios",
+                "Split a 'Full Name' column into 'First Name' and 'Last Name'",
+                "Practice the reverse: Merge 'First Name' and 'Last Name' back into 'Full Name'",
+                "Review all applied steps to understand the transformation pipeline"
+              ],
+              keyPoints: [
+                "Data cleaning is often 80% of the work in data analysis",
+                "Power Query's non-destructive approach means you can always undo or modify steps",
+                "Applied Steps pane shows the complete transformation history",
+                "Clean data = reliable insights; dirty data = misleading reports"
+              ],
+              insiderTips: [
+                "Always check data types first—text numbers won't sort or calculate correctly",
+                "Use Replace Values with 'Match entire cell contents' for precise replacements",
+                "Fill Down is your friend when dealing with Excel exports with merged headers",
+                "Handle errors early in the pipeline to avoid cascading issues",
+                "Preview data frequently to catch issues before they compound"
+              ]
             },
           },
           {
@@ -336,7 +441,28 @@ export const courseData: Part[] = [
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
             content: {
-              concept: "Restructuring data to be suitable for analysis",
+              concept: "Restructuring data to be suitable for analysis is a critical transformation skill. Power BI requires data in a specific \"tall\" format rather than the \"wide\" format common in Excel.",
+              discussion: "Unpivot is a crucial operation that transforms wide data (e.g., columns for Jan, Feb, Mar, Apr) into tall data (one 'Month' column, one 'Value' column). This tall format is the correct, tidy format for BI tools. Power BI visuals work best when data is structured with one row per observation. Pivot is the reverse operation, used less frequently, that aggregates data into a wide format. Understanding when to use each transformation is key to building effective data models.",
+              labs: [
+                "Start with a wide dataset: Sales data with columns for each month (Jan, Feb, Mar, etc.)",
+                "Select all month columns and use Unpivot Columns",
+                "Rename the 'Attribute' column to 'Month' and 'Value' column to 'Sales'",
+                "Verify the transformation: You should now have one row per month per product",
+                "Practice the reverse: Pivot the Month column to see how it restructures the data",
+                "Understand why Unpivot is preferred for Power BI visualizations"
+              ],
+              keyPoints: [
+                "BI tools prefer 'tall' data (many rows, few columns) over 'wide' data (few rows, many columns)",
+                "Unpivot is one of the most common transformations you'll perform",
+                "Pivot can aggregate data but reduces granularity",
+                "Time series data in Excel often needs unpivoting for Power BI"
+              ],
+              insiderTips: [
+                "If your data has months/years as columns, you'll almost certainly need to unpivot",
+                "Use 'Unpivot Other Columns' to keep certain columns while unpivoting others",
+                "Unpivoted data is easier to filter and aggregate in Power BI",
+                "Remember: Unpivot preserves all data; Pivot aggregates it"
+              ]
             },
           },
           {
@@ -350,7 +476,28 @@ export const courseData: Part[] = [
             tags: ["Power Query"],
             topic: 'Power Query',
             content: {
-              concept: "Using Power Query's UI to perform more advanced logic",
+              concept: "Using Power Query's UI to perform more advanced logic allows you to create calculated columns and aggregations without writing code.",
+              discussion: "Conditional Columns create new columns based on IF/THEN logic (e.g., categorizing sales amounts into 'High,' 'Medium,' or 'Low' based on thresholds). This is done through a visual interface that generates M code behind the scenes. Grouping and Aggregating performs a 'Group By' operation to summarize data before it's even loaded into the model (e.g., calculating total sales per region). This can significantly reduce model size by pre-aggregating data at the source, improving both refresh time and report performance.",
+              labs: [
+                "Create a conditional column: 'Price Category' based on UnitPrice thresholds",
+                "Use IF statements: If Price > 100 then 'High', else if Price > 50 then 'Medium', else 'Low'",
+                "Practice grouping: Group by Region and calculate SUM of Sales",
+                "Group by multiple columns: Region and Year, calculating COUNT and SUM",
+                "Compare data before and after grouping to understand the transformation",
+                "Experiment with different aggregation functions: SUM, AVERAGE, COUNT, MIN, MAX"
+              ],
+              keyPoints: [
+                "Conditional columns are user-friendly alternatives to writing M code",
+                "Grouping can dramatically reduce data size by pre-aggregating",
+                "Pre-aggregation improves performance but reduces granularity",
+                "These transformations happen at refresh time, not query time"
+              ],
+              insiderTips: [
+                "Group early if you don't need row-level detail—it speeds up everything downstream",
+                "Conditional columns are easier to maintain than complex M formulas for simple logic",
+                "Use grouping to create summary tables for executive dashboards",
+                "Remember: Once grouped, you lose the ability to drill down to individual transactions"
+              ]
             },
           },
           {
@@ -379,7 +526,51 @@ export const courseData: Part[] = [
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
             content: {
-              concept: "Combining multiple tables (queries) into a single, unified table.13 The distinction between these two operations is fundamental",
+              concept: "Combining multiple tables (queries) into a single, unified table. The distinction between Merge and Append is fundamental and often confuses beginners.",
+              discussion: "Append stacks data vertically, adding more rows. This is used when you have files of the same structure (e.g., Sales_2023 and Sales_2024). The tables must have the same column headers to append correctly. Merge joins data horizontally, adding more columns. This is analogous to a VLOOKUP in Excel. It is used to join two different tables (e.g., a Sales table and a Product table) based on a common key (e.g., ProductID). This lesson also introduces Join Kinds (Inner, Left Outer, Right Outer, Full Outer, Left Anti, Right Anti) which determine which rows are included in the result.",
+              tables: [
+                {
+                  title: "Merge vs. Append",
+                  headers: ["Operation", "Analogy", "Data Direction", "Result", "Use Case"],
+                  rows: [
+                    ["Append", "Stacking", "Vertical (adds rows)", "More rows", "Combining Sales_2023 and Sales_2024"],
+                    ["Merge", "VLOOKUP", "Horizontal (adds columns)", "More columns", "Adding Product Names to a Sales table"]
+                  ]
+                },
+                {
+                  title: "Join Kinds (for Merge)",
+                  headers: ["Join Kind", "What it Keeps", "When to Use"],
+                  rows: [
+                    ["Inner", "Only matching rows from both tables", "When you only want complete matches"],
+                    ["Left Outer", "All rows from left table + matches from right", "Most common - keeps all sales, adds product info"],
+                    ["Right Outer", "All rows from right table + matches from left", "Rare - when right table is primary"],
+                    ["Full Outer", "All rows from both tables", "When you want everything, matching or not"],
+                    ["Left Anti", "Only rows from left with NO match in right", "Finding orphaned records"],
+                    ["Right Anti", "Only rows from right with NO match in left", "Finding unused lookup values"]
+                  ]
+                }
+              ],
+              labs: [
+                "Append: Combine three monthly sales files (Jan, Feb, Mar) into one table",
+                "Verify: The appended table should have the sum of all rows from the three files",
+                "Merge: Join Sales table with Product table using ProductID as the key",
+                "Try different join kinds: Start with Left Outer, then compare with Inner",
+                "Understand when each join kind is appropriate",
+                "Practice with mismatched keys to see how merge handles missing values"
+              ],
+              keyPoints: [
+                "Append = stacking (rows), Merge = joining (columns)",
+                "Tables must have same structure for Append; need a common key for Merge",
+                "Left Outer Join is the most commonly used join kind",
+                "Merge is NOT for creating relationships—use Model View for that"
+              ],
+              insiderTips: [
+                "Use Append for time series data from multiple periods",
+                "Merge in Power Query is for ETL; Relationships in Model View are for analysis",
+                "Left Outer Join is usually what you want—it keeps all your fact table rows",
+                "If you're merging to add lookup values, consider if a relationship would be better",
+                "Check for duplicate keys before merging—they can cause row multiplication"
+              ]
             },
           },
           {
@@ -1283,7 +1474,31 @@ export const courseData: Part[] = [
             tags: ["Data Modeling"],
             topic: 'Business Intelligence',
             content: {
-              concept: "Using the Key Influencers visual to understand what factors drive a specific metric (e.g., \"What influences a customer to churn?\").55Lab: Use the Key Influencers visual to analyze what factors contribute to \"High Profit\" vs. \"Low Profit\" in the sales data",
+              concept: "The Key Influencers visual is an AI-powered visual that automatically analyzes your data to identify what factors drive a specific metric or outcome. It answers questions like 'What influences a customer to churn?' or 'What drives high sales performance?'",
+              discussion: "This visual uses machine learning algorithms to analyze relationships in your data and identify the factors that most strongly influence a target metric. Unlike traditional analysis where you manually explore relationships, Key Influencers does this automatically. It works by analyzing categorical and numeric fields to determine which values are associated with higher or lower instances of your target metric. The visual displays results showing both positive influences (factors that increase the metric) and negative influences (factors that decrease it), along with statistical confidence levels.",
+              labs: [
+                "Add the Key Influencers visual to your report",
+                "Set 'Total Profit' as the measure to analyze",
+                "Set 'Explain by' to include fields like Product Category, Region, Customer Segment, Sales Rep",
+                "Run the analysis and review the influencers",
+                "Interpret the results: Which factors contribute most to High Profit?",
+                "Drill down into specific influencers to understand the relationships",
+                "Compare positive vs. negative influencers",
+                "Use insights to inform business decisions"
+              ],
+              keyPoints: [
+                "Key Influencers automatically discovers relationships you might not find manually",
+                "Works best with categorical data and clearly defined target metrics",
+                "Results include statistical confidence to help you trust the insights",
+                "Great for exploratory analysis when you don't know what to look for"
+              ],
+              insiderTips: [
+                "Use with clean, well-structured data for best results",
+                "Combine with other visuals to validate findings",
+                "Don't confuse correlation with causation—use business knowledge to interpret",
+                "Key Influencers works well for binary outcomes (High/Low, Yes/No, Churn/Retain)",
+                "Include 3-5 relevant fields in 'Explain by'—too many can dilute insights"
+              ]
             },
           },
           {
@@ -1297,7 +1512,34 @@ export const courseData: Part[] = [
             tags: ["Data Modeling"],
             topic: 'Business Intelligence',
             content: {
-              concept: "Using the Decomposition Tree to perform root-cause analysis by breaking down a measure across multiple dimensions in a flexible, ad-hoc way.Lab: Create a Decomposition Tree to allow users to dynamically drill down into \"Total Sales\" by Region, then Category, then Sub-Category, to find the source of high or low sales",
+              concept: "The Decomposition Tree is an AI-powered visual that allows users to dynamically explore data by breaking down a measure across multiple dimensions in a flexible, ad-hoc way. It's perfect for root-cause analysis and answering 'why' questions.",
+              discussion: "The Decomposition Tree provides an interactive way to drill down into data to understand what's driving a metric. Users can click on different branches to explore the data hierarchy, and the visual automatically suggests the next best dimension to drill into based on impact. It supports both manual exploration (user chooses dimensions) and AI-driven exploration (visual suggests optimal paths). This makes it powerful for ad-hoc analysis where users want to investigate anomalies or understand variance. The tree structure visually represents the hierarchical breakdown, making it easy to see how different dimensions contribute to the overall metric.",
+              labs: [
+                "Add the Decomposition Tree visual to your report",
+                "Set 'Total Sales' as the measure to decompose",
+                "Add dimensions: Region, Product Category, Sub-Category, Sales Rep",
+                "Start at the root level to see total sales",
+                "Manually drill down: Click on a Region to see sales by that region",
+                "Continue drilling: Select a Category within that region",
+                "Use AI suggestions: Let the visual suggest optimal drill-down paths",
+                "Switch between different analysis paths to explore multiple perspectives",
+                "Use the 'Find where' feature to quickly locate high or low values",
+                "Reset and explore different starting points"
+              ],
+              keyPoints: [
+                "Decomposition Tree enables flexible, interactive root-cause analysis",
+                "AI suggestions guide users to the most impactful dimensions",
+                "Supports both hierarchical (pre-defined) and ad-hoc exploration",
+                "Visual representation makes complex breakdowns easy to understand"
+              ],
+              insiderTips: [
+                "Best used for exploratory analysis when investigating specific issues",
+                "Great for executive presentations—let them explore interactively",
+                "Use 'Find where' feature to quickly locate problem areas",
+                "Combine with Key Influencers: Use Key Influencers to find what matters, Decomposition Tree to explore it",
+                "Limit dimensions to 5-7 for best performance and usability",
+                "Works particularly well with sales, revenue, and performance metrics"
+              ]
             },
           },
           {
@@ -1311,7 +1553,34 @@ export const courseData: Part[] = [
             tags: ["AI Features", "Visualizations", "Data Modeling", "DAX", "Time Intelligence"],
             topic: 'DAX',
             content: {
-              concept: "Using the built-in AI features on line charts to automatically detect anomalies (unexpected spikes or dips) and to generate a time-series forecast.Lab: Apply Anomaly Detection to the \"Sales over Time\" line chart to spot sales outliers. Then, use the Forecasting feature to predict the next 3 months of sales.Capstone Project 2: Intermediate Interactive Sales DashboardProject Brief: 122Dataset: A proper relational dataset provided as multiple CSVs or a small database (e.g., Fact_Sales, Dim_Product, Dim_Customer, Dim_Date).5Task 1 (Model): Load all tables. In the Model View, manually create the relationships to build a perfect Star Schema. Disable \"Autodetect.\" 58Task 2 (DAX): Create a 'Measures' table to house all calculations. Write 5-7 DAX measures, which must include:Total Sales (using SUMX) 83Sales YTD 99Sales PY 103Sales YoY %% of Total Category Sales (using CALCULATE and ALL) 96Task 3 (Visualize & Storytell): Build a multi-page report:Page 1 (Summary): A high-level overview with key KPIs and charts.Page 2 (Details): A detailed breakdown page.Configure Drill-through from the summary chart on Page 1 to the detail on Page 2.110Use Bookmarks and buttons on Page 1 to toggle the visuals between a \"Sales\" view and a \"Profit\" view.49Implement Conditional Formatting on a table to show all negative profit values in red.115Include one AI Visual (e.g., Key Influencers) to explain \"Total Profit.\" 55Learning Outcome: The student has demonstrated mastery of the core \"Analyst\" workflow. They can model relational data, write sophisticated DAX, and build a user-friendly, interactive report that tells a story.Part 3: The Power BI Master – Enterprise and Administration",
+              concept: "Power BI includes built-in AI features directly in line charts that automatically detect anomalies (unexpected spikes or dips) and generate time-series forecasts. These features require no machine learning expertise—they're accessible with a single click.",
+              discussion: "Anomaly Detection uses machine learning to identify data points that deviate significantly from expected patterns in your time series data. It analyzes historical trends and seasonality to flag unusual values that may require investigation. The Forecasting feature uses time series analysis to predict future values based on historical patterns. It considers trends, seasonality, and cycles to generate forecasts with confidence intervals. Both features are powered by Azure Machine Learning but require no setup—they work automatically when enabled on a line chart with a date axis. These AI capabilities transform static charts into intelligent insights that help users identify issues and plan for the future.",
+              labs: [
+                "Create a line chart showing 'Sales over Time' with a date field on the X-axis",
+                "Enable Anomaly Detection: Right-click the chart, select 'Analyze', then 'Detect anomalies'",
+                "Review detected anomalies: Examine the flagged data points",
+                "Understand anomaly explanations: Read why each point is considered anomalous",
+                "Disable anomaly detection and enable Forecasting",
+                "Set forecast parameters: Specify number of periods to forecast (e.g., 3 months)",
+                "Review forecast: Examine predicted values and confidence intervals",
+                "Adjust forecast settings: Modify seasonality and trend assumptions if needed",
+                "Compare forecast to actuals (if available) to assess accuracy",
+                "Combine both features: Enable both anomaly detection and forecasting on the same chart"
+              ],
+              keyPoints: [
+                "Anomaly Detection helps identify outliers that may indicate problems or opportunities",
+                "Forecasting provides data-driven predictions for planning and budgeting",
+                "Both features work automatically—no machine learning setup required",
+                "Confidence intervals in forecasts show the range of uncertainty"
+              ],
+              insiderTips: [
+                "Anomaly Detection works best with consistent, regularly-spaced time series data",
+                "Review anomalies with business context—some 'anomalies' may be expected events",
+                "Forecasts assume historical patterns will continue—adjust for known future changes",
+                "Use forecasting for short to medium-term predictions (3-12 months) for best accuracy",
+                "Both features require sufficient historical data (at least 2-3 full cycles for seasonality)",
+                "Enable these features in final reports to provide value to end users automatically"
+              ]
             },
           },
         ],
@@ -1355,7 +1624,36 @@ export const courseData: Part[] = [
             tags: ["Visualizations"],
             topic: 'Visualizations',
             content: {
-              concept: "In the Power BI Service, Reports and Dashboards are distinct, and the terms are not interchangeable. A Dashboard is a feature unique to the Service",
+              concept: "In the Power BI Service, Reports and Dashboards are distinct entities, and the terms are not interchangeable. A Dashboard is a feature unique to the Power BI Service (not available in Desktop).",
+              discussion: "A Report is the multi-page, interactive analysis created in Power BI Desktop and published to the Service. Reports are designed for deep-dive analysis with full interactivity including cross-filtering, drill-through, and bookmarks. A Dashboard is a single-page monitoring tool created directly in the Service. Visuals (or 'tiles') are 'pinned' from one or more reports to create a 'greatest hits' collection or high-level summary. Dashboards are optimized for at-a-glance monitoring rather than detailed analysis. This distinction is a common point of confusion. A 'Master' must educate stakeholders on the difference to set proper expectations about what each tool can do.",
+              tables: [
+                {
+                  title: "Reports vs. Dashboards (in Power BI Service)",
+                  headers: ["Feature", "Report", "Dashboard"],
+                  rows: [
+                    ["Source", "1 report = 1 .pbix file from Desktop", "Tiles can come from many reports"],
+                    ["Pages", "Can have many pages", "Single page only"],
+                    ["Interactivity", "Highly interactive (cross-filtering, drill-through)", "Less interactive (clicking tile links to report)"],
+                    ["Where Created", "Power BI Desktop", "Power BI Service"],
+                    ["Use Case", "Deep-dive Analysis", "At-a-glance Monitoring"],
+                    ["Editing", "Edit in Desktop, republish", "Edit tiles, layout in Service"],
+                    ["Filters", "Full filtering capabilities", "Limited filtering (dashboard-level filters)"]
+                  ]
+                }
+              ],
+              keyPoints: [
+                "Reports are for analysis; Dashboards are for monitoring",
+                "Reports come from Desktop; Dashboards are created in Service",
+                "Reports are multi-page and interactive; Dashboards are single-page summaries",
+                "Dashboards can aggregate visuals from multiple reports"
+              ],
+              insiderTips: [
+                "Use Dashboards for executives who want high-level KPIs at a glance",
+                "Use Reports for analysts who need to explore and drill into details",
+                "Pin key visuals from reports to dashboards for visibility",
+                "Set up dashboards as landing pages for different user groups",
+                "Remember: You can't create dashboards in Desktop—only in Service"
+              ]
             },
           },
           {
@@ -1399,7 +1697,22 @@ export const courseData: Part[] = [
             tags: ["Power BI Fundamentals"],
             topic: 'Power BI Service',
             content: {
-              concept: "Keeping the data in an \"Import\" model fresh in the Power BI Service",
+              concept: "Keeping the data in an \"Import\" model fresh in the Power BI Service requires understanding refresh schedules, data gateways, and the differences between cloud and on-premises data sources.",
+              discussion: "Scheduled Refresh allows you to configure automatic updates for cloud data sources (e.g., Azure SQL, SharePoint, Excel Online) directly in the Service. Pro licenses allow up to 8 refreshes per day, while Premium capacity allows up to 48 refreshes per day. For on-premises data sources (e.g., local SQL Server, file shares), an On-Premises Data Gateway must be installed on a local machine. The Gateway acts as a secure \"tunnel\" that allows the Power BI Service (in the cloud) to reach your local data and perform the refresh. This is essential because the Power BI Service cannot directly access resources behind your organization's firewall. Gateways support both scheduled refresh and real-time data queries for DirectQuery scenarios.",
+              keyPoints: [
+                "Cloud data sources can refresh automatically without a gateway",
+                "On-premises sources require a Data Gateway",
+                "Pro license: 8 refreshes/day; Premium: up to 48 refreshes/day",
+                "Gateways enable secure access to on-premises resources from the cloud"
+              ],
+              insiderTips: [
+                "Install the gateway on a machine that's always on (or use a server)",
+                "Use a dedicated service account for the gateway, not a personal account",
+                "Test gateway connectivity before setting up refresh schedules",
+                "For multiple data sources, use the same gateway—no need to install multiple instances",
+                "Monitor gateway status in the Service to ensure refreshes are successful",
+                "Consider incremental refresh for large datasets to reduce refresh time"
+              ]
             },
           },
         ],
@@ -1421,8 +1734,31 @@ export const courseData: Part[] = [
             tags: ["Performance", "Visualizations"],
             topic: 'Visualizations',
             content: {
-              concept: "A \"Master\" must build fast, efficient reports. The first step is diagnostics, using the built-in Performance Analyzer",
-              discussion: "Found in the Optimize ribbon in Power BI Desktop",
+              concept: "A \"Master\" must build fast, efficient reports. The first step is diagnostics, using the built-in Performance Analyzer to identify which visuals and queries are slow.",
+              discussion: "Performance Analyzer is found in the Optimize ribbon in Power BI Desktop. It provides detailed timing information for each visual on a report page. To use it, start recording, interact with slicers or filters, and then analyze the log. The key metrics recorded for each visual are: DAX Query time (time spent by the DAX engine executing the query), Visual Display time (time spent rendering the visual on-screen), and Other time (time spent waiting for other visuals to complete). If 'DAX Query' time is slow, the issue is likely with the DAX formula or data model. If 'Visual Display' time is slow, the visual itself may be complex or there are too many visuals on the page competing for resources.",
+              labs: [
+                "Open a report with multiple visuals",
+                "Go to View > Performance Analyzer to open the pane",
+                "Click 'Start Recording'",
+                "Interact with a slicer or filter",
+                "Review the performance log for each visual",
+                "Identify which visuals have the highest DAX Query times",
+                "Click 'Copy query' for a slow visual to analyze the DAX",
+                "Focus optimization efforts on the slowest visuals first"
+              ],
+              keyPoints: [
+                "Performance Analyzer identifies which visuals are slow",
+                "DAX Query time indicates model or DAX issues",
+                "Visual Display time indicates rendering issues",
+                "Always measure before optimizing—don't guess"
+              ],
+              insiderTips: [
+                "Record performance with realistic data volumes, not just sample data",
+                "Test performance with filters applied—empty visuals are always fast",
+                "Use Performance Analyzer after major changes to catch regressions",
+                "Share performance logs with team members to troubleshoot together",
+                "Consider using Performance Analyzer in the Service (Oct 2025) for production performance testing"
+              ]
             },
           },
           {
@@ -1451,7 +1787,35 @@ export const courseData: Part[] = [
             tags: ["Performance"],
             topic: 'Performance',
             content: {
-              concept: "A summary of how to fix the problems identified",
+              concept: "Once Performance Analyzer identifies bottlenecks, you need strategies to fix them. Optimization priorities matter—some fixes have much larger impacts than others.",
+              discussion: "Data Model optimization has the highest priority. A proper Star Schema (Module 5) is the single-best performance optimization. Poor relationships, unnecessary columns, and incorrect cardinality can cause massive performance issues. Power Query optimization involves filtering data as early as possible and removing all unneeded columns before loading into the model. DAX optimization means writing efficient DAX by prioritizing Measures over Calculated Columns (Module 6) and using DAX variables to store intermediate results instead of recalculating expressions multiple times. Visual optimization involves reducing the number of visuals on the page and avoiding slicers with high-cardinality (e.g., 1 million distinct customers). Focus on the biggest impact first—often improving the data model solves multiple performance issues at once.",
+              tables: [
+                {
+                  title: "Optimization Priority & Impact",
+                  headers: ["Area", "Priority", "Typical Impact", "Effort"],
+                  rows: [
+                    ["Data Model (Star Schema)", "Highest", "10-100x improvement", "Medium"],
+                    ["Remove Unnecessary Columns", "Very High", "2-10x improvement", "Low"],
+                    ["DAX Optimization", "High", "2-5x improvement", "Medium"],
+                    ["Visual Reduction", "Medium", "1.5-3x improvement", "Low"],
+                    ["Slicer Optimization", "Medium", "1.5-2x improvement", "Low"]
+                  ]
+                }
+              ],
+              keyPoints: [
+                "Fix the data model first—it has the biggest impact",
+                "Remove unused columns early in Power Query",
+                "Use measures, not calculated columns, for aggregations",
+                "Reduce visual count and simplify complex visuals"
+              ],
+              insiderTips: [
+                "Measure before and after optimization to prove the improvement",
+                "Start with the slowest visual—fixing one often helps others",
+                "Use DAX variables to avoid recalculating the same expression multiple times",
+                "Avoid high-cardinality slicers (use a search box instead)",
+                "Consider splitting complex reports into multiple pages",
+                "Test optimizations with realistic data volumes, not just test data"
+              ]
             },
           },
           {
