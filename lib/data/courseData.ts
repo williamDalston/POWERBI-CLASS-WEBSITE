@@ -1059,13 +1059,93 @@ export const courseData: Part[] = [
             moduleNumber: 4,
             lessonNumber: 3,
             title: "Using Slicers for Interactivity",
-            description: "Slicers are on-page visual filters (like a dropdown or list) that allow the end-user to interact with and filter the entire report page.49Lab: Add a \"Year\" slicer and a \"Region\" slicer. Demonstrate ho",
-            duration: 10,
+            description: "Slicers are on-page visual filters (like a dropdown or list) that allow the end-user to interact with and filter the entire report page. Learn how to create interactive dashboards with slicers.",
+            duration: 25,
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'What are Slicers?', timestamp: 0 },
+              { title: 'Adding Slicers to Reports', timestamp: 240 },
+              { title: 'Slicer Visual Types', timestamp: 600 },
+              { title: 'Multi-Select and Interactions', timestamp: 900 },
+              { title: 'Formatting Slicers', timestamp: 1140 },
+              { title: 'Lab: Build Interactive Dashboard', timestamp: 1320 }
+            ],
             difficulty: 'beginner',
-            tags: ["Visualizations"],
+            tags: ["Visualizations", "Interactivity", "Slicers"],
             topic: 'Visualizations',
             content: {
-              concept: "Slicers are on-page visual filters (like a dropdown or list) that allow the end-user to interact with and filter the entire report page.49Lab: Add a \"Year\" slicer and a \"Region\" slicer. Demonstrate how selecting a value in a slicer dynamically filters all other visuals on the page",
+              concept: "Slicers are on-page visual filters that allow end-users to interact with and filter the entire report page dynamically. Unlike page-level filters (which are hidden), slicers are visible visual elements that users can click to filter all visuals on the page. Slicers transform static reports into interactive dashboards, making Power BI reports powerful and user-friendly.",
+              discussion: "Slicers provide an intuitive way for users to filter data without understanding the underlying data model. When a user selects a value in a slicer (e.g., '2024' in a Year slicer), all visuals on the page automatically filter to show only data matching that selection. This cross-filtering capability is what makes Power BI reports interactive. Slicer types include: List (dropdown or list box showing all values), Dropdown (collapsed list that expands when clicked), Between (for numeric ranges or date ranges), and Tiles (modern visual tiles for selection). Slicers support single-select or multi-select modes, allowing users to filter by one or multiple values. Slicers can sync across multiple pages, creating a unified filtering experience. Best practices include: placing slicers in consistent locations (often top or left side), limiting the number of slicers (3-5 per page is ideal), using clear labels, and ensuring slicers are visible and easy to use. Slicers work with any data type: text, numbers, dates, and even hierarchies.",
+              keyPoints: [
+                "Slicers are visible visual filters that users can interact with",
+                "Selecting a slicer value filters ALL visuals on the page automatically",
+                "Multiple slicer types: List, Dropdown, Between, Tiles",
+                "Slicers support single-select or multi-select modes",
+                "Slicers can sync across multiple report pages",
+                "3-5 slicers per page is optimal for usability"
+              ],
+              insiderTips: [
+                "Place slicers at the top or left side of reports for consistency",
+                "Use Dropdown slicers to save space when you have many values",
+                "Use 'Between' slicers for date ranges or numeric ranges (sales between $1000-$5000)",
+                "Enable 'Select all' option for multi-select slicers with many values",
+                "Format slicers to match your report theme for professional appearance",
+                "Hide slicer values that don't apply using visual-level filters",
+                "Use 'Sync slicers' to share slicers across multiple pages",
+                "Test slicers with different data selections to ensure they work correctly"
+              ],
+              labs: [
+                "Add a Year slicer:",
+                "  - Click Slicer icon in Visualizations pane",
+                "  - Drag Year field to Field well",
+                "  - Slicer appears on canvas",
+                "  - Click a year value - notice all visuals filter",
+                "Add a Region slicer:",
+                "  - Add another slicer visual",
+                "  - Drag Region field to Field well",
+                "  - Select a region - notice both slicers filter all visuals",
+                "Configure slicer type:",
+                "  - Select the Year slicer",
+                "  - In Format pane, change from 'List' to 'Dropdown'",
+                "  - Notice how it collapses to save space",
+                "Enable multi-select:",
+                "  - Select Region slicer",
+                "  - In Format pane, enable 'Multi-select'",
+                "  - Try selecting multiple regions",
+                "Format slicers:",
+                "  - Adjust slicer size and position",
+                "  - Change colors to match report theme",
+                "  - Add titles: 'Select Year' and 'Select Region'",
+                "Test interactivity:",
+                "  - Select different values in slicers",
+                "  - Verify all visuals update correctly",
+                "  - Clear selections to show all data",
+                "Practice: Build a dashboard with 3 slicers (Year, Region, Product Category)"
+              ],
+              tables: [
+                {
+                  title: "Slicer Types Comparison",
+                  headers: ["Slicer Type", "Best For", "Space Usage", "User Experience"],
+                  rows: [
+                    ["List", "Few values (under 10)", "Takes more space", "Shows all options at once"],
+                    ["Dropdown", "Many values", "Saves space", "Must click to see options"],
+                    ["Between", "Date ranges, numeric ranges", "Compact", "Range selection interface"],
+                    ["Tiles", "Visual selection", "Takes space", "Modern, app-like interface"]
+                  ]
+                },
+                {
+                  title: "Slicer Best Practices",
+                  headers: ["Practice", "Why", "Example"],
+                  rows: [
+                    ["3-5 slicers max per page", "Too many slicers confuse users", "Year, Region, Product Category"],
+                    ["Place consistently", "Users know where to find filters", "Top or left side of report"],
+                    ["Use clear labels", "Users understand what they're filtering", "Select Year vs. Year"],
+                    ["Enable Select All", "Users can quickly clear filters", "Useful for multi-select"],
+                    ["Sync across pages", "Consistent filtering experience", "Same Year filter on all pages"],
+                    ["Format consistently", "Professional appearance", "Match report theme colors"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -1073,14 +1153,93 @@ export const courseData: Part[] = [
             moduleNumber: 4,
             lessonNumber: 4,
             title: "Displaying Key Metrics: Cards, KPIs, and Gauges",
-            description: "Highlighting the most important, single-number metrics",
-            duration: 10,
+            description: "Highlighting the most important, single-number metrics using Card, KPI, and Gauge visuals. Learn how to create impactful dashboard KPIs.",
+            duration: 25,
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'What are KPIs and Metrics?', timestamp: 0 },
+              { title: 'Card Visual for Simple Numbers', timestamp: 240 },
+              { title: 'KPI Visual for Metrics vs. Targets', timestamp: 600 },
+              { title: 'Gauge Visual for Ranges', timestamp: 900 },
+              { title: 'Choosing the Right Visual', timestamp: 1140 },
+              { title: 'Lab: Build KPI Dashboard', timestamp: 1320 }
+            ],
             difficulty: 'beginner',
-            tags: ["Power BI Fundamentals"],
-            topic: 'AI Features',
+            tags: ["Visualizations", "KPIs", "Metrics"],
+            topic: 'Visualizations',
             content: {
-              concept: "Highlighting the most important, single-number metrics",
-              discussion: "Use the \"Card\" visual to display a large, single number like \"Total Sales\".50 Briefly introduce the \"KPI\" and \"Gauge\" visuals, which are designed to track a metric against a target or goal",
+              concept: "Highlighting the most important, single-number metrics is essential for executive dashboards and quick decision-making. Power BI provides three key visuals for displaying metrics: Card (simple single number), KPI (metric vs. target with status indicator), and Gauge (metric within a range). These visuals are typically placed at the top of dashboards to immediately communicate key business performance.",
+              discussion: "Card Visual: Use the Card visual to display a large, single number like \"Total Sales\" or \"Number of Customers.\" Cards are simple and clean - they show just the number, making them perfect for quick glances. Cards automatically format large numbers (e.g., 1,234,567 becomes 1.2M) and can include labels. KPI Visual: The KPI visual is designed to track a metric against a target or goal. It shows the metric value, a target value, and a status indicator (trend indicator or percentage variance). KPIs typically show whether you're on track (green), at risk (yellow), or off track (red). This visual is perfect for executive dashboards where you need to show performance at a glance. Gauge Visual: Gauges display a metric within a range, showing minimum, maximum, and current values. They're perfect for showing metrics like \"Percent of Goal\" or \"Capacity Utilization.\" Gauges use visual indicators (needle, arc) to show position within a range. Best practices include: placing key metrics at the top of dashboards, using consistent formatting across all KPI visuals, limiting to 3-5 key metrics per page, and ensuring targets are realistic and meaningful.",
+              keyPoints: [
+                "Card visual: Simple single number display (e.g., Total Sales)",
+                "KPI visual: Metric vs. target with status indicator",
+                "Gauge visual: Metric within a range (min, max, current)",
+                "Place KPIs at the top of dashboards for immediate visibility",
+                "Limit to 3-5 key metrics per page for clarity",
+                "Use consistent formatting across all KPI visuals"
+              ],
+              insiderTips: [
+                "Cards are simplest - use for basic numbers without targets",
+                "KPIs require a target value - ensure you have target data in your model",
+                "Gauges are perfect for showing percentages or capacity metrics",
+                "Format KPIs consistently: same font size, color scheme, and layout",
+                "Use conditional formatting in KPIs to show status (green/yellow/red)",
+                "Place KPIs in a row at the top of your dashboard",
+                "Test KPIs with different filters to ensure they calculate correctly",
+                "Use DAX measures (not columns) for KPI values for proper aggregation"
+              ],
+              labs: [
+                "Card Visual:",
+                "  - Click Card icon in Visualizations pane",
+                "  - Drag Sales measure to Fields well",
+                "  - Large number appears",
+                "  - Add title: 'Total Sales'",
+                "  - Format: Adjust font size, color",
+                "KPI Visual:",
+                "  - Click KPI icon",
+                "  - Drag Sales measure to 'Value' well",
+                "  - Drag Target measure to 'Target value' well",
+                "  - Drag Date field to 'Trend axis' well (optional)",
+                "  - KPI shows metric, target, and status",
+                "  - Format: Adjust colors, indicators",
+                "Gauge Visual:",
+                "  - Click Gauge icon",
+                "  - Drag Sales measure to 'Value' well",
+                "  - Set minimum value (e.g., 0)",
+                "  - Set maximum value (e.g., 1000000)",
+                "  - Set target value (e.g., 800000)",
+                "  - Gauge shows current value within range",
+                "Build KPI Dashboard:",
+                "  - Create 3-4 KPIs at top of page",
+                "  - Total Sales (Card)",
+                "  - Sales vs. Target (KPI)",
+                "  - Sales Growth % (Gauge)",
+                "  - Format consistently",
+                "  - Test with slicers"
+              ],
+              tables: [
+                {
+                  title: "KPI Visual Comparison",
+                  headers: ["Visual Type", "Best For", "Data Requirement", "Example"],
+                  rows: [
+                    ["Card", "Simple number display", "1 measure", "Total Sales: $1.2M"],
+                    ["KPI", "Metric vs. target", "1 measure + 1 target measure", "Sales: $1.2M vs. Target: $1.0M (120%)"],
+                    ["Gauge", "Metric in range", "1 measure + min/max/target", "Sales: $1.2M (80% of $1.5M goal)"]
+                  ]
+                },
+                {
+                  title: "KPI Dashboard Best Practices",
+                  headers: ["Practice", "Why", "Example"],
+                  rows: [
+                    ["3-5 KPIs max per page", "Too many metrics overwhelm users", "Sales, Profit, Growth, Customers"],
+                    ["Place at top", "Immediate visibility", "First row of dashboard"],
+                    ["Use consistent formatting", "Professional appearance", "Same font size, colors"],
+                    ["Include labels", "Users understand metrics", "Total Sales vs. just a number"],
+                    ["Use conditional formatting", "Visual status indication", "Green = good, Red = bad"],
+                    ["Test with filters", "Ensure calculations are correct", "Verify slicers update KPIs"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -1088,14 +1247,99 @@ export const courseData: Part[] = [
             moduleNumber: 4,
             lessonNumber: 5,
             title: "Basic Report Formatting",
-            description: "Applying basic design principles for a professional look",
-            duration: 20,
+            description: "Applying basic design principles for a professional look. Learn how to format reports with themes, alignment, titles, and consistent styling.",
+            duration: 30,
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Why Formatting Matters', timestamp: 0 },
+              { title: 'Using Report Themes', timestamp: 240 },
+              { title: 'Aligning Visuals', timestamp: 600 },
+              { title: 'Adding Titles and Labels', timestamp: 900 },
+              { title: 'Formatting Visuals Consistently', timestamp: 1140 },
+              { title: 'Lab: Format a Complete Dashboard', timestamp: 1380 }
+            ],
             difficulty: 'beginner',
-            tags: ["DAX", "Visualizations", "Power Query", "Microsoft Fabric"],
-            topic: 'DAX',
+            tags: ["Visualizations", "Report Design", "Formatting"],
+            topic: 'Visualizations',
             content: {
-              concept: "Applying basic design principles for a professional look",
-              discussion: "This includes aligning visuals on the canvas, adding clear titles, and applying built-in report themes to ensure color and font consistency.51 This module provides a \"quick win\": by its end, the student has completed the entire BI workflow (Get -> Transform -> Visualize) 8, building a strong sense of accomplishment.Capstone Project 1: Beginner's End-to-End ReportProject Brief: 8Dataset: A single, moderately-messy Excel file (e.g., a Superstore Sales dataset).2Task 1 (Get Data): Connect to the Excel file.32Task 2 (Transform): Use the Power Query Editor to clean the data. This must include fixing data types, removing nulls, and using \"Unpivot\" to tidy a set of columns.38Task 3 (Visualize): Build a single-page dashboard that includes:\"Total Sales\" (Card visual) 50\"Sales over Time\" (Line Chart)\"Sales by Product Category\" (Bar Chart)\"Sales by Region\" (Map visual)Interactive filters for \"Year\" and \"Product Category\" (Slicers).49Task 4 (Fabric Integration): Publish the report to a Fabric-enabled workspace and export the data to a OneLake Lakehouse.Learning Outcome: The student has successfully built and can interact with a complete BI report, reinforcing all lessons from Part 1.Part 2: The Power BI Analyst – Modeling, DAX, and Design",
+              concept: "Applying basic design principles transforms a functional report into a professional dashboard. Good formatting includes aligning visuals on the canvas, adding clear titles and labels, and applying consistent themes for color and font consistency. Well-formatted reports are easier to understand, more visually appealing, and inspire confidence in the data. This module provides a \"quick win\": by its end, you'll have completed the entire BI workflow (Get -> Transform -> Visualize), building a strong sense of accomplishment.",
+              discussion: "Report Themes: Power BI includes built-in themes (e.g., Classic, Modern) that apply consistent colors, fonts, and styling across your report. Themes ensure visual consistency and save time by applying formatting automatically. You can customize themes or create your own. Alignment: Aligning visuals creates a professional, organized appearance. Use the alignment guides that appear when moving visuals, or use the Format pane's Position controls for precise alignment. Snap to grid ensures visuals align perfectly. Titles and Labels: Every visual should have a clear title that explains what it shows. Titles should be concise but descriptive (e.g., 'Sales by Product Category' not just 'Sales'). Formatting Consistency: Use consistent font sizes, colors, and styling across all visuals. This creates visual harmony and makes reports easier to scan. Best practices include: using a limited color palette (3-5 colors), consistent font sizes (headers, labels, values), appropriate white space, and clear visual hierarchy. Format Visuals: Each visual has extensive formatting options in the Format pane - backgrounds, borders, data labels, axes, legends, and more. Format similar visuals consistently for a professional appearance.",
+              keyPoints: [
+                "Report themes ensure consistent colors, fonts, and styling across your report",
+                "Alignment creates professional, organized appearance",
+                "Clear titles and labels make reports easier to understand",
+                "Consistent formatting creates visual harmony",
+                "Good formatting inspires confidence in the data",
+                "Format similar visuals consistently for professional appearance"
+              ],
+              insiderTips: [
+                "Use built-in themes as a starting point - customize to your needs",
+                "Align visuals using snap-to-grid or alignment guides",
+                "Title every visual clearly - users should understand what they're looking at",
+                "Use a limited color palette (3-5 colors) for professional appearance",
+                "White space is important - don't overcrowd the page",
+                "Format similar visuals consistently - same fonts, colors, sizing",
+                "Test your report on different screen sizes to ensure readability",
+                "Use page-level formatting for backgrounds, page titles, and borders"
+              ],
+              labs: [
+                "Apply a Report Theme:",
+                "  - Home ribbon > Switch theme",
+                "  - Browse available themes (Classic, Modern, etc.)",
+                "  - Select a theme",
+                "  - Notice colors and fonts change across report",
+                "Align Visuals:",
+                "  - Select multiple visuals (Ctrl+Click)",
+                "  - Use alignment guides to align",
+                "  - Use Format pane > Position for precise alignment",
+                "  - Enable snap-to-grid in View ribbon",
+                "Add Titles:",
+                "  - Select a visual",
+                "  - Format pane > Visual > Title",
+                "  - Enable title, enter text",
+                "  - Format: font, size, color, alignment",
+                "  - Add titles to all visuals",
+                "Format Consistently:",
+                "  - Select a bar chart",
+                "  - Format colors, fonts, data labels",
+                "  - Copy formatting to other bar charts",
+                "  - Ensure all similar visuals match",
+                "Page Formatting:",
+                "  - Format pane > Page background",
+                "  - Set background color or image",
+                "  - Add page title",
+                "  - Format page-level elements",
+                "Final Polish:",
+                "  - Review all visuals for consistency",
+                "  - Ensure proper spacing between visuals",
+                "  - Verify titles are clear and descriptive",
+                "  - Test report appearance on different screen sizes"
+              ],
+              tables: [
+                {
+                  title: "Formatting Elements Checklist",
+                  headers: ["Element", "What to Format", "Why", "Best Practice"],
+                  rows: [
+                    ["Visual Titles", "Font, size, color, position", "Clarity and understanding", "Consistent across all visuals"],
+                    ["Data Labels", "Font, format, position", "Readability", "Enable for key metrics"],
+                    ["Colors", "Data colors, backgrounds", "Visual appeal", "Use theme colors, limit palette"],
+                    ["Fonts", "Type, size, weight", "Readability", "Use 1-2 font families max"],
+                    ["Alignment", "Visual positions", "Professional look", "Use guides, snap-to-grid"],
+                    ["Spacing", "White space between visuals", "Ease of reading", "Consistent margins"],
+                    ["Legends", "Position, formatting", "Understanding", "Place consistently"]
+                  ]
+                },
+                {
+                  title: "Report Themes Comparison",
+                  headers: ["Theme", "Style", "Best For", "Color Scheme"],
+                  rows: [
+                    ["Classic", "Traditional, corporate", "Business reports", "Blues, grays"],
+                    ["Modern", "Contemporary, clean", "Executive dashboards", "Modern colors"],
+                    ["Colorblind-friendly", "Accessibility-focused", "Accessibility requirements", "Colorblind-safe"],
+                    ["Custom", "Your brand colors", "Branded reports", "Your color palette"]
+                  ]
+                }
+              ]
             },
           },
         ],
