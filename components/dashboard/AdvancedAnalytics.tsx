@@ -3,14 +3,14 @@
 import { useState, useEffect } from 'react'
 import ProgressCharts from './ProgressCharts'
 import MasteryChart from './MasteryChart'
-import { calculateAnalytics, getWeeklyActivity, predictCompletionDate, generatePersonalizedInsights } from '@/lib/utils/analytics'
+import { calculateAnalytics, getWeeklyActivity, predictCompletionDate, generatePersonalizedInsights, WeeklyActivity } from '@/lib/utils/analytics'
 import { useLessons } from '@/lib/hooks/useLessons'
 import { AnalyticsData, PersonalizationInsight } from '@/lib/utils/analytics'
 
 export default function AdvancedAnalytics() {
   const { lessons } = useLessons()
   const [analyticsData, setAnalyticsData] = useState<AnalyticsData | null>(null)
-  const [weeklyActivity, setWeeklyActivity] = useState<any[]>([])
+  const [weeklyActivity, setWeeklyActivity] = useState<WeeklyActivity[]>([])
   const [predictedCompletion, setPredictedCompletion] = useState<string>('')
   const [insights, setInsights] = useState<PersonalizationInsight[]>([])
   const [activeTab, setActiveTab] = useState<'overview' | 'mastery' | 'insights'>('overview')

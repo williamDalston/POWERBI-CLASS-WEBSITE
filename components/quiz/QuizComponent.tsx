@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { Quiz, QuizQuestion, QuestionType, QuizAttempt, QuizMode, quizModes } from '@/lib/data/quizQuestions'
 import CTAButton from '@/components/shared/CTAButton'
 import Image from 'next/image'
@@ -77,63 +77,8 @@ export default function QuizComponent({
     }
   }, [initialAttempt, quiz.timeLimit, modeSelected])
 
-  // Timer countdown
-  useEffect(() => {
-    if (timeRemaining === null || timeRemaining <= 0 || submitted) return
-
-    const timer = setInterval(() => {
-      setTimeRemaining(prev => {
-        if (prev === null || prev <= 1) {
-          handleSubmit()
-          return 0
-        }
-        return prev - 1
-      })
-    }, 1000)
-
-    return () => clearInterval(timer)
-  }, [timeRemaining, submitted])
-
-  const handleAnswerChange = (value: string | string[]) => {
-    if (submitted) return
-    setAnswers(prev => ({
-      ...prev,
-      [currentQuestion.id]: value,
-    }))
-  }
-
-  const handleNext = () => {
-    if (modeConfig.allowNavigation && currentQuestionIndex < quiz.questions.length - 1) {
-      setCurrentQuestionIndex(prev => prev + 1)
-    } else if (!modeConfig.allowNavigation && currentQuestionIndex < quiz.questions.length - 1) {
-      setCurrentQuestionIndex(prev => prev + 1)
-    }
-  }
-
-  const handlePrevious = () => {
-    if (modeConfig.allowNavigation && currentQuestionIndex > 0) {
-      setCurrentQuestionIndex(prev => prev - 1)
-    }
-  }
-
-  const handleModeSelect = (selectedMode: QuizMode) => {
-    setMode(selectedMode)
-    setModeSelected(true)
-  }
-
-  const handleShowHint = () => {
-    if (!modeConfig.showHints || !currentQuestion.hints) return
-    
-    const questionId = currentQuestion.id
-    const currentHintIndex = activeHint[questionId] || 0
-    
-    if (currentHintIndex < currentQuestion.hints.length) {
-      setActiveHint(prev => ({ ...prev, [questionId]: currentHintIndex + 1 }))
-      setHintsUsed(prev => ({ ...prev, [questionId]: (prev[questionId] || 0) + 1 }))
-    }
-  }
-
-  const handleSubmit = () => {
+  // Define handleSubmit before it's used in useEffect
+  const handleSubmit = useCallback(() => {
     if (submitted) return
 
     // Calculate score
@@ -191,6 +136,68 @@ export default function QuizComponent({
 
     setAttempt(newAttempt)
     onComplete?.(newAttempt)
+  }, [submitted, quiz, answers, hintsUsed, mode, timeRemaining, onComplete, modeConfig])
+
+  // Timer countdown
+  useEffect(() => {
+    if (timeRemaining === null || timeRemaining <= 0 || submitted) return
+
+    const timer = setInterval(() => {
+      setTimeRemaining(prev => {
+        if (prev === null || prev <= 1) {
+          return 0
+        }
+        return prev - 1
+      })
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [timeRemaining, submitted])
+
+  // Handle timer expiration separately to avoid infinite loop
+  useEffect(() => {
+    if (timeRemaining === 0 && !submitted) {
+      handleSubmit()
+    }
+  }, [timeRemaining, submitted, handleSubmit])
+
+  const handleAnswerChange = (value: string | string[]) => {
+    if (submitted) return
+    setAnswers(prev => ({
+      ...prev,
+      [currentQuestion.id]: value,
+    }))
+  }
+
+  const handleNext = () => {
+    if (modeConfig.allowNavigation && currentQuestionIndex < quiz.questions.length - 1) {
+      setCurrentQuestionIndex(prev => prev + 1)
+    } else if (!modeConfig.allowNavigation && currentQuestionIndex < quiz.questions.length - 1) {
+      setCurrentQuestionIndex(prev => prev + 1)
+    }
+  }
+
+  const handlePrevious = () => {
+    if (modeConfig.allowNavigation && currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(prev => prev - 1)
+    }
+  }
+
+  const handleModeSelect = (selectedMode: QuizMode) => {
+    setMode(selectedMode)
+    setModeSelected(true)
+  }
+
+  const handleShowHint = () => {
+    if (!modeConfig.showHints || !currentQuestion.hints) return
+    
+    const questionId = currentQuestion.id
+    const currentHintIndex = activeHint[questionId] || 0
+    
+    if (currentHintIndex < currentQuestion.hints.length) {
+      setActiveHint(prev => ({ ...prev, [questionId]: currentHintIndex + 1 }))
+      setHintsUsed(prev => ({ ...prev, [questionId]: (prev[questionId] || 0) + 1 }))
+    }
   }
 
   const handleRetake = () => {

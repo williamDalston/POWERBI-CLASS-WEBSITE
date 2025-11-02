@@ -85,13 +85,13 @@ export default function RootLayout({
             }),
           }}
         />
+        {/* Preconnect to external domains for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="pb-20 lg:pb-0 overscroll-y-none">
         <ThemeProvider>
-          {/* Preconnect to external domains for performance */}
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-          <link rel="manifest" href="/manifest.json" />
           <MonacoProvider />
           <PWAHandler />
           <CommandPalette />

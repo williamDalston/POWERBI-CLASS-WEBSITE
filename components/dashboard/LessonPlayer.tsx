@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import CTAButton from '@/components/shared/CTAButton'
 import LessonControls from './LessonControls'
 import InteractiveTable from '@/components/shared/InteractiveTable'
@@ -58,9 +58,11 @@ export default function LessonPlayer({
       if (parsed) {
         setVideoInfo(parsed)
         
+        // Get saved progress once
+        const savedProgress = watchProgress?.lastPosition || 0
+        
         // Build embed URL with options
         if (parsed.platform === 'youtube') {
-          const savedProgress = watchProgress?.lastPosition || 0
           setEmbedUrl(buildYouTubeEmbedUrl(parsed.videoId, {
             autoplay: false,
             start: savedProgress > 0 ? Math.floor(savedProgress) : undefined,
@@ -68,7 +70,6 @@ export default function LessonPlayer({
             modestbranding: true,
           }))
         } else if (parsed.platform === 'vimeo') {
-          const savedProgress = watchProgress?.lastPosition || 0
           setEmbedUrl(buildVimeoEmbedUrl(parsed.videoId, {
             autoplay: false,
             start: savedProgress > 0 ? Math.floor(savedProgress) : undefined,
@@ -77,8 +78,8 @@ export default function LessonPlayer({
           setEmbedUrl(parsed.embedUrl)
         }
         
-        // Show resume prompt if there's saved progress
-        if (watchProgress?.lastPosition && watchProgress.lastPosition > 30) {
+        // Show resume prompt if there's saved progress (only once on mount)
+        if (savedProgress > 30 && !showResumePrompt) {
           setShowResumePrompt(true)
           // Auto-hide after 8 seconds
           setTimeout(() => setShowResumePrompt(false), 8000)
@@ -87,7 +88,8 @@ export default function LessonPlayer({
         setVideoError(true)
       }
     }
-  }, [lesson.videoUrl, watchProgress?.lastPosition])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lesson.videoUrl])
 
   // Keyboard shortcuts handler
   useEffect(() => {
@@ -141,7 +143,7 @@ export default function LessonPlayer({
     }, 4000)
   }
   
-  const handleAutoComplete = async () => {
+  const handleAutoComplete = useCallback(async () => {
     if (isCompleted) return
     
     setIsCompleted(true)
@@ -151,15 +153,14 @@ export default function LessonPlayer({
     setTimeout(() => {
       setShowCompletion(false)
     }, 4000)
-  }
+  }, [isCompleted, lesson.id, onComplete])
   
   // Auto-complete lesson when video is 90%+ watched
   useEffect(() => {
     if (watchProgress?.completed && !isCompleted) {
       handleAutoComplete()
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [watchProgress?.completed, isCompleted])
+  }, [watchProgress?.completed, isCompleted, handleAutoComplete])
   
   const handleChapterClick = (timestamp: number) => {
     if (!videoInfo || !iframeRef.current) return

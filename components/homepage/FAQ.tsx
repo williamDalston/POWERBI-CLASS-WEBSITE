@@ -62,7 +62,7 @@ export default function FAQ() {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-primary-900 mb-4">
                 Frequently Asked Questions
               </h2>
-              <p className="text-lg font-sans text-gray-700">
+              <p className="text-lg font-sans text-gray-700 dark:text-gray-300">
                 Everything you need to know before starting your journey
               </p>
             </div>
@@ -72,7 +72,7 @@ export default function FAQ() {
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
-                className="border border-gray-200 rounded-xl overflow-hidden bg-white/80 backdrop-blur-sm hover:border-accent/40 hover:shadow-lg transition-all duration-300"
+                className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:border-accent/40 hover:shadow-lg transition-all duration-300"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.1 }}
@@ -130,9 +130,9 @@ export default function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: 'easeInOut' }}
                     >
-                      <div className="px-6 pb-5 bg-gradient-to-br from-neutral-50 to-white border-t border-gray-200">
+                      <div className="px-6 pb-5 bg-gradient-to-br from-neutral-50 to-white dark:from-gray-800 dark:to-gray-700 border-t border-gray-200 dark:border-gray-700">
                         <motion.p 
-                          className="font-sans text-base text-gray-700 leading-relaxed"
+                          className="font-sans text-base text-gray-700 dark:text-gray-300 leading-relaxed"
                           initial={{ y: -10, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
                           transition={{ delay: 0.1 }}
@@ -148,7 +148,7 @@ export default function FAQ() {
           </div>
 
           <div className="mt-12 text-center px-4 sm:px-0">
-            <p className="text-base font-sans text-gray-700 mb-4">
+            <p className="text-base font-sans text-gray-700 dark:text-gray-300 mb-4">
               Still have questions? We're here to help.
             </p>
             <a

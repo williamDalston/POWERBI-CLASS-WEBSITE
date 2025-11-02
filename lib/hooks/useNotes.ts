@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { logger } from '@/lib/utils/logger'
 
 export interface Note {
@@ -155,12 +155,14 @@ export function useNotes(lessonId?: string) {
     return Array.from(tagSet).sort()
   }, [notes])
 
-  // Get notes for a specific lesson
-  const getNotesForLesson = lessonId ? getCurrentNote(lessonId) : undefined
+  // Get notes for a specific lesson - memoize to prevent re-renders
+  const currentNote = useMemo(() => {
+    return lessonId ? getCurrentNote(lessonId) : undefined
+  }, [lessonId, getCurrentNote])
 
   return {
     notes,
-    currentNote: getNotesForLesson,
+    currentNote,
     isLoading,
     isSaving,
     stats,

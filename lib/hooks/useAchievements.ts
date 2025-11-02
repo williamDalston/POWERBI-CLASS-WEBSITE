@@ -112,6 +112,9 @@ export function useAchievements() {
       // Get current progress
       const { completedLessonIds, currentStreak, lastCompletionTime } = getProgressData()
 
+      // Track newly unlocked achievements to batch the state update
+      const newlyUnlocked: Achievement[] = []
+
       // Check each achievement
       const updatedAchievements: AchievementState[] = ALL_ACHIEVEMENTS.map(achievement => {
         const stored = storedAchievements[achievement.id] || {}
@@ -128,14 +131,7 @@ export function useAchievements() {
         if (isUnlocked && !wasUnlocked) {
           const unlockedAt = new Date().toISOString()
           storedAchievements[achievement.id] = { unlockedAt }
-          
-          // Add to recently unlocked
-          setRecentlyUnlocked(prev => {
-            if (!prev.find(a => a.id === achievement.id)) {
-              return [...prev, { ...achievement, unlockedAt }]
-            }
-            return prev
-          })
+          newlyUnlocked.push({ ...achievement, unlockedAt })
         }
 
         const progress = calculateAchievementProgress(
@@ -155,6 +151,15 @@ export function useAchievements() {
       // Save updated achievements
       localStorage.setItem('achievementData', JSON.stringify(storedAchievements))
       setAchievements(updatedAchievements)
+      
+      // Batch update recently unlocked (only if there are new achievements)
+      if (newlyUnlocked.length > 0) {
+        setRecentlyUnlocked(prev => {
+          const existingIds = new Set(prev.map(a => a.id))
+          const toAdd = newlyUnlocked.filter(a => !existingIds.has(a.id))
+          return toAdd.length > 0 ? [...prev, ...toAdd] : prev
+        })
+      }
     } catch (err) {
       logger.error(new Error('Failed to load achievements'), { error: err })
     } finally {
@@ -222,6 +227,8 @@ export function useAchievements() {
 
   // Load on mount and when progress changes
   useEffect(() => {
+    if (typeof window === 'undefined') return
+    
     loadAchievements()
     
     // Listen for storage changes
@@ -240,8 +247,10 @@ export function useAchievements() {
     window.addEventListener('storage', handleStorageChange)
     window.addEventListener('lesson-completed', handleLessonCompleted as EventListener)
     
-    // Also check periodically for local changes
-    const interval = setInterval(loadAchievements, 2000)
+    // Also check periodically for local changes (longer interval to prevent loops)
+    const interval = setInterval(() => {
+      loadAchievements()
+    }, 5000) // Increased from 2000 to 5000ms to reduce frequency
     
     return () => {
       window.removeEventListener('storage', handleStorageChange)

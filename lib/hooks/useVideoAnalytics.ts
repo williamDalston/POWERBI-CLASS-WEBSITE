@@ -51,7 +51,6 @@ export function useVideoAnalytics(lessonId: string, videoDuration?: number) {
         setWatchProgress(newProgress)
       }
     } catch (err) {
-      console.error('Failed to load video progress:', err)
       // Initialize new progress on error
       const newProgress: VideoWatchProgress = {
         lessonId,
@@ -80,7 +79,7 @@ export function useVideoAnalytics(lessonId: string, videoDuration?: number) {
       localStorage.setItem(`videoProgress_${lessonId}`, JSON.stringify(progress))
       lastSaveTimeRef.current = now
     } catch (err) {
-      console.error('Failed to save video progress:', err)
+      // Silently fail - progress will be saved on next successful update
     }
   }, [lessonId])
   
@@ -88,38 +87,39 @@ export function useVideoAnalytics(lessonId: string, videoDuration?: number) {
   const updateCurrentTime = useCallback((time: number) => {
     setCurrentTime(time)
     
-    if (!watchProgress || !videoDuration) return
-    
-    // Check if this is a replay (time went backwards significantly)
-    if (time < watchProgress.lastPosition - 10 && time > 0) {
-      setWatchProgress(prev => prev ? {
+    setWatchProgress(prev => {
+      if (!prev || !videoDuration) return prev
+      
+      // Check if this is a replay (time went backwards significantly)
+      if (time < prev.lastPosition - 10 && time > 0) {
+        return {
+          ...prev,
+          replayCount: prev.replayCount + 1,
+          lastPosition: time,
+          lastWatched: new Date(),
+        }
+      }
+      
+      // Update progress
+      const newProgress: VideoWatchProgress = {
         ...prev,
-        replayCount: prev.replayCount + 1,
         lastPosition: time,
         lastWatched: new Date(),
-      } : null)
-      return
-    }
-    
-    // Update progress
-    const newProgress: VideoWatchProgress = {
-      ...watchProgress,
-      lastPosition: time,
-      lastWatched: new Date(),
-    }
-    
-    // Calculate completion percentage
-    if (videoDuration > 0) {
-      newProgress.completionPercentage = Math.min(100, (time / videoDuration) * 100)
-      
-      // Mark as completed if threshold reached
-      if (!newProgress.completed && newProgress.completionPercentage >= COMPLETION_THRESHOLD) {
-        newProgress.completed = true
       }
-    }
-    
-    setWatchProgress(newProgress)
-  }, [watchProgress, videoDuration])
+      
+      // Calculate completion percentage
+      if (videoDuration > 0) {
+        newProgress.completionPercentage = Math.min(100, (time / videoDuration) * 100)
+        
+        // Mark as completed if threshold reached
+        if (!newProgress.completed && newProgress.completionPercentage >= COMPLETION_THRESHOLD) {
+          newProgress.completed = true
+        }
+      }
+      
+      return newProgress
+    })
+  }, [videoDuration])
   
   // Start tracking watch time
   const startTracking = useCallback(() => {
@@ -227,7 +227,7 @@ export function getAllVideoAnalytics(): Record<string, VideoWatchProgress> {
       }
     }
   } catch (err) {
-    console.error('Failed to get video analytics:', err)
+    // Return empty object on error
   }
   
   return analytics

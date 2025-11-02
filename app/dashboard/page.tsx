@@ -37,7 +37,7 @@ export default function DashboardPage() {
     clearRecentlyUnlocked,
   } = useAchievements()
   const [showCelebration, setShowCelebration] = useState(false)
-  const [currentAchievement, setCurrentAchievement] = useState(recentlyUnlocked[0])
+  const [currentAchievement, setCurrentAchievement] = useState(recentlyUnlocked?.[0] || null)
 
   // Enable keyboard shortcuts
   useKeyboardShortcuts()
