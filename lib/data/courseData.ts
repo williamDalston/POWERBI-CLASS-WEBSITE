@@ -75,6 +75,14 @@ export const courseData: Part[] = [
             difficulty: 'beginner',
             tags: ["Visualizations"],
             topic: 'Visualizations',
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-0-1",
+            videoChapters: [
+              { title: "Introduction: What is BI?", timestamp: 0 },
+              { title: "Understanding Business Intelligence", timestamp: 180 },
+              { title: "Limitations of Traditional Spreadsheets", timestamp: 480 },
+              { title: "Modern BI Platforms and Solutions", timestamp: 780 },
+              { title: "Why Power BI Now?", timestamp: 1080 },
+            ],
             content: {
               concept: "Business Intelligence (BI) is the comprehensive process of transforming raw data into coherent, visually immersive, and interactive insights to drive informed business decisions.8 This stands in contrast to traditional, static data analysis often performed in spreadsheets",
               discussion: "Traditional spreadsheets like Microsoft Excel, while familiar, have significant limitations when faced with modern data challenges. They often struggle with large data volumes, require time-consuming manual refresh processes, and produce static visualizations that are difficult to collaborate on.9 Modern BI platforms like Power BI are designed to solve these specific problems through scalable data handling, automated data refresh, and the creation of dynamic, interactive reports",
@@ -90,6 +98,14 @@ export const courseData: Part[] = [
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'AI Features',
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-0-2",
+            videoChapters: [
+              { title: "Course Introduction", timestamp: 0 },
+              { title: "Three-Part Learning Path", timestamp: 180 },
+              { title: "Case Study Overview", timestamp: 480 },
+              { title: "Target Audience", timestamp: 780 },
+              { title: "Learning Outcomes", timestamp: 1080 },
+            ],
             content: {
               concept: "This curriculum follows a three-part structure, guiding a student from \"Beginner\" to \"Analyst\" and finally to \"Master.\" A \"Case Study Scenario\" (e.g., analyzing sales for a retail company) will be used throughout the course to provide real-world context",
               discussion: "The course is designed for any professional who works with data, regardless of their current title.11 It is particularly impactful for \"Excel power users\" who are seeking to advance their analytical capabilities beyond the constraints of spreadsheets.11 It is also the ideal learning path for aspiring Data Analysts 12, Business Analysts, and IT professionals who need to leverage data for decision-making",
@@ -105,6 +121,14 @@ export const courseData: Part[] = [
             difficulty: 'beginner',
             tags: ["DAX", "Visualizations", "Power Query"],
             topic: 'DAX',
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-0-3",
+            videoChapters: [
+              { title: "Prerequisites Overview", timestamp: 0 },
+              { title: "Required Skills", timestamp: 180 },
+              { title: "Excel Skills as Accelerators", timestamp: 480 },
+              { title: "Helpful Background Knowledge", timestamp: 780 },
+              { title: "Getting Started Without Prerequisites", timestamp: 1080 },
+            ],
             content: {
               concept: "While there are no formal prerequisites to begin 13, a baseline of data literacy is highly beneficial",
               discussion: "Certain existing skills can be considered \"accelerators\" for the learning process. A strong familiarity with Microsoft Excel, especially functions, formulas, and Pivot Tables, provides a significant advantage.11 This is because core components of Power BI, such as Power Query and the DAX formula language, are shared with modern Excel. Other helpful, though not required, concepts include a basic understanding of databases (e.g., the concept of a table) and data visualization (e.g., the purpose of a bar chart)",
@@ -120,6 +144,14 @@ export const courseData: Part[] = [
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-0-4",
+            videoChapters: [
+              { title: "BI Landscape Overview", timestamp: 0 },
+              { title: "Excel vs. Tableau vs. Power BI", timestamp: 120 },
+              { title: "Feature Comparison", timestamp: 240 },
+              { title: "Power BI's Competitive Advantages", timestamp: 360 },
+              { title: "Choosing the Right Tool", timestamp: 480 },
+            ],
             content: {
               concept: "This lesson positions Power BI within its competitive landscape to establish why it is a critical tool to learn. The choice of a BI tool is not purely technical; it is strategic and impacts your organization's data culture, cost structure, and scalability.",
               discussion: "Each BI tool serves different needs. Excel excels at ad-hoc analysis for small datasets, Tableau focuses on powerful visualization capabilities for large datasets, while Power BI provides an end-to-end solution from data ingestion to sharing, with seamless Microsoft ecosystem integration. Understanding these differences helps you make informed decisions and understand Power BI's unique value proposition. Power BI's integration with Microsoft Fabric (OneLake) positions it as the future of analytics in the Microsoft ecosystem, offering unlimited data scale and modern AI capabilities like Copilot.",
@@ -177,6 +209,14 @@ export const courseData: Part[] = [
             difficulty: 'beginner',
             tags: ["Visualizations"],
             topic: 'Data Modeling',
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-1-1",
+            videoChapters: [
+              { title: "Introduction to Power BI Ecosystem", timestamp: 0 },
+              { title: "Power BI Desktop - The Authoring Tool", timestamp: 180 },
+              { title: "Power BI Service - Collaboration Hub", timestamp: 480 },
+              { title: "Power BI Mobile - Consumption Tool", timestamp: 780 },
+              { title: "How They Work Together", timestamp: 1080 },
+            ],
             content: {
               concept: "Power BI is not a single program but a collection of software services, apps, and connectors that work together. Understanding this ecosystem is crucial for effective Power BI usage.",
               discussion: "A student's foundational mental model must include these three components and their interactions (including cloud vs. on-premises options): Power BI Desktop is a free, standalone Windows application and the primary \"authoring\" tool where all development happens—connecting to data, transforming, modeling, and building reports. Power BI Service is the cloud-based SaaS offering that serves as the \"collaboration and sharing\" hub where reports from Desktop are published, shared, collaborated on, and assembled into dashboards. Power BI Mobile provides native apps for iOS and Android devices, serving as the \"consumption\" tool that allows users to access and interact with reports and dashboards on the go.",
@@ -215,6 +255,14 @@ export const courseData: Part[] = [
             difficulty: 'beginner',
             tags: ["2025 Features"],
             topic: 'Business Intelligence',
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-1-2",
+            videoChapters: [
+              { title: "Installation Overview", timestamp: 0 },
+              { title: "Microsoft Store Installation (Recommended)", timestamp: 180 },
+              { title: "Direct Download Installation", timestamp: 480 },
+              { title: "Mac and ARM Considerations", timestamp: 780 },
+              { title: "Verifying Installation", timestamp: 1080 },
+            ],
             content: {
               concept: "Installing the free Power BI Desktop application",
               discussion: "There are two primary installation methods 24:Microsoft Store (Recommended): This version updates automatically in the background, ensuring the user always has the latest features.24Direct Download (Executable): This version requires manual updates but offers more control for enterprise environments.24Note for Mac Users: Power BI Desktop is a Windows-only application. Mac users must utilize a virtual machine environment, such as Parallels, to run a Windows instance.25Note for ARM Users (New in 2025): As of September/October 2025, Power BI Desktop is now supported to run natively on ARM-based Windows PCs",
@@ -230,6 +278,14 @@ export const courseData: Part[] = [
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-1-3",
+            videoChapters: [
+              { title: "Understanding Preview Features", timestamp: 0 },
+              { title: "Accessing Options and Settings", timestamp: 180 },
+              { title: "Key Preview Features to Enable", timestamp: 480 },
+              { title: "Model Explorer and On-Object Interaction", timestamp: 780 },
+              { title: "Staying Current with Updates", timestamp: 1080 },
+            ],
             content: {
               concept: "Power BI is updated on a monthly basis. Many of the most powerful new features are first released in \"preview\" and must be manually enabled by the user",
               discussion: "A critical first step for any new user is to navigate to File > Options and settings > Options > Preview features.1 Enabling these features (e.g., the new Model Explorer 26 or On-object interaction 1) not only provides access to the latest tools but also reinforces a core concept: the tool is in a constant state of evolution, and staying current is essential",
@@ -245,6 +301,14 @@ export const courseData: Part[] = [
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'AI Features',
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-1-4",
+            videoChapters: [
+              { title: "Interface Overview", timestamp: 0 },
+              { title: "Report View (Canvas)", timestamp: 120 },
+              { title: "Data View", timestamp: 240 },
+              { title: "Model View", timestamp: 360 },
+              { title: "Navigating Between Views", timestamp: 480 },
+            ],
             content: {
               concept: "Understanding the three main \"views\" within Power BI Desktop is key to navigating the workflow",
             },
@@ -267,6 +331,13 @@ export const courseData: Part[] = [
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'Power BI Service',
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-2-1",
+            videoChapters: [
+              { title: "Introduction to Get Data", timestamp: 0 },
+              { title: "Exploring Data Source Options", timestamp: 120 },
+              { title: "Connector Categories", timestamp: 240 },
+              { title: "Getting Started with Connections", timestamp: 360 },
+            ],
             content: {
               concept: "The \"Get Data\" function is the universal starting point for all Power BI projects. It provides access to hundreds of different data sources, from simple files to cloud databases and web services",
             },
@@ -281,6 +352,14 @@ export const courseData: Part[] = [
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-2-2",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Connecting to Excel Files", timestamp: 120 },
+              { title: "Connecting to CSV Files", timestamp: 240 },
+              { title: "Working with PDF Files", timestamp: 360 },
+              { title: "Lab Summary", timestamp: 480 },
+            ],
             content: {
               concept: "Connecting to the most common flat-file data sources",
               discussion: "This lab will walk through connecting to:Excel Workbooks (.xlsx): Power BI can connect to Excel tables and worksheets.32 This lesson will also cover best practices for structuring Excel data (e.g., using proper tables, avoiding merged cells) to make it ready for Power BI.Text/CSV Files (.csv): A ubiquitous format for data export.32PDF: Power BI can extract data from tables found within PDF documents",
@@ -296,6 +375,13 @@ export const courseData: Part[] = [
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'AI Features',
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-2-3",
+            videoChapters: [
+              { title: "Introduction to Database Connections", timestamp: 0 },
+              { title: "SQL Server Connection", timestamp: 120 },
+              { title: "Server and Database Names", timestamp: 240 },
+              { title: "Authentication Modes", timestamp: 360 },
+            ],
             content: {
               concept: "Connecting to relational databases, which form the backbone of most enterprise data systems",
               discussion: "The primary example will be SQL Server.10 This lesson will explain the concepts of a Server Name and Database Name, as well as the different authentication modes (e.g., Windows vs. SQL Server credentials)",
@@ -311,6 +397,13 @@ export const courseData: Part[] = [
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'Power BI Service',
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-2-4",
+            videoChapters: [
+              { title: "Web Data Connector Overview", timestamp: 0 },
+              { title: "From Web Connector Demo", timestamp: 120 },
+              { title: "SharePoint Connectors", timestamp: 240 },
+              { title: "Azure Cloud Services", timestamp: 360 },
+            ],
             content: {
               concept: "Acquiring data directly from online sources",
               discussion: "A simple demonstration will involve the \"From Web\" connector to pull tabular data from a web page (e.g., a table from a Wikipedia article).35 This will also introduce the existence of connectors for cloud services like SharePoint folders 32 and Azure SQL Databases",
@@ -326,6 +419,14 @@ export const courseData: Part[] = [
             difficulty: 'beginner',
             tags: ["Performance"],
             topic: 'Performance',
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-2-5",
+            videoChapters: [
+              { title: "Connection Modes Overview", timestamp: 0 },
+              { title: "Import Mode Explained", timestamp: 120 },
+              { title: "DirectQuery Mode Explained", timestamp: 240 },
+              { title: "Composite Mode", timestamp: 360 },
+              { title: "Making the Right Choice", timestamp: 480 },
+            ],
             content: {
               concept: "When connecting to a data source, the user must choose how the data is accessed. This choice has profound and lasting implications for performance, data freshness, and their trade-offs. This is one of the first and most critical architectural decisions you'll make in Power BI.",
               discussion: "Import mode is the default, most common, and highest-performance option. Power BI makes a copy of the data and stores it in its highly compressed in-memory (VertiPaq) engine inside the .pbix file. Reports are very fast because all data is local, but the data is only as fresh as the last refresh. DirectQuery mode does not copy the data—instead, it sends queries directly to the source database in real-time. This is ideal for extremely large datasets (that would exceed file size limits) or when \"live\" data is a strict requirement. The trade-off is that report performance is now dependent on the speed of the underlying database. Composite mode allows a \"mix\" of both approaches, enabling a developer to Import dimension tables (small, rarely changing) while using DirectQuery for a massive fact table. This choice is the first and most critical performance decision a developer makes. The choice of \"Import\" necessitates learning about data refresh schedules and gateways (covered in Module 12). The choice of \"DirectQuery\" necessitates learning about query optimization and database performance (covered in Module 13).",
@@ -364,6 +465,14 @@ export const courseData: Part[] = [
         lessons: [
           {
             id: "3-1",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-3-1",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Detailed Discussion", timestamp: 480 },
+              { title: "Best Practices", timestamp: 780 },
+              { title: "Summary", timestamp: 1080 }
+            ],
             moduleNumber: 3,
             lessonNumber: 1,
             title: "Introduction to Power Query (The ETL Mindset)",
@@ -379,6 +488,13 @@ export const courseData: Part[] = [
           },
           {
             id: "3-2",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-3-2",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Hands-On Lab", timestamp: 360 },
+              { title: "Summary", timestamp: 510 }
+            ],
             moduleNumber: 3,
             lessonNumber: 2,
             title: "Basic Table Transformations (Hands-On Lab)",
@@ -394,6 +510,12 @@ export const courseData: Part[] = [
           },
           {
             id: "3-3",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-3-3",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 3,
             lessonNumber: 3,
             title: "Data Cleaning and Formatting",
@@ -432,6 +554,12 @@ export const courseData: Part[] = [
           },
           {
             id: "3-4",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-3-4",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 3,
             lessonNumber: 4,
             title: "Shaping Data – Pivot and Unpivot",
@@ -467,6 +595,12 @@ export const courseData: Part[] = [
           },
           {
             id: "3-5",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-3-5",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 3,
             lessonNumber: 5,
             title: "Advanced Shaping (Conditional Columns & Grouping)",
@@ -502,6 +636,12 @@ export const courseData: Part[] = [
           },
           {
             id: "3-6",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-3-6",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 3,
             lessonNumber: 6,
             title: "Introduction to Parameters",
@@ -525,6 +665,12 @@ export const courseData: Part[] = [
             difficulty: 'beginner',
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-3-7",
+                        videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             content: {
               concept: "Combining multiple tables (queries) into a single, unified table. The distinction between Merge and Append is fundamental and often confuses beginners.",
               discussion: "Append stacks data vertically, adding more rows. This is used when you have files of the same structure (e.g., Sales_2023 and Sales_2024). The tables must have the same column headers to append correctly. Merge joins data horizontally, adding more columns. This is analogous to a VLOOKUP in Excel. It is used to join two different tables (e.g., a Sales table and a Product table) based on a common key (e.g., ProductID). This lesson also introduces Join Kinds (Inner, Left Outer, Right Outer, Full Outer, Left Anti, Right Anti) which determine which rows are included in the result.",
@@ -575,6 +721,12 @@ export const courseData: Part[] = [
           },
           {
             id: "3-8",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-3-8",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 3,
             lessonNumber: 8,
             title: "Introduction to the Advanced Editor (The M Language)",
@@ -590,6 +742,12 @@ export const courseData: Part[] = [
           },
           {
             id: "3-9",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-3-9",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 3,
             lessonNumber: 9,
             title: "Close & Apply",
@@ -613,6 +771,12 @@ export const courseData: Part[] = [
         lessons: [
           {
             id: "4-1",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-4-1",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 4,
             lessonNumber: 1,
             title: "Introduction to the Visualizations Pane",
@@ -628,6 +792,13 @@ export const courseData: Part[] = [
           },
           {
             id: "4-2",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-4-2",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Hands-On Lab", timestamp: 360 },
+              { title: "Summary", timestamp: 510 }
+            ],
             moduleNumber: 4,
             lessonNumber: 2,
             title: "Creating Core Visuals (Hands-On Lab)",
@@ -643,6 +814,12 @@ export const courseData: Part[] = [
           },
           {
             id: "4-3",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-4-3",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 4,
             lessonNumber: 3,
             title: "Using Slicers for Interactivity",
@@ -657,6 +834,12 @@ export const courseData: Part[] = [
           },
           {
             id: "4-4",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-4-4",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 4,
             lessonNumber: 4,
             title: "Displaying Key Metrics: Cards, KPIs, and Gauges",
@@ -672,6 +855,14 @@ export const courseData: Part[] = [
           },
           {
             id: "4-5",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-4-5",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Detailed Discussion", timestamp: 480 },
+              { title: "Best Practices", timestamp: 780 },
+              { title: "Summary", timestamp: 1080 }
+            ],
             moduleNumber: 4,
             lessonNumber: 5,
             title: "Basic Report Formatting",
@@ -702,6 +893,14 @@ export const courseData: Part[] = [
         lessons: [
           {
             id: "5-1",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-5-1",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Detailed Discussion", timestamp: 480 },
+              { title: "Best Practices", timestamp: 780 },
+              { title: "Summary", timestamp: 1080 }
+            ],
             moduleNumber: 5,
             lessonNumber: 1,
             title: "Why Data Modeling is the Most Critical Skill",
@@ -730,6 +929,14 @@ export const courseData: Part[] = [
           },
           {
             id: "5-2",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-5-2",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Detailed Discussion", timestamp: 480 },
+              { title: "Best Practices", timestamp: 780 },
+              { title: "Summary", timestamp: 1080 }
+            ],
             moduleNumber: 5,
             lessonNumber: 2,
             title: "Understanding Fact vs. Dimension Tables",
@@ -772,6 +979,15 @@ export const courseData: Part[] = [
           },
           {
             id: "5-3",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-5-3",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Detailed Discussion", timestamp: 540 },
+              { title: "Advanced Topics", timestamp: 900 },
+              { title: "Best Practices", timestamp: 1260 },
+              { title: "Summary", timestamp: 1620 }
+            ],
             moduleNumber: 5,
             lessonNumber: 3,
             title: "Designing a Star Schema (The BI Gold Standard)",
@@ -816,6 +1032,15 @@ export const courseData: Part[] = [
           },
           {
             id: "5-4",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-5-4",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Detailed Discussion", timestamp: 540 },
+              { title: "Advanced Topics", timestamp: 900 },
+              { title: "Hands-On Lab", timestamp: 1260 },
+              { title: "Summary", timestamp: 1620 }
+            ],
             moduleNumber: 5,
             lessonNumber: 4,
             title: "Creating and Managing Relationships (Hands-On Lab)",
@@ -872,6 +1097,15 @@ export const courseData: Part[] = [
             difficulty: 'intermediate',
             tags: ["Data Modeling"],
             topic: 'Data Modeling',
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-5-5",
+                        videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Detailed Discussion", timestamp: 540 },
+              { title: "Advanced Topics", timestamp: 900 },
+              { title: "Best Practices", timestamp: 1260 },
+              { title: "Summary", timestamp: 1350 }
+            ],
             content: {
               concept: "Cardinality and cross-filter direction are two critical relationship properties that govern how filters flow through your model and how relationships behave. Cardinality describes the uniqueness constraint between related columns, while cross-filter direction controls filter propagation.",
               discussion: "Cardinality has three options: One-to-many (1:*), Many-to-one (*:1), One-to-one (1:1), and Many-to-many (*:*). In star schemas, you almost exclusively use one-to-many relationships where one dimension row relates to many fact rows. Cross-filter direction has two options: Single and Both. 'Single' means filters flow from the one side to the many side only (dimension → fact). 'Both' enables bidirectional filtering. The default and safest choice is 'Single' to prevent ambiguity and performance issues. 'Both' is useful for special cases but should be used sparingly as it can create circular dependencies and slow down queries. Advanced scenarios may require 'Both' for complex filtering requirements, but always test performance impact.",
@@ -919,6 +1153,15 @@ export const courseData: Part[] = [
           },
           {
             id: "5-6",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-5-6",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Detailed Discussion", timestamp: 540 },
+              { title: "Advanced Topics", timestamp: 900 },
+              { title: "Best Practices", timestamp: 1260 },
+              { title: "Summary", timestamp: 1620 }
+            ],
             moduleNumber: 5,
             lessonNumber: 6,
             title: "Advanced Modeling Concepts (PL-300)",
@@ -964,6 +1207,14 @@ export const courseData: Part[] = [
         lessons: [
           {
             id: "6-1",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-6-1",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Detailed Discussion", timestamp: 480 },
+              { title: "Best Practices", timestamp: 780 },
+              { title: "Summary", timestamp: 1080 }
+            ],
             moduleNumber: 6,
             lessonNumber: 1,
             title: "What is DAX?",
@@ -998,6 +1249,15 @@ export const courseData: Part[] = [
           },
           {
             id: "6-2",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-6-2",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Detailed Discussion", timestamp: 540 },
+              { title: "Advanced Topics", timestamp: 900 },
+              { title: "Best Practices", timestamp: 1260 },
+              { title: "Summary", timestamp: 2160 }
+            ],
             moduleNumber: 6,
             lessonNumber: 2,
             title: "The Core Concept: Calculated Columns vs. Measures",
@@ -1047,6 +1307,13 @@ export const courseData: Part[] = [
           },
           {
             id: "6-3",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-6-3",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Hands-On Lab", timestamp: 360 },
+              { title: "Summary", timestamp: 510 }
+            ],
             moduleNumber: 6,
             lessonNumber: 3,
             title: "Creating Calculated Columns (Hands-On Lab)",
@@ -1061,6 +1328,13 @@ export const courseData: Part[] = [
           },
           {
             id: "6-4",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-6-4",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Hands-On Lab", timestamp: 360 },
+              { title: "Summary", timestamp: 510 }
+            ],
             moduleNumber: 6,
             lessonNumber: 4,
             title: "Creating Measures (Hands-On Lab)",
@@ -1075,6 +1349,12 @@ export const courseData: Part[] = [
           },
           {
             id: "6-5",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-6-5",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 6,
             lessonNumber: 5,
             title: "Implicit vs. Explicit Measures",
@@ -1089,6 +1369,12 @@ export const courseData: Part[] = [
           },
           {
             id: "6-6",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-6-6",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 6,
             lessonNumber: 6,
             title: "Using Quick Measures",
@@ -1112,6 +1398,12 @@ export const courseData: Part[] = [
         lessons: [
           {
             id: "7-1",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-7-1",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 7,
             lessonNumber: 1,
             title: "The \"Secret Sauce\" of DAX: Evaluation Context",
@@ -1126,6 +1418,12 @@ export const courseData: Part[] = [
           },
           {
             id: "7-2",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-7-2",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 7,
             lessonNumber: 2,
             title: "Row Context (The \"Current Row\")",
@@ -1141,6 +1439,12 @@ export const courseData: Part[] = [
           },
           {
             id: "7-3",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-7-3",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 7,
             lessonNumber: 3,
             title: "Filter Context (The \"Current Cell\")",
@@ -1156,6 +1460,12 @@ export const courseData: Part[] = [
           },
           {
             id: "7-4",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-7-4",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 7,
             lessonNumber: 4,
             title: "Iterator Functions (SUMX, AVERAGEX, MINX)",
@@ -1179,6 +1489,12 @@ export const courseData: Part[] = [
         lessons: [
           {
             id: "8-1",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-8-1",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 8,
             lessonNumber: 1,
             title: "The Most Important Function in DAX: CALCULATE()",
@@ -1194,6 +1510,12 @@ export const courseData: Part[] = [
           },
           {
             id: "8-2",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-8-2",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 8,
             lessonNumber: 2,
             title: "Removing Filters with ALL()",
@@ -1209,6 +1531,12 @@ export const courseData: Part[] = [
           },
           {
             id: "8-3",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-8-3",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 8,
             lessonNumber: 3,
             title: "Related ALL Functions: ALLEXCEPT(), ALLSELECTED()",
@@ -1223,6 +1551,12 @@ export const courseData: Part[] = [
           },
           {
             id: "8-4",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-8-4",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 8,
             lessonNumber: 4,
             title: "Context Transition (The Advanced Concept)",
@@ -1238,6 +1572,12 @@ export const courseData: Part[] = [
           },
           {
             id: "8-5",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-8-5",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 8,
             lessonNumber: 5,
             title: "Advanced DAX Scenarios (USERELATIONSHIP)",
@@ -1252,6 +1592,12 @@ export const courseData: Part[] = [
           },
           {
             id: "8-6",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-8-6",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 8,
             lessonNumber: 6,
             title: "Introduction to Visual Calculations (Oct 2025 GA)",
@@ -1274,6 +1620,12 @@ export const courseData: Part[] = [
         lessons: [
           {
             id: "9-1",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-9-1",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 9,
             lessonNumber: 1,
             title: "The Prerequisite: A Date Table",
@@ -1289,6 +1641,13 @@ export const courseData: Part[] = [
           },
           {
             id: "9-2",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-9-2",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Hands-On Lab", timestamp: 360 },
+              { title: "Summary", timestamp: 510 }
+            ],
             moduleNumber: 9,
             lessonNumber: 2,
             title: "Year-to-Date (YTD) and Period-to-Date (Hands-On Lab)",
@@ -1303,6 +1662,12 @@ export const courseData: Part[] = [
           },
           {
             id: "9-3",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-9-3",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 9,
             lessonNumber: 3,
             title: "Prior Period Comparisons",
@@ -1317,6 +1682,12 @@ export const courseData: Part[] = [
           },
           {
             id: "9-4",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-9-4",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 9,
             lessonNumber: 4,
             title: "Calculating Year-over-Year (YoY) Growth",
@@ -1332,6 +1703,12 @@ export const courseData: Part[] = [
           },
           {
             id: "9-5",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-9-5",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 9,
             lessonNumber: 5,
             title: "Calculating Rolling Averages",
@@ -1354,6 +1731,14 @@ export const courseData: Part[] = [
         lessons: [
           {
             id: "10-1",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-10-1",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Detailed Discussion", timestamp: 480 },
+              { title: "Best Practices", timestamp: 780 },
+              { title: "Summary", timestamp: 1080 }
+            ],
             moduleNumber: 10,
             lessonNumber: 1,
             title: "Principles of Effective Report Design & Chart Selection (UI/UX)",
@@ -1369,6 +1754,12 @@ export const courseData: Part[] = [
           },
           {
             id: "10-2",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-10-2",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 10,
             lessonNumber: 2,
             title: "Advanced Interactivity: Drill-through Pages",
@@ -1383,6 +1774,12 @@ export const courseData: Part[] = [
           },
           {
             id: "10-3",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-10-3",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 10,
             lessonNumber: 3,
             title: "Advanced Interactivity: Bookmarks and the Selection Pane",
@@ -1398,6 +1795,12 @@ export const courseData: Part[] = [
           },
           {
             id: "10-4",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-10-4",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 10,
             lessonNumber: 4,
             title: "Enhancing Visuals: Custom Report Tooltips",
@@ -1412,6 +1815,12 @@ export const courseData: Part[] = [
           },
           {
             id: "10-5",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-10-5",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 10,
             lessonNumber: 5,
             title: "Enhancing Visuals: Conditional Formatting",
@@ -1427,6 +1836,12 @@ export const courseData: Part[] = [
           },
           {
             id: "10-6",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-10-6",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 10,
             lessonNumber: 6,
             title: "The Art of Data Storytelling",
@@ -1442,6 +1857,12 @@ export const courseData: Part[] = [
           },
           {
             id: "10-7",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-10-7",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 10,
             lessonNumber: 7,
             title: "Enhancing Reports with Custom Visuals",
@@ -1465,6 +1886,12 @@ export const courseData: Part[] = [
         lessons: [
           {
             id: "11-1",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-11-1",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 11,
             lessonNumber: 1,
             title: "The Key Influencers Visual",
@@ -1503,6 +1930,12 @@ export const courseData: Part[] = [
           },
           {
             id: "11-2",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-11-2",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 11,
             lessonNumber: 2,
             title: "The Decomposition Tree Visual",
@@ -1544,6 +1977,15 @@ export const courseData: Part[] = [
           },
           {
             id: "11-3",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-11-3",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Detailed Discussion", timestamp: 540 },
+              { title: "Advanced Topics", timestamp: 900 },
+              { title: "Best Practices", timestamp: 1260 },
+              { title: "Summary", timestamp: 1620 }
+            ],
             moduleNumber: 11,
             lessonNumber: 3,
             title: "Anomaly Detection & Forecasting",
@@ -1600,6 +2042,12 @@ export const courseData: Part[] = [
         lessons: [
           {
             id: "12-1",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-12-1",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 12,
             lessonNumber: 1,
             title: "Publishing and Exploring the Power BI Service",
@@ -1615,6 +2063,12 @@ export const courseData: Part[] = [
           },
           {
             id: "12-2",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-12-2",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 12,
             lessonNumber: 2,
             title: "Reports vs. Dashboards (A Critical Distinction)",
@@ -1658,6 +2112,12 @@ export const courseData: Part[] = [
           },
           {
             id: "12-3",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-12-3",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 12,
             lessonNumber: 3,
             title: "Collaboration with Workspaces",
@@ -1673,6 +2133,14 @@ export const courseData: Part[] = [
           },
           {
             id: "12-4",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-12-4",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Detailed Discussion", timestamp: 480 },
+              { title: "Best Practices", timestamp: 780 },
+              { title: "Summary", timestamp: 1080 }
+            ],
             moduleNumber: 12,
             lessonNumber: 4,
             title: "Distribution with Apps (The \"End-User\" Experience)",
@@ -1688,6 +2156,12 @@ export const courseData: Part[] = [
           },
           {
             id: "12-5",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-12-5",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 12,
             lessonNumber: 5,
             title: "Data Refresh and On-Premises Data Gateways",
@@ -1725,6 +2199,12 @@ export const courseData: Part[] = [
         lessons: [
           {
             id: "13-1",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-13-1",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 13,
             lessonNumber: 1,
             title: "Identifying Bottlenecks with Performance Analyzer",
@@ -1763,6 +2243,12 @@ export const courseData: Part[] = [
           },
           {
             id: "13-2",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-13-2",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 13,
             lessonNumber: 2,
             title: "Deep-Dive Analysis with DAX Studio",
@@ -1778,6 +2264,12 @@ export const courseData: Part[] = [
           },
           {
             id: "13-3",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-13-3",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 13,
             lessonNumber: 3,
             title: "Core Optimization Strategies",
@@ -1820,6 +2312,12 @@ export const courseData: Part[] = [
           },
           {
             id: "13-4",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-13-4",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 13,
             lessonNumber: 4,
             title: "Optimizing for Big Data (Aggregations)",
@@ -1835,6 +2333,12 @@ export const courseData: Part[] = [
           },
           {
             id: "13-5",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-13-5",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 13,
             lessonNumber: 5,
             title: "Incremental Refresh",
@@ -1850,6 +2354,12 @@ export const courseData: Part[] = [
           },
           {
             id: "13-6",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-13-6",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 13,
             lessonNumber: 6,
             title: "Using Performance Analyzer in the Web (New in 2025)",
@@ -1872,6 +2382,14 @@ export const courseData: Part[] = [
         lessons: [
           {
             id: "14-1",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-14-1",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Detailed Discussion", timestamp: 480 },
+              { title: "Best Practices", timestamp: 780 },
+              { title: "Summary", timestamp: 1080 }
+            ],
             moduleNumber: 14,
             lessonNumber: 1,
             title: "Row-Level Security (RLS) – Static Method",
@@ -1887,6 +2405,14 @@ export const courseData: Part[] = [
           },
           {
             id: "14-2",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-14-2",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Detailed Discussion", timestamp: 480 },
+              { title: "Best Practices", timestamp: 780 },
+              { title: "Summary", timestamp: 1080 }
+            ],
             moduleNumber: 14,
             lessonNumber: 2,
             title: "Dynamic Row-Level Security (RLS) (The \"Master\" Method)",
@@ -1902,6 +2428,12 @@ export const courseData: Part[] = [
           },
           {
             id: "14-3",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-14-3",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 14,
             lessonNumber: 3,
             title: "Object-Level Security (OLS)",
@@ -1917,6 +2449,12 @@ export const courseData: Part[] = [
           },
           {
             id: "14-4",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-14-4",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 14,
             lessonNumber: 4,
             title: "Overview of the Power BI Admin Portal",
@@ -1940,6 +2478,12 @@ export const courseData: Part[] = [
         lessons: [
           {
             id: "15-1",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-15-1",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 15,
             lessonNumber: 1,
             title: "Introduction to Tabular Editor (External Tool)",
@@ -1954,6 +2498,12 @@ export const courseData: Part[] = [
           },
           {
             id: "15-2",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-15-2",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 15,
             lessonNumber: 2,
             title: "Creating and Using Calculation Groups",
@@ -1969,6 +2519,12 @@ export const courseData: Part[] = [
           },
           {
             id: "15-3",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-15-3",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 15,
             lessonNumber: 3,
             title: "Advanced M Language Concepts",
@@ -1984,6 +2540,12 @@ export const courseData: Part[] = [
           },
           {
             id: "15-4",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-15-4",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 15,
             lessonNumber: 4,
             title: "Creating Reusable ETL with Dataflows Gen",
@@ -2007,6 +2569,12 @@ export const courseData: Part[] = [
         lessons: [
           {
             id: "16-1",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-16-1",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 16,
             lessonNumber: 1,
             title: "CI/CD with Deployment Pipelines",
@@ -2022,6 +2590,14 @@ export const courseData: Part[] = [
           },
           {
             id: "16-2",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-16-2",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Detailed Discussion", timestamp: 480 },
+              { title: "Best Practices", timestamp: 780 },
+              { title: "Summary", timestamp: 1080 }
+            ],
             moduleNumber: 16,
             lessonNumber: 2,
             title: "The Future: Microsoft Fabric and OneLake",
@@ -2037,6 +2613,12 @@ export const courseData: Part[] = [
           },
           {
             id: "16-3",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-16-3",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 16,
             lessonNumber: 3,
             title: "Integrating with the Power Platform (Power Apps & Power Automate)",
@@ -2051,6 +2633,12 @@ export const courseData: Part[] = [
           },
           {
             id: "16-4",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-16-4",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 16,
             lessonNumber: 4,
             title: "Developer Focus: Power BI Embedded Analytics",
@@ -2066,6 +2654,12 @@ export const courseData: Part[] = [
           },
           {
             id: "16-5",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-16-5",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 16,
             lessonNumber: 5,
             title: "Introduction to Streaming and Real-Time Dashboards",
@@ -2089,6 +2683,12 @@ export const courseData: Part[] = [
         lessons: [
           {
             id: "17-1",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-17-1",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 17,
             lessonNumber: 1,
             title: "Introduction to Copilot (The AI Assistant)",
@@ -2103,6 +2703,12 @@ export const courseData: Part[] = [
           },
           {
             id: "17-2",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-17-2",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 17,
             lessonNumber: 2,
             title: "Copilot for DAX Generation (GA Oct 2025)",
@@ -2117,6 +2723,12 @@ export const courseData: Part[] = [
           },
           {
             id: "17-3",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-17-3",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 17,
             lessonNumber: 3,
             title: "Copilot for Report Building",
@@ -2131,6 +2743,15 @@ export const courseData: Part[] = [
           },
           {
             id: "17-4",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-17-4",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Key Concepts", timestamp: 180 },
+              { title: "Detailed Discussion", timestamp: 540 },
+              { title: "Advanced Topics", timestamp: 900 },
+              { title: "Best Practices", timestamp: 1260 },
+              { title: "Summary", timestamp: 1620 }
+            ],
             moduleNumber: 17,
             lessonNumber: 4,
             title: "Fabric Integration: The OneLake Shortcut",
@@ -2153,6 +2774,12 @@ export const courseData: Part[] = [
         lessons: [
           {
             id: "18-1",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-18-1",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 18,
             lessonNumber: 1,
             title: "Certification: The PL-300 Exam",
@@ -2168,6 +2795,12 @@ export const courseData: Part[] = [
           },
           {
             id: "18-2",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-18-2",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 18,
             lessonNumber: 2,
             title: "Learning Paths by Role",
@@ -2183,6 +2816,12 @@ export const courseData: Part[] = [
           },
           {
             id: "18-3",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-18-3",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 18,
             lessonNumber: 3,
             title: "Staying Current (The Power BI Monthly Update)",
@@ -2198,6 +2837,12 @@ export const courseData: Part[] = [
           },
           {
             id: "18-4",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-18-4",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 18,
             lessonNumber: 4,
             title: "Downloadable Resources and Cheat-Sheets",
@@ -2213,6 +2858,12 @@ export const courseData: Part[] = [
           },
           {
             id: "18-5",
+            videoUrl: "https://www.youtube.com/watch?v=PLACEHOLDER-18-5",
+            videoChapters: [
+              { title: "Introduction", timestamp: 0 },
+              { title: "Core Concepts", timestamp: 240 },
+              { title: "Summary", timestamp: 480 }
+            ],
             moduleNumber: 18,
             lessonNumber: 5,
             title: "Final Deliverable: Your LinkedIn Portfolio",

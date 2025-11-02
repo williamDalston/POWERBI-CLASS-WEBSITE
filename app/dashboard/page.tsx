@@ -13,8 +13,14 @@ import { useKeyboardShortcuts, KeyboardShortcutsHelp } from '@/components/dashbo
 import { useToast } from '@/lib/hooks/useToast'
 import { useProgress } from '@/lib/hooks/useProgress'
 import { useLessons } from '@/lib/hooks/useLessons'
+import { useAchievements } from '@/lib/hooks/useAchievements'
 import CourseOutline from '@/components/dashboard/CourseOutline'
 import AdvancedAnalytics from '@/components/dashboard/AdvancedAnalytics'
+import AchievementsDisplay from '@/components/dashboard/AchievementsDisplay'
+import StreakCalendar from '@/components/dashboard/StreakCalendar'
+import CelebrationAnimation from '@/components/shared/CelebrationAnimation'
+import { calculateAnalytics } from '@/lib/utils/analytics'
+import LearningPathVisualization from '@/components/dashboard/LearningPathVisualization'
 import { courseData } from '@/lib/data/courseData'
 import Breadcrumbs from '@/components/shared/Breadcrumbs'
 import CTAButton from '@/components/shared/CTAButton'
@@ -24,6 +30,13 @@ export default function DashboardPage() {
   const [isFirstVisit, setIsFirstVisit] = useState(false)
   const { lessons, getNextLesson, isLoading: lessonsLoading } = useLessons()
   const { ToastContainer, showToast } = useToast()
+  const {
+    recentlyUnlocked,
+    checkForNewAchievements,
+    clearRecentlyUnlocked,
+  } = useAchievements()
+  const [showCelebration, setShowCelebration] = useState(false)
+  const [currentAchievement, setCurrentAchievement] = useState(recentlyUnlocked[0])
 
   // Enable keyboard shortcuts
   useKeyboardShortcuts()
@@ -64,7 +77,20 @@ export default function DashboardPage() {
       const hasSeenWelcome = localStorage.getItem('hasSeenWelcome')
       setIsFirstVisit(!hasSeenWelcome)
     }
-  }, [])
+    
+    // Check for new achievements on mount
+    checkForNewAchievements()
+  }, [checkForNewAchievements])
+
+  // Handle newly unlocked achievements
+  useEffect(() => {
+    if (recentlyUnlocked.length > 0) {
+      const achievement = recentlyUnlocked[0]
+      setCurrentAchievement(achievement)
+      setShowCelebration(true)
+      showToast(`Achievement Unlocked: ${achievement.title}!`, 'success', 3000)
+    }
+  }, [recentlyUnlocked, showToast])
 
   const handleStartLesson = () => {
     if (nextLesson) {
@@ -102,6 +128,20 @@ export default function DashboardPage() {
       {/* Toast Container */}
       <ToastContainer />
 
+      {/* Achievement Celebration */}
+      {currentAchievement && (
+        <CelebrationAnimation
+          achievement={currentAchievement}
+          show={showCelebration}
+          enableConfetti={true}
+          enableSound={false}
+          onComplete={() => {
+            setShowCelebration(false)
+            clearRecentlyUnlocked()
+          }}
+        />
+      )}
+
       {/* Keyboard Shortcuts Help */}
       <KeyboardShortcutsHelp />
 
@@ -112,10 +152,10 @@ export default function DashboardPage() {
       <div className="mb-8 animate-fade-in">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
           <div className="flex-1">
-            <h1 className="font-serif text-3xl sm:text-4xl text-primary-900 mb-2">
+            <h1 className="font-serif text-3xl sm:text-4xl text-primary-900 dark:text-white mb-2">
               Welcome Back
             </h1>
-            <p className="font-sans text-base sm:text-lg text-gray-600">
+            <p className="font-sans text-base sm:text-lg text-gray-600 dark:text-gray-400">
               Continue your Power BI learning journey
             </p>
           </div>
@@ -197,14 +237,26 @@ export default function DashboardPage() {
           <ContinueYourPath nextLesson={nextLesson} />
         </div>
 
-        {/* Sidebar - Progress Tracker */}
-        <div className="lg:col-span-1 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+        {/* Sidebar - Progress Tracker & Achievements */}
+        <div className="lg:col-span-1 space-y-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
           <ProgressTracker
             daysPracticed={progress.daysPracticed}
             totalTime={progress.totalTime}
             currentStreak={progress.currentStreak}
             totalLessons={progress.totalLessons}
             completedLessons={progress.completedLessons}
+          />
+          
+          {/* Achievements Display */}
+          <AchievementsDisplay 
+            viewMode="compact" 
+            showProgress={true}
+            maxDisplay={5}
+          />
+          
+          {/* Streak Calendar */}
+          <StreakCalendar 
+            streakData={calculateAnalytics(lessons).studyStreaks}
           />
         </div>
 
@@ -219,6 +271,11 @@ export default function DashboardPage() {
             modules={modules} 
             nextLessonId={nextLesson?.id}
           />
+        </div>
+
+        {/* Learning Path Visualization - Full Width */}
+        <div className="lg:col-span-3 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+          <LearningPathVisualization />
         </div>
       </div>
     </>

@@ -1,10 +1,13 @@
 'use client'
 
 import { useParams, useRouter } from 'next/navigation'
-import { useEffect, useCallback } from 'react'
+import { useEffect, useCallback, useState } from 'react'
 import Link from 'next/link'
 import LessonPlayer from '@/components/dashboard/LessonPlayer'
 import LessonNavigationBar from '@/components/dashboard/LessonNavigationBar'
+import LessonNotesPanel from '@/components/dashboard/LessonNotesPanel'
+import LessonRecommendations from '@/components/dashboard/LessonRecommendations'
+import RelatedLessons from '@/components/dashboard/RelatedLessons'
 import Container from '@/components/shared/Container'
 import Breadcrumbs from '@/components/shared/Breadcrumbs'
 import CTAButton from '@/components/shared/CTAButton'
@@ -16,6 +19,7 @@ export default function LessonPage() {
   const router = useRouter()
   const lessonId = params?.id as string
   const { markLessonComplete } = useLessons()
+  const [isNotesPanelOpen, setIsNotesPanelOpen] = useState(false)
   
   // Get lesson from course data
   const lessonData = getLessonById(lessonId)
@@ -90,8 +94,13 @@ export default function LessonPage() {
         return
       }
 
+      // Cmd+E / Ctrl+E to toggle notes panel
+      if ((e.metaKey || e.ctrlKey) && e.key === 'e') {
+        e.preventDefault()
+        setIsNotesPanelOpen(prev => !prev)
+      }
       // Left arrow for previous lesson
-      if (e.key === 'ArrowLeft' && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+      else if (e.key === 'ArrowLeft' && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
         if (previousLesson) {
           e.preventDefault()
           handlePrevious()
@@ -104,16 +113,20 @@ export default function LessonPage() {
           handleNext()
         }
       }
-      // Escape to go back to dashboard
+      // Escape to go back to dashboard or close notes panel
       else if (e.key === 'Escape') {
         e.preventDefault()
-        router.push('/dashboard')
+        if (isNotesPanelOpen) {
+          setIsNotesPanelOpen(false)
+        } else {
+          router.push('/dashboard')
+        }
       }
     }
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [nextLesson, previousLesson, router, handleNext, handlePrevious])
+  }, [nextLesson, previousLesson, router, handleNext, handlePrevious, isNotesPanelOpen])
 
   return (
     <>
@@ -265,6 +278,18 @@ export default function LessonPage() {
           nextLesson={nextLesson}
           previousLesson={previousLesson}
         />
+
+        {/* Smart Recommendations */}
+        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <LessonRecommendations currentLessonId={lessonId} limit={5} />
+        </div>
+
+        {/* Related Lessons */}
+        {lessonData && (
+          <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+            <RelatedLessons lessonId={lessonId} limit={4} />
+          </div>
+        )}
       </Container>
 
       {/* Sticky Bottom Navigation Bar */}
@@ -278,6 +303,37 @@ export default function LessonPage() {
         moduleTitle={moduleInfo?.module.title}
         lessonPosition={lessonPosition}
       />
+
+      {/* Notes Panel */}
+      <LessonNotesPanel
+        lessonId={lessonId}
+        isOpen={isNotesPanelOpen}
+        onClose={() => setIsNotesPanelOpen(false)}
+        onToggle={() => setIsNotesPanelOpen(prev => !prev)}
+      />
+
+      {/* Floating Notes Button */}
+      {!isNotesPanelOpen && (
+        <button
+          onClick={() => setIsNotesPanelOpen(true)}
+          className="fixed bottom-20 right-6 sm:bottom-24 sm:right-8 z-30 p-4 bg-accent text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-200 hover:bg-accent/90"
+          aria-label="Open notes panel"
+        >
+          <svg
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+            />
+          </svg>
+        </button>
+      )}
     </>
   )
 }

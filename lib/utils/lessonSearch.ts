@@ -1,5 +1,8 @@
 import { getAllLessons, getAllModules, Lesson, Module } from '@/lib/data/courseData'
 
+// Re-export for convenience
+export { getAllModules, getAllLessons } from '@/lib/data/courseData'
+
 export interface SearchResult {
   id: string
   type: 'lesson' | 'module'

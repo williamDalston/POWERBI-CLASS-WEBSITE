@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import DarkModeToggle from '@/components/shared/DarkModeToggle'
+import FocusModeToggle from '@/components/shared/FocusModeToggle'
 
 interface NavItem {
   label: string
@@ -61,7 +63,7 @@ export default function MemberNavigation({
 
   if (isMobile) {
     return (
-      <nav className={`fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-40 pb-safe ${className}`}>
+      <nav className={`fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 z-40 pb-safe ${className}`}>
         <div className="flex justify-around items-center h-16 px-2">
           {navItems.slice(0, 4).map((item) => {
             const isActive = pathname === item.href || pathname?.startsWith(item.href + '/')
@@ -72,7 +74,7 @@ export default function MemberNavigation({
                 className={`flex flex-col items-center justify-center gap-1 px-3 py-2 rounded-lg transition-all duration-200 touch-manipulation ${
                   isActive
                     ? 'text-accent scale-110'
-                    : 'text-gray-600 hover:text-primary-900 active:scale-95'
+                    : 'text-gray-600 dark:text-gray-300 hover:text-primary-900 dark:hover:text-white active:scale-95'
                 }`}
               >
                 <span className={`transition-transform duration-200 ${isActive ? 'scale-110' : ''}`}>
@@ -89,8 +91,8 @@ export default function MemberNavigation({
 
   return (
     <nav className={`${className}`}>
-      <div className="bg-white rounded-lg shadow-md p-4">
-        <h3 className="font-serif text-lg text-primary-900 mb-4 px-2">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4">
+        <h3 className="font-serif text-lg text-primary-900 dark:text-white mb-4 px-2">
           Navigation
         </h3>
         <ul className="space-y-1">
@@ -102,8 +104,8 @@ export default function MemberNavigation({
                   href={item.href}
                   className={`flex items-center gap-3 px-3 py-2 rounded-lg font-sans transition-all duration-200 ${
                     isActive
-                      ? 'bg-accent bg-opacity-10 text-accent font-semibold shadow-sm'
-                      : 'text-gray-700 hover:bg-neutral-100 hover:translate-x-1'
+                      ? 'bg-accent bg-opacity-10 text-accent font-semibold shadow-sm dark:bg-accent dark:bg-opacity-20'
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-neutral-100 dark:hover:bg-gray-700 hover:translate-x-1'
                   }`}
                 >
                   <span className={`transition-transform duration-200 ${isActive ? 'scale-110' : ''}`}>
@@ -116,17 +118,43 @@ export default function MemberNavigation({
           })}
         </ul>
 
-        {/* User Profile Link */}
-        <div className="mt-6 pt-6 border-t border-gray-200">
+        {/* User Profile Link & Settings */}
+        <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
           <Link
             href="/dashboard/profile"
-            className="flex items-center gap-3 px-3 py-2 rounded-lg font-sans text-gray-700 hover:bg-neutral-100 transition-colors"
+            className="flex items-center gap-3 px-3 py-2 rounded-lg font-sans text-gray-700 dark:text-gray-300 hover:bg-neutral-100 dark:hover:bg-gray-700 transition-colors"
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
-            <span>Profile & Settings</span>
+            <span>Profile</span>
           </Link>
+          <Link
+            href="/settings"
+            className="flex items-center gap-3 px-3 py-2 rounded-lg font-sans text-gray-700 dark:text-gray-300 hover:bg-neutral-100 dark:hover:bg-gray-700 transition-colors mt-1"
+          >
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>Settings</span>
+          </Link>
+          
+          {/* Quick Toggles */}
+          <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-2">
+            <div className="flex items-center justify-between px-3">
+              <span className="font-sans text-sm text-gray-600 dark:text-gray-400">Theme</span>
+              <div className="flex-shrink-0">
+                <DarkModeToggle size="sm" />
+              </div>
+            </div>
+            <div className="flex items-center justify-between px-3">
+              <span className="font-sans text-sm text-gray-600 dark:text-gray-400">Focus Mode</span>
+              <div className="flex-shrink-0">
+                <FocusModeToggle size="sm" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </nav>

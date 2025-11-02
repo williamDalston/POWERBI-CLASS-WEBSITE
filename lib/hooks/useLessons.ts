@@ -3,6 +3,23 @@
 import { useState, useEffect } from 'react'
 import { getAllLessons, Lesson as CourseLesson } from '@/lib/data/courseData'
 
+// Import achievement utilities (using dynamic import to avoid circular dependencies)
+let checkAchievementsForLesson: ((lessonId: string, completedCount: number) => void) | null = null
+
+// Lazy load achievement checker
+const loadAchievementChecker = () => {
+  if (typeof window !== 'undefined' && !checkAchievementsForLesson) {
+    // This will be called when achievement system is ready
+    checkAchievementsForLesson = (lessonId: string, completedCount: number) => {
+      // Trigger achievement check by dispatching custom event
+      window.dispatchEvent(new CustomEvent('lesson-completed', {
+        detail: { lessonId, completedCount }
+      }))
+    }
+  }
+  return checkAchievementsForLesson
+}
+
 export interface Lesson {
   id: string
   title: string
@@ -129,8 +146,14 @@ export function useLessons() {
         progress[lessonId].completionDate = completionDate
         localStorage.setItem('lessonProgress', JSON.stringify(progress))
 
-        // Check for achievements
+        // Check for achievements (legacy system)
         checkAchievements(completedIds.length)
+        
+        // Trigger achievement system check
+        loadAchievementChecker()
+        if (checkAchievementsForLesson) {
+          checkAchievementsForLesson(lessonId, completedIds.length)
+        }
       } catch (err) {
         console.error('Failed to save completed lesson:', err)
       }
