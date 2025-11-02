@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { Lesson, getAllLessons } from '@/lib/data/courseData'
 import {
   Achievement,
@@ -21,8 +21,8 @@ export function useAchievements() {
   const [recentlyUnlocked, setRecentlyUnlocked] = useState<Achievement[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
-  // Load all lessons
-  const lessons = getAllLessons()
+  // Load all lessons - memoize to prevent unnecessary re-renders
+  const lessons = useMemo(() => getAllLessons(), [])
 
   // Calculate current progress data
   const getProgressData = useCallback(() => {

@@ -18,7 +18,13 @@ interface LogContext {
 }
 
 class Logger {
-  private isDevelopment = process.env.NODE_ENV === 'development'
+  private get isDevelopment(): boolean {
+    if (typeof window === 'undefined') {
+      return false
+    }
+    // Check NODE_ENV in a safe way that doesn't cause re-renders
+    return typeof process !== 'undefined' && process.env?.NODE_ENV === 'development'
+  }
 
   log(message: string, ...args: any[]): void {
     if (this.isDevelopment) {

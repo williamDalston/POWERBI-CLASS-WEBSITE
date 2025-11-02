@@ -191,7 +191,7 @@ export function PWAInstallButton() {
       const accepted = await promptInstall()
       if (accepted) {
         setCanInstall(false)
-        console.log('PWA installed successfully')
+        logger.log('PWA installed successfully')
       }
     } catch (error) {
       logger.error(new Error('Installation failed'), { error })

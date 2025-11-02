@@ -128,30 +128,34 @@ export function useVideoAnalytics(lessonId: string, videoDuration?: number) {
     
     // Track watch time every second
     watchIntervalRef.current = setInterval(() => {
-      if (isPlayingRef.current && watchProgress) {
-        const newProgress: VideoWatchProgress = {
-          ...watchProgress,
-          watchTime: watchProgress.watchTime + 1,
-          lastWatched: new Date(),
-        }
-        
-        // Update completion if we have duration
-        if (videoDuration && videoDuration > 0) {
-          newProgress.completionPercentage = Math.min(
-            100,
-            ((newProgress.watchTime + 1) / videoDuration) * 100
-          )
+      if (isPlayingRef.current) {
+        setWatchProgress(prev => {
+          if (!prev) return prev
           
-          if (!newProgress.completed && newProgress.completionPercentage >= COMPLETION_THRESHOLD) {
-            newProgress.completed = true
+          const newProgress: VideoWatchProgress = {
+            ...prev,
+            watchTime: prev.watchTime + 1,
+            lastWatched: new Date(),
           }
-        }
-        
-        setWatchProgress(newProgress)
-        saveProgress(newProgress)
+          
+          // Update completion if we have duration
+          if (videoDuration && videoDuration > 0) {
+            newProgress.completionPercentage = Math.min(
+              100,
+              ((newProgress.watchTime + 1) / videoDuration) * 100
+            )
+            
+            if (!newProgress.completed && newProgress.completionPercentage >= COMPLETION_THRESHOLD) {
+              newProgress.completed = true
+            }
+          }
+          
+          saveProgress(newProgress)
+          return newProgress
+        })
       }
     }, 1000)
-  }, [watchProgress, videoDuration, saveProgress])
+  }, [videoDuration, saveProgress])
   
   // Stop tracking watch time
   const stopTracking = useCallback(() => {
@@ -162,10 +166,13 @@ export function useVideoAnalytics(lessonId: string, videoDuration?: number) {
     }
     
     // Save final progress
-    if (watchProgress) {
-      saveProgress(watchProgress)
-    }
-  }, [watchProgress, saveProgress])
+    setWatchProgress(prev => {
+      if (prev) {
+        saveProgress(prev)
+      }
+      return prev
+    })
+  }, [saveProgress])
   
   // Cleanup on unmount
   useEffect(() => {
@@ -174,11 +181,14 @@ export function useVideoAnalytics(lessonId: string, videoDuration?: number) {
         clearInterval(watchIntervalRef.current)
       }
       // Save final progress
-      if (watchProgress) {
-        saveProgress(watchProgress)
-      }
+      setWatchProgress(prev => {
+        if (prev) {
+          saveProgress(prev)
+        }
+        return prev
+      })
     }
-  }, [watchProgress, saveProgress])
+  }, [saveProgress])
   
   // Save progress whenever it changes significantly
   useEffect(() => {

@@ -32,13 +32,8 @@ export default function NetworkAware({
       setConnectionInfo(info)
       onConnectionChange?.(slow)
 
-      // Log connection info in development
-      if (process.env.NODE_ENV === 'development') {
-        console.log('Network connection:', {
-          isSlow,
-          ...info,
-        })
-      }
+      // Log connection info in development (already handled by logger)
+      // Removed console.log to prevent hydration issues
     }
 
     // Initial check
@@ -53,7 +48,8 @@ export default function NetworkAware({
         connection.removeEventListener('change', checkConnection)
       }
     }
-  }, [isSlow, onConnectionChange])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   // Show fallback for slow connections if provided
   if (isSlow && slowConnectionFallback) {

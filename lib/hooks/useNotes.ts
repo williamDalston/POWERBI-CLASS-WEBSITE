@@ -29,6 +29,20 @@ export function useNotes(lessonId?: string) {
     lastUpdated: null,
   })
 
+  // Helper to update stats - defined early so it can be used in useEffect
+  const updateStats = useCallback((notesList: Note[]) => {
+    const totalCharacters = notesList.reduce((sum, note) => sum + note.content.length, 0)
+    const lastUpdated = notesList.length > 0 
+      ? notesList.sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime())[0].updatedAt
+      : null
+    
+    setStats({
+      totalNotes: notesList.length,
+      totalCharacters,
+      lastUpdated,
+    })
+  }, [])
+
   // Load all notes from localStorage
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -47,21 +61,7 @@ export function useNotes(lessonId?: string) {
         setIsLoading(false)
       }
     }
-  }, [])
-
-  // Helper to update stats
-  const updateStats = useCallback((notesList: Note[]) => {
-    const totalCharacters = notesList.reduce((sum, note) => sum + note.content.length, 0)
-    const lastUpdated = notesList.length > 0 
-      ? notesList.sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime())[0].updatedAt
-      : null
-    
-    setStats({
-      totalNotes: notesList.length,
-      totalCharacters,
-      lastUpdated,
-    })
-  }, [])
+  }, [updateStats])
 
   // Get current lesson's note
   const getCurrentNote = useCallback((lessonId: string): Note | undefined => {
