@@ -21,6 +21,7 @@ import StreakCalendar from '@/components/dashboard/StreakCalendar'
 import CelebrationAnimation from '@/components/shared/CelebrationAnimation'
 import { calculateAnalytics } from '@/lib/utils/analytics'
 import LearningPathVisualization from '@/components/dashboard/LearningPathVisualization'
+import FloatingActionButton from '@/components/shared/FloatingActionButton'
 import { courseData } from '@/lib/data/courseData'
 import Breadcrumbs from '@/components/shared/Breadcrumbs'
 import CTAButton from '@/components/shared/CTAButton'
@@ -278,6 +279,9 @@ export default function DashboardPage() {
           <LearningPathVisualization />
         </div>
       </div>
+
+      {/* Floating Action Button */}
+      <FloatingActionButton />
     </>
   )
 }

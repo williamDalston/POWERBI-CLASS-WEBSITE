@@ -2171,7 +2171,25 @@ export const courseData: Part[] = [
             tags: ["DAX"],
             topic: 'DAX',
             content: {
-              concept: "Solving complex modeling problems with DAX",
+              concept: "Solving complex modeling problems with DAX requires advanced techniques like USERELATIONSHIP() and other filter manipulation functions. USERELATIONSHIP() enables you to use inactive relationships in DAX measures, solving role-playing dimension scenarios and other advanced modeling challenges.",
+              discussion: "USERELATIONSHIP() activates an inactive relationship for a specific DAX calculation. Syntax: USERELATIONSHIP(Dim_Date[DateKey], Fact_Sales[ShipDateKey]) inside CALCULATE(). This is essential for role-playing dimensions where one dimension table (e.g., Dim_Date) connects to a fact table through multiple foreign keys (e.g., OrderDate, ShipDate, DueDate). Power BI allows only one active relationship per table pair, so you mark additional relationships as inactive, then activate them in DAX using USERELATIONSHIP(). Common scenarios: Role-playing dimensions (multiple date fields in fact table), Comparing metrics across different relationships, Switching between related tables dynamically. Other advanced DAX functions include: KEEPFILTERS() - preserves filters while modifying context, FILTER() - applies complex filter logic, RELATEDTABLE() - returns related rows from other tables, EARLIER() - references outer row context (rare, advanced). These functions enable sophisticated business logic that simple aggregations can't handle.",
+              keyPoints: [
+                "USERELATIONSHIP() activates inactive relationships in DAX calculations",
+                "Essential for role-playing dimensions (multiple date fields, etc.)",
+                "USERELATIONSHIP() must be used inside CALCULATE()",
+                "Enables comparing metrics across different relationship paths",
+                "Advanced DAX functions enable complex business logic"
+              ],
+              insiderTips: [
+                "USERELATIONSHIP() requires inactive relationship - plan your model accordingly",
+                "Syntax: CALCULATE([Measure], USERELATIONSHIP(Dim[Key], Fact[Key]))",
+                "Common use case: Calculate Sales by Order Date vs Ship Date",
+                "Mark relationships as inactive in Model View, then activate in DAX",
+                "Test USERELATIONSHIP() carefully - wrong relationship leads to wrong results",
+                "Other advanced functions: KEEPFILTERS(), FILTER(), RELATEDTABLE(), EARLIER()",
+                "These are advanced topics - master CALCULATE() and ALL() first",
+                "USERELATIONSHIP() is frequently tested on PL-300 exam - know it well"
+              ]
             },
           },
           {
@@ -2191,7 +2209,25 @@ export const courseData: Part[] = [
             tags: ["DAX", "2025 Features"],
             topic: 'DAX',
             content: {
-              concept: "A new, simpler way to add calculations (like running totals or moving averages) directly on a visual, operating on the visual's data matrix rather than the full data model.Lab: Create a \"Running Total\" and a \"Moving Average\" using the new Visual Calculations interface, and compare this to the traditional DAX measure approach",
+              concept: "A new, simpler way to add calculations (like running totals or moving averages) directly on a visual, operating on the visual's data matrix rather than the full data model. Visual Calculations (October 2025 GA) revolutionize how you add calculations to visuals - no DAX required for common patterns. Lab: Create a \"Running Total\" and a \"Moving Average\" using the new Visual Calculations interface, and compare this to the traditional DAX measure approach.",
+              discussion: "Visual Calculations operate on the visual's data matrix (the aggregated data shown in the visual) rather than the full underlying data model. This makes them simpler and more intuitive for common calculations. Available in October 2025 (GA), Visual Calculations provide a UI-driven interface for creating calculations directly on visuals. Common calculation types: Running Total - accumulates values across rows in the visual, Moving Average - calculates average over a window of rows, Rank - ranks values within the visual context, Percent of Total - calculates percentage of visual total, Difference - shows difference between current and previous value. The advantage: No DAX knowledge required - point-and-click interface generates calculations automatically. The calculations are visual-specific (they only work in the visual where created) and operate on the visual's aggregated data, making them fast and intuitive. Comparison: Traditional DAX measures operate on the full data model and require DAX expertise. Visual Calculations operate on the visual's data matrix and require no DAX knowledge. Both approaches have their place - Visual Calculations for simple visual-specific calculations, DAX measures for complex business logic and reusable calculations across multiple visuals.",
+              keyPoints: [
+                "Visual Calculations (Oct 2025 GA) add calculations directly on visuals",
+                "Operate on visual's data matrix, not full data model",
+                "No DAX knowledge required - point-and-click interface",
+                "Common patterns: Running Total, Moving Average, Rank, Percent of Total",
+                "Visual-specific - calculations only work in the visual where created"
+              ],
+              insiderTips: [
+                "Visual Calculations are GA in October 2025 - enable preview features if needed",
+                "Use Visual Calculations for simple visual-specific calculations",
+                "Use DAX measures for complex logic and reusable calculations",
+                "Visual Calculations are visual-specific - can't reuse across visuals",
+                "Great for beginners - no DAX knowledge required",
+                "Traditional DAX measures still essential for complex scenarios",
+                "Visual Calculations operate on aggregated data - understand the difference",
+                "Experiment with Visual Calculations - they're faster to create than DAX measures"
+              ]
             },
           },
         ],

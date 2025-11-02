@@ -10,8 +10,10 @@ import { ScrollProgress } from '@/components/lesson/ScrollProgress'
 import { TableOfContents } from '@/components/lesson/TableOfContents'
 import { LessonOverview } from '@/components/lesson/LessonOverview'
 import LessonNotesPanel from '@/components/dashboard/LessonNotesPanel'
+import FloatingActionButton from '@/components/shared/FloatingActionButton'
 import { getLessonById, getNextLesson, getPreviousLesson, getModuleForLesson, getLessonPositionInModule } from '@/lib/data/courseData'
 import { useLessons } from '@/lib/hooks/useLessons'
+import { useSwipeNavigation } from '@/lib/hooks/useSwipeNavigation'
 
 export default function LessonPage() {
   const params = useParams()
@@ -19,6 +21,9 @@ export default function LessonPage() {
   const lessonId = params?.id as string
   const { markLessonComplete } = useLessons()
   const [isNotesPanelOpen, setIsNotesPanelOpen] = useState(false)
+  
+  // Enable swipe navigation on mobile
+  useSwipeNavigation({ enabled: true, disableOnScroll: true })
   
   // Get lesson from course data
   const lessonData = getLessonById(lessonId)
@@ -229,6 +234,9 @@ export default function LessonPage() {
           </Link>
         </div>
       )}
+
+      {/* Floating Action Button */}
+      <FloatingActionButton />
 
       {/* Notes Panel */}
       <LessonNotesPanel
