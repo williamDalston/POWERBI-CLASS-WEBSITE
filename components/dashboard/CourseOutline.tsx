@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 
 interface Lesson {
@@ -22,17 +22,61 @@ interface Module {
 interface CourseOutlineProps {
   modules: Module[]
   currentLessonId?: string
+  nextLessonId?: string
   className?: string
 }
 
 export default function CourseOutline({
   modules,
   currentLessonId,
+  nextLessonId,
   className = '',
 }: CourseOutlineProps) {
+  // Auto-expand module containing current lesson or next lesson
+  const getInitialExpandedModules = () => {
+    const expanded = new Set<string>(modules.filter((m) => m.isExpanded).map((m) => m.id))
+    
+    // Find module with current lesson
+    if (currentLessonId) {
+      const moduleWithCurrent = modules.find((m) => 
+        m.lessons.some((l) => l.id === currentLessonId)
+      )
+      if (moduleWithCurrent) {
+        expanded.add(moduleWithCurrent.id)
+      }
+    }
+    
+    // Find module with next lesson
+    if (nextLessonId) {
+      const moduleWithNext = modules.find((m) => 
+        m.lessons.some((l) => l.id === nextLessonId)
+      )
+      if (moduleWithNext) {
+        expanded.add(moduleWithNext.id)
+      }
+    }
+    
+    return expanded
+  }
+
   const [expandedModules, setExpandedModules] = useState<Set<string>>(
-    new Set(modules.filter((m) => m.isExpanded).map((m) => m.id))
+    getInitialExpandedModules()
   )
+  
+  const currentLessonRef = useRef<HTMLLIElement>(null)
+
+  // Scroll to current lesson when module is expanded
+  useEffect(() => {
+    if (currentLessonId && currentLessonRef.current && expandedModules.size > 0) {
+      // Small delay to ensure DOM is rendered
+      setTimeout(() => {
+        currentLessonRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        })
+      }, 100)
+    }
+  }, [currentLessonId, expandedModules])
 
   const toggleModule = (moduleId: string) => {
     setExpandedModules((prev) => {
@@ -59,13 +103,44 @@ export default function CourseOutline({
     0
   )
 
+  // Find next incomplete lesson for quick jump
+  const findNextLesson = () => {
+    for (const module of modules) {
+      for (const lesson of module.lessons) {
+        if (!lesson.isCompleted && !lesson.isLocked) {
+          const lessonIndex = module.lessons.indexOf(lesson)
+          const isPreviousCompleted = lessonIndex === 0 || module.lessons[lessonIndex - 1]?.isCompleted
+          if (isPreviousCompleted) {
+            return lesson
+          }
+        }
+      }
+    }
+    return null
+  }
+
+  const nextLesson = findNextLesson()
+
   return (
     <div className={`bg-white rounded-lg shadow-md p-6 ${className}`}>
-      <div className="mb-6">
-        <h3 className="font-serif text-2xl text-primary-900 mb-2">Course Outline</h3>
-        <p className="font-sans text-sm text-gray-600">
-          {completedLessons} of {totalLessons} lessons completed
-        </p>
+      <div className="mb-6 flex items-center justify-between flex-wrap gap-4">
+        <div>
+          <h3 className="font-serif text-2xl text-primary-900 mb-2">Course Outline</h3>
+          <p className="font-sans text-sm text-gray-600">
+            {completedLessons} of {totalLessons} lessons completed
+          </p>
+        </div>
+        {nextLesson && (
+          <Link
+            href={`/dashboard/lessons/${nextLesson.id}`}
+            className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-accent rounded-lg hover:bg-accent/90 transition-colors"
+          >
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+            Jump to Next Lesson
+          </Link>
+        )}
       </div>
 
       <div className="space-y-2">
@@ -162,11 +237,17 @@ export default function CourseOutline({
                   <ul className="divide-y divide-gray-200">
                     {module.lessons.map((lesson, index) => {
                       const isCurrent = lesson.id === currentLessonId
+                      const isNext = lesson.id === nextLessonId
                       const isPreviousCompleted =
                         index === 0 || module.lessons[index - 1]?.isCompleted
 
                       return (
-                        <li key={lesson.id}>
+                        <li 
+                          key={lesson.id}
+                          ref={isCurrent ? currentLessonRef : null}
+                          id={isCurrent ? `lesson-${lesson.id}` : undefined}
+                          className={isCurrent ? 'scroll-mt-4' : ''}
+                        >
                           <Link
                             href={
                               lesson.isLocked || !isPreviousCompleted
@@ -180,7 +261,9 @@ export default function CourseOutline({
                             }}
                             className={`flex items-center gap-3 p-4 transition-all ${
                               isCurrent
-                                ? 'bg-accent bg-opacity-10 border-l-4 border-accent'
+                                ? 'bg-accent bg-opacity-10 border-l-4 border-accent shadow-sm'
+                                : isNext
+                                ? 'bg-blue-50 border-l-4 border-blue-300'
                                 : lesson.isLocked || !isPreviousCompleted
                                 ? 'opacity-50 cursor-not-allowed'
                                 : 'hover:bg-white hover:shadow-sm'
@@ -221,17 +304,31 @@ export default function CourseOutline({
                               )}
                             </div>
                             <div className="flex-1">
-                              <p
-                                className={`font-sans ${
-                                  isCurrent
-                                    ? 'font-semibold text-accent'
-                                    : lesson.isCompleted
-                                    ? 'text-gray-700'
-                                    : 'text-gray-900'
-                                }`}
-                              >
-                                {lesson.title}
-                              </p>
+                              <div className="flex items-center gap-2">
+                                <p
+                                  className={`font-sans ${
+                                    isCurrent
+                                      ? 'font-semibold text-accent'
+                                      : isNext
+                                      ? 'font-medium text-blue-900'
+                                      : lesson.isCompleted
+                                      ? 'text-gray-700'
+                                      : 'text-gray-900'
+                                  }`}
+                                >
+                                  {lesson.title}
+                                </p>
+                                {isCurrent && (
+                                  <span className="px-2 py-0.5 text-xs font-medium bg-accent text-white rounded-full">
+                                    Current
+                                  </span>
+                                )}
+                                {isNext && !isCurrent && (
+                                  <span className="px-2 py-0.5 text-xs font-medium bg-blue-200 text-blue-900 rounded-full">
+                                    Next
+                                  </span>
+                                )}
+                              </div>
                             </div>
                             {lesson.duration && (
                               <span className="font-sans text-xs text-gray-500">

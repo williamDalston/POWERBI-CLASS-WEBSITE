@@ -3,6 +3,7 @@
 export { default as WelcomeModal } from './WelcomeModal'
 export { default as ProgressTracker } from './ProgressTracker'
 export { default as LessonPlayer } from './LessonPlayer'
+export { default as LessonNavigationBar } from './LessonNavigationBar'
 export { default as MemberNavigation } from './MemberNavigation'
 export { default as ContinueYourPath } from './ContinueYourPath'
 export { default as DiscoverMore } from './DiscoverMore'

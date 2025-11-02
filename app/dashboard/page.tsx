@@ -17,6 +17,7 @@ import CourseOutline from '@/components/dashboard/CourseOutline'
 import AdvancedAnalytics from '@/components/dashboard/AdvancedAnalytics'
 import { courseData } from '@/lib/data/courseData'
 import Breadcrumbs from '@/components/shared/Breadcrumbs'
+import CTAButton from '@/components/shared/CTAButton'
 
 export default function DashboardPage() {
   const router = useRouter()
@@ -45,7 +46,7 @@ export default function DashboardPage() {
   const modules = courseData.flatMap((part) => 
     part.modules.map((module) => ({
       id: module.id,
-      title: `${module.part}: ${module.title}`,
+      title: module.title,
       description: module.description,
       lessons: module.lessons.map((lesson) => ({
         id: lesson.id,
@@ -110,7 +111,7 @@ export default function DashboardPage() {
       {/* Dashboard Header */}
       <div className="mb-8 animate-fade-in">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
-          <div>
+          <div className="flex-1">
             <h1 className="font-serif text-3xl sm:text-4xl text-primary-900 mb-2">
               Welcome Back
             </h1>
@@ -119,15 +120,42 @@ export default function DashboardPage() {
             </p>
           </div>
           
-          {/* Search Bar */}
-          <div className="w-full sm:w-80">
-            <DashboardSearch
-              onSearch={(query) => {
-                if (query) {
-                  showToast(`Searching for "${query}"...`, 'info', 2000)
-                }
-              }}
-            />
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            {/* Start/Continue Learning Button - Prominent */}
+            {nextLesson && (
+              <Link href={`/dashboard/lessons/${nextLesson.id}`}>
+                <CTAButton className="whitespace-nowrap">
+                  {completedLessons > 0 ? (
+                    <>
+                      <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Continue Learning
+                    </>
+                  ) : (
+                    <>
+                      <svg className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Start Learning
+                    </>
+                  )}
+                </CTAButton>
+              </Link>
+            )}
+            
+            {/* Search Bar */}
+            <div className="w-full sm:w-80">
+              <DashboardSearch
+                onSearch={(query) => {
+                  if (query) {
+                    showToast(`Searching for "${query}"...`, 'info', 2000)
+                  }
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -187,7 +215,10 @@ export default function DashboardPage() {
 
         {/* Course Outline Section - Full Width */}
         <div className="lg:col-span-3 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-          <CourseOutline modules={modules} />
+          <CourseOutline 
+            modules={modules} 
+            nextLessonId={nextLesson?.id}
+          />
         </div>
       </div>
     </>

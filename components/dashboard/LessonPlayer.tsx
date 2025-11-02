@@ -691,7 +691,6 @@ export default function LessonPlayer({
                 variant="secondary"
                 className="flex-1 flex items-center justify-center gap-2"
                 disabled={!nextLesson}
-                title={nextLesson ? nextLesson.title : 'No next lesson'}
               >
                 <span>Next Lesson</span>
                 {nextLesson && (
