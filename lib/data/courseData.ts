@@ -2879,13 +2879,76 @@ export const courseData: Part[] = [
             moduleNumber: 10,
             lessonNumber: 2,
             title: "Advanced Interactivity: Drill-through Pages",
-            description: "Drill-through allows a user to right-click a data point on a summary visual (e.g., \"East\" region) and navigate to a separate, detailed report page that is automatically filtered for the \"East\" region",
-            duration: 10,
+            description: "Drill-through allows users to right-click a data point and navigate to a detailed page automatically filtered by that selection. Learn how to create drill-through destinations and trigger drill-through from visuals and buttons.",
+            duration: 30,
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Understanding Drill-through', timestamp: 0 },
+              { title: 'Creating Drill-through Destinations', timestamp: 360 },
+              { title: 'Configuring Drill-through Wells', timestamp: 960 },
+              { title: 'Drill-through with Buttons', timestamp: 1500 },
+              { title: 'Best Practices', timestamp: 2100 },
+              { title: 'Lab: Complete Drill-through Setup', timestamp: 2460 }
+            ],
             difficulty: 'intermediate',
-            tags: ["Visualizations"],
+            tags: ["Visualizations", "Interactivity"],
             topic: 'Visualizations',
             content: {
-              concept: "Drill-through allows a user to right-click a data point on a summary visual (e.g., \"East\" region) and navigate to a separate, detailed report page that is automatically filtered for the \"East\" region.107Lab: Create a \"Summary\" page and a \"Region Details\" page. Configure the \"Region Details\" page as a drill-through destination by dragging the Region field into the \"Drill through\" well.110 This can also be triggered from a button",
+              concept: "Drill-through allows a user to right-click a data point on a summary visual (e.g., \"East\" region) and navigate to a separate, detailed report page that is automatically filtered for the \"East\" region. This navigation pattern enables users to move from high-level summaries to detailed analysis with a single click, maintaining the context of their selection throughout the navigation.",
+              discussion: "Drill-through is a navigation technique that creates a contextual link between summary and detail pages. When users right-click a data point on a source visual (like a region on a map or a category in a bar chart), they can select 'Drill through' and choose a destination page. The destination page automatically receives a filter based on the selected value, showing only relevant details. Setting up drill-through requires two pages: a source page (where users start) and a destination page (where users land with filtered data). The destination page must have 'Drill through' wells configured in the visual field wells. Fields dragged into these wells become the filters that carry over from the source to the destination. For example, dragging 'Region' into the drill-through well on a destination page means that when users drill through from a region selection, the destination page filters to that specific region. Drill-through can also be triggered from buttons, providing an alternative to right-click navigation. This is useful for creating more guided experiences where you want users to follow specific paths. The button's action is set to 'Page navigation', and the target page is configured to accept drill-through filters. Best practices for drill-through: Use descriptive page names that indicate they're detail pages (e.g., \"Region Details\", \"Product Analysis\"), Add visual cues like back buttons to help users navigate back, Ensure destination pages load quickly (avoid heavy visuals), Use drill-through sparingly—too many paths can confuse users, Add a breadcrumb or visual title showing the applied filter, Test drill-through from all relevant visuals on the source page. Drill-through is essential for self-service BI, allowing users to explore data independently while maintaining context.",
+              keyPoints: [
+                "Drill-through creates contextual navigation from summary to detail",
+                "Destination pages must have drill-through wells configured",
+                "Filters automatically pass from source visual to destination page",
+                "Can be triggered by right-click or button click",
+                "Essential for self-service BI exploration",
+                "Maintains user context throughout navigation"
+              ],
+              insiderTips: [
+                "Name destination pages descriptively (e.g., \"Region Details\", \"Product Drill-down\")",
+                "Add back buttons on detail pages for easy navigation",
+                "Use multiple drill-through fields for multi-level filtering",
+                "Test drill-through on mobile devices—ensure it works well",
+                "Consider adding a filter indicator showing what's drilled through",
+                "Use drill-through with bookmarks for even more control",
+                "Keep destination pages focused—avoid cluttering with too many visuals",
+                "Document drill-through paths for users who might not discover them"
+              ],
+              labs: [
+                "Create drill-through destination page:",
+                "  Add new page called 'Region Details'",
+                "  Add visual (table or chart) to the page",
+                "  In Visualizations pane, locate 'Drill through' wells",
+                "  Drag 'Region' field into 'Add drill-through fields here'",
+                "Create source summary page:",
+                "  Add visual showing regions (bar chart, map, etc.)",
+                "  Right-click on data point, select 'Drill through'",
+                "  Choose 'Region Details' page",
+                "  Destination page opens filtered to that region",
+                "Test drill-through with button:",
+                "  Add button to summary page",
+                "  Set button action to 'Page navigation'",
+                "  Configure to navigate to 'Region Details'",
+                "  Add drill-through functionality to button",
+                "Enhance destination page:",
+                "  Add back button linking to summary page",
+                "  Add filter visualization showing current region",
+                "  Optimize visuals for quick loading",
+                "Practice: Create multi-level drill-through across multiple dimensions"
+              ],
+              tables: [
+                {
+                  title: "Drill-through Configuration",
+                  headers: ["Element", "Configuration", "Purpose"],
+                  rows: [
+                    ["Drill-through Wells", "Add fields to 'Drill through' wells on destination", "Defines filter fields passed from source"],
+                    ["Source Visual", "Right-click menu > Drill through", "Initiates navigation with context"],
+                    ["Button Action", "Set to 'Page navigation' + drill-through", "Alternative trigger method"],
+                    ["Destination Page", "Receives filters from wells", "Displays filtered details"],
+                    ["Back Button", "Optional navigation aid", "Returns to summary page"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -2908,13 +2971,78 @@ export const courseData: Part[] = [
             moduleNumber: 10,
             lessonNumber: 4,
             title: "Enhancing Visuals: Custom Report Tooltips",
-            description: "The default hover-over tooltip is basic, showing only the data points.115 Power BI allows a developer to create an entirely new, small report page and use it as a custom tooltip.113Lab: Create a new p",
-            duration: 10,
+            description: "Create rich, custom tooltips by building small report pages. Custom tooltips transform basic hover-over data into engaging, contextual insights with visuals and formatting.",
+            duration: 25,
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Default vs Custom Tooltips', timestamp: 0 },
+              { title: 'Creating Tooltip Pages', timestamp: 300 },
+              { title: 'Designing Tooltip Layouts', timestamp: 720 },
+              { title: 'Configuring Visual Tooltips', timestamp: 1200 },
+              { title: 'Advanced Tooltip Techniques', timestamp: 1620 },
+              { title: 'Lab: Build Custom Tooltips', timestamp: 2040 }
+            ],
             difficulty: 'intermediate',
-            tags: ["Visualizations"],
+            tags: ["Visualizations", "Report Design"],
             topic: 'Visualizations',
             content: {
-              concept: "The default hover-over tooltip is basic, showing only the data points.115 Power BI allows a developer to create an entirely new, small report page and use it as a custom tooltip.113Lab: Create a new page, set its type to \"Tooltip.\" Add a small line chart and a KPI card. On the main report, select a visual and, in its formatting options, set the \"Tooltip\" type to \"Report Page\" and select the new tooltip page",
+              concept: "The default hover-over tooltip is basic, showing only the raw data points. Power BI allows developers to create an entirely new, small report page and use it as a custom tooltip. This transforms simple tooltips into rich, contextual mini-reports that provide additional insights without cluttering the main visual.",
+              discussion: "Custom tooltips are small report pages (typically 300x300 to 600x600 pixels) that appear when users hover over data points in visuals. Unlike default tooltips that show basic information, custom tooltips can include multiple visuals, formatted text, images, and interactive elements. To create a custom tooltip: Create a new page in your report, Set the page size to 'Tooltip' (found in Page Setup), Design the tooltip with relevant visuals and information, Configure the tooltip to accept context from the source visual. Tooltip pages have fixed dimensions optimized for hover interactions. The recommended size is 320x320 pixels, but you can choose larger sizes (up to 1200x800) for more complex tooltips. The page size is set in the Visualizations pane under 'Tooltip' section. Design considerations: Keep tooltips focused—show only relevant context, Use small visuals that load quickly, Include key metrics and supporting visuals, Maintain consistent styling with your main report, Test on different screen sizes and devices. When configuring a visual to use a custom tooltip, navigate to Format > Tooltip. Set 'Tooltip type' to 'Report page' and select your tooltip page. You can also use 'Default' for the standard tooltip or 'On object' for minimal information. Custom tooltips automatically receive context from the hovered data point. Use this context to show related information. For example, hovering over a sales rep in a bar chart can show their detailed performance metrics, recent trends, or achievements in the tooltip. Advanced techniques: Use measures in tooltips that calculate additional metrics, Add images or logos for branded tooltips, Create multiple tooltips for different scenarios, Use conditional formatting in tooltip visuals, Add drill-through capabilities to tooltips (linking to detailed pages). Best practices: Design tooltip layouts that read quickly (users don't want to read novels), Use contrasting colors to ensure readability, Test tooltip performance—slow tooltips create poor user experience, Keep tooltips consistent across similar visuals, Document tooltip purposes for user training. Custom tooltips significantly enhance the user experience by providing context without navigation, reducing the need for drill-through or additional pages.",
+              keyPoints: [
+                "Custom tooltips are small report pages used as hover-over displays",
+                "Tooltip pages use fixed dimensions optimized for quick viewing",
+                "Can include multiple visuals, formatted text, and images",
+                "Automatically receive context from hovered data points",
+                "Transform basic tooltips into rich, contextual insights",
+                "Enhance UX without cluttering main visuals"
+              ],
+              insiderTips: [
+                "Recommended tooltip size is 320x320 pixels for quick viewing",
+                "Keep tooltip content focused—users don't want to read too much",
+                "Use small, fast-loading visuals in tooltips",
+                "Test tooltip performance with realistic data volumes",
+                "Maintain consistent styling across all tooltips",
+                "Use branded colors and images for professional appearance",
+                "Add tooltip hints in report documentation for users",
+                "Consider mobile users—tooltips work great on touch devices",
+                "Tooltip performance matters—optimize measures and visuals"
+              ],
+              labs: [
+                "Create custom tooltip page:",
+                "  Add new page to report",
+                "  In Page Setup, set type to 'Tooltip'",
+                "  Set size to 320x320 (recommended) or custom size",
+                "Design tooltip content:",
+                "  Add small card visual showing key metric",
+                "  Add small line chart showing trend",
+                "  Format with colors and text",
+                "Configure visual to use custom tooltip:",
+                "  Select visual on main page",
+                "  Go to Format > Tooltip",
+                "  Set 'Tooltip type' to 'Report page'",
+                "  Select your tooltip page",
+                "Test custom tooltip:",
+                "  Hover over data points in the visual",
+                "  Verify tooltip displays correctly",
+                "  Check that context passes through",
+                "Create advanced tooltip:",
+                "  Add conditional formatting based on values",
+                "  Include images or icons",
+                "  Add measure-based calculations",
+                "Practice: Create multiple tooltips for different data types"
+              ],
+              tables: [
+                {
+                  title: "Tooltip Type Comparison",
+                  headers: ["Type", "Size", "Use Case", "Best For"],
+                  rows: [
+                    ["Default", "Auto", "Basic data display", "Simple reporting"],
+                    ["Custom (320x320)", "320x320 px", "Standard tooltips", "Most scenarios"],
+                    ["Custom (Large)", "600x600+ px", "Complex tooltips", "Rich context needed"],
+                    ["On Object", "Minimal", "Minimal info", "Clean visuals"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -2922,14 +3050,85 @@ export const courseData: Part[] = [
             moduleNumber: 10,
             lessonNumber: 5,
             title: "Enhancing Visuals: Conditional Formatting",
-            description: "Dynamically changing a visual's appearance (e.g., color) based on its data value",
-            duration: 10,
+            description: "Dynamically change a visual's appearance based on data values using conditional formatting. Transform visuals from static displays to intelligent, color-coded insights.",
+            duration: 30,
+            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            videoChapters: [
+              { title: 'Understanding Conditional Formatting', timestamp: 0 },
+              { title: 'Background and Font Colors', timestamp: 360 },
+              { title: 'Data Bars and Icons', timestamp: 840 },
+              { title: 'Color Scales', timestamp: 1380 },
+              { title: 'DAX-Based Formatting', timestamp: 1920 },
+              { title: 'Lab: Apply Conditional Formatting', timestamp: 2340 }
+            ],
             difficulty: 'intermediate',
-            tags: ["DAX"],
-            topic: 'DAX',
+            tags: ["Visualizations", "DAX"],
+            topic: 'Visualizations',
             content: {
-              concept: "Dynamically changing a visual's appearance (e.g., color) based on its data value",
-              discussion: "Demonstrate how to set the color of data bars in a table, or how to change the font color of a KPI card to be red or green based on a DAX measure",
+              concept: "Conditional formatting dynamically changes a visual's appearance (colors, fonts, icons, data bars) based on its data values. This transforms static visuals into intelligent displays that automatically highlight important information, trends, and exceptions without requiring users to analyze every number.",
+              discussion: "Conditional formatting makes data more readable and actionable by applying visual cues automatically. There are several types: Background color changes cell backgrounds based on values, Font color changes text color (commonly green for positive, red for negative), Data bars show proportional bars within cells, similar to sparklines, Icons use symbols (checkmarks, flags, traffic lights) to indicate status, Color scales apply color gradients across value ranges (heat maps). Setting up conditional formatting varies by visual type. For tables and matrices: Select the visual, Open Format pane, Expand the data field you want to format, Click 'Conditional formatting', Choose the formatting type (background color, font color, icons, data bars), Configure rules or measures. Power BI offers three methods for conditional formatting: Rules-based (define thresholds manually with values), Percentile-based (format based on position within distribution), Measure-based (use DAX measures for complex logic). Rules-based formatting is simplest: Set conditions like 'If value > 100, color green' or 'If value < 0, color red'. Percentile-based formatting is powerful for relative comparisons: Format top 10% green, bottom 10% red, middle percentages with gradients. Measure-based formatting provides maximum flexibility: Create a DAX measure that returns a color code, Use in conditional formatting settings, Enable complex business logic in formatting. Common measure-based formatting: Return color hex codes from measures, Use IF statements to determine colors, Reference other tables or measures, Create dynamic thresholds based on data. Best practices: Use consistent color schemes across visuals (red = bad, green = good), Don't over-format—too many colors create clutter, Test formatting with realistic data values, Consider colorblind users—use patterns or icons too, Document formatting rules for user training, Use icon sets for status indicators (on track, at risk, etc.). Conditional formatting is particularly useful for: KPI cards showing red/green based on targets, Tables highlighting outliers and exceptions, Matrices showing performance across dimensions, Gauge charts indicating status ranges, Visuals that need to stand out to executives. Advanced techniques: Combine multiple formatting types on same visual, Use DAX measures for dynamic thresholds, Create formatting based on comparisons (actual vs target), Apply formatting that responds to slicer selections, Use gradient scales for trend visualization.",
+              keyPoints: [
+                "Conditional formatting applies visual cues based on data values automatically",
+                "Types: Background color, font color, icons, data bars, color scales",
+                "Methods: Rules-based, percentile-based, measure-based (DAX)",
+                "Measure-based formatting enables complex business logic",
+                "Consistent color schemes improve readability",
+                "Transforms static visuals into intelligent displays"
+              ],
+              insiderTips: [
+                "Use green for positive/good, red for negative/bad consistently",
+                "Test formatting with realistic data—edge cases matter",
+                "Measure-based formatting is most flexible for complex logic",
+                "Don't over-format—too many colors create visual noise",
+                "Consider colorblind users—use patterns, icons, or text labels too",
+                "Icon sets work great for status indicators (traffic lights, flags)",
+                "Data bars make tables and matrices more readable",
+                "Use color scales for heat maps showing relative performance",
+                "Document formatting rules so users understand the logic"
+              ],
+              labs: [
+                "Apply background color formatting:",
+                "  Select table visual",
+                "  Format > Conditional formatting > Background color",
+                "  Set rules: If value > 1000, green; else red",
+                "  Observe automatic coloring",
+                "Apply data bars:",
+                "  Select matrix visual",
+                "  Format > Conditional formatting > Data bars",
+                "  Configure bar color and direction",
+                "  View proportional bars in cells",
+                "Create icon sets:",
+                "  Format > Conditional formatting > Icons",
+                "  Choose icon set (traffic lights, flags, etc.)",
+                "  Set thresholds for each icon",
+                "  Icons display based on values",
+                "Create measure-based formatting:",
+                "  Create measure: FormatColor = IF([Sales] > [Target], \"#00FF00\", \"#FF0000\")",
+                "  Apply as conditional formatting",
+                "  Use measure output for dynamic colors",
+                "Practice: Build formatted dashboard with multiple formatting types"
+              ],
+              tables: [
+                {
+                  title: "Conditional Formatting Methods",
+                  headers: ["Method", "Configuration", "Best For", "Complexity"],
+                  rows: [
+                    ["Rules-based", "Define thresholds manually", "Simple rules", "Easy"],
+                    ["Percentile-based", "Format by position", "Relative comparisons", "Medium"],
+                    ["Measure-based (DAX)", "Use measures for logic", "Complex business rules", "Advanced"]
+                  ]
+                },
+                {
+                  title: "Formatting Types by Visual",
+                  headers: ["Visual Type", "Available Formats", "Best Use"],
+                  rows: [
+                    ["Tables/Matrices", "All types", "Data exploration"],
+                    ["KPI Cards", "Background/Font/Icons", "Status indicators"],
+                    ["Gauge Charts", "Color ranges", "Performance ranges"],
+                    ["Tables", "Data bars, Icons", "Quick scanning"]
+                  ]
+                }
+              ]
             },
           },
           {
