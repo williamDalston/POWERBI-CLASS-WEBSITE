@@ -1,11 +1,15 @@
 import InteractiveTable from '@/components/shared/InteractiveTable'
 import InteractiveLabSteps from '@/components/labs/InteractiveLabSteps'
 import { Callout } from './Callout'
+import { LabPreparationBanner } from './LabPreparationBanner'
+import { Lesson as LessonType } from '@/lib/data/courseData'
 
 interface Lesson {
   id: string
   title: string
   description?: string
+  duration?: number
+  difficulty?: 'beginner' | 'intermediate' | 'advanced'
   content?: {
     concept?: string
     discussion?: string
@@ -53,7 +57,7 @@ export default function LessonContent({ lesson }: LessonContentProps) {
           {lesson.content.discussion && (
             <section id="discussion">
               <h2 id="discussion-heading" className="text-2xl font-serif tracking-tight text-neutral-900 mb-2">Discussion</h2>
-              <div className="text-neutral-700 text-[17px] leading-8 whitespace-pre-wrap mb-6">
+              <div className="border-l-4 border-blue-400 bg-blue-50/30 pl-4 py-3 text-neutral-700 text-[17px] leading-8 whitespace-pre-wrap mb-6 rounded-r">
                 {lesson.content.discussion}
               </div>
             </section>
@@ -81,6 +85,7 @@ export default function LessonContent({ lesson }: LessonContentProps) {
           {lesson.content.labs && lesson.content.labs.length > 0 && (
             <section id="labs">
               <h2 id="labs-heading" className="text-2xl font-serif tracking-tight text-neutral-900 mb-4">Hands-On Lab</h2>
+              <LabPreparationBanner lesson={lesson as LessonType} />
               <div className="mb-6">
                 <InteractiveLabSteps
                   steps={lesson.content.labs.map((lab, idx) => ({

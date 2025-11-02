@@ -450,3 +450,4 @@ export function getNextCapstone(completedCapstones: string[]): CapstoneProject |
   return capstoneProjects.find(capstone => !completedCapstones.includes(capstone.id))
 }
 
+

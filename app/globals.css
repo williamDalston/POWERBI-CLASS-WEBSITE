@@ -5,6 +5,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Command Palette Styles */
+[cmdk-root] {
+  @apply max-w-2xl w-full;
+}
+
+[cmdk-input] {
+  @apply w-full border-0 outline-none bg-transparent placeholder-gray-400;
+}
+
+[cmdk-item] {
+  @apply cursor-pointer px-4 py-3 rounded-md transition-colors;
+}
+
+[cmdk-item][aria-selected="true"] {
+  @apply bg-neutral-100;
+}
+
+[cmdk-item][aria-disabled="true"] {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+[cmdk-list] {
+  @apply overflow-y-auto;
+}
+
+[cmdk-group-heading] {
+  @apply px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide;
+}
+
+[cmdk-empty] {
+  @apply text-center py-6 text-gray-500;
+}
+
 @layer base {
   html {
     @apply scroll-smooth;

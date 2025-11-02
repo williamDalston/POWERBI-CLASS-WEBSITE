@@ -145,3 +145,4 @@ def process_file(filepath):
 if __name__ == '__main__':
     process_file('lib/data/courseData.ts')
 
+

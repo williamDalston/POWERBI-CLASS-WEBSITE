@@ -28,3 +28,4 @@ export default function PWAHandler() {
   return null // This component doesn't render anything
 }
 
+

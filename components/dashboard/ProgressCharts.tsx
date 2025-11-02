@@ -144,3 +144,4 @@ export default function ProgressCharts({ analyticsData, weeklyActivity }: Progre
   )
 }
 
+

@@ -363,3 +363,4 @@ export function calculateStreak(): number {
     return 0
   }
 }
+

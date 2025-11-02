@@ -39,3 +39,4 @@ All icons should be maskable for optimal display on all devices. The safe zone f
 
 ⚠️ **Icons need to be generated** - The manifest.json references these icons, but they don't exist yet. Create them before deploying to production.
 
+

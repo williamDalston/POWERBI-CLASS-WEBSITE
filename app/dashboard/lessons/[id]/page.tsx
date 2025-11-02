@@ -8,6 +8,7 @@ import LessonContent from '@/components/lesson/LessonContent'
 import { LessonNav } from '@/components/lesson/LessonNav'
 import { ScrollProgress } from '@/components/lesson/ScrollProgress'
 import { TableOfContents } from '@/components/lesson/TableOfContents'
+import { LessonOverview } from '@/components/lesson/LessonOverview'
 import LessonNotesPanel from '@/components/dashboard/LessonNotesPanel'
 import { getLessonById, getNextLesson, getPreviousLesson, getModuleForLesson, getLessonPositionInModule } from '@/lib/data/courseData'
 import { useLessons } from '@/lib/hooks/useLessons'
@@ -35,6 +36,7 @@ export default function LessonPage() {
     description: lessonData.description,
     videoUrl: lessonData.videoUrl,
     duration: lessonData.duration,
+    difficulty: lessonData.difficulty,
     exerciseMaterials: lessonData.exerciseMaterials || [],
     content: lessonData.content,
     isCompleted: lessonData.isCompleted || false,
@@ -183,6 +185,7 @@ export default function LessonPage() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,1fr)_260px]">
           {/* Main content */}
           <div className="max-w-3xl">
+            {lessonData && <LessonOverview lesson={lessonData} />}
             <LessonContent lesson={lesson} />
 
             {/* Navigation at bottom */}

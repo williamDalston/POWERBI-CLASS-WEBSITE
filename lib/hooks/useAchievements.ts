@@ -185,7 +185,7 @@ export function useAchievements() {
   const getCategoryAchievements = useCallback((
     category: AchievementCategory
   ): AchievementState[] => {
-    return getAchievementsByCategory(achievements, category)
+    return achievements.filter(a => a.category === category)
   }, [achievements])
 
   // Get total progress stats

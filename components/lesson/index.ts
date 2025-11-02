@@ -4,4 +4,8 @@ export { Callout } from './Callout'
 export { ScrollProgress } from './ScrollProgress'
 export { TableOfContents } from './TableOfContents'
 export { default as LessonContent } from './LessonContent'
+export { LessonOverview } from './LessonOverview'
+export { ContentCompletenessBadge } from './ContentCompletenessBadge'
+export { LabPreparationBanner } from './LabPreparationBanner'
+export { DifficultyBadge } from './DifficultyBadge'
 

@@ -71,3 +71,4 @@ export default function MasteryChart({ analyticsData }: MasteryChartProps) {
   )
 }
 
+
