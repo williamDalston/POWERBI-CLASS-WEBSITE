@@ -47,3 +47,6 @@ export function DifficultyBadge({ difficulty, size = 'md' }: DifficultyBadgeProp
   )
 }
 
+
+
+

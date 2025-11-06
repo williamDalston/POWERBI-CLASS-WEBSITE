@@ -67,3 +67,6 @@ export function LabPreparationBanner({ lesson }: LabPreparationBannerProps) {
   return null
 }
 
+
+
+

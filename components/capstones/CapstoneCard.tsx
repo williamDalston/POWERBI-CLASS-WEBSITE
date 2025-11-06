@@ -36,3 +36,6 @@ export default function CapstoneCard({ capstone, isCompleted }: CapstoneCardProp
 }
 
 
+
+
+

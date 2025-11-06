@@ -269,3 +269,6 @@ export function checkCertificationReadiness(attempts: QuizAttempt[]): {
     weakAreas,
   }
 }
+
+
+

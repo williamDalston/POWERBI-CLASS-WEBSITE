@@ -117,14 +117,57 @@ export const courseData: Part[] = [
             moduleNumber: 0,
             lessonNumber: 2,
             title: "Course Overview and Target Audience",
-            description: "This curriculum follows a three-part structure, guiding a student from \"Beginner\" to \"Analyst\" and finally to \"Master.\" A \"Case Study Scenario\" (e.g., analyzing sales for a retail company) will be use",
-            duration: 20,
+            description: "This curriculum follows a three-part structure, guiding a student from \"Beginner\" to \"Analyst\" and finally to \"Master.\" A \"Case Study Scenario\" (e.g., analyzing sales for a retail company) will be used throughout the course to provide real-world context",
+            duration: 30,
             difficulty: 'beginner',
-            tags: ["Power BI Fundamentals"],
-            topic: 'AI Features',
+            tags: ["Power BI Fundamentals", "Course Structure", "Learning Path"],
+            topic: 'Course Overview',
             content: {
-              concept: "This curriculum follows a three-part structure, guiding a student from \"Beginner\" to \"Analyst\" and finally to \"Master.\" A \"Case Study Scenario\" (e.g., analyzing sales for a retail company) will be used throughout the course to provide real-world context",
-              discussion: "The course is designed for any professional who works with data, regardless of their current title.11 It is particularly impactful for \"Excel power users\" who are seeking to advance their analytical capabilities beyond the constraints of spreadsheets.11 It is also the ideal learning path for aspiring Data Analysts 12, Business Analysts, and IT professionals who need to leverage data for decision-making",
+              concept: "This curriculum follows a three-part structure, guiding a student from \"Beginner\" to \"Analyst\" and finally to \"Master.\" A \"Case Study Scenario\" (e.g., analyzing sales for a retail company) will be used throughout the course to provide real-world context. Each part builds upon the previous one, ensuring a logical progression from basic concepts to advanced enterprise-level skills. The course is designed to take you from zero Power BI knowledge to PL-300 certification readiness, with hands-on labs, real-world projects, and comprehensive coverage of all Power BI capabilities.",
+              discussion: "The course is designed for any professional who works with data, regardless of their current title. It is particularly impactful for \"Excel power users\" who are seeking to advance their analytical capabilities beyond the constraints of spreadsheets. These professionals often find themselves creating complex Excel workbooks with multiple sheets, pivot tables, and VLOOKUPs, and are ready to move to a more powerful, scalable solution. The course is also the ideal learning path for aspiring Data Analysts, Business Analysts, and IT professionals who need to leverage data for decision-making. Part 1 (Beginner) focuses on the fundamentals: connecting to data, transforming it with Power Query, and building your first interactive reports. You'll learn the complete BI workflow from data ingestion to visualization. Part 2 (Analyst) dives deep into data modeling, DAX formulas, and advanced report design. This is where you'll learn to build professional, enterprise-grade reports with sophisticated calculations and storytelling. Part 3 (Master) covers enterprise deployment, security, performance optimization, and advanced topics like Microsoft Fabric integration and Copilot. Throughout the course, you'll work with a consistent retail sales case study, allowing you to see how concepts build upon each other in a real-world scenario. The course includes three capstone projects that demonstrate your progression: Capstone 1 (Beginner) shows foundational skills, Capstone 2 (Analyst) demonstrates intermediate expertise, and Capstone 3 (Master) proves enterprise-level competency. By the end, you'll have a portfolio of work and the knowledge to pass the PL-300 certification exam.",
+              keyPoints: [
+                "Three-part structure: Beginner → Analyst → Master ensures logical skill progression",
+                "Consistent case study throughout provides real-world context and continuity",
+                "Designed for Excel power users ready to advance to enterprise BI tools",
+                "Ideal for aspiring Data Analysts, Business Analysts, and IT professionals",
+                "Three capstone projects demonstrate progression and build your portfolio",
+                "100% aligned with PL-300 certification exam requirements",
+                "Hands-on labs in every module ensure practical, applicable learning",
+                "120 hours total content (16 weeks at 7-8 hours/week)"
+              ],
+              insiderTips: [
+                "Don't skip the case study - it's designed to show how concepts connect in real scenarios",
+                "The three-part structure mirrors real career progression - Beginner skills get you hired, Analyst skills get you promoted, Master skills make you indispensable",
+                "Each capstone project builds your portfolio - these are what employers want to see",
+                "The course is self-paced, but following the order is critical - concepts build on each other",
+                "Excel users will find Part 1 familiar - this is intentional to ease the transition",
+                "Part 2 (DAX and Modeling) is where most students struggle - budget extra time here",
+                "Part 3 (Enterprise) is what separates professionals from hobbyists - don't skip it",
+                "The PL-300 alignment means completing this course = exam readiness"
+              ],
+              tables: [
+                {
+                  title: "Course Structure Overview",
+                  headers: ["Part", "Focus", "Modules", "Key Skills", "Outcome"],
+                  rows: [
+                    ["Part 0", "Foundations", "Module 0", "BI Concepts, Course Orientation", "Understanding of BI landscape"],
+                    ["Part 1: Beginner", "Fundamentals", "Modules 1-4", "Get Data, Power Query, Basic Reports", "First complete report"],
+                    ["Part 2: Analyst", "Advanced Skills", "Modules 5-11", "Data Modeling, DAX, Advanced Design", "Professional reports"],
+                    ["Part 3: Master", "Enterprise", "Modules 12-18", "Deployment, Security, Performance, Fabric", "Enterprise-ready skills"]
+                  ]
+                },
+                {
+                  title: "Target Audience Breakdown",
+                  headers: ["Role", "Why This Course", "Key Benefits", "Time Investment"],
+                  rows: [
+                    ["Excel Power User", "Outgrowing spreadsheet limitations", "Scalable analytics, automation", "16 weeks"],
+                    ["Aspiring Data Analyst", "Career transition into analytics", "Complete BI skillset, portfolio", "16 weeks"],
+                    ["Business Analyst", "Better data storytelling", "Advanced reports, DAX mastery", "12-16 weeks"],
+                    ["IT Professional", "BI platform expertise", "Enterprise deployment, security", "12-16 weeks"],
+                    ["Current BI User", "Power BI specialization", "Advanced features, certification", "8-12 weeks"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -132,14 +175,63 @@ export const courseData: Part[] = [
             moduleNumber: 0,
             lessonNumber: 3,
             title: "Prerequisites: What Do You Really Need?",
-            description: "While there are no formal prerequisites to begin 13, a baseline of data literacy is highly beneficial",
-            duration: 20,
+            description: "While there are no formal prerequisites to begin, a baseline of data literacy is highly beneficial. This lesson clarifies what you truly need to succeed and what skills will accelerate your learning.",
+            duration: 25,
             difficulty: 'beginner',
-            tags: ["DAX", "Visualizations", "Power Query"],
-            topic: 'DAX',
+            tags: ["Prerequisites", "Excel", "Data Literacy", "Getting Started"],
+            topic: 'Prerequisites',
             content: {
-              concept: "While there are no formal prerequisites to begin 13, a baseline of data literacy is highly beneficial",
-              discussion: "Certain existing skills can be considered \"accelerators\" for the learning process. A strong familiarity with Microsoft Excel, especially functions, formulas, and Pivot Tables, provides a significant advantage.11 This is because core components of Power BI, such as Power Query and the DAX formula language, are shared with modern Excel. Other helpful, though not required, concepts include a basic understanding of databases (e.g., the concept of a table) and data visualization (e.g., the purpose of a bar chart)",
+              concept: "While there are no formal prerequisites to begin, a baseline of data literacy is highly beneficial. Power BI is designed to be accessible to business users, not just IT professionals. However, certain existing skills can significantly accelerate your learning journey. The most important prerequisite is a willingness to learn and experiment - Power BI rewards hands-on practice. You don't need programming experience, database administration skills, or advanced mathematics. What you do need is comfort with basic computer operations, file management, and a logical mindset for working with data.",
+              discussion: "Certain existing skills can be considered \"accelerators\" for the learning process. A strong familiarity with Microsoft Excel, especially functions, formulas, and Pivot Tables, provides a significant advantage. This is because core components of Power BI, such as Power Query and the DAX formula language, are shared with modern Excel. If you're comfortable with Excel formulas like SUMIF, VLOOKUP, and IF statements, you'll find DAX familiar (though more powerful). If you've used Excel Pivot Tables, you'll understand the concept of aggregating and summarizing data - a core BI skill. Power Query in Excel (available since Excel 2016) is nearly identical to Power Query in Power BI, so Excel users with Power Query experience will breeze through the data transformation modules. Other helpful, though not required, concepts include: Basic database understanding (knowing what a table is, understanding rows and columns) - this helps with data modeling concepts. Data visualization basics (understanding when to use a bar chart vs. line chart) - this helps with report design. Basic statistics (mean, median, sum, count) - this helps with understanding aggregations. If you don't have these skills, don't worry - the course covers them. But if you do have Excel experience, you'll progress faster. The course assumes no prior Power BI knowledge, so even complete beginners can succeed. However, if you're completely new to data analysis, consider spending a few hours learning Excel basics first - it will make the Power BI journey smoother.",
+              keyPoints: [
+                "No formal prerequisites required - course designed for complete beginners",
+                "Excel experience (especially formulas and Pivot Tables) significantly accelerates learning",
+                "Power Query in Excel is nearly identical to Power Query in Power BI",
+                "DAX formulas share concepts with Excel formulas (SUMIF, VLOOKUP, etc.)",
+                "Basic data literacy (tables, rows, columns) is helpful but not required",
+                "Willingness to learn and experiment is the most important prerequisite",
+                "No programming experience needed - Power BI is visual and user-friendly",
+                "Course covers all foundational concepts, so beginners can succeed"
+              ],
+              insiderTips: [
+                "If you're new to Excel, spend 2-3 hours learning basic formulas and Pivot Tables before starting - it's worth it",
+                "Excel users: Your VLOOKUP knowledge translates directly to Power Query Merge operations",
+                "Excel users: Your Pivot Table knowledge translates directly to Power BI visuals",
+                "Excel users: Your SUMIF knowledge translates directly to DAX CALCULATE functions",
+                "Don't let lack of Excel experience stop you - the course teaches everything you need",
+                "If you know SQL, you'll find Power Query familiar (it's like visual SQL)",
+                "If you know Tableau, you'll find Power BI similar but with better data modeling",
+                "The course includes 'Excel to Power BI' translation guides for Excel users",
+                "Complete beginners: Budget extra time for Part 1 - it's foundational",
+                "Advanced users: You can skip some Part 1 basics, but don't skip the Power Query fundamentals"
+              ],
+              tables: [
+                {
+                  title: "Skill Level Assessment",
+                  headers: ["Your Experience", "What This Means", "Recommended Approach", "Time Estimate"],
+                  rows: [
+                    ["Excel Beginner", "New to spreadsheets", "Take time with Part 1, practice Excel basics", "18-20 weeks"],
+                    ["Excel Intermediate", "Know formulas, basic Pivot Tables", "Normal pace, Excel skills help", "16 weeks"],
+                    ["Excel Advanced", "Power Query, complex formulas", "Fast pace through Part 1, focus on Part 2", "12-14 weeks"],
+                    ["SQL/Database Experience", "Understand data modeling", "Fast through modeling, focus on DAX", "12-14 weeks"],
+                    ["Other BI Tool (Tableau, Qlik)", "Understand BI concepts", "Fast through basics, learn Power BI specifics", "10-12 weeks"]
+                  ]
+                },
+                {
+                  title: "Excel Skills That Translate to Power BI",
+                  headers: ["Excel Skill", "Power BI Equivalent", "Translation Difficulty", "Module Where You'll See It"],
+                  rows: [
+                    ["VLOOKUP", "Power Query Merge", "Easy - same concept", "Module 3"],
+                    ["Pivot Tables", "Power BI Visuals", "Easy - same concept", "Module 4"],
+                    ["SUMIF/COUNTIF", "DAX CALCULATE", "Moderate - more powerful", "Module 6-8"],
+                    ["Excel Tables", "Power BI Tables", "Easy - same concept", "Module 1"],
+                    ["Power Query (Excel)", "Power Query (Power BI)", "Very Easy - nearly identical", "Module 3"],
+                    ["Excel Formulas", "DAX Measures", "Moderate - different syntax", "Module 6-8"],
+                    ["Charts", "Power BI Visuals", "Easy - similar concepts", "Module 4"],
+                    ["Data Validation", "Data Types in Power BI", "Easy - similar concept", "Module 3"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -242,14 +334,73 @@ export const courseData: Part[] = [
             moduleNumber: 1,
             lessonNumber: 2,
             title: "Installation and Setup (Hands-On Lab)",
-            description: "Installing the free Power BI Desktop application",
-            duration: 20,
+            description: "Installing the free Power BI Desktop application. This hands-on lab walks you through the installation process, choosing the right installation method, and verifying your installation works correctly.",
+            duration: 30,
             difficulty: 'beginner',
-            tags: ["2025 Features"],
-            topic: 'Business Intelligence',
+            tags: ["Installation", "Setup", "2025 Features", "Power BI Desktop"],
+            topic: 'Power BI Setup',
             content: {
-              concept: "Installing the free Power BI Desktop application",
-              discussion: "There are two primary installation methods 24:Microsoft Store (Recommended): This version updates automatically in the background, ensuring the user always has the latest features.24Direct Download (Executable): This version requires manual updates but offers more control for enterprise environments.24Note for Mac Users: Power BI Desktop is a Windows-only application. Mac users must utilize a virtual machine environment, such as Parallels, to run a Windows instance.25Note for ARM Users (New in 2025): As of September/October 2025, Power BI Desktop is now supported to run natively on ARM-based Windows PCs",
+              concept: "Installing the free Power BI Desktop application is your first step into the Power BI ecosystem. Power BI Desktop is completely free and can be installed on any Windows PC (or ARM-based Windows device as of 2025). There are two primary installation methods, each with different benefits. The Microsoft Store version (recommended) updates automatically, ensuring you always have the latest features. The direct download version gives you more control but requires manual updates. This lab will guide you through the installation process, help you choose the right method for your needs, and verify your installation is working correctly.",
+              discussion: "There are two primary installation methods, each suited to different needs. Microsoft Store (Recommended): This version updates automatically in the background, ensuring you always have the latest features without manual intervention. The Store version is ideal for individual users and small teams who want hassle-free updates. It's installed through the Microsoft Store app on Windows 10/11, and updates are managed automatically. The Store version is also digitally signed and verified, providing an extra layer of security. Direct Download (Executable): This version requires manual updates but offers more control for enterprise environments. IT departments often prefer this method because it allows them to control when updates are deployed, test updates before rolling them out, and manage installations through enterprise deployment tools. The direct download is available from the official Power BI website (powerbi.microsoft.com) and comes as a standalone .msi installer. Note for Mac Users: Power BI Desktop is a Windows-only application. Mac users must utilize a virtual machine environment, such as Parallels Desktop, VMware Fusion, or Boot Camp, to run a Windows instance. Alternatively, Mac users can use Power BI Service (the web version) for viewing and interacting with reports, but report creation requires Windows. Note for ARM Users (New in 2025): As of September/October 2025, Power BI Desktop is now supported to run natively on ARM-based Windows PCs (like Surface Pro X, Surface Laptop Studio, and other ARM devices). This means no emulation is required, and performance is significantly better than running through x86 emulation. The ARM version is available through both installation methods. System Requirements: Power BI Desktop requires Windows 10 (version 1903 or later) or Windows 11, .NET Framework 4.8 or later, and at least 2GB of RAM (4GB recommended). The installation requires approximately 500MB of disk space, though reports and data can consume much more. After installation, you'll need to sign in with a Microsoft account (free) or work/school account to access cloud features, though you can use Power BI Desktop offline for local development.",
+              keyPoints: [
+                "Two installation methods: Microsoft Store (auto-updates) or Direct Download (manual control)",
+                "Microsoft Store version recommended for individual users - automatic updates",
+                "Direct Download preferred for enterprise - controlled deployment",
+                "Power BI Desktop is Windows-only (Mac users need virtual machine)",
+                "ARM support (2025) enables native ARM Windows installation",
+                "Free forever - no cost for Power BI Desktop",
+                "Requires Windows 10/11, .NET Framework 4.8+, 2GB+ RAM",
+                "Sign in with Microsoft account to access cloud features (optional)"
+              ],
+              insiderTips: [
+                "Always use Microsoft Store version unless you have a specific enterprise requirement",
+                "Store version updates automatically - you'll always have the latest features",
+                "If you're on a managed corporate PC, IT may require the direct download version",
+                "Mac users: Parallels Desktop is the most popular VM solution for Power BI",
+                "ARM users: The native ARM version (2025) is much faster than x86 emulation",
+                "Installation takes 5-10 minutes depending on your internet speed",
+                "After installation, restart your computer if prompted - this ensures all components are properly registered",
+                "First launch may take longer as Power BI initializes - this is normal",
+                "If installation fails, check Windows Update - Power BI requires current Windows updates",
+                "You can have both Store and Direct Download versions, but this is not recommended"
+              ],
+              labs: [
+                "Determine your installation method: Microsoft Store (recommended) or Direct Download",
+                "For Microsoft Store: Open Microsoft Store app, search for 'Power BI Desktop', click Install",
+                "For Direct Download: Visit powerbi.microsoft.com/desktop, click 'Download free', run the installer",
+                "Follow the installation wizard (accept license terms, choose installation location)",
+                "Wait for installation to complete (5-10 minutes depending on internet speed)",
+                "Launch Power BI Desktop from Start menu or desktop shortcut",
+                "On first launch, you may see a welcome screen - click 'Get started'",
+                "Optional: Sign in with your Microsoft account (free account works) to access cloud features",
+                "Verify installation: You should see the Power BI Desktop interface with three views (Report, Data, Model)",
+                "Check version: File > Options and settings > Options > About - note your version number",
+                "Test basic functionality: Click 'Get Data' button - you should see the data source selection dialog",
+                "If you encounter errors, check Windows Event Viewer for detailed error messages",
+                "For ARM devices: Verify you downloaded the ARM version (check file name or Store listing)"
+              ],
+              tables: [
+                {
+                  title: "Installation Method Comparison",
+                  headers: ["Method", "Updates", "Best For", "Control Level", "Enterprise Support"],
+                  rows: [
+                    ["Microsoft Store", "Automatic", "Individual users, small teams", "Low (auto-updates)", "Limited"],
+                    ["Direct Download", "Manual", "Enterprise, IT-managed PCs", "High (manual updates)", "Full (MSI deployment)"]
+                  ]
+                },
+                {
+                  title: "System Requirements",
+                  headers: ["Component", "Minimum", "Recommended", "Notes"],
+                  rows: [
+                    ["Operating System", "Windows 10 (1903+)", "Windows 11", "Windows Server 2016+ also supported"],
+                    ["RAM", "2GB", "4GB+", "More RAM = better performance with large datasets"],
+                    ["Disk Space", "500MB", "2GB+", "Additional space needed for reports and data"],
+                    [".NET Framework", "4.8", "Latest", "Usually pre-installed on Windows 10/11"],
+                    ["Display", "1024x768", "1920x1080+", "Higher resolution = better report design experience"],
+                    ["Internet", "Not required", "Recommended", "Needed for cloud features and updates"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -327,13 +478,83 @@ export const courseData: Part[] = [
             moduleNumber: 1,
             lessonNumber: 4,
             title: "Tour of the Power BI Desktop Interface",
-            description: "Understanding the three main \"views\" within Power BI Desktop is key to navigating the workflow",
-            duration: 10,
+            description: "Understanding the three main \"views\" within Power BI Desktop is key to navigating the workflow. This comprehensive tour introduces you to every part of the interface, from the ribbon to the panes, and explains how they work together.",
+            duration: 45,
             difficulty: 'beginner',
-            tags: ["Power BI Fundamentals"],
-            topic: 'AI Features',
+            tags: ["Power BI Fundamentals", "Interface", "Navigation", "Getting Started"],
+            topic: 'Power BI Interface',
             content: {
-              concept: "Understanding the three main \"views\" within Power BI Desktop is key to navigating the workflow",
+              concept: "Understanding the three main \"views\" within Power BI Desktop is key to navigating the workflow. Power BI Desktop has a sophisticated interface designed to support the complete BI workflow: connecting to data, transforming it, modeling relationships, and building visualizations. The interface consists of three primary views (Report View, Data View, and Model View), a ribbon with contextual tabs, and multiple panes for fields, visualizations, and properties. Each view serves a specific purpose in the BI workflow, and understanding when to use each view is fundamental to efficient Power BI development.",
+              discussion: "The three main views correspond directly to the BI workflow stages. Report View (Canvas) is the default view and the primary workspace for building visualizations. This is the \"what you see is what you get\" (WYSIWYG) editor where you create the final report that users will interact with. The Report View contains the canvas (the blank page where visuals are placed), the Visualizations pane (chart types and formatting options), the Fields pane (your data tables and columns), and the Filters pane (for applying filters to visuals or entire pages). This view is where you spend most of your time as a report developer. Data View resembles a spreadsheet and allows you to inspect the raw data after it has been loaded into the model. This view shows the actual data in your tables, row by row, column by column. It's where you can see the data values, verify data types, and create calculated columns. Data View is particularly useful for data exploration, understanding your data structure, and debugging data issues. You can sort, filter, and search data in this view, just like in Excel. Model View is the \"engine room\" or \"diagram\" view that provides a visual representation of all tables in your data model and the relationships between them. This is where you create and manage relationships between tables, view the overall structure of your data model, and understand how tables connect. Model View is essential for data modeling - you'll use it extensively in Part 2 when building star schemas. The interface also includes a ribbon (similar to Microsoft Office) with contextual tabs that change based on what you're doing. The Home tab contains common operations like Get Data, Transform Data, and Refresh. The View tab controls which panes are visible. The Modeling tab (visible in Data and Model views) contains tools for creating relationships, calculated columns, and measures. The ribbon adapts to your current context, showing relevant tools for the view you're in. Key panes include: Fields pane (shows your data model - tables and columns), Visualizations pane (chart types and formatting), Filters pane (applies filters to visuals or pages), and Properties pane (detailed settings for selected objects). Understanding this interface is the foundation for everything else you'll learn in Power BI.",
+              keyPoints: [
+                "Three main views: Report View (visualizations), Data View (data inspection), Model View (relationships)",
+                "Report View is where you build the final report - the primary workspace",
+                "Data View shows raw data in spreadsheet format - useful for exploration and calculated columns",
+                "Model View shows the data model diagram - essential for understanding relationships",
+                "Ribbon contains contextual tabs that change based on your current view",
+                "Fields pane shows your data model - tables and columns available for use",
+                "Visualizations pane contains chart types and formatting options",
+                "Filters pane allows you to apply filters to visuals, pages, or the entire report"
+              ],
+              insiderTips: [
+                "Report View is where you'll spend 80% of your time - get comfortable with it",
+                "Use Data View to explore your data and verify it loaded correctly",
+                "Model View is your best friend for understanding complex data models",
+                "Right-click in any pane to access context menus with additional options",
+                "You can resize and rearrange panes - customize the interface to your workflow",
+                "Use View tab to show/hide panes - clean up the interface when needed",
+                "The ribbon adapts to your context - different tools appear in different views",
+                "Keyboard shortcuts work throughout - learn them for faster development",
+                "The Fields pane search box is powerful - use it to find columns in large models",
+                "Model View's zoom controls help you navigate large data models",
+                "You can have multiple report pages - use the page tabs at the bottom",
+                "The status bar (bottom) shows useful information like row counts and filter status"
+              ],
+              labs: [
+                "Open Power BI Desktop (if not already open)",
+                "Observe the three view icons in the left sidebar: Report, Data, Model",
+                "Click Report View (if not already selected) - this is the default view",
+                "Explore the ribbon: Home tab, Insert tab, View tab, Modeling tab (contextual)",
+                "Observe the Fields pane on the right - currently empty (no data loaded yet)",
+                "Observe the Visualizations pane on the right - shows available chart types",
+                "Click Data View icon - notice the interface changes (no canvas, shows data grid)",
+                "In Data View, observe the Fields pane still visible on the right",
+                "Click Model View icon - notice the diagram view (currently empty)",
+                "In Model View, observe the relationship diagram area (currently empty)",
+                "Return to Report View - this is where you'll build reports",
+                "Right-click in the Fields pane - observe context menu options",
+                "Right-click in the Visualizations pane - observe context menu options",
+                "Go to View tab in the ribbon - observe options to show/hide panes",
+                "Experiment with showing/hiding panes: Filters, Bookmarks, Selection, etc.",
+                "Observe the page tabs at the bottom (currently shows 'Page 1')",
+                "Right-click on 'Page 1' tab - observe options to add, duplicate, or delete pages",
+                "Click the '+' icon next to page tabs to add a new page",
+                "Observe the status bar at the bottom - shows page information",
+                "Familiarize yourself with the interface - you'll use it throughout the course"
+              ],
+              tables: [
+                {
+                  title: "Power BI Desktop Views Comparison",
+                  headers: ["View", "Primary Use", "Key Features", "When to Use"],
+                  rows: [
+                    ["Report View", "Building visualizations and reports", "Canvas, Visualizations pane, Fields pane", "Creating and designing reports"],
+                    ["Data View", "Inspecting and exploring data", "Spreadsheet-like grid, data values", "Verifying data, creating calculated columns"],
+                    ["Model View", "Managing data model and relationships", "Diagram view, relationship lines", "Building relationships, understanding model structure"]
+                  ]
+                },
+                {
+                  title: "Key Interface Panes",
+                  headers: ["Pane", "Location", "Purpose", "Visibility"],
+                  rows: [
+                    ["Fields", "Right side", "Shows data model (tables and columns)", "Always visible"],
+                    ["Visualizations", "Right side (Report View)", "Chart types and formatting options", "Report View only"],
+                    ["Filters", "Right side", "Apply filters to visuals/pages/report", "Toggle via View tab"],
+                    ["Properties", "Right side", "Detailed settings for selected objects", "When object selected"],
+                    ["Bookmarks", "Right side", "Save and restore report states", "Toggle via View tab"],
+                    ["Selection", "Right side", "Manage visual layers and visibility", "Toggle via View tab"]
+                  ]
+                }
+              ]
             },
           },
         ],
@@ -349,13 +570,80 @@ export const courseData: Part[] = [
             moduleNumber: 2,
             lessonNumber: 1,
             title: "The \"Get Data\" Experience",
-            description: "The \"Get Data\" function is the universal starting point for all Power BI projects. It provides access to hundreds of different data sources, from simple files to cloud databases and web services",
-            duration: 10,
+            description: "The \"Get Data\" function is the universal starting point for all Power BI projects. It provides access to hundreds of different data sources, from simple files to cloud databases and web services. This lesson introduces you to the Get Data dialog and helps you understand the vast array of data sources available.",
+            duration: 30,
             difficulty: 'beginner',
-            tags: ["Power BI Fundamentals"],
-            topic: 'Power BI Service',
+            tags: ["Data Acquisition", "Get Data", "Data Sources", "Power BI Fundamentals"],
+            topic: 'Data Acquisition',
             content: {
-              concept: "The \"Get Data\" function is the universal starting point for all Power BI projects. It provides access to hundreds of different data sources, from simple files to cloud databases and web services",
+              concept: "The \"Get Data\" function is the universal starting point for all Power BI projects. It provides access to hundreds of different data sources, from simple files to cloud databases and web services. Get Data is Power BI's gateway to connecting with virtually any data source in your organization or on the internet. Whether you need to connect to an Excel file on your computer, a SQL Server database, a cloud service like Salesforce, or a web page with tabular data, Get Data is where you begin. The Get Data dialog organizes data sources into categories (Files, Databases, Power Platform, Azure, Online Services, and more) making it easy to find the right connector for your needs. Understanding Get Data is fundamental because every Power BI project starts here - you can't build reports without data.",
+              discussion: "The Get Data experience in Power BI Desktop is designed to be intuitive yet powerful. When you click the \"Get Data\" button (or use the Home tab > Get Data), you're presented with a dialog that organizes hundreds of data sources into logical categories. The most common categories include: Files (Excel, CSV, PDF, JSON, XML, Text files) - these are the most common starting points for beginners. Databases (SQL Server, Oracle, MySQL, PostgreSQL, Access) - these are the backbone of enterprise data systems. Power Platform (Power BI datasets, Power BI dataflows) - these connect to other Power BI content. Azure (Azure SQL Database, Azure Blob Storage, Azure Data Lake) - Microsoft's cloud data services. Online Services (SharePoint, Dynamics 365, Salesforce, Google Analytics) - cloud-based business applications. Other (Web, OData, REST APIs) - miscellaneous data sources. Each connector may have different authentication requirements (none for files, username/password for databases, OAuth for cloud services). Some connectors are marked with a diamond icon (Premium connectors) which require a Pro or Premium license. The Get Data dialog also includes a search box, allowing you to quickly find specific connectors. After selecting a data source, Power BI guides you through the connection process, which varies by source type. For files, you'll browse to the file location. For databases, you'll enter server and database names. For cloud services, you'll authenticate with your credentials. The connection process is designed to be user-friendly, with wizards and dialogs that guide you through each step. Once connected, you'll see the Navigator dialog (for databases and files) or the Power Query Editor (for files that need transformation). The Get Data experience is your entry point into the entire Power BI workflow - mastering it is essential for efficient BI development.",
+              keyPoints: [
+                "Get Data is the universal starting point for all Power BI projects",
+                "Hundreds of data sources organized into logical categories",
+                "Common categories: Files, Databases, Azure, Online Services, Web",
+                "Each connector has specific authentication requirements",
+                "Premium connectors (diamond icon) require Pro or Premium license",
+                "Search box helps you quickly find specific connectors",
+                "Connection process varies by source type but is guided by wizards",
+                "Get Data leads to Navigator dialog or Power Query Editor"
+              ],
+              insiderTips: [
+                "Use the search box in Get Data dialog - it's faster than browsing categories",
+                "Premium connectors are marked with a diamond icon - check your license",
+                "Most common starting point: Excel or CSV files for beginners",
+                "Enterprise users: SQL Server is the most common database connector",
+                "Cloud users: SharePoint and Azure SQL are popular cloud connectors",
+                "The connector list updates monthly - new connectors appear regularly",
+                "If you don't see a connector you need, check if it's in a different category",
+                "Some connectors require specific versions or configurations - check documentation",
+                "You can connect to multiple data sources in a single Power BI file",
+                "Get Data remembers your recent connections - use them for faster access",
+                "For web scraping, use the Web connector - it extracts tables from HTML",
+                "For APIs, use the REST API connector or OData connector"
+              ],
+              labs: [
+                "Open Power BI Desktop (if not already open)",
+                "Click the 'Get Data' button in the Home tab (or use the dropdown arrow)",
+                "Observe the Get Data dialog - notice the categories on the left",
+                "Browse through categories: Files, Databases, Power Platform, Azure, Online Services",
+                "Use the search box to search for 'Excel' - observe how it filters results",
+                "Click on 'Excel' under Files category - observe the connection dialog",
+                "Cancel the Excel connection dialog (we'll connect in the next lesson)",
+                "Browse to 'Database' category - observe SQL Server, Oracle, MySQL, etc.",
+                "Browse to 'Azure' category - observe Azure SQL Database, Azure Blob Storage, etc.",
+                "Browse to 'Online Services' category - observe SharePoint, Dynamics 365, Salesforce, etc.",
+                "Look for connectors with diamond icons - these are Premium connectors",
+                "Use search box to find 'Web' connector - this is for web scraping",
+                "Use search box to find 'CSV' connector - this is for CSV files",
+                "Observe the 'Recent' section at the top - currently empty (will populate as you use connectors)",
+                "Familiarize yourself with the Get Data dialog - you'll use it frequently"
+              ],
+              tables: [
+                {
+                  title: "Get Data Categories Overview",
+                  headers: ["Category", "Common Connectors", "Use Case", "License Required"],
+                  rows: [
+                    ["Files", "Excel, CSV, PDF, JSON, XML", "Local files, exports", "None (free)"],
+                    ["Databases", "SQL Server, Oracle, MySQL, PostgreSQL", "Enterprise databases", "None (free)"],
+                    ["Power Platform", "Power BI datasets, Dataflows", "Reuse existing Power BI content", "Pro or higher"],
+                    ["Azure", "Azure SQL, Blob Storage, Data Lake", "Microsoft cloud services", "Pro or higher"],
+                    ["Online Services", "SharePoint, Dynamics 365, Salesforce", "Cloud business applications", "Pro or higher"],
+                    ["Other", "Web, OData, REST APIs", "Web scraping, APIs", "None (free)"]
+                  ]
+                },
+                {
+                  title: "Most Common Data Sources by User Type",
+                  headers: ["User Type", "Most Common Connectors", "Why", "Difficulty"],
+                  rows: [
+                    ["Beginner", "Excel, CSV", "Familiar format, easy to start", "Easy"],
+                    ["Business User", "SharePoint, Excel Online", "Cloud files, collaboration", "Easy"],
+                    ["Data Analyst", "SQL Server, Excel, CSV", "Mix of databases and files", "Moderate"],
+                    ["Enterprise User", "SQL Server, Azure SQL, SharePoint", "Enterprise data sources", "Moderate"],
+                    ["Developer", "REST APIs, OData, Custom connectors", "Advanced integrations", "Advanced"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -363,14 +651,83 @@ export const courseData: Part[] = [
             moduleNumber: 2,
             lessonNumber: 2,
             title: "Connecting to Files (Hands-On Lab)",
-            description: "Connecting to the most common flat-file data sources",
-            duration: 10,
+            description: "Connecting to the most common flat-file data sources including Excel, CSV, and PDF files. This hands-on lab walks you through connecting to files and covers best practices for preparing your data.",
+            duration: 45,
             difficulty: 'beginner',
-            tags: ["Power BI Fundamentals"],
-            topic: 'Business Intelligence',
+            tags: ["Data Acquisition", "Files", "Excel", "CSV", "PDF", "Hands-On Lab"],
+            topic: 'Data Acquisition',
             content: {
-              concept: "Connecting to the most common flat-file data sources",
-              discussion: "This lab will walk through connecting to:Excel Workbooks (.xlsx): Power BI can connect to Excel tables and worksheets.32 This lesson will also cover best practices for structuring Excel data (e.g., using proper tables, avoiding merged cells) to make it ready for Power BI.Text/CSV Files (.csv): A ubiquitous format for data export.32PDF: Power BI can extract data from tables found within PDF documents",
+              concept: "Connecting to the most common flat-file data sources is where most Power BI projects begin. Files are the most accessible data source - everyone has Excel files, CSV exports, or PDF reports. Power BI can connect to a wide variety of file formats, with Excel, CSV, and PDF being the most common. This lab will walk you through connecting to each of these file types, understanding the connection process, and learning best practices for preparing your data files. File connections are typically the easiest to set up - no server names, no authentication, just browse to your file and connect. However, file connections require the file to be accessible (either locally or in a cloud location like OneDrive or SharePoint). Understanding file connections is fundamental because files are often the starting point for learning Power BI and are commonly used in real-world scenarios.",
+              discussion: "This lab will walk through connecting to the three most common file types. Excel Workbooks (.xlsx): Power BI can connect to Excel tables and worksheets. When you connect to an Excel file, Power BI shows you the Navigator dialog, which lists all tables and worksheets in the workbook. You can select one or more tables/worksheets to import. Excel tables (created with Ctrl+T) are preferred over raw worksheets because they have proper headers and structure. This lesson will also cover best practices for structuring Excel data: use proper Excel tables (not just ranges), avoid merged cells (they cause issues), ensure first row contains headers, remove empty rows and columns, avoid subtotals in the data (Power BI will calculate them), and keep data in a single table per worksheet. Excel files can be large, so Power BI may take time to load them. Text/CSV Files (.csv): A ubiquitous format for data export. CSV files are simple text files with comma-separated values (though other delimiters like semicolons or tabs are supported). When connecting to CSV files, Power BI automatically detects the delimiter and encoding. CSV files are great for data exports from systems that don't support Excel. Best practices for CSV files: ensure proper encoding (UTF-8 is preferred), use consistent delimiters, include headers in the first row, and avoid special characters in headers. PDF: Power BI can extract data from tables found within PDF documents. This is useful for reports that are only available as PDFs. When connecting to PDFs, Power BI analyzes the PDF and identifies tables that can be extracted. PDF extraction is not perfect - it works best with well-formatted tables. Best practices for PDFs: ensure tables are properly formatted (not images), use clear table structures, and verify extracted data (PDF extraction can be inaccurate). After connecting to any file, you'll see the Navigator dialog (for Excel) or go directly to Power Query Editor (for CSV/PDF). The Navigator dialog allows you to preview data before loading it. You can choose to \"Load\" (import directly) or \"Transform Data\" (open Power Query Editor to clean the data first). Best practice: Always choose \"Transform Data\" first - you'll learn why in Module 3.",
+              keyPoints: [
+                "Three most common file types: Excel (.xlsx), CSV (.csv), PDF (.pdf)",
+                "Excel: Connect to tables or worksheets via Navigator dialog",
+                "CSV: Simple text files with comma-separated values - Power BI auto-detects format",
+                "PDF: Power BI extracts tables from PDF documents (works best with well-formatted tables)",
+                "Navigator dialog shows available tables/worksheets before loading",
+                "Best practice: Always choose 'Transform Data' instead of 'Load' (you'll learn why in Module 3)",
+                "Excel best practices: Use proper tables, avoid merged cells, ensure headers in first row",
+                "CSV best practices: Use UTF-8 encoding, consistent delimiters, headers in first row"
+              ],
+              insiderTips: [
+                "Excel tables (Ctrl+T) are preferred over raw worksheets - they have proper structure",
+                "Avoid merged cells in Excel - they cause issues in Power BI",
+                "Always use 'Transform Data' instead of 'Load' - you'll need to clean data anyway",
+                "CSV files are great for data exports - simple and universal",
+                "PDF extraction is not perfect - verify extracted data carefully",
+                "Large Excel files may take time to load - be patient",
+                "Excel files with multiple sheets - you can select multiple in Navigator",
+                "CSV files with different delimiters - Power BI usually auto-detects, but you can specify",
+                "PDF files with images of tables won't work - need actual table structure",
+                "File paths matter - if you move files, connections will break",
+                "For cloud files (OneDrive, SharePoint), use the cloud connectors instead of file connectors",
+                "Excel files with formulas - Power BI imports the values, not the formulas"
+              ],
+              labs: [
+                "Open Power BI Desktop (if not already open)",
+                "Click 'Get Data' > 'Excel' (or 'Text/CSV' or 'PDF' for other file types)",
+                "Browse to a sample Excel file (or create one with sample data)",
+                "Select the file and click 'Open'",
+                "Observe the Navigator dialog - it shows tables and worksheets",
+                "Select a table or worksheet - observe the preview on the right",
+                "Click 'Transform Data' (not 'Load') - this opens Power Query Editor",
+                "In Power Query Editor, observe the data structure",
+                "Close Power Query Editor (we'll learn it in Module 3) - click 'Close & Apply'",
+                "Repeat for CSV file: Get Data > Text/CSV",
+                "Browse to a CSV file (or create one)",
+                "Observe how Power BI auto-detects delimiter and encoding",
+                "Click 'Transform Data' to open Power Query Editor",
+                "Close Power Query Editor",
+                "Optional: Try PDF connection: Get Data > PDF",
+                "Browse to a PDF with tables (if available)",
+                "Observe how Power BI identifies extractable tables",
+                "Select a table and click 'Transform Data'",
+                "Close Power Query Editor",
+                "Practice: Connect to multiple file types to get comfortable with the process"
+              ],
+              tables: [
+                {
+                  title: "File Type Comparison",
+                  headers: ["File Type", "Best For", "Pros", "Cons"],
+                  rows: [
+                    ["Excel (.xlsx)", "Structured data, multiple sheets", "Familiar format, supports tables", "Can be large, slower to load"],
+                    ["CSV (.csv)", "Simple data exports, universal format", "Lightweight, fast, universal", "No formatting, single sheet only"],
+                    ["PDF (.pdf)", "Reports, documents with tables", "Extracts from documents", "Extraction not perfect, limited"]
+                  ]
+                },
+                {
+                  title: "Excel Data Preparation Best Practices",
+                  headers: ["Practice", "Do", "Don't", "Why"],
+                  rows: [
+                    ["Structure", "Use Excel tables (Ctrl+T)", "Use raw ranges", "Tables have proper headers and structure"],
+                    ["Headers", "First row contains headers", "Headers in multiple rows", "Power BI expects headers in first row"],
+                    ["Cells", "No merged cells", "Merged cells", "Merged cells cause data issues"],
+                    ["Data", "Clean data, no subtotals", "Subtotals in data", "Power BI calculates aggregations"],
+                    ["Format", "Consistent formatting", "Inconsistent formats", "Consistent format = better data quality"],
+                    ["Empty", "Remove empty rows/columns", "Keep empty rows/columns", "Empty rows/columns waste space"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -378,14 +735,81 @@ export const courseData: Part[] = [
             moduleNumber: 2,
             lessonNumber: 3,
             title: "Connecting to Databases",
-            description: "Connecting to relational databases, which form the backbone of most enterprise data systems",
-            duration: 10,
+            description: "Connecting to relational databases, which form the backbone of most enterprise data systems. Learn how to connect to SQL Server, Oracle, MySQL, and other database systems with proper authentication.",
+            duration: 40,
             difficulty: 'beginner',
-            tags: ["Power BI Fundamentals"],
-            topic: 'AI Features',
+            tags: ["Data Acquisition", "Databases", "SQL Server", "Authentication"],
+            topic: 'Data Acquisition',
             content: {
-              concept: "Connecting to relational databases, which form the backbone of most enterprise data systems",
-              discussion: "The primary example will be SQL Server.10 This lesson will explain the concepts of a Server Name and Database Name, as well as the different authentication modes (e.g., Windows vs. SQL Server credentials)",
+              concept: "Connecting to relational databases is essential for enterprise Power BI development. Databases form the backbone of most enterprise data systems, containing the structured, transactional data that organizations rely on for reporting and analysis. Power BI can connect to virtually any relational database, with SQL Server being the most common in Microsoft environments. This lesson will teach you how to connect to databases, understand server and database names, configure authentication, and navigate the connection process. Database connections are more complex than file connections because they require server names, database names, and authentication credentials. However, once configured, database connections provide access to large, structured datasets that are the foundation of enterprise BI solutions.",
+              discussion: "The primary example will be SQL Server, which is the most common database in Microsoft environments. However, the concepts apply to other databases like Oracle, MySQL, PostgreSQL, and Access. This lesson will explain the concepts of a Server Name and Database Name, as well as the different authentication modes. Server Name: The server name identifies the database server you want to connect to. It can be a computer name (e.g., 'SERVER01'), a fully qualified domain name (e.g., 'sqlserver.company.com'), an IP address (e.g., '192.168.1.100'), or for Azure SQL Database, a server name like 'myserver.database.windows.net'. The server name tells Power BI where to find the database. Database Name: The database name identifies the specific database on the server. A single SQL Server instance can host multiple databases (e.g., 'SalesDB', 'HRDB', 'FinanceDB'). You need to specify which database contains the data you want. Authentication Modes: There are several authentication methods. Windows Authentication (recommended): Uses your Windows credentials to authenticate. This is the most secure method and is preferred in enterprise environments. You don't need to enter credentials - Power BI uses your logged-in Windows account. SQL Server Authentication: Requires a username and password specific to SQL Server. This is less secure but sometimes necessary when Windows authentication isn't available. Database Authentication: Some databases (like Oracle) have their own authentication systems. Azure Active Directory Authentication: For Azure SQL Database, you can use Azure AD authentication, which is more secure and integrates with Microsoft 365. After entering server and database information and selecting authentication, Power BI connects to the database and shows the Navigator dialog, which lists all tables, views, and stored procedures available in the database. You can select one or more objects to import. For large databases, you may want to use the 'Advanced options' to write a SQL query instead of selecting entire tables - this gives you more control over what data is imported. Database connections can be configured to use Import mode (default) or DirectQuery mode (covered in lesson 2-5). Import mode copies data into Power BI, while DirectQuery queries the database in real-time. Most beginners should use Import mode initially.",
+              keyPoints: [
+                "Databases are the backbone of enterprise data systems",
+                "SQL Server is the most common database in Microsoft environments",
+                "Server Name identifies the database server (computer name, FQDN, IP, or Azure server name)",
+                "Database Name identifies the specific database on the server",
+                "Authentication modes: Windows (recommended), SQL Server, Database-specific, Azure AD",
+                "Windows Authentication uses your Windows credentials - most secure",
+                "SQL Server Authentication requires username/password - less secure but sometimes necessary",
+                "Navigator dialog shows tables, views, and stored procedures after connection"
+              ],
+              insiderTips: [
+                "Windows Authentication is preferred - more secure and easier (no password to remember)",
+                "For Azure SQL Database, use Azure AD authentication when possible",
+                "Server names can be tricky - ask your DBA for the correct server name",
+                "Database names are case-sensitive in some databases (like MySQL) - be careful",
+                "For large databases, use 'Advanced options' to write SQL queries instead of selecting entire tables",
+                "Test your connection before selecting tables - use 'Test Connection' button if available",
+                "If connection fails, check firewall settings - database servers often block external connections",
+                "For on-premises databases, you may need a gateway (covered in Module 12)",
+                "Database connections can be slow - be patient, especially for large databases",
+                "You can connect to multiple databases in a single Power BI file",
+                "For production reports, use parameterized connections (covered in Module 3)",
+                "Always use 'Transform Data' instead of 'Load' - you'll need to clean data anyway"
+              ],
+              labs: [
+                "Open Power BI Desktop (if not already open)",
+                "Click 'Get Data' > 'Database' > 'SQL Server database' (or your database type)",
+                "Enter Server name (e.g., 'localhost' for local SQL Server, or ask your DBA)",
+                "Enter Database name (e.g., 'AdventureWorks' or your database name)",
+                "Select Authentication mode: Windows (recommended) or SQL Server",
+                "If using SQL Server Authentication, enter Username and Password",
+                "Click 'OK' to connect",
+                "Wait for connection (may take a moment)",
+                "Observe the Navigator dialog - it shows tables, views, and stored procedures",
+                "Expand 'Tables' to see available tables",
+                "Select a table - observe the preview on the right",
+                "Click 'Transform Data' (not 'Load') - this opens Power Query Editor",
+                "In Power Query Editor, observe the data structure",
+                "Close Power Query Editor (we'll learn it in Module 3) - click 'Close & Apply'",
+                "Optional: Try 'Advanced options' to write a SQL query",
+                "Enter a simple SQL query (e.g., 'SELECT TOP 100 * FROM Sales')",
+                "Click 'OK' and observe how Power BI imports only the query results",
+                "Practice: Connect to different database types if available (Oracle, MySQL, etc.)"
+              ],
+              tables: [
+                {
+                  title: "Database Connection Components",
+                  headers: ["Component", "Description", "Example", "Notes"],
+                  rows: [
+                    ["Server Name", "Identifies the database server", "SERVER01, sqlserver.company.com, myserver.database.windows.net", "Can be computer name, FQDN, IP, or Azure server"],
+                    ["Database Name", "Identifies the specific database", "SalesDB, AdventureWorks", "Case-sensitive in some databases"],
+                    ["Authentication", "How to authenticate", "Windows, SQL Server, Azure AD", "Windows recommended for security"],
+                    ["Username", "Database username (if SQL auth)", "sa, dbuser", "Only needed for SQL Server auth"],
+                    ["Password", "Database password (if SQL auth)", "********", "Only needed for SQL Server auth"]
+                  ]
+                },
+                {
+                  title: "Authentication Mode Comparison",
+                  headers: ["Mode", "How It Works", "Security", "When to Use"],
+                  rows: [
+                    ["Windows Authentication", "Uses your Windows credentials", "High (integrated security)", "Enterprise environments, recommended"],
+                    ["SQL Server Authentication", "Username/password for SQL Server", "Medium (password-based)", "When Windows auth not available"],
+                    ["Azure AD Authentication", "Uses Azure Active Directory", "High (cloud-based)", "Azure SQL Database, Microsoft 365 integration"],
+                    ["Database Authentication", "Database-specific credentials", "Varies by database", "Oracle, MySQL, PostgreSQL"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -513,14 +937,85 @@ export const courseData: Part[] = [
             moduleNumber: 3,
             lessonNumber: 1,
             title: "Introduction to Power Query (The ETL Mindset)",
-            description: "After connecting to data, the \"Navigator\" dialog asks to \"Load\" or \"Transform.\" The best practice is to always select \"Transform\" first.35 This opens the Power Query Editor",
-            duration: 20,
+            description: "After connecting to data, the \"Navigator\" dialog asks to \"Load\" or \"Transform.\" The best practice is to always select \"Transform\" first. This opens the Power Query Editor, where you'll spend significant time cleaning and shaping your data. This lesson introduces you to Power Query and the ETL mindset.",
+            duration: 35,
             difficulty: 'beginner',
-            tags: ["Power Query"],
+            tags: ["Power Query", "ETL", "Data Transformation", "Data Cleaning"],
             topic: 'Power Query',
             content: {
-              concept: "After connecting to data, the \"Navigator\" dialog asks to \"Load\" or \"Transform.\" The best practice is to always select \"Transform\" first.35 This opens the Power Query Editor",
-              discussion: "Power Query is the \"data kitchen\" for Power BI. It is a visual Extract, Transform, and Load (ETL) tool used to clean, shape, and prepare data for analysis.13 The UI consists of the Ribbon, the list of queries, and the Applied Steps pane.37 This pane is the core of Power Query's power: every transformation is recorded as a step that is re-played every time the data is refreshed, making the cleaning process fully automated and non-destructive",
+              concept: "After connecting to data, the \"Navigator\" dialog asks to \"Load\" or \"Transform.\" The best practice is to always select \"Transform\" first. This opens the Power Query Editor, where you'll spend significant time cleaning and shaping your data. Power Query is Power BI's data preparation engine - it's where raw, messy data becomes clean, analysis-ready data. Understanding Power Query is fundamental because real-world data is rarely perfect. Data comes with inconsistencies, errors, missing values, and structural problems that must be fixed before analysis. Power Query provides a visual, non-destructive way to clean and transform data, making it the most important tool in your Power BI toolkit.",
+              discussion: "Power Query is the \"data kitchen\" for Power BI. It is a visual Extract, Transform, and Load (ETL) tool used to clean, shape, and prepare data for analysis. The ETL mindset is crucial: Extract (get data from source), Transform (clean and shape it), Load (bring it into Power BI model). The UI consists of the Ribbon (with transformation tools), the Query List (showing all your queries), the Data Preview (showing the current state of your data), and the Applied Steps pane (showing every transformation you've applied). This Applied Steps pane is the core of Power Query's power: every transformation is recorded as a step that is re-played every time the data is refreshed, making the cleaning process fully automated and non-destructive. You can modify, delete, or reorder steps at any time. The ETL mindset means thinking about data preparation as a pipeline: data flows from source through transformations to the final model. Each transformation should have a clear purpose: removing unwanted columns, fixing data types, cleaning values, filtering rows, etc. Power Query uses a functional language called M behind the scenes, but you don't need to learn M to use Power Query effectively - the visual interface handles everything. However, understanding that each click generates M code helps you understand how Power Query works. The key insight: Power Query transformations are repeatable and automated. Once you set up your transformations, they run automatically every time you refresh your data. This means you can connect to a messy Excel file, clean it once, and then every time that Excel file is updated, Power Query will automatically apply all your cleaning steps. This automation is what makes Power Query powerful - you clean data once, and it stays clean forever (as long as your transformations handle new data correctly).",
+              keyPoints: [
+                "Always choose 'Transform Data' instead of 'Load' - you'll need to clean data anyway",
+                "Power Query is a visual ETL tool: Extract, Transform, Load",
+                "Applied Steps pane records every transformation - fully automated and repeatable",
+                "Transformations are non-destructive - you can modify or delete steps anytime",
+                "Power Query uses M language behind the scenes, but visual interface is sufficient",
+                "Transformations run automatically on every data refresh",
+                "Clean data once, it stays clean forever (if transformations are correct)",
+                "Power Query is where you'll spend 30-40% of your Power BI development time"
+              ],
+              insiderTips: [
+                "Always choose 'Transform Data' - even if data looks clean, you'll find issues",
+                "The Applied Steps pane is your best friend - review it regularly to understand your pipeline",
+                "You can click on any step in Applied Steps to see the data at that point",
+                "Right-click on steps to delete, rename, or modify them",
+                "Power Query preview shows first 1000 rows - use 'Keep Top Rows' to test on sample data",
+                "The formula bar shows the M code for the selected step - great for learning",
+                "You can copy M code from Advanced Editor and reuse it in other queries",
+                "Power Query transformations are cached - first run is slower, subsequent runs are faster",
+                "Use 'Close & Apply' to save transformations and load data into Power BI model",
+                "You can have multiple queries in Power Query - each is independent",
+                "Queries can reference other queries - powerful for building complex transformations",
+                "The 'Refresh Preview' button updates the preview without closing Power Query"
+              ],
+              labs: [
+                "Connect to a sample data source (Excel or CSV file)",
+                "In Navigator dialog, select a table/worksheet",
+                "Click 'Transform Data' (not 'Load') - this opens Power Query Editor",
+                "Observe the Power Query Editor interface:",
+                "  - Ribbon at top (Home, Transform, Add Column, View tabs)",
+                "  - Query List on left (shows all queries)",
+                "  - Data Preview in center (shows current data state)",
+                "  - Applied Steps pane on right (shows transformation history)",
+                "  - Formula bar below ribbon (shows M code for selected step)",
+                "Click on 'Source' step in Applied Steps pane - observe data at that point",
+                "Click on different steps (if any) - observe how data changes",
+                "Right-click on a step - observe options: Delete, Rename, Insert Step After, etc.",
+                "Click on 'Source' step again",
+                "Try a simple transformation: Click on a column header, then Home > Remove Columns",
+                "Observe: A new step appears in Applied Steps pane",
+                "Click on the new step - observe the M code in formula bar",
+                "Right-click on the new step > Delete - step is removed, data reverts",
+                "Try another transformation: Transform > Data Type > Whole Number (on a numeric column)",
+                "Observe: Another step appears in Applied Steps",
+                "Review all steps in Applied Steps pane - understand the transformation pipeline",
+                "Click 'Close & Apply' to save transformations and load data into Power BI",
+                "Return to Power Query: Home > Transform Data",
+                "Familiarize yourself with the interface - you'll use it extensively"
+              ],
+              tables: [
+                {
+                  title: "Power Query Editor Components",
+                  headers: ["Component", "Location", "Purpose", "Key Feature"],
+                  rows: [
+                    ["Ribbon", "Top", "Transformation tools and commands", "Contextual tabs (Home, Transform, Add Column, View)"],
+                    ["Query List", "Left", "Shows all queries in your file", "Can have multiple queries, can reference each other"],
+                    ["Data Preview", "Center", "Shows current state of data", "First 1000 rows, updates as you transform"],
+                    ["Applied Steps", "Right", "History of all transformations", "Click any step to see data at that point"],
+                    ["Formula Bar", "Below ribbon", "Shows M code for selected step", "Can edit M code directly (advanced)"]
+                  ]
+                },
+                {
+                  title: "ETL Process in Power Query",
+                  headers: ["Stage", "What Happens", "Power Query Tools", "Example"],
+                  rows: [
+                    ["Extract", "Get data from source", "Get Data, Navigator", "Connect to Excel file, select worksheet"],
+                    ["Transform", "Clean and shape data", "All transformation tools", "Remove columns, fix types, filter rows"],
+                    ["Load", "Bring data into model", "Close & Apply", "Data appears in Power BI model"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -609,26 +1104,21 @@ export const courseData: Part[] = [
             moduleNumber: 3,
             lessonNumber: 3,
             title: "Data Cleaning and Formatting",
-            description: "Fixing \"dirty\" data to make it usable for analysis",
-            duration: 10,
+            description: "Fixing \"dirty\" data to make it usable for analysis. This lesson covers essential data cleaning techniques including replacing values, changing data types, handling errors, and splitting/merging columns.",
+            duration: 45,
             difficulty: 'beginner',
-            tags: ["Power BI Fundamentals"],
-            topic: 'Business Intelligence',
+            tags: ["Power Query", "Data Cleaning", "Data Formatting", "Data Quality"],
+            topic: 'Power Query',
             content: {
-              concept: "Fixing \"dirty\" data to make it usable for analysis is a fundamental skill in Power BI. Real-world data is rarely clean and ready for visualization.",
-              discussion: "Data cleaning involves identifying and fixing issues that prevent accurate analysis. Common problems include misspellings, inconsistent formatting, missing values, and incorrect data types. Replace Values corrects misspellings or standardizes categories (e.g., 'USA', 'United States', 'U.S.A.' → 'United States'). Change Data Type converts columns from text to whole numbers, decimals, or dates—critical for proper calculations and sorting. Handle Errors removes or replaces error values that occur during transformations. Fill Down/Up is a powerful tool for \"un-merging\" cells from messy Excel exports where merged cells create blank values. Split and Merge Columns allows combining or separating text data (e.g., splitting 'John Smith' into 'First Name' and 'Last Name', or merging them back).",
-              labs: [
-                "Open a messy dataset with various data quality issues",
-                "Use Replace Values to standardize category names (e.g., all variations of 'USA' to 'United States')",
-                "Change data types: Convert text numbers to numeric types, text dates to date types",
-                "Handle errors: Remove rows with errors or replace error values with nulls",
-                "Use Fill Down to complete missing values in merged cell scenarios",
-                "Split a 'Full Name' column into 'First Name' and 'Last Name'",
-                "Practice the reverse: Merge 'First Name' and 'Last Name' back into 'Full Name'",
-                "Review all applied steps to understand the transformation pipeline"
-              ],
+              concept: "Fixing \"dirty\" data to make it usable for analysis is a fundamental skill in Power BI. Real-world data is rarely clean and ready for visualization. Data cleaning involves identifying and fixing issues that prevent accurate analysis, including misspellings, inconsistent formatting, missing values, incorrect data types, and structural problems. Power Query provides powerful tools for cleaning data, and mastering these tools is essential for producing reliable reports. The key insight: clean data = reliable insights; dirty data = misleading reports. Data cleaning is often 80% of the work in data analysis, but Power Query makes it efficient and repeatable.",
+              discussion: "Data cleaning involves identifying and fixing issues that prevent accurate analysis. Common problems include misspellings, inconsistent formatting, missing values, and incorrect data types. Replace Values corrects misspellings or standardizes categories (e.g., 'USA', 'United States', 'U.S.A.' → 'United States'). This is crucial for categorical data where consistency matters. You can replace values in a column by right-clicking the column > Replace Values, or using Transform > Replace Values. The 'Match entire cell contents' option ensures precise replacements. Change Data Type converts columns from text to whole numbers, decimals, or dates—critical for proper calculations and sorting. Text numbers won't sort correctly (e.g., '10' comes before '2' in text sorting). Dates stored as text won't work in date calculations. You can change data types by clicking the data type icon in the column header or using Transform > Data Type. Handle Errors removes or replaces error values that occur during transformations. Errors can occur when converting data types (e.g., trying to convert 'ABC' to a number) or when applying transformations to incompatible data. You can handle errors by right-clicking a column with errors > Remove Errors, or by using Transform > Replace Errors to replace errors with nulls or specific values. Fill Down/Up is a powerful tool for \"un-merging\" cells from messy Excel exports where merged cells create blank values. This is common when Excel files have merged header cells or grouped data. Fill Down copies the value from the cell above into blank cells below, effectively un-merging merged cells. Split and Merge Columns allows combining or separating text data. Split Columns splits a single column into multiple columns (e.g., splitting 'John Smith' into 'First Name' and 'Last Name' using space as delimiter). Merge Columns combines multiple columns into one (e.g., merging 'First Name' and 'Last Name' back into 'Full Name'). These operations are essential for restructuring data to fit your analysis needs.",
               keyPoints: [
                 "Data cleaning is often 80% of the work in data analysis",
+                "Replace Values standardizes categories and fixes misspellings",
+                "Change Data Type is critical for proper calculations and sorting",
+                "Handle Errors prevents error values from breaking your analysis",
+                "Fill Down/Up fixes merged cell issues from Excel exports",
+                "Split and Merge Columns restructures data to fit analysis needs",
                 "Power Query's non-destructive approach means you can always undo or modify steps",
                 "Applied Steps pane shows the complete transformation history",
                 "Clean data = reliable insights; dirty data = misleading reports"
@@ -638,7 +1128,78 @@ export const courseData: Part[] = [
                 "Use Replace Values with 'Match entire cell contents' for precise replacements",
                 "Fill Down is your friend when dealing with Excel exports with merged headers",
                 "Handle errors early in the pipeline to avoid cascading issues",
-                "Preview data frequently to catch issues before they compound"
+                "Preview data frequently to catch issues before they compound",
+                "When changing data types, Power Query shows a warning if errors will occur—review it",
+                "Split Columns by delimiter is most common—use space, comma, or custom delimiter",
+                "Merge Columns with a separator (like space or comma) for readable combined values",
+                "Use 'Remove Errors' to quickly clean columns with many errors",
+                "Replace Errors with nulls is often better than removing rows—preserves data structure",
+                "Fill Down works on selected columns—select multiple columns to fill all at once",
+                "Split Columns can split by number of characters, positions, or delimiters"
+              ],
+              labs: [
+                "Open a messy dataset with various data quality issues",
+                "Replace Values:",
+                "  - Right-click a column with inconsistent values (e.g., 'USA', 'United States', 'U.S.A.')",
+                "  - Select 'Replace Values'",
+                "  - Enter value to find (e.g., 'U.S.A.')",
+                "  - Enter value to replace (e.g., 'United States')",
+                "  - Check 'Match entire cell contents' for precise replacement",
+                "  - Click OK and observe the change",
+                "  - Repeat for other variations",
+                "Change Data Types:",
+                "  - Click data type icon on a column header (e.g., 'ABC123' for text)",
+                "  - Select new data type (e.g., 'Whole Number' for numeric text)",
+                "  - If errors occur, observe the warning dialog",
+                "  - Choose to 'Replace current' or 'Add new step'",
+                "  - Review any errors that occurred",
+                "Handle Errors:",
+                "  - Right-click a column with errors",
+                "  - Select 'Remove Errors' to remove rows with errors",
+                "  - OR select 'Replace Errors' to replace errors with nulls or specific values",
+                "  - Observe how errors are handled",
+                "Fill Down:",
+                "  - Select a column with blank values (from merged cells)",
+                "  - Transform > Fill > Down",
+                "  - Observe how blank values are filled with values from above",
+                "Split Columns:",
+                "  - Select a column with combined data (e.g., 'First Name Last Name')",
+                "  - Transform > Split Column > By Delimiter",
+                "  - Choose delimiter (e.g., space)",
+                "  - Choose split position (e.g., 'Left-most delimiter')",
+                "  - Click OK and observe new columns created",
+                "Merge Columns:",
+                "  - Select multiple columns (e.g., 'First Name' and 'Last Name')",
+                "  - Transform > Merge Columns",
+                "  - Choose separator (e.g., space)",
+                "  - Enter new column name (e.g., 'Full Name')",
+                "  - Click OK and observe merged column",
+                "Review all applied steps in Applied Steps pane",
+                "Practice: Combine multiple cleaning operations on a messy dataset"
+              ],
+              tables: [
+                {
+                  title: "Common Data Cleaning Operations",
+                  headers: ["Operation", "Purpose", "When to Use", "Power Query Location"],
+                  rows: [
+                    ["Replace Values", "Standardize categories, fix misspellings", "Inconsistent category names", "Right-click column > Replace Values"],
+                    ["Change Data Type", "Convert text to numbers/dates", "Text numbers, text dates", "Column header data type icon"],
+                    ["Handle Errors", "Remove or replace error values", "Columns with transformation errors", "Right-click column > Remove/Replace Errors"],
+                    ["Fill Down/Up", "Fix merged cell issues", "Excel exports with merged cells", "Transform > Fill > Down/Up"],
+                    ["Split Columns", "Separate combined data", "Full names, addresses, codes", "Transform > Split Column"],
+                    ["Merge Columns", "Combine separate data", "First/Last name, address parts", "Transform > Merge Columns"]
+                  ]
+                },
+                {
+                  title: "Data Type Conversion Guide",
+                  headers: ["From", "To", "Common Issues", "Solution"],
+                  rows: [
+                    ["Text Number", "Whole Number/Decimal", "Leading zeros, formatting", "Change Data Type, handle errors"],
+                    ["Text Date", "Date", "Different date formats", "Change Data Type, may need format standardization"],
+                    ["Text", "Text", "Inconsistent formatting", "Replace Values, Trim, Clean"],
+                    ["Any", "Any", "Error values", "Handle Errors before conversion"]
+                  ]
+                }
               ]
             },
           },
@@ -647,33 +1208,89 @@ export const courseData: Part[] = [
             moduleNumber: 3,
             lessonNumber: 4,
             title: "Shaping Data – Pivot and Unpivot",
-            description: "Restructuring data to be suitable for analysis",
-            duration: 10,
+            description: "Restructuring data to be suitable for analysis. This lesson covers the critical Pivot and Unpivot operations that transform data between wide and tall formats, which is essential for Power BI visualizations.",
+            duration: 40,
             difficulty: 'beginner',
-            tags: ["Power BI Fundamentals"],
-            topic: 'Business Intelligence',
+            tags: ["Power Query", "Data Shaping", "Pivot", "Unpivot", "Data Transformation"],
+            topic: 'Power Query',
             content: {
-              concept: "Restructuring data to be suitable for analysis is a critical transformation skill. Power BI requires data in a specific \"tall\" format rather than the \"wide\" format common in Excel.",
-              discussion: "Unpivot is a crucial operation that transforms wide data (e.g., columns for Jan, Feb, Mar, Apr) into tall data (one 'Month' column, one 'Value' column). This tall format is the correct, tidy format for BI tools. Power BI visuals work best when data is structured with one row per observation. Pivot is the reverse operation, used less frequently, that aggregates data into a wide format. Understanding when to use each transformation is key to building effective data models.",
-              labs: [
-                "Start with a wide dataset: Sales data with columns for each month (Jan, Feb, Mar, etc.)",
-                "Select all month columns and use Unpivot Columns",
-                "Rename the 'Attribute' column to 'Month' and 'Value' column to 'Sales'",
-                "Verify the transformation: You should now have one row per month per product",
-                "Practice the reverse: Pivot the Month column to see how it restructures the data",
-                "Understand why Unpivot is preferred for Power BI visualizations"
-              ],
+              concept: "Restructuring data to be suitable for analysis is a critical transformation skill. Power BI requires data in a specific \"tall\" format rather than the \"wide\" format common in Excel. The tall format (also called normalized or tidy format) has one row per observation, with values in rows rather than columns. The wide format (also called denormalized or crosstab format) has multiple values in columns, which is common in Excel pivot tables and reports. Understanding when to use Pivot vs. Unpivot is crucial because Power BI visuals work best with tall data, but source data is often in wide format. Unpivot is one of the most common transformations you'll perform - it's essential for time series data, budget vs. actual comparisons, and any data where periods or categories are in columns.",
+              discussion: "Unpivot is a crucial operation that transforms wide data (e.g., columns for Jan, Feb, Mar, Apr) into tall data (one 'Month' column, one 'Value' column). This tall format is the correct, tidy format for BI tools. Power BI visuals work best when data is structured with one row per observation. When you unpivot, you select columns to unpivot (e.g., month columns), and Power Query creates two new columns: 'Attribute' (containing the original column names) and 'Value' (containing the values). You then rename these columns appropriately (e.g., 'Attribute' → 'Month', 'Value' → 'Sales'). Unpivot preserves all data - no information is lost. This is different from Pivot, which aggregates data. Common scenarios requiring Unpivot: time series data with months/years as columns, budget vs. actual comparisons with columns for each scenario, survey data with questions as columns, and any Excel report with periods or categories as column headers. Pivot is the reverse operation, used less frequently, that aggregates data into a wide format. Pivot takes a column of values and creates new columns from unique values in another column. For example, pivoting 'Month' column creates columns for each month, with values aggregated from the 'Sales' column. Pivot requires aggregation (SUM, COUNT, AVERAGE, etc.) because multiple rows may map to the same cell. Pivot is useful when you need to create a summary table or when exporting data back to Excel format. However, Pivot reduces granularity - you lose the ability to drill down to individual rows. Understanding when to use each transformation is key to building effective data models. As a general rule: use Unpivot for Power BI (tall format is preferred), use Pivot only when you need a specific wide format output.",
               keyPoints: [
                 "BI tools prefer 'tall' data (many rows, few columns) over 'wide' data (few rows, many columns)",
+                "Unpivot transforms wide data to tall format - essential for Power BI",
+                "Unpivot preserves all data - no information is lost",
+                "Pivot aggregates data into wide format - reduces granularity",
                 "Unpivot is one of the most common transformations you'll perform",
-                "Pivot can aggregate data but reduces granularity",
-                "Time series data in Excel often needs unpivoting for Power BI"
+                "Time series data in Excel often needs unpivoting for Power BI",
+                "Tall format enables better filtering, sorting, and visualization",
+                "Use 'Unpivot Other Columns' to keep certain columns while unpivoting others"
               ],
               insiderTips: [
                 "If your data has months/years as columns, you'll almost certainly need to unpivot",
-                "Use 'Unpivot Other Columns' to keep certain columns while unpivoting others",
+                "Use 'Unpivot Other Columns' to keep certain columns (like Product, Region) while unpivoting time periods",
                 "Unpivoted data is easier to filter and aggregate in Power BI",
-                "Remember: Unpivot preserves all data; Pivot aggregates it"
+                "Remember: Unpivot preserves all data; Pivot aggregates it",
+                "After unpivoting, rename 'Attribute' and 'Value' columns to meaningful names",
+                "Unpivot works on multiple columns at once - select all columns to unpivot",
+                "Pivot requires choosing an aggregation function - choose carefully (SUM, COUNT, AVERAGE)",
+                "Pivot can create many columns if the pivot column has many unique values - be careful",
+                "Use 'Unpivot Only Selected Columns' to unpivot specific columns while keeping others",
+                "Unpivot is non-destructive - you can always pivot back if needed",
+                "For time series data, unpivot first, then create a proper date column from the month names",
+                "Unpivot is faster than Pivot because it doesn't require aggregation"
+              ],
+              labs: [
+                "Start with a wide dataset: Sales data with columns for each month (Jan, Feb, Mar, etc.)",
+                "Observe the wide format: One row per product, multiple columns for months",
+                "Select all month columns (Jan, Feb, Mar, etc.)",
+                "Right-click selected columns > Unpivot Columns",
+                "Observe the transformation:",
+                "  - New 'Attribute' column contains month names (Jan, Feb, Mar, etc.)",
+                "  - New 'Value' column contains sales values",
+                "  - Product column is preserved",
+                "Rename columns:",
+                "  - Right-click 'Attribute' column > Rename > 'Month'",
+                "  - Right-click 'Value' column > Rename > 'Sales'",
+                "Verify the transformation: You should now have one row per month per product",
+                "Observe the tall format: Many rows, few columns",
+                "Practice with 'Unpivot Other Columns':",
+                "  - Select only month columns to unpivot",
+                "  - Use 'Unpivot Other Columns' to keep Product and Region columns",
+                "Practice the reverse: Pivot the Month column",
+                "  - Select Month column",
+                "  - Transform > Pivot Column",
+                "  - Choose 'Sales' as Values Column",
+                "  - Choose aggregation (e.g., SUM)",
+                "  - Observe how data returns to wide format",
+                "Compare: Unpivot preserves all data, Pivot aggregates it",
+                "Practice: Unpivot a budget vs. actual dataset with columns for Budget and Actual",
+                "Review all applied steps in Applied Steps pane",
+                "Understand why Unpivot is preferred for Power BI visualizations"
+              ],
+              tables: [
+                {
+                  title: "Pivot vs. Unpivot Comparison",
+                  headers: ["Aspect", "Unpivot", "Pivot", "When to Use"],
+                  rows: [
+                    ["Data Format", "Wide → Tall", "Tall → Wide", "Unpivot for Power BI, Pivot for exports"],
+                    ["Data Loss", "None (preserves all data)", "Aggregates (reduces granularity)", "Unpivot when you need detail"],
+                    ["Common Use", "Time series, categories as columns", "Summary tables, Excel exports", "Unpivot is more common"],
+                    ["Aggregation", "Not required", "Required (SUM, COUNT, etc.)", "Pivot needs aggregation function"],
+                    ["Performance", "Fast (no aggregation)", "Slower (requires aggregation)", "Unpivot is faster"],
+                    ["Power BI Preference", "Preferred (tall format)", "Rarely used", "Always unpivot for Power BI"]
+                  ]
+                },
+                {
+                  title: "Common Unpivot Scenarios",
+                  headers: ["Scenario", "Wide Format Example", "Tall Format Result", "Why Unpivot"],
+                  rows: [
+                    ["Time Series", "Columns: Jan, Feb, Mar, Apr", "Rows: Month, Value", "Power BI needs time in rows"],
+                    ["Budget vs. Actual", "Columns: Budget, Actual", "Rows: Scenario, Value", "Easier to compare in visuals"],
+                    ["Survey Data", "Columns: Q1, Q2, Q3", "Rows: Question, Answer", "Better for analysis"],
+                    ["Multi-Year Data", "Columns: 2022, 2023, 2024", "Rows: Year, Value", "Enables time intelligence"]
+                  ]
+                }
               ]
             },
           },
@@ -682,33 +1299,99 @@ export const courseData: Part[] = [
             moduleNumber: 3,
             lessonNumber: 5,
             title: "Advanced Shaping (Conditional Columns & Grouping)",
-            description: "Using Power Query's UI to perform more advanced logic",
-            duration: 10,
+            description: "Using Power Query's UI to perform more advanced logic including conditional columns and grouping operations. Learn how to create calculated columns and pre-aggregate data without writing code.",
+            duration: 40,
             difficulty: 'beginner',
-            tags: ["Power Query"],
+            tags: ["Power Query", "Conditional Columns", "Grouping", "Aggregation"],
             topic: 'Power Query',
             content: {
-              concept: "Using Power Query's UI to perform more advanced logic allows you to create calculated columns and aggregations without writing code.",
-              discussion: "Conditional Columns create new columns based on IF/THEN logic (e.g., categorizing sales amounts into 'High,' 'Medium,' or 'Low' based on thresholds). This is done through a visual interface that generates M code behind the scenes. Grouping and Aggregating performs a 'Group By' operation to summarize data before it's even loaded into the model (e.g., calculating total sales per region). This can significantly reduce model size by pre-aggregating data at the source, improving both refresh time and report performance.",
-              labs: [
-                "Create a conditional column: 'Price Category' based on UnitPrice thresholds",
-                "Use IF statements: If Price > 100 then 'High', else if Price > 50 then 'Medium', else 'Low'",
-                "Practice grouping: Group by Region and calculate SUM of Sales",
-                "Group by multiple columns: Region and Year, calculating COUNT and SUM",
-                "Compare data before and after grouping to understand the transformation",
-                "Experiment with different aggregation functions: SUM, AVERAGE, COUNT, MIN, MAX"
-              ],
+              concept: "Using Power Query's UI to perform more advanced logic allows you to create calculated columns and aggregations without writing code. Conditional Columns create new columns based on IF/THEN logic, enabling you to categorize or classify data based on conditions. Grouping and Aggregating performs a 'Group By' operation to summarize data before it's even loaded into the model, which can dramatically reduce model size and improve performance. These operations are essential for data preparation and can often replace complex DAX calculations by doing the work in Power Query instead. The key insight: do as much transformation as possible in Power Query (at refresh time) rather than in DAX (at query time) for better performance.",
+              discussion: "Conditional Columns create new columns based on IF/THEN logic (e.g., categorizing sales amounts into 'High,' 'Medium,' or 'Low' based on thresholds). This is done through a visual interface that generates M code behind the scenes. You access conditional columns through Add Column > Conditional Column. The interface allows you to build complex IF/THEN/ELSE logic with multiple conditions. For example, you can create a 'Price Category' column: If Price > 100 then 'High', else if Price > 50 then 'Medium', else 'Low'. Conditional columns are user-friendly alternatives to writing M code directly, making them accessible to non-programmers. However, for very complex logic, you may need to write M code in a custom column. Grouping and Aggregating performs a 'Group By' operation to summarize data before it's even loaded into the model (e.g., calculating total sales per region). This can significantly reduce model size by pre-aggregating data at the source, improving both refresh time and report performance. Grouping is accessed through Transform > Group By. You select columns to group by (e.g., Region, Year) and choose aggregation functions (SUM, COUNT, AVERAGE, MIN, MAX, etc.) for numeric columns. Grouping creates a summary table with one row per unique combination of group-by columns. This is powerful for creating summary tables for executive dashboards or when you don't need row-level detail. However, grouping reduces granularity - once grouped, you lose the ability to drill down to individual transactions. The decision to group depends on your analysis needs: if you need detail, don't group; if you only need summaries, group early in the pipeline. Grouping at the source (in Power Query) is often better than aggregating in DAX because it reduces data size and improves performance. However, grouping means you can't drill down later - make sure you don't need detail before grouping.",
               keyPoints: [
-                "Conditional columns are user-friendly alternatives to writing M code",
-                "Grouping can dramatically reduce data size by pre-aggregating",
+                "Conditional columns create calculated columns using IF/THEN logic without writing code",
+                "Conditional columns are user-friendly alternatives to M code for simple logic",
+                "Grouping pre-aggregates data at refresh time, reducing model size",
                 "Pre-aggregation improves performance but reduces granularity",
-                "These transformations happen at refresh time, not query time"
+                "Group early if you don't need row-level detail—it speeds up everything downstream",
+                "These transformations happen at refresh time, not query time",
+                "Grouping in Power Query is often better than aggregating in DAX",
+                "Once grouped, you lose the ability to drill down to individual transactions"
               ],
               insiderTips: [
                 "Group early if you don't need row-level detail—it speeds up everything downstream",
                 "Conditional columns are easier to maintain than complex M formulas for simple logic",
                 "Use grouping to create summary tables for executive dashboards",
-                "Remember: Once grouped, you lose the ability to drill down to individual transactions"
+                "Remember: Once grouped, you lose the ability to drill down to individual transactions",
+                "Conditional columns support multiple conditions - use 'Add Clause' for complex logic",
+                "Grouping can dramatically reduce refresh time for large datasets",
+                "Use grouping when you have millions of rows but only need summaries",
+                "Conditional columns generate M code - you can view it in Advanced Editor",
+                "For very complex conditional logic, consider a custom column with M code",
+                "Grouping by date (e.g., Year, Month) is common for time-based summaries",
+                "You can group by multiple columns - creates one row per unique combination",
+                "Grouping preserves group-by columns and creates aggregated columns"
+              ],
+              labs: [
+                "Create a conditional column:",
+                "  - Add Column > Conditional Column",
+                "  - Column name: 'Price Category'",
+                "  - If UnitPrice > 100 then 'High'",
+                "  - Else if UnitPrice > 50 then 'Medium'",
+                "  - Else 'Low'",
+                "  - Click OK and observe the new column",
+                "Practice with multiple conditions:",
+                "  - Create 'Sales Category' based on SalesAmount",
+                "  - Add multiple clauses using 'Add Clause'",
+                "  - Test different threshold values",
+                "Practice grouping:",
+                "  - Transform > Group By",
+                "  - Group by: Region",
+                "  - New column name: 'Total Sales'",
+                "  - Operation: Sum",
+                "  - Column: SalesAmount",
+                "  - Click OK and observe the summary table",
+                "Group by multiple columns:",
+                "  - Transform > Group By",
+                "  - Group by: Region, Year",
+                "  - Add multiple aggregations:",
+                "    - Total Sales (Sum of SalesAmount)",
+                "    - Order Count (Count of OrderID)",
+                "    - Average Sales (Average of SalesAmount)",
+                "  - Click OK and observe the grouped data",
+                "Compare data before and after grouping:",
+                "  - Note the row count reduction",
+                "  - Note the column structure change",
+                "Experiment with different aggregation functions:",
+                "  - SUM, COUNT, AVERAGE, MIN, MAX",
+                "  - Observe how each function affects the results",
+                "Practice: Create a conditional column and then group by that column",
+                "Review all applied steps in Applied Steps pane",
+                "Understand when to use conditional columns vs. grouping"
+              ],
+              tables: [
+                {
+                  title: "Conditional Column vs. Grouping",
+                  headers: ["Aspect", "Conditional Column", "Grouping", "When to Use"],
+                  rows: [
+                    ["Purpose", "Create calculated columns", "Summarize data", "Conditional: categorization, Grouping: aggregation"],
+                    ["Data Size", "No change (adds column)", "Reduces (fewer rows)", "Grouping reduces model size"],
+                    ["Granularity", "Preserves detail", "Reduces detail", "Conditional: keep detail, Grouping: summary only"],
+                    ["Performance", "Minimal impact", "Improves (fewer rows)", "Grouping improves performance"],
+                    ["Complexity", "Simple IF/THEN logic", "Aggregation functions", "Both are user-friendly"]
+                  ]
+                },
+                {
+                  title: "Common Aggregation Functions",
+                  headers: ["Function", "Purpose", "Use Case", "Example"],
+                  rows: [
+                    ["SUM", "Total of values", "Total sales, revenue", "Sum of SalesAmount"],
+                    ["COUNT", "Count of rows", "Order count, record count", "Count of OrderID"],
+                    ["AVERAGE", "Average of values", "Average price, average sales", "Average of UnitPrice"],
+                    ["MIN", "Minimum value", "Lowest price, earliest date", "Min of UnitPrice"],
+                    ["MAX", "Maximum value", "Highest price, latest date", "Max of SalesAmount"],
+                    ["COUNT DISTINCT", "Unique count", "Unique customers, products", "Count distinct of CustomerID"]
+                  ]
+                }
               ]
             },
           },
@@ -842,14 +1525,82 @@ export const courseData: Part[] = [
             moduleNumber: 3,
             lessonNumber: 8,
             title: "Introduction to the Advanced Editor (The M Language)",
-            description: "This lesson serves to demystify the code behind Power Query, not to teach it (yet)",
-            duration: 10,
+            description: "This lesson serves to demystify the code behind Power Query, not to teach it (yet). Learn how every click in the UI generates M code and how to view and understand the code behind your transformations.",
+            duration: 30,
             difficulty: 'beginner',
-            tags: ["Power Query"],
+            tags: ["Power Query", "M Language", "Advanced Editor"],
             topic: 'Power Query',
             content: {
-              concept: "This lesson serves to demystify the code behind Power Query, not to teach it (yet)",
-              discussion: "By clicking the \"Advanced Editor\" button 38, a user can see that every click made in the UI has been writing code in a functional language called \"M\".46 This plants the seed for advanced work in",
+              concept: "This lesson serves to demystify the code behind Power Query, not to teach it (yet). Every click you make in the Power Query UI generates code in a functional language called M. Understanding that your transformations are actually code helps you understand how Power Query works and prepares you for advanced scenarios where you'll need to write M code directly. The Advanced Editor allows you to view and edit the M code directly, giving you full control over your transformations. This lesson introduces you to the Advanced Editor and helps you understand the relationship between UI actions and M code.",
+              discussion: "By clicking the \"Advanced Editor\" button, a user can see that every click made in the UI has been writing code in a functional language called \"M\". This plants the seed for advanced work in Module 15 where you'll learn to write M code directly. The Advanced Editor shows the complete M code for your query, including all transformations as a single expression. M is a functional language, meaning it uses functions and expressions rather than imperative statements. The code structure follows a pattern: let...in, where 'let' defines variables (your steps) and 'in' returns the final result. Each step in Applied Steps corresponds to a line or section of M code. Understanding this relationship helps you understand how Power Query works: when you click a button, Power Query generates M code; when you refresh, Power Query executes that M code. The Advanced Editor is useful for: viewing the complete transformation logic, copying code between queries, understanding complex transformations, and writing custom M code for advanced scenarios. You don't need to learn M to use Power Query effectively - the UI handles most scenarios. However, understanding that M code exists and how to view it prepares you for advanced scenarios where the UI isn't sufficient. Common scenarios requiring M code: complex conditional logic, custom functions, advanced text manipulation, and dynamic query generation. For now, this lesson focuses on demystifying M code - showing you that it exists and how to view it, not teaching you to write it (that comes in Module 15).",
+              keyPoints: [
+                "Every UI action in Power Query generates M code behind the scenes",
+                "M is a functional language used by Power Query",
+                "Advanced Editor shows the complete M code for your query",
+                "Each step in Applied Steps corresponds to M code",
+                "M code follows a let...in pattern (variables in 'let', result in 'in')",
+                "You don't need to learn M to use Power Query effectively",
+                "Understanding M code helps with advanced scenarios",
+                "Advanced Editor is useful for viewing, copying, and editing M code"
+              ],
+              insiderTips: [
+                "Open Advanced Editor regularly to understand what your transformations actually do",
+                "You can copy M code from one query and paste it into another (useful for reusable logic)",
+                "The formula bar shows M code for the selected step - great for learning",
+                "M code is case-sensitive - be careful when editing manually",
+                "Advanced Editor has syntax highlighting - helps identify errors",
+                "You can comment M code using // for single-line or /* */ for multi-line",
+                "If Advanced Editor shows errors, check the Applied Steps pane for the problematic step",
+                "Don't be intimidated by M code - it's just a different way to express what you did in the UI",
+                "For now, use Advanced Editor to view code, not edit it (unless you're comfortable)",
+                "M code can be formatted - use the Format button in Advanced Editor",
+                "You can undo Advanced Editor changes - Power Query keeps your UI steps",
+                "Advanced Editor is your gateway to advanced Power Query scenarios"
+              ],
+              labs: [
+                "Open Power Query Editor with a query that has several transformation steps",
+                "Review the Applied Steps pane - note all your transformation steps",
+                "Click 'Advanced Editor' button in Home tab",
+                "Observe the M code window - this is your complete query code",
+                "Notice the 'let' section - this contains all your steps",
+                "Notice the 'in' section - this returns the final result",
+                "Find a step in Applied Steps (e.g., 'Removed Columns')",
+                "Click on that step in Applied Steps pane",
+                "Observe the formula bar below the ribbon - it shows M code for that step",
+                "Compare: Formula bar shows one step, Advanced Editor shows all steps",
+                "In Advanced Editor, try to identify which M code corresponds to which step",
+                "Click 'Done' to close Advanced Editor (don't modify code yet)",
+                "Practice: Open Advanced Editor for different queries to see different M code patterns",
+                "Optional: Try copying M code from one query's Advanced Editor",
+                "Paste it into a new query's Advanced Editor (create a blank query first)",
+                "Observe how the code creates the same transformations",
+                "Understand: This is how you can reuse transformation logic",
+                "For now, just view the code - don't edit it unless you're comfortable",
+                "Familiarize yourself with the Advanced Editor - you'll use it more in Module 15"
+              ],
+              tables: [
+                {
+                  title: "M Code Structure",
+                  headers: ["Section", "Purpose", "Contains", "Example"],
+                  rows: [
+                    ["let", "Define variables/steps", "All transformation steps", "Source = ..., RemovedColumns = ..., etc."],
+                    ["in", "Return final result", "Final table/query", "RemovedColumns (or final step name)"],
+                    ["Steps", "Individual transformations", "Each UI action", "Source, RemovedColumns, ChangedType"],
+                    ["Functions", "M language functions", "Built-in or custom", "Table.SelectColumns, Table.TransformColumns"]
+                  ]
+                },
+                {
+                  title: "When to Use Advanced Editor",
+                  headers: ["Scenario", "Why Use Advanced Editor", "Difficulty", "Module"],
+                  rows: [
+                    ["View Code", "Understand what transformations do", "Easy", "This lesson"],
+                    ["Copy Code", "Reuse transformation logic", "Easy", "This lesson"],
+                    ["Edit Code", "Modify complex transformations", "Moderate", "Module 15"],
+                    ["Write Custom", "Advanced scenarios UI can't handle", "Advanced", "Module 15"],
+                    ["Debug", "Find errors in transformations", "Moderate", "Module 15"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -857,14 +1608,82 @@ export const courseData: Part[] = [
             moduleNumber: 3,
             lessonNumber: 9,
             title: "Close & Apply",
-            description: "The final step in the Power Query Editor",
-            duration: 10,
+            description: "The final step in the Power Query Editor. Learn how to save your transformations and load data into the Power BI model, and understand what happens when you close Power Query.",
+            duration: 20,
             difficulty: 'beginner',
-            tags: ["Power Query"],
+            tags: ["Power Query", "Data Loading", "Close & Apply"],
             topic: 'Power Query',
             content: {
-              concept: "The final step in the Power Query Editor",
-              discussion: "Clicking \"Close & Apply\" executes all the applied steps, closes the editor, and loads the clean, transformed data into the Power BI data model",
+              concept: "The final step in the Power Query Editor is closing it and applying your transformations. Clicking \"Close & Apply\" executes all the applied steps, closes the editor, and loads the clean, transformed data into the Power BI data model. This is when your transformations actually run and your data becomes available for visualization. Understanding what happens during Close & Apply is important because it's when Power Query processes your data, which can take time for large datasets or complex transformations.",
+              discussion: "Clicking \"Close & Apply\" executes all the applied steps, closes the editor, and loads the clean, transformed data into the Power BI data model. This is a critical moment in your Power BI workflow - it's when your transformations are actually executed and your data is loaded into the model. During Close & Apply, Power Query: executes all M code for all queries (in order), processes all transformations (which can take time for large datasets), loads data into the Power BI in-memory engine (VertiPaq), and makes data available in Report View, Data View, and Model View. The time this takes depends on: data size (more rows = longer processing), transformation complexity (more steps = longer processing), number of queries (more queries = longer processing), and your computer's performance (CPU, RAM, disk speed). You'll see a progress dialog showing which query is being processed. For large datasets, this can take several minutes. You can cancel the process if needed, but you'll need to fix any issues before trying again. After Close & Apply completes, your data is in the Power BI model and ready for visualization. You can now build reports in Report View, inspect data in Data View, and create relationships in Model View. If you need to modify transformations later, you can return to Power Query by clicking \"Transform Data\" in the Home tab. This reopens Power Query with all your steps intact, allowing you to modify, add, or remove transformations. The key insight: Close & Apply is when your work in Power Query becomes real - your transformed data is now part of your Power BI model.",
+              keyPoints: [
+                "Close & Apply executes all transformations and loads data into Power BI model",
+                "This is when Power Query processes your data (can take time for large datasets)",
+                "Progress dialog shows which query is being processed",
+                "After Close & Apply, data is available in Report, Data, and Model views",
+                "You can return to Power Query anytime by clicking 'Transform Data'",
+                "Close & Apply is when your transformations become part of your Power BI model",
+                "Processing time depends on data size, transformation complexity, and computer performance",
+                "You can cancel Close & Apply if needed, but must fix issues before retrying"
+              ],
+              insiderTips: [
+                "Close & Apply can take time for large datasets - be patient",
+                "Progress dialog shows which query is processing - useful for debugging slow queries",
+                "If Close & Apply fails, check the error message - it usually points to the problematic step",
+                "You can cancel Close & Apply if it's taking too long - then fix issues and retry",
+                "After Close & Apply, check Data View to verify your data loaded correctly",
+                "If you see errors after Close & Apply, return to Power Query to fix them",
+                "Close & Apply processes all queries - if one fails, the whole process may fail",
+                "For large datasets, consider filtering data early in Power Query to reduce processing time",
+                "You can close Power Query without applying (X button) - changes won't be saved",
+                "Always use Close & Apply to save your transformations (not just closing the window)",
+                "After Close & Apply, your .pbix file size increases (data is stored in the file)",
+                "Close & Apply is required before you can build visualizations"
+              ],
+              labs: [
+                "Complete your transformations in Power Query Editor",
+                "Review all applied steps in Applied Steps pane - ensure they're correct",
+                "Click 'Close & Apply' button in Home tab (top-left)",
+                "Observe the progress dialog - it shows which query is being processed",
+                "Wait for processing to complete (may take time for large datasets)",
+                "After processing completes, Power Query Editor closes automatically",
+                "You're now back in Power BI Desktop (Report View)",
+                "Verify data loaded correctly:",
+                "  - Click Data View icon (left sidebar)",
+                "  - Observe your tables and data",
+                "  - Check that transformations were applied correctly",
+                "Return to Power Query if needed:",
+                "  - Home tab > Transform Data",
+                "  - Power Query Editor reopens with all your steps intact",
+                "  - Make any modifications needed",
+                "  - Close & Apply again to save changes",
+                "Practice: Make a small change in Power Query, Close & Apply, verify the change",
+                "Understand: Close & Apply is when your transformations become part of your model"
+              ],
+              tables: [
+                {
+                  title: "Close & Apply Process",
+                  headers: ["Step", "What Happens", "Time", "Notes"],
+                  rows: [
+                    ["Click Close & Apply", "Process starts", "Instant", "Button in Home tab"],
+                    ["Execute M Code", "Run all transformations", "Depends on data size", "Can take seconds to minutes"],
+                    ["Load to Model", "Data into VertiPaq engine", "Depends on data size", "In-memory compression"],
+                    ["Close Editor", "Power Query closes", "Instant", "Back to Power BI Desktop"],
+                    ["Data Available", "Ready for visualization", "Instant", "Can build reports now"]
+                  ]
+                },
+                {
+                  title: "Factors Affecting Close & Apply Time",
+                  headers: ["Factor", "Impact", "How to Optimize", "Example"],
+                  rows: [
+                    ["Data Size", "More rows = longer time", "Filter early in Power Query", "1M rows vs. 100K rows"],
+                    ["Transformation Complexity", "More steps = longer time", "Simplify transformations", "10 steps vs. 50 steps"],
+                    ["Number of Queries", "More queries = longer time", "Combine queries if possible", "5 queries vs. 20 queries"],
+                    ["Computer Performance", "Faster CPU/RAM = faster", "Use better hardware", "SSD vs. HDD"],
+                    ["Data Source Speed", "Slow source = longer time", "Use faster data sources", "Local file vs. slow database"]
+                  ]
+                }
+              ]
             },
           },
         ],
@@ -1707,13 +2526,101 @@ export const courseData: Part[] = [
             moduleNumber: 6,
             lessonNumber: 3,
             title: "Creating Calculated Columns (Hands-On Lab)",
-            description: "Writing basic row-context DAX formulas in the Data View.77Lab: Create a Full Name column ([FirstName] & \" \" & [LastName]). Create a Price Category column using logical functions like IF and SWITCH",
-            duration: 10,
+            description: "Writing basic row-context DAX formulas in the Data View. Learn how to create calculated columns for text concatenation, categorization, and conditional logic using IF and SWITCH functions.",
+            duration: 40,
             difficulty: 'intermediate',
-            tags: ["DAX"],
+            tags: ["DAX", "Calculated Columns", "Hands-On Lab"],
             topic: 'DAX',
             content: {
-              concept: "Writing basic row-context DAX formulas in the Data View.77Lab: Create a Full Name column ([FirstName] & \" \" & [LastName]). Create a Price Category column using logical functions like IF and SWITCH",
+              concept: "Writing basic row-context DAX formulas in the Data View. Calculated columns are evaluated row-by-row at data refresh time, making them perfect for row-level calculations that need to appear in slicers, axes, or filters. This lab teaches you how to create calculated columns for common scenarios like text concatenation, categorization, and conditional logic. Remember: use calculated columns only when you must - when the result is needed in a slicer, on an axis, or as a filter. For aggregations, use measures instead.",
+              discussion: "Calculated columns are created in Data View or Model View by right-clicking a table and selecting 'New Column'. The formula bar appears where you write DAX expressions. Calculated columns use Row Context - they evaluate for each row individually. This is why [Quantity] * [UnitPrice] works in a calculated column - it's evaluated row-by-row. Common calculated column patterns include: Text concatenation: Full Name = [FirstName] & \" \" & [LastName] (combines text fields with concatenation operator &). Categorization: Price Category = IF([UnitPrice] > 100, \"High\", IF([UnitPrice] > 50, \"Medium\", \"Low\")) (uses IF for conditional logic). SWITCH for multiple conditions: Category = SWITCH(TRUE(), [Price] > 100, \"High\", [Price] > 50, \"Medium\", \"Low\") (cleaner than nested IFs). Date calculations: Age = YEAR(TODAY()) - YEAR([BirthDate]) (calculates age from birth date). Text manipulation: First Initial = LEFT([FirstName], 1) (extracts first character). Remember: calculated columns are stored in memory, increasing file size. Use them sparingly and only when needed for slicers, axes, or filters.",
+              keyPoints: [
+                "Calculated columns are created in Data View or Model View",
+                "Use row context - evaluated row-by-row at refresh time",
+                "Perfect for text concatenation, categorization, and conditional logic",
+                "Use calculated columns when result is needed in slicer, axis, or filter",
+                "Common functions: IF, SWITCH, & (concatenation), LEFT, RIGHT, YEAR",
+                "Calculated columns are stored in memory - use sparingly",
+                "Remember: Use measures for aggregations, columns for row-level calculations"
+              ],
+              insiderTips: [
+                "Use SWITCH instead of nested IFs for cleaner code with multiple conditions",
+                "Text concatenation uses & operator: [First] & \" \" & [Last]",
+                "IF syntax: IF(condition, value_if_true, value_if_false)",
+                "SWITCH syntax: SWITCH(TRUE(), condition1, value1, condition2, value2, default)",
+                "Calculated columns refresh with data - they're not dynamic like measures",
+                "Test calculated columns in Data View to verify they calculate correctly",
+                "Use calculated columns for categories that appear in slicers (e.g., Price Category)",
+                "Avoid calculated columns for simple math that will be aggregated - use measures instead",
+                "Calculated columns can reference other calculated columns in the same table",
+                "Use RELATED() to reference columns from related tables in calculated columns",
+                "Performance: Each calculated column increases refresh time and file size",
+                "Best practice: Create calculated columns in Power Query when possible (faster refresh)"
+              ],
+              labs: [
+                "Create Full Name column:",
+                "  - Switch to Data View (left sidebar icon)",
+                "  - Right-click Customer table > New Column",
+                "  - Column name: 'Full Name'",
+                "  - Formula: Full Name = [FirstName] & \" \" & [LastName]",
+                "  - Press Enter - column appears",
+                "  - Verify in Data View - each row shows full name",
+                "Create Price Category column:",
+                "  - Right-click Product table > New Column",
+                "  - Column name: 'Price Category'",
+                "  - Formula using IF:",
+                "    Price Category = IF([UnitPrice] > 100, \"High\", IF([UnitPrice] > 50, \"Medium\", \"Low\"))",
+                "  - Press Enter - column appears",
+                "  - Verify categories are correct",
+                "Create Price Category with SWITCH:",
+                "  - Create another column: 'Price Category (SWITCH)'",
+                "  - Formula using SWITCH:",
+                "    Price Category (SWITCH) = SWITCH(TRUE(), [UnitPrice] > 100, \"High\", [UnitPrice] > 50, \"Medium\", \"Low\")",
+                "  - Compare to IF version - SWITCH is cleaner",
+                "Create Age column:",
+                "  - Right-click Customer table > New Column",
+                "  - Column name: 'Age'",
+                "  - Formula: Age = YEAR(TODAY()) - YEAR([BirthDate])",
+                "  - Verify ages are calculated correctly",
+                "Create First Initial column:",
+                "  - Right-click Customer table > New Column",
+                "  - Column name: 'First Initial'",
+                "  - Formula: First Initial = LEFT([FirstName], 1)",
+                "  - Verify first initials are extracted",
+                "Test calculated columns:",
+                "  - Switch to Report View",
+                "  - Use Price Category in a slicer",
+                "  - Use Full Name on an axis",
+                "  - Verify calculated columns work in visuals",
+                "Practice: Create more calculated columns with different logic",
+                "Review: Understand when to use calculated columns vs measures"
+              ],
+              tables: [
+                {
+                  title: "Common Calculated Column Patterns",
+                  headers: ["Pattern", "Formula Example", "Use Case", "When to Use"],
+                  rows: [
+                    ["Text Concatenation", "[First] & \" \" & [Last]", "Combine text fields", "When needed in slicer/axis"],
+                    ["Categorization (IF)", "IF([Price] > 100, \"High\", \"Low\")", "Simple two-way categorization", "When needed in slicer"],
+                    ["Categorization (SWITCH)", "SWITCH(TRUE(), [Price] > 100, \"High\", [Price] > 50, \"Medium\", \"Low\")", "Multi-way categorization", "When needed in slicer"],
+                    ["Date Calculation", "YEAR(TODAY()) - YEAR([BirthDate])", "Calculate age, duration", "When needed in slicer/axis"],
+                    ["Text Extraction", "LEFT([Name], 1)", "Extract characters", "When needed in slicer/axis"],
+                    ["Conditional Text", "IF([Status] = \"Active\", \"Yes\", \"No\")", "Convert values to text", "When needed in slicer"]
+                  ]
+                },
+                {
+                  title: "Calculated Column vs Measure Decision",
+                  headers: ["Need", "Use", "Example", "Why"],
+                  rows: [
+                    ["In slicer", "Calculated Column", "Price Category in slicer", "Slicers need column values"],
+                    ["On axis", "Calculated Column", "Full Name on axis", "Axes need column values"],
+                    ["As filter", "Calculated Column", "Age Category filter", "Filters need column values"],
+                    ["In Values well", "Measure", "Total Sales in Values", "Values need aggregations"],
+                    ["In KPI", "Measure", "Total Sales in KPI", "KPIs need aggregations"],
+                    ["Dynamic calculation", "Measure", "Sales YTD", "Measures are dynamic"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -1721,13 +2628,111 @@ export const courseData: Part[] = [
             moduleNumber: 6,
             lessonNumber: 4,
             title: "Creating Measures (Hands-On Lab)",
-            description: "Writing basic aggregation measures.77Lab:Total Sales = SUM(Sales)Avg. Price = AVERAGE(Sales[UnitPrice])Order Count = COUNT(Sales[OrderLineKey])",
-            duration: 10,
+            description: "Writing basic aggregation measures. Learn how to create measures using SUM, AVERAGE, COUNT, and other aggregation functions. This is the foundation of all DAX measures.",
+            duration: 45,
             difficulty: 'intermediate',
-            tags: ["Power BI Fundamentals"],
-            topic: 'Business Intelligence',
+            tags: ["DAX", "Measures", "Aggregation", "Hands-On Lab"],
+            topic: 'DAX',
             content: {
-              concept: "Writing basic aggregation measures.77Lab:Total Sales = SUM(Sales)Avg. Price = AVERAGE(Sales[UnitPrice])Order Count = COUNT(Sales[OrderLineKey])",
+              concept: "Writing basic aggregation measures is the foundation of all DAX work. Measures are evaluated at query time based on filter context, making them dynamic and responsive to user selections. This lab teaches you how to create measures using common aggregation functions like SUM, AVERAGE, COUNT, MIN, MAX, and DISTINCTCOUNT. Measures are the primary way to create calculations in Power BI - you'll create many more measures than calculated columns. Understanding how to create basic measures is essential before moving to advanced DAX.",
+              discussion: "Measures are created in Report View, Data View, or Model View by right-clicking a table and selecting 'New Measure'. The formula bar appears where you write DAX expressions. Measures use Filter Context - they evaluate based on active filters. This is why the same measure shows different values in different cells of a matrix or when different slicers are selected. Basic aggregation measures include: SUM: Total Sales = SUM(Sales[Amount]) - sums all values in a column. AVERAGE: Avg Price = AVERAGE(Sales[UnitPrice]) - calculates average of values. COUNT: Order Count = COUNT(Sales[OrderID]) - counts rows (ignores blanks). COUNTROWS: Order Count = COUNTROWS(Sales) - counts all rows including blanks. DISTINCTCOUNT: Customer Count = DISTINCTCOUNT(Sales[CustomerID]) - counts unique values. MIN: Min Price = MIN(Sales[UnitPrice]) - finds minimum value. MAX: Max Price = MAX(Sales[UnitPrice]) - finds maximum value. These basic measures are the building blocks for more complex calculations. Best practice: Create a dedicated 'Measures' table to organize all your measures in one place. This makes your model cleaner and easier to navigate.",
+              keyPoints: [
+                "Measures are created in Report View, Data View, or Model View",
+                "Use filter context - evaluated at query time based on active filters",
+                "Basic aggregation functions: SUM, AVERAGE, COUNT, MIN, MAX, DISTINCTCOUNT",
+                "Measures are dynamic - same measure shows different values in different contexts",
+                "Create a dedicated 'Measures' table to organize all measures",
+                "Measures are the primary way to create calculations in Power BI",
+                "Use measures for aggregations - they're more flexible than calculated columns"
+              ],
+              insiderTips: [
+                "Create a 'Measures' table: Home > Enter Data > Create blank table named 'Measures'",
+                "Organize all measures in the Measures table for easy navigation",
+                "SUM syntax: SUM(Table[Column]) - sums numeric column",
+                "AVERAGE syntax: AVERAGE(Table[Column]) - averages numeric column",
+                "COUNT counts non-blank values, COUNTROWS counts all rows",
+                "DISTINCTCOUNT counts unique values - useful for customer/product counts",
+                "Measures automatically respect filter context - no need to specify filters",
+                "Test measures in different visuals to verify they work correctly",
+                "Use descriptive measure names: 'Total Sales' not 'Sales'",
+                "Format measures: Right-click measure > Format - set currency, percentage, etc.",
+                "Measures can reference other measures - build complex calculations step by step",
+                "Performance: Simple aggregations (SUM, COUNT) are very fast"
+              ],
+              labs: [
+                "Create a Measures table:",
+                "  - Home tab > Enter Data",
+                "  - Create blank table named 'Measures'",
+                "  - Click Load - empty table appears",
+                "Create Total Sales measure:",
+                "  - Right-click Measures table > New Measure",
+                "  - Measure name: 'Total Sales'",
+                "  - Formula: Total Sales = SUM(Sales[Amount])",
+                "  - Press Enter - measure appears in Measures table",
+                "  - Format: Right-click measure > Format > Currency",
+                "Create Average Price measure:",
+                "  - Right-click Measures table > New Measure",
+                "  - Measure name: 'Average Price'",
+                "  - Formula: Average Price = AVERAGE(Sales[UnitPrice])",
+                "  - Press Enter - measure created",
+                "  - Format: Right-click measure > Format > Currency",
+                "Create Order Count measure:",
+                "  - Right-click Measures table > New Measure",
+                "  - Measure name: 'Order Count'",
+                "  - Formula: Order Count = COUNT(Sales[OrderID])",
+                "  - Press Enter - measure created",
+                "Create Customer Count measure:",
+                "  - Right-click Measures table > New Measure",
+                "  - Measure name: 'Customer Count'",
+                "  - Formula: Customer Count = DISTINCTCOUNT(Sales[CustomerID])",
+                "  - Press Enter - measure created",
+                "Create Min and Max Price measures:",
+                "  - Min Price = MIN(Sales[UnitPrice])",
+                "  - Max Price = MAX(Sales[UnitPrice])",
+                "  - Format both as Currency",
+                "Test measures in visuals:",
+                "  - Switch to Report View",
+                "  - Create a Card visual",
+                "  - Drag Total Sales measure to Values well",
+                "  - Large number appears",
+                "  - Create a Table visual",
+                "  - Drag multiple measures to Values well",
+                "  - Observe all measures show values",
+                "Test with slicers:",
+                "  - Add Region slicer",
+                "  - Select 'East' region",
+                "  - Observe measures update automatically",
+                "  - This demonstrates filter context",
+                "Practice: Create more measures with different aggregations",
+                "Review: Understand how measures respond to filters"
+              ],
+              tables: [
+                {
+                  title: "Basic Aggregation Functions",
+                  headers: ["Function", "Returns", "Use Case", "Example"],
+                  rows: [
+                    ["SUM", "Sum of values", "Total sales, revenue", "SUM(Sales[Amount])"],
+                    ["AVERAGE", "Average of values", "Average price, average sales", "AVERAGE(Sales[Price])"],
+                    ["COUNT", "Count of non-blank values", "Order count, record count", "COUNT(Sales[OrderID])"],
+                    ["COUNTROWS", "Count of all rows", "Total rows including blanks", "COUNTROWS(Sales)"],
+                    ["DISTINCTCOUNT", "Count of unique values", "Unique customers, products", "DISTINCTCOUNT(Sales[CustomerID])"],
+                    ["MIN", "Minimum value", "Lowest price, earliest date", "MIN(Sales[Price])"],
+                    ["MAX", "Maximum value", "Highest price, latest date", "MAX(Sales[Price])"]
+                  ]
+                },
+                {
+                  title: "Measure Creation Best Practices",
+                  headers: ["Practice", "What to Do", "Why", "Example"],
+                  rows: [
+                    ["Create Measures table", "Organize all measures in one table", "Easy navigation, clean model", "Measures table with all measures"],
+                    ["Use descriptive names", "Clear, specific names", "Easy to understand and find", "Total Sales vs Sales"],
+                    ["Format measures", "Set currency, percentage, etc.", "Professional appearance", "Currency for sales, % for ratios"],
+                    ["Test in visuals", "Verify measures work correctly", "Catch errors early", "Test in Card, Table, Bar chart"],
+                    ["Test with filters", "Verify filter context works", "Ensure measures respond correctly", "Test with slicers"],
+                    ["Document measures", "Add descriptions", "Help others understand", "Right-click > Properties > Description"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -1735,13 +2740,96 @@ export const courseData: Part[] = [
             moduleNumber: 6,
             lessonNumber: 5,
             title: "Implicit vs. Explicit Measures",
-            description: "\"Implicit\" measures are created when a numeric column is dragged into a visual, and Power BI implicitly applies an aggregation (like SUM).77 \"Explicit\" measures are those created manually with DAX, as",
-            duration: 10,
+            description: "\"Implicit\" measures are created when a numeric column is dragged into a visual, and Power BI implicitly applies an aggregation (like SUM). \"Explicit\" measures are those created manually with DAX. Learn why explicit measures are best practice.",
+            duration: 30,
             difficulty: 'intermediate',
-            tags: ["DAX"],
+            tags: ["DAX", "Measures", "Best Practices"],
             topic: 'DAX',
             content: {
-              concept: "\"Implicit\" measures are created when a numeric column is dragged into a visual, and Power BI implicitly applies an aggregation (like SUM).77 \"Explicit\" measures are those created manually with DAX, as in the lab.77Best Practice: A professional developer always creates explicit measures. This provides central control, reusability, and clarity.84 Implicit measures should be disabled in the model settings",
+              concept: "\"Implicit\" measures are created when a numeric column is dragged into a visual, and Power BI implicitly applies an aggregation (like SUM). \"Explicit\" measures are those created manually with DAX, as in the lab. Best Practice: A professional developer always creates explicit measures. This provides central control, reusability, and clarity. Implicit measures should be disabled in the model settings. Understanding the difference between implicit and explicit measures is crucial for professional Power BI development.",
+              discussion: "Implicit measures are created automatically when you drag a numeric column into a visual's Values well. Power BI automatically applies an aggregation (usually SUM) and creates a measure on-the-fly. For example, dragging Sales[Amount] to a visual creates an implicit measure 'Sum of Amount'. Implicit measures are convenient but have limitations: they're not reusable (must be recreated for each visual), they're not visible in the model (hard to find and manage), they can't be formatted centrally, and they can't be modified or documented. Explicit measures are created manually with DAX using 'New Measure'. For example, Total Sales = SUM(Sales[Amount]) is an explicit measure. Explicit measures provide: central control (one place to manage), reusability (use in multiple visuals), clarity (clear names and descriptions), formatting (set once, applies everywhere), and documentation (add descriptions). Best practice: Always create explicit measures. This is the professional approach and makes your model maintainable. Disable implicit measures in model settings: File > Options and Settings > Options > Current File > Data Load > Uncheck 'Allow implicit measures'. This prevents accidental creation of implicit measures and forces you to create explicit ones.",
+              keyPoints: [
+                "Implicit measures are created automatically when dragging numeric columns to visuals",
+                "Explicit measures are created manually with DAX using 'New Measure'",
+                "Best practice: Always create explicit measures for central control and reusability",
+                "Explicit measures provide clarity, formatting, and documentation",
+                "Implicit measures should be disabled in model settings",
+                "Professional developers always use explicit measures",
+                "Explicit measures make your model more maintainable"
+              ],
+              insiderTips: [
+                "Disable implicit measures: File > Options > Current File > Data Load > Uncheck 'Allow implicit measures'",
+                "Explicit measures are reusable - create once, use everywhere",
+                "Explicit measures can be formatted centrally - set currency once, applies everywhere",
+                "Explicit measures can be documented - add descriptions for clarity",
+                "Explicit measures are visible in Model View - easy to find and manage",
+                "Implicit measures are hidden - hard to find and manage",
+                "If you see 'Sum of Amount' in a visual, that's an implicit measure - replace it with explicit",
+                "Professional models have 100% explicit measures - no implicit measures",
+                "Explicit measures enable version control - you can track changes to measures",
+                "Explicit measures can reference other measures - build complex calculations",
+                "Test: Disable implicit measures and verify you can't create them accidentally",
+                "Remember: Explicit measures = professional, Implicit measures = beginner"
+              ],
+              labs: [
+                "Create an implicit measure:",
+                "  - Switch to Report View",
+                "  - Create a Bar chart visual",
+                "  - Drag Sales[Amount] to Values well",
+                "  - Notice 'Sum of Amount' appears - this is an implicit measure",
+                "  - Observe it's not visible in Fields pane",
+                "Create an explicit measure:",
+                "  - Right-click Measures table > New Measure",
+                "  - Measure name: 'Total Sales'",
+                "  - Formula: Total Sales = SUM(Sales[Amount])",
+                "  - Press Enter - measure appears in Measures table",
+                "  - Format: Right-click measure > Format > Currency",
+                "Replace implicit with explicit:",
+                "  - Select the Bar chart with implicit measure",
+                "  - Remove 'Sum of Amount' from Values well",
+                "  - Drag 'Total Sales' measure to Values well",
+                "  - Notice it works the same but is now explicit",
+                "Disable implicit measures:",
+                "  - File > Options and Settings > Options",
+                "  - Current File > Data Load",
+                "  - Uncheck 'Allow implicit measures'",
+                "  - Click OK",
+                "Test: Try dragging numeric column to visual",
+                "  - Notice implicit measure can't be created",
+                "  - Must create explicit measure instead",
+                "Compare: Implicit vs Explicit",
+                "  - Implicit: 'Sum of Amount' (hidden, not reusable)",
+                "  - Explicit: 'Total Sales' (visible, reusable, formatted)",
+                "Practice: Create explicit measures for all your aggregations",
+                "Review: Understand why explicit measures are best practice"
+              ],
+              tables: [
+                {
+                  title: "Implicit vs Explicit Measures",
+                  headers: ["Aspect", "Implicit Measures", "Explicit Measures", "Winner"],
+                  rows: [
+                    ["Creation", "Automatic when dragging column", "Manual with DAX", "Explicit"],
+                    ["Visibility", "Hidden in model", "Visible in Measures table", "Explicit"],
+                    ["Reusability", "Must recreate for each visual", "Create once, use everywhere", "Explicit"],
+                    ["Formatting", "Can't format centrally", "Format once, applies everywhere", "Explicit"],
+                    ["Documentation", "Can't add descriptions", "Can add descriptions", "Explicit"],
+                    ["Maintainability", "Hard to find and manage", "Easy to find and manage", "Explicit"],
+                    ["Professional", "Beginner approach", "Professional approach", "Explicit"],
+                    ["Best Practice", "Not recommended", "Recommended", "Explicit"]
+                  ]
+                },
+                {
+                  title: "How to Disable Implicit Measures",
+                  headers: ["Step", "Action", "Location", "Result"],
+                  rows: [
+                    ["1", "Open Options", "File > Options and Settings > Options", "Options dialog opens"],
+                    ["2", "Navigate to Data Load", "Current File > Data Load", "Data Load settings appear"],
+                    ["3", "Uncheck option", "Uncheck 'Allow implicit measures'", "Implicit measures disabled"],
+                    ["4", "Click OK", "Save settings", "Settings saved"],
+                    ["5", "Test", "Try dragging numeric column to visual", "Implicit measure can't be created"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -1749,14 +2837,100 @@ export const courseData: Part[] = [
             moduleNumber: 6,
             lessonNumber: 6,
             title: "Using Quick Measures",
-            description: "Using Power BI's UI-driven \"Quick Measures\" gallery to auto-generate DAX for common calculations",
-            duration: 10,
+            description: "Using Power BI's UI-driven \"Quick Measures\" gallery to auto-generate DAX for common calculations. Learn how to use Quick Measures to learn DAX patterns and create complex calculations without writing code.",
+            duration: 30,
             difficulty: 'intermediate',
-            tags: ["DAX"],
+            tags: ["DAX", "Quick Measures", "Learning Tool"],
             topic: 'DAX',
             content: {
-              concept: "Using Power BI's UI-driven \"Quick Measures\" gallery to auto-generate DAX for common calculations",
-              discussion: "Demonstrate creating a running total or percent of grand total using the Quick Measure tool, and then review the DAX code that Power BI generated. This is a powerful learning tool for beginners",
+              concept: "Using Power BI's UI-driven \"Quick Measures\" gallery to auto-generate DAX for common calculations. Quick Measures provide a visual interface for creating complex DAX measures without writing code. This is a powerful learning tool for beginners - you can see the DAX code that Power BI generates and learn from it. Quick Measures are especially useful for common calculations like running totals, percent of grand total, year-over-year comparisons, and moving averages.",
+              discussion: "Quick Measures are accessed through Home > Quick Measures or by right-clicking a table > Quick Measures. The Quick Measures gallery shows pre-built templates for common calculations. You select a template, fill in the required fields (measures, columns, etc.), and Power BI generates the DAX code automatically. Common Quick Measures include: Running Total (cumulative sum over time), Percent of Grand Total (percentage of total), Year-over-Year Growth (comparing periods), Moving Average (average over rolling window), and Rank (ranking values). After creating a Quick Measure, you can view the generated DAX code in the formula bar. This is a powerful learning tool - you can see how Power BI implements complex calculations and learn the patterns. Best practice: Use Quick Measures to learn DAX patterns, then create your own measures using those patterns. Quick Measures are great for: learning DAX syntax, understanding complex calculations, creating measures quickly, and prototyping calculations. However, Quick Measures have limitations: they're not always optimized, they may not fit your exact needs, and you should understand the generated code before using it in production.",
+              keyPoints: [
+                "Quick Measures provide a visual interface for creating complex DAX measures",
+                "Power BI generates DAX code automatically based on your selections",
+                "View the generated DAX code to learn patterns and syntax",
+                "Common Quick Measures: Running Total, Percent of Total, YoY Growth, Moving Average",
+                "Use Quick Measures to learn DAX, then create your own measures",
+                "Quick Measures are great for prototyping and learning",
+                "Always review the generated DAX code before using in production"
+              ],
+              insiderTips: [
+                "Access Quick Measures: Home > Quick Measures or right-click table > Quick Measures",
+                "Quick Measures gallery shows templates - select one that matches your need",
+                "Fill in required fields (measures, columns) in the Quick Measure dialog",
+                "After creating, view the DAX code in formula bar to learn the pattern",
+                "Use Quick Measures to learn DAX syntax - see how Power BI implements calculations",
+                "Common pattern: Quick Measures use CALCULATE() and ALL() - learn these functions",
+                "After learning from Quick Measures, create your own measures using those patterns",
+                "Quick Measures are great for prototyping - test the calculation, then refine",
+                "Review generated DAX code - understand what it does before using in production",
+                "Quick Measures may not be optimized - consider rewriting for better performance",
+                "Use Quick Measures as a starting point, not the final solution",
+                "Remember: Quick Measures are a learning tool - use them to learn DAX"
+              ],
+              labs: [
+                "Access Quick Measures:",
+                "  - Home tab > Quick Measures",
+                "  - OR right-click Measures table > Quick Measures",
+                "  - Quick Measures gallery appears",
+                "Create Running Total:",
+                "  - Select 'Running Total' template",
+                "  - Base value: Total Sales measure",
+                "  - Field: Date column",
+                "  - Click OK - measure created",
+                "  - View DAX code in formula bar",
+                "  - Observe how CALCULATE() and ALL() are used",
+                "Create Percent of Grand Total:",
+                "  - Select 'Percent of Grand Total' template",
+                "  - Base value: Total Sales measure",
+                "  - Click OK - measure created",
+                "  - View DAX code in formula bar",
+                "  - Observe how DIVIDE() and ALL() are used",
+                "Create Year-over-Year Growth:",
+                "  - Select 'Year-over-Year Growth' template",
+                "  - Base value: Total Sales measure",
+                "  - Date field: Date column",
+                "  - Click OK - measure created",
+                "  - View DAX code in formula bar",
+                "  - Observe how SAMEPERIODLASTYEAR() is used",
+                "Test Quick Measures:",
+                "  - Switch to Report View",
+                "  - Create visuals using Quick Measures",
+                "  - Verify they calculate correctly",
+                "  - Test with slicers to verify filter context",
+                "Learn from Quick Measures:",
+                "  - Review DAX code for each Quick Measure",
+                "  - Identify common patterns (CALCULATE, ALL, DIVIDE)",
+                "  - Understand how these functions work together",
+                "  - Use these patterns in your own measures",
+                "Practice: Create your own measures using patterns learned from Quick Measures",
+                "Review: Understand how Quick Measures can help you learn DAX"
+              ],
+              tables: [
+                {
+                  title: "Common Quick Measures Templates",
+                  headers: ["Template", "What It Does", "Use Case", "Key DAX Functions"],
+                  rows: [
+                    ["Running Total", "Cumulative sum over time", "Show cumulative sales over months", "CALCULATE, ALL"],
+                    ["Percent of Grand Total", "Percentage of total", "Show each region as % of total", "DIVIDE, ALL"],
+                    ["Year-over-Year Growth", "Compare to same period last year", "Show sales growth vs last year", "SAMEPERIODLASTYEAR, DIVIDE"],
+                    ["Moving Average", "Average over rolling window", "Show 3-month moving average", "CALCULATE, DATESINPERIOD"],
+                    ["Rank", "Rank values", "Rank products by sales", "RANKX, ALL"],
+                    ["Difference from Average", "Compare to average", "Show difference from average", "CALCULATE, AVERAGE, ALL"]
+                  ]
+                },
+                {
+                  title: "Quick Measures Learning Path",
+                  headers: ["Step", "Action", "What You Learn", "Next Step"],
+                  rows: [
+                    ["1", "Create Quick Measure", "See how Power BI implements calculation", "Review DAX code"],
+                    ["2", "Review DAX code", "Learn DAX syntax and patterns", "Identify key functions"],
+                    ["3", "Understand pattern", "Learn how functions work together", "Test with different scenarios"],
+                    ["4", "Create own measure", "Apply learned pattern to your needs", "Refine and optimize"],
+                    ["5", "Master pattern", "Understand when to use this pattern", "Use in other calculations"]
+                  ]
+                }
+              ]
             },
           },
         ],
@@ -1772,13 +2946,89 @@ export const courseData: Part[] = [
             moduleNumber: 7,
             lessonNumber: 1,
             title: "The \"Secret Sauce\" of DAX: Evaluation Context",
-            description: "A DAX formula's result is not fixed; it depends on the context in which it is evaluated.87 There are two types of context",
-            duration: 10,
+            description: "A DAX formula's result is not fixed; it depends on the context in which it is evaluated. There are two types of context: Row Context and Filter Context. Understanding evaluation context is the key to mastering DAX.",
+            duration: 30,
             difficulty: 'intermediate',
-            tags: ["DAX"],
+            tags: ["DAX", "Evaluation Context", "Critical Concept"],
             topic: 'DAX',
             content: {
-              concept: "A DAX formula's result is not fixed; it depends on the context in which it is evaluated.87 There are two types of context",
+              concept: "A DAX formula's result is not fixed; it depends on the context in which it is evaluated. There are two types of context: Row Context and Filter Context. Understanding evaluation context is the key to mastering DAX. This is the 'secret sauce' that makes DAX powerful but also challenging. Unlike Excel formulas (which calculate the same value in every cell), DAX formulas calculate different values depending on context. This context-awareness is what makes DAX measures dynamic and responsive to user selections.",
+              discussion: "Evaluation context determines how a DAX formula is evaluated. There are two types of context: Row Context and Filter Context. Row Context is the context that iterates through a table one row at a time. It exists by default in Calculated Columns and is created by iterator functions (SUMX, AVERAGEX, etc.) in measures. Row Context allows you to reference columns from the current row (e.g., [Quantity] * [UnitPrice] in a calculated column). Filter Context is the context that determines which rows are visible for calculation. It's created by slicers, filters, visual axes, and other filter sources. Filter Context determines which rows are included in aggregations (e.g., SUM(Sales[Amount]) sums only rows matching active filters). Understanding these two contexts is crucial because: Row Context is for row-by-row calculations (calculated columns, iterators), Filter Context is for aggregations (measures), and they can work together (iterators within measures use both contexts). The key insight: DAX formulas are context-aware - the same formula produces different results depending on context. This is why the same measure shows different values in different cells of a matrix or when different slicers are selected.",
+              keyPoints: [
+                "Evaluation context determines how a DAX formula is evaluated",
+                "Two types of context: Row Context and Filter Context",
+                "Row Context: iterates through table one row at a time (calculated columns, iterators)",
+                "Filter Context: determines which rows are visible (measures, aggregations)",
+                "DAX formulas are context-aware - same formula, different results",
+                "Understanding context is the key to mastering DAX",
+                "Context-awareness makes DAX powerful but also challenging"
+              ],
+              insiderTips: [
+                "Row Context exists in calculated columns by default - that's why [Qty] * [Price] works",
+                "Filter Context exists in measures by default - that's why SUM(Sales) respects filters",
+                "Iterator functions (SUMX, AVERAGEX) create Row Context within Filter Context",
+                "CALCULATE() is the ONLY function that can modify Filter Context",
+                "When a measure returns wrong value, check the Filter Context - what filters are active?",
+                "When a calculated column returns wrong value, check the Row Context - what row is it evaluating?",
+                "Test your formulas with different contexts to verify they work correctly",
+                "Understanding context is the difference between beginner and advanced DAX",
+                "Context is invisible - always mentally ask 'What context is this formula in?'",
+                "Row Context + Filter Context = powerful but complex calculations",
+                "Practice: Create formulas and observe how context affects results",
+                "Remember: Context is the 'secret sauce' of DAX - master it to master DAX"
+              ],
+              labs: [
+                "Understand Row Context:",
+                "  - Create a calculated column: Total Price = [Quantity] * [UnitPrice]",
+                "  - Observe it calculates row-by-row",
+                "  - This is Row Context in action",
+                "Understand Filter Context:",
+                "  - Create a measure: Total Sales = SUM(Sales[Amount])",
+                "  - Add to a matrix: Region on Rows, Year on Columns",
+                "  - Observe different values in each cell",
+                "  - This is Filter Context in action",
+                "Compare contexts:",
+                "  - Calculated column: same value for each row (Row Context)",
+                "  - Measure: different value for each cell (Filter Context)",
+                "  - Same formula, different contexts, different results",
+                "Test with slicers:",
+                "  - Add Region slicer",
+                "  - Select 'East' region",
+                "  - Observe measure updates (Filter Context changed)",
+                "  - Calculated column doesn't change (Row Context doesn't change)",
+                "Understand context interaction:",
+                "  - Create measure with iterator: Total Sales = SUMX(Sales, [Quantity] * [UnitPrice])",
+                "  - This uses both Row Context (SUMX iterates) and Filter Context (respects filters)",
+                "  - Test with slicers to verify both contexts work",
+                "Practice: Create formulas and observe how context affects results",
+                "Review: Understand the difference between Row Context and Filter Context"
+              ],
+              tables: [
+                {
+                  title: "Row Context vs Filter Context",
+                  headers: ["Aspect", "Row Context", "Filter Context", "When Used"],
+                  rows: [
+                    ["Definition", "Iterates through table one row at a time", "Determines which rows are visible", "Row: calculated columns, Filter: measures"],
+                    ["Exists In", "Calculated columns, iterator functions", "Measures, aggregations", "Row: columns, Filter: measures"],
+                    ["Example", "[Quantity] * [UnitPrice] in column", "SUM(Sales[Amount]) in measure", "Row: row-by-row, Filter: aggregation"],
+                    ["Changes", "Fixed at refresh time", "Dynamic at query time", "Row: static, Filter: dynamic"],
+                    ["Modifiable", "No (fixed per row)", "Yes (with CALCULATE)", "Row: no, Filter: yes"],
+                    ["Use For", "Row-level calculations", "Aggregations", "Row: columns, Filter: measures"]
+                  ]
+                },
+                {
+                  title: "Understanding Context in DAX",
+                  headers: ["Scenario", "Context Type", "What Happens", "Example"],
+                  rows: [
+                    ["Calculated Column", "Row Context", "Evaluates for each row", "[Qty] * [Price] for each row"],
+                    ["Simple Measure", "Filter Context", "Aggregates visible rows", "SUM(Sales) respects filters"],
+                    ["Iterator Measure", "Both Contexts", "Iterates (Row) within filters (Filter)", "SUMX(Sales, [Qty]*[Price])"],
+                    ["CALCULATE Measure", "Modified Filter Context", "Changes Filter Context", "CALCULATE(SUM(Sales), Region=\"East\")"],
+                    ["Matrix Cell", "Filter Context", "Filters from axes + slicers", "Region=\"East\", Year=2023"],
+                    ["Slicer Selection", "Filter Context", "Adds filter to all visuals", "Selecting 'East' filters all visuals"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -1786,14 +3036,99 @@ export const courseData: Part[] = [
             moduleNumber: 7,
             lessonNumber: 2,
             title: "Row Context (The \"Current Row\")",
-            description: "A context that iterates through a table one row at a time",
-            duration: 10,
+            description: "A context that iterates through a table one row at a time. Row Context exists by default in Calculated Columns and is created by iterator functions in measures. Understanding Row Context is essential for DAX mastery.",
+            duration: 30,
             difficulty: 'intermediate',
-            tags: ["Power BI Fundamentals"],
-            topic: 'Business Intelligence',
+            tags: ["DAX", "Row Context", "Evaluation Context"],
+            topic: 'DAX',
             content: {
-              concept: "A context that iterates through a table one row at a time",
-              discussion: "This context exists by default in Calculated Columns.83 This is why the formula [Quantity] * [Unit Price] works in a calculated column—it is evaluated for each row individually",
+              concept: "A context that iterates through a table one row at a time. Row Context exists by default in Calculated Columns and is created by iterator functions (SUMX, AVERAGEX, etc.) in measures. This is why the formula [Quantity] * [Unit Price] works in a calculated column—it is evaluated for each row individually. Understanding Row Context is essential for creating calculated columns and using iterator functions effectively.",
+              discussion: "Row Context is the context that iterates through a table one row at a time. It exists by default in Calculated Columns - when you create a calculated column, DAX automatically creates Row Context for each row. This is why [Quantity] * [UnitPrice] works in a calculated column - it's evaluated for each row individually, with [Quantity] and [UnitPrice] referring to the current row's values. Row Context is also created by iterator functions (SUMX, AVERAGEX, MINX, MAXX, COUNTX, etc.) in measures. These functions iterate through a table, creating Row Context for each row, then evaluate an expression for that row. For example, SUMX(Sales, [Quantity] * [UnitPrice]) iterates through the Sales table, creating Row Context for each row, calculates Quantity * UnitPrice for that row, then sums all results. Key points about Row Context: it's row-by-row (one row at a time), it's automatic in calculated columns (no need to create it), it's created by iterator functions (SUMX, AVERAGEX, etc.), and it allows column references without table names (e.g., [Quantity] instead of Sales[Quantity] in calculated columns). Understanding Row Context is crucial because: calculated columns use Row Context by default, iterator functions create Row Context in measures, and Row Context allows row-by-row calculations that can't be done with simple aggregations.",
+              keyPoints: [
+                "Row Context iterates through a table one row at a time",
+                "Row Context exists by default in Calculated Columns",
+                "Row Context is created by iterator functions (SUMX, AVERAGEX, etc.) in measures",
+                "Row Context allows column references without table names in calculated columns",
+                "Row Context enables row-by-row calculations",
+                "Understanding Row Context is essential for calculated columns and iterators",
+                "Row Context is fixed at refresh time (for calculated columns)"
+              ],
+              insiderTips: [
+                "Row Context exists automatically in calculated columns - that's why [Qty] * [Price] works",
+                "In calculated columns, you can reference columns without table names: [Quantity] not Sales[Quantity]",
+                "Iterator functions (SUMX, AVERAGEX) create Row Context within measures",
+                "Row Context allows row-by-row calculations that can't be done with simple aggregations",
+                "When a calculated column returns wrong value, check Row Context - what row is it evaluating?",
+                "Row Context is fixed at refresh time - calculated columns don't change after refresh",
+                "Use Row Context for row-level calculations that need to appear in slicers/axes",
+                "Iterator functions combine Row Context (iteration) with Filter Context (filtering)",
+                "Test calculated columns in Data View to verify Row Context is working correctly",
+                "Remember: Row Context = row-by-row, Filter Context = aggregation",
+                "Practice: Create calculated columns and observe Row Context in action",
+                "Understanding Row Context is the foundation for understanding iterator functions"
+              ],
+              labs: [
+                "Create calculated column with Row Context:",
+                "  - Switch to Data View",
+                "  - Right-click Sales table > New Column",
+                "  - Column name: 'Total Price'",
+                "  - Formula: Total Price = [Quantity] * [UnitPrice]",
+                "  - Press Enter - column appears",
+                "  - Observe it calculates row-by-row (Row Context)",
+                "  - Each row shows its own Total Price",
+                "Understand Row Context in calculated columns:",
+                "  - In calculated columns, you can reference columns without table names",
+                "  - [Quantity] works (Row Context knows the table)",
+                "  - Sales[Quantity] also works (explicit reference)",
+                "  - Both are equivalent in calculated columns",
+                "Create measure with iterator (Row Context in measure):",
+                "  - Right-click Measures table > New Measure",
+                "  - Measure name: 'Total Sales (Iterator)'",
+                "  - Formula: Total Sales (Iterator) = SUMX(Sales, [Quantity] * [UnitPrice])",
+                "  - Press Enter - measure created",
+                "  - SUMX creates Row Context for each row",
+                "  - [Quantity] * [UnitPrice] is evaluated for each row",
+                "  - Results are summed",
+                "Compare Row Context in column vs measure:",
+                "  - Calculated column: Row Context exists by default",
+                "  - Measure with iterator: Row Context created by SUMX",
+                "  - Both use Row Context but in different ways",
+                "Test Row Context:",
+                "  - Switch to Report View",
+                "  - Create Table visual",
+                "  - Add calculated column 'Total Price' to table",
+                "  - Observe each row shows its own Total Price",
+                "  - Add measure 'Total Sales (Iterator)' to table",
+                "  - Observe it aggregates (uses Filter Context too)",
+                "Practice: Create more calculated columns and iterator measures",
+                "Review: Understand how Row Context works in calculated columns and iterators"
+              ],
+              tables: [
+                {
+                  title: "Row Context in Different Scenarios",
+                  headers: ["Scenario", "Row Context Source", "How It Works", "Example"],
+                  rows: [
+                    ["Calculated Column", "Automatic (by default)", "Evaluates for each row", "[Qty] * [Price] for each row"],
+                    ["SUMX Measure", "Created by SUMX", "Iterates through table", "SUMX(Sales, [Qty]*[Price])"],
+                    ["AVERAGEX Measure", "Created by AVERAGEX", "Iterates through table", "AVERAGEX(Sales, [Amount])"],
+                    ["MINX/MAXX Measure", "Created by MINX/MAXX", "Iterates through table", "MINX(Product, [Price])"],
+                    ["COUNTX Measure", "Created by COUNTX", "Iterates through table", "COUNTX(Sales, [Amount]>1000)"],
+                    ["CONCATENATEX Measure", "Created by CONCATENATEX", "Iterates through table", "CONCATENATEX(Orders, [Item], \", \")"]
+                  ]
+                },
+                {
+                  title: "Row Context vs Filter Context",
+                  headers: ["Aspect", "Row Context", "Filter Context", "Key Difference"],
+                  rows: [
+                    ["When", "In calculated columns, iterators", "In measures, aggregations", "Row: row-by-row, Filter: aggregation"],
+                    ["What", "Current row being evaluated", "Rows visible for calculation", "Row: one row, Filter: multiple rows"],
+                    ["Changes", "Fixed at refresh time", "Dynamic at query time", "Row: static, Filter: dynamic"],
+                    ["Use For", "Row-level calculations", "Aggregations", "Row: columns, Filter: measures"],
+                    ["Example", "[Qty] * [Price] in column", "SUM(Sales) in measure", "Row: per row, Filter: total"],
+                    ["Modifiable", "No (fixed per row)", "Yes (with CALCULATE)", "Row: no, Filter: yes"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -2870,8 +4205,59 @@ export const courseData: Part[] = [
             tags: ["Visualizations", "2025 Features"],
             topic: 'Visualizations',
             content: {
-              concept: "A report can be analytically correct but visually useless. Good design (UI/UX) is not decoration; it is about guiding the user's eye and communicating insights with clarity",
-              discussion: "Core principles include 4:Chart Selection: When to use a bar chart (comparison) vs. a line chart (trend).109Visual Hierarchy: Place the most important information (e.g., KPIs) in the top-left, as users read in a \"Z\" pattern.104White Space: Do not clutter the page. White space is essential for readability.105Color with Purpose: Use color to highlight key information or signal status (e.g., red for bad), not just for decoration.105Consistency: Use consistent fonts, colors, and alignment throughout the report.105Mobile Design: Separately design a layout optimized for mobile consumption.105New Slicers: Use modern slicers like the \"Button Slicer\" (GA Oct 2025) for app-like cross-highlighting",
+              concept: "A report can be analytically correct but visually useless. Good design (UI/UX) is not decoration; it is about guiding the user's eye, reducing cognitive load, and communicating insights with clarity. Effective design decisions determine whether executives understand a story in seconds or abandon the report entirely.",
+              discussion: "Great Power BI design is equal parts psychology and layout discipline. Start with chart selection—pick visuals that match the analytical question (bars for categorical comparison, lines for trends, scatter for correlation, maps for geography, tables for detail). Establish visual hierarchy by arranging the canvas in the natural Z-pattern of reading: KPIs and primary conclusions in the upper-left, supporting visuals along the diagonal, and detailed tables last. Use white space deliberately; space between visuals is not wasted real estate but a breathing room that improves comprehension. Apply color with intent: brand palette for consistency, neutral tones for base visuals, and accent colors to highlight outliers or alerts (e.g., corporate red for negative variance). Maintain typographic consistency (two font families max, defined heading/body sizes) and align visuals using the grid and snap-to-grid features. Build separate layouts for desktop and the mobile view to ensure usability across devices. Leverage modern slicers released in Oct 2025 (Button slicers, segmented controls, field parameters) to create app-like experiences that keep interaction obvious. Above all, test reports with real users—observe where they pause, what they misunderstand, and iterate until the design supports the narrative without explanation.",
+              keyPoints: [
+                "Match each analytical question to an appropriate chart type before placing visuals",
+                "Arrange the canvas following a visual hierarchy (KPIs first, detail last) to guide attention",
+                "Whitespace, alignment, and consistent typography are fundamental—treat them as data-ink ratios for BI",
+                "Color is a storytelling device: one accent color per message beats rainbow palettes every time",
+                "Design separately for desktop and mobile—Power BI mobile layout requires intentional reflow",
+                "Interactive controls (slicers, buttons, navigation) must look touchable and be easy to reset"
+              ],
+              insiderTips: [
+                "Create a design system: define H1/H2/body text sizes, color palette, and spacing tokens early",
+                "Use the Format painter and Apply to visuals to keep styling consistent without rework",
+                "Lock background elements and grids so only interactive visuals remain selectable",
+                "Add subtle drop shadows or borders only when they reinforce grouping; avoid decorative gradients",
+                "Provide an at-a-glance legend or data glossary on the first page to reduce repeated questions",
+                "Test accessibility with contrast checkers; aim for WCAG AA for text on backgrounds",
+                "Mark critical visuals as spotlight during presentations using the Focus mode",
+                "Bundle default slicers into a slicer panel controlled by a bookmark/button to save canvas space"
+              ],
+              labs: [
+                "Audit an existing report and identify at least three UX issues (poor hierarchy, color misuse, clutter)",
+                "Redesign the layout using the Z-pattern: place three KPI cards top-left, core visuals center, detail bottom",
+                "Create a style guide page in Power BI containing fonts, color swatches, spacing guidelines, and sample visuals",
+                "Swap all categorical legends from rainbow palettes to brand colors + neutral greys; document the rationale",
+                "Build a slicer panel using a button, bookmark, and selection pane to toggle filters on/off",
+                "Duplicate the desktop report page into mobile layout view and optimize placement for phones",
+                "Conduct a five-minute user test: ask a colleague to find three insights; note pain points and iterate"
+              ],
+              tables: [
+                {
+                  title: "Chart Selection Cheat Sheet",
+                  headers: ["Business Question", "Recommended Visual", "Avoid", "Why"],
+                  rows: [
+                    ["Compare categories", "Clustered bar/column", "Pie chart with many slices", "Bars support precise comparison"],
+                    ["Show trends over time", "Line or area chart", "Column chart for dense dates", "Lines emphasize trajectory"],
+                    ["Highlight composition", "Stacked bar or waterfall", "3D charts", "Flat visuals preserve accuracy"],
+                    ["Spot outliers", "Scatter or dot plot", "Tables alone", "Scatter adds context and magnitude"],
+                    ["Display detail", "Matrix/Table", "Overloaded tooltips", "Tables allow sorting, conditional format"]
+                  ]
+                },
+                {
+                  title: "Design System Starter Kit",
+                  headers: ["Element", "Recommendation", "Power BI Feature", "Notes"],
+                  rows: [
+                    ["Typography", "Poppins (headings) + Segoe UI (body)", "Format > General > Text", "Limit to two font families"],
+                    ["Spacing", "16px base grid", "View > Snap to grid", "Keeps alignment consistent"],
+                    ["Color", "Primary brand + neutral grey + alert color", "View > Themes", "Import JSON theme for reuse"],
+                    ["Slicers", "Button slicer (Oct 2025 GA)", "Visualizations pane", "Supports modern, tappable UI"],
+                    ["Navigation", "Bookmark navigator + icon buttons", "Insert > Buttons", "Mimics app-like experience"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -2962,8 +4348,59 @@ export const courseData: Part[] = [
             tags: ["Visualizations"],
             topic: 'Visualizations',
             content: {
-              concept: "Bookmarks capture and save the state of a report page, including all filters, slicers, and visual visibility states",
-              discussion: "The Selection Pane allows visuals to be shown or hidden. The Bookmarks pane saves these states.49 By assigning bookmarks to buttons, a developer can create custom, app-like navigation experiences.106 This is a core technique for \"data storytelling,\" allowing the user to be guided through a narrative",
+              concept: "Bookmarks capture and save the exact state of a report page—filters, slicers, spotlighted visuals, drill mode, and what is visible or hidden. Paired with the Selection pane, bookmarks let you orchestrate guided experiences, pop-out panels, and narrative storytelling without writing code.",
+              discussion: "Think of bookmarks as snapshots and the Selection pane as the layer manager. Use Selection to name every visual layer (e.g., SlicerPanel, KPI_Header, TooltipCard) and control visibility toggles. After arranging the exact layout and filter context you want, open View > Bookmarks and create a bookmark. Options let you choose what the bookmark captures: data (filters, slicers), display (visibility/spotlight), current page, and personal bookmark vs report bookmark. Enabling 'Selected visuals' allows partial updates for advanced scenarios like showing/hiding a slicer panel without resetting filters. Combine bookmarks with buttons or images whose Action property is set to Bookmark navigation; now clicking a button morphs the report from overview to drill-down, or reveals a guided explanation. Use bookmark groups to animate step-by-step stories (Play button with navigator) or to cycle through pre-defined insights. Advanced techniques include button toggles (two overlapping buttons swapping visibility), hero cards that change content via Selection pane, or driving multilingual reports by showing localized text boxes per bookmark. Always keep the Bookmarks and Selection panes open while designing—rename everything for maintainability.",
+              keyPoints: [
+                "Bookmarks store page state: filters, visibility, spotlight, drill mode, sync slicers",
+                "Selection pane controls which visuals are visible for each bookmark snapshot",
+                "Buttons/images trigger bookmarks via Action > Bookmark for app-like navigation",
+                "Bookmark groups create stories, tours, and animated insights",
+                "Use data vs display options strategically—sometimes you only want to change layout",
+                "Rename bookmarks and visuals; undocumented layers quickly become unmanageable"
+              ],
+              insiderTips: [
+                "Prefix visuals in Selection pane (e.g., [Slicer] Region, [Card] Revenue) to stay organized",
+                "Disable 'Data' in bookmark options when you only want to toggle visibility, not reset filters",
+                "Create a 'Reset Filters' bookmark that clears slicers and re-applies default view",
+                "Use button states (default/hover/pressed) with bookmarks for professional UI feedback",
+                "Combine bookmark navigator visual (Oct 2023 update) for automatic navigation menus",
+                "Bookmarks can trigger drill-down modes—set the hierarchy level, capture bookmark, attach to button",
+                "For storytelling, create one bookmark per narrative step and use bookmark navigator to step through",
+                "Document bookmark purpose in a hidden page or Power BI field descriptions for future maintainers"
+              ],
+              labs: [
+                "Open View > Selection and Bookmarks panes; rename every visual on the page for clarity",
+                "Create a slicer panel: group slicers in Selection, set them hidden, create Bookmark 'Slicer Closed' (display only)",
+                "Show slicer panel, reposition visuals, create 'Slicer Open' bookmark; assign toggling bookmarks to a button pair",
+                "Build a three-step narrative: duplicate the page, adjust visuals, create bookmarks (Step 1, Step 2, Step 3), then delete duplicates and keep bookmarks",
+                "Insert a Bookmark navigator visual, connect it to the narrative bookmark group, customize button text/icons",
+                "Create a 'Reset View' button that clears filters using a bookmark capturing default data state",
+                "Optional: Add a tooltip explaining controls—use Selection to show tooltip only in help bookmark"
+              ],
+              tables: [
+                {
+                  title: "Bookmark Types and Use Cases",
+                  headers: ["Bookmark Option", "What It Captures", "Use Case", "Notes"],
+                  rows: [
+                    ["Data + Display", "Filters, slicers, visibility", "Default overview, reset state", "Most common snapshot"],
+                    ["Display only", "Visibility/spotlight", "Toggle slicer panels, tooltips", "Avoids resetting filters"],
+                    ["Selected visuals", "Only chosen visuals", "Swap content in a single placeholder", "Requires careful selection"],
+                    ["Bookmark group", "Ordered list of bookmarks", "Storytelling, step-through tutorials", "Use navigator for UI"],
+                    ["Personal bookmark", "User-specific state", "End-user saved views", "Managed by consumers"]
+                  ]
+                },
+                {
+                  title: "Selection Pane Workflow",
+                  headers: ["Step", "Action", "Purpose", "Tip"],
+                  rows: [
+                    ["1", "Rename visuals logically", "Avoid 'Text box 29' chaos", "Include purpose in name"],
+                    ["2", "Group related visuals", "Toggle multiple items at once", "Use Ctrl+G to group"],
+                    ["3", "Toggle eye icons", "Manage visibility per bookmark", "Hidden eyes not exported"],
+                    ["4", "Lock static elements", "Prevent accidental moves", "Use lock icon after placement"],
+                    ["5", "Capture bookmark", "Save current state", "Verify options before saving"]
+                  ]
+                }
+              ]
             },
           },
           {

@@ -581,3 +581,6 @@ Based on: You've completed 3 DAX lessons. This builds on Row Context.
 **Next Review:** After Phase 1 implementation
 
 
+
+
+
