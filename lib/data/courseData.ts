@@ -4579,8 +4579,58 @@ export const courseData: Part[] = [
             tags: ["Visualizations"],
             topic: 'Visualizations',
             content: {
-              concept: "A report should be more than a collection of charts; it must be a narrative that leads to a decision",
-              discussion: "An effective data story follows a clear flow: 1. Set the Context (what are we looking at?). 2. Present the key Finding (e.g., \"Sales are down 15%\"). 3. Drill down to the \"Why\" (e.g., \"...this is driven entirely by the East region\"). 4. Propose an Action (e.g., \"Investigate East region logistics\").108 This can be enhanced with annotations and dynamic text measures",
+              concept: "A report should be more than a collection of charts; it must be a narrative that leads to a specific decision or action. Data storytelling combines analytical accuracy with communication techniques so stakeholders remember, trust, and act on the insights you surface.",
+              discussion: "Every effective story—whether in journalism or analytics—follows a structure: setup, conflict, resolution. In BI terms this is Context (baseline, targets, expectation), Insight (what is changing, surprising, or broken), Diagnostic (why it is happening), and Recommendation (what to do next). Power BI provides narrative building blocks: dynamically generated text using DAX measures (`FORMAT`, `SELECTEDVALUE`, `CONCATENATEX`), annotations, shapes, icons, smart narratives (Oct 2024 AI update), and bookmarks to sequence views. Start each page with a headline that states the main takeaway in plain language, e.g., \"Q4 revenue missed target by 8%, driven by supply delays in the East\". Support that headline with one hero visual (e.g., variance waterfall) and one diagnostic visual (e.g., decomposition tree). Use callout boxes or smart narrative bullet points to summarize key drivers in natural language. Annotate directly on visuals—arrows, shaded regions, text labels—to draw attention. Sequence complex stories using bookmark navigator or buttons labelled Step 1/2/3. Keep cognitive load low by only presenting visuals that advance the narrative; move background supporting data to drill-through pages or tooltips. Close each story with a recommended action and owner to convert insight into accountability. For executives, prepare an appendix tab with methodology, definitions, and data refresh cadence to anticipate credibility questions.",
+              keyPoints: [
+                "Structure pages as Context → Insight → Why → Action; avoid dumping raw charts without guidance",
+                "Lead with a narrative headline written like a news title, not a chart label",
+                "Use dynamic text measures (Smart Narrative, cards, DAX-powered text boxes) to keep narrative in sync with filters",
+                "Annotate directly on visuals to highlight inflection points, outliers, or business events",
+                "Sequence walkthroughs with bookmarks or buttons for board meetings or recorded demos",
+                "End with explicit action, owner, and timeline to convert analysis into execution"
+              ],
+              insiderTips: [
+                "Write the story before opening Power BI—define audience, decision, and questions; design visuals to answer them",
+                "Create a glossary page with business definitions and measure formulas to build trust",
+                "Use Smart Narrative visual to auto-generate summary text, then edit for tone/clarity",
+                "Pair KPIs with contextual indicators (trend sparkline, variance vs target) to prevent misinterpretation",
+                "Leverage `VAR` + `RETURN` in DAX to craft reusable narrative snippets (e.g., dynamic YoY sentences)",
+                "Log significant business events in a lookup table and join to add contextual annotations (product launch, weather event)",
+                "Rehearse the narrative with stakeholders; note where they pause or question and refine the flow accordingly",
+                "Keep visuals scoped: each should answer one question; if it answers two, split it"
+              ],
+              labs: [
+                "Define a narrative brief: audience, core question, desired action; document it in the report notes",
+                "Create a headline measure using DAX (`Headline = \"Q\" & SELECTEDVALUE(Date[Quarter]) & \" revenue is \" & FORMAT([Revenue Variance],\"0.0%\") & \" vs plan\"`)",
+                "Add a Smart Narrative visual and customize the generated summary to align with executive tone",
+                "Annotate a line chart with callout shapes for key inflection points (peak, trough, event)",
+                "Build a bookmark-driven walkthrough: Step 1 (Overview), Step 2 (Driver Analysis), Step 3 (Action Items)",
+                "Add a conclusions card with action + owner using concatenated DAX (e.g., `\"Action: \" & [Recommended Action] & \" – Owner: \" & [Action Owner]`)",
+                "Host a five-minute dry run with a colleague; capture feedback and iterate on the storytelling flow"
+              ],
+              tables: [
+                {
+                  title: "Storytelling Framework",
+                  headers: ["Stage", "Purpose", "Questions to Answer", "Typical Visuals"],
+                  rows: [
+                    ["Context", "Establish baseline and goal", "Where are we vs plan? What matters?", "KPI cards, variance charts, narrative headline"],
+                    ["Insight", "Reveal what changed", "What is different, surprising, urgent?", "Waterfall, variance bar, anomaly detection"],
+                    ["Diagnosis", "Explain why it changed", "Which segments or drivers are responsible?", "Decomposition tree, drill-down bar, scatter"],
+                    ["Action", "Drive decision", "What should we do, by when, and who owns it?", "Text card, action checklist, bookmark link to plan"]
+                  ]
+                },
+                {
+                  title: "Narrative Building Blocks in Power BI",
+                  headers: ["Feature", "Use Case", "How to Configure", "Tips"],
+                  rows: [
+                    ["Smart Narrative", "Auto-summarize visuals", "Insert visual → Edit text", "Edit for tone; pin key metrics as smart fields"],
+                    ["Dynamic Text (DAX)", "Custom sentences", "Text box → Insert field value", "Use `FORMAT` for numbers, `COALESCE` for blanks"],
+                    ["Annotations & Shapes", "Callouts, highlights", "Insert → Shapes/Callouts", "Use consistent color scheme; lock after placing"],
+                    ["Bookmark Navigator", "Step-by-step story", "Insert → Navigator → Bookmark", "Rename bookmarks to chapter titles"],
+                    ["Tooltips/Drill-through", "Provide context without clutter", "Configure tooltip page", "Add back button, highlight context filters"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -4594,8 +4644,58 @@ export const courseData: Part[] = [
             tags: ["Visualizations"],
             topic: 'Visualizations',
             content: {
-              concept: "Expanding Power BI's capabilities by importing new visuals from the AppSource marketplace",
-              discussion: "Demonstrate how to find, import, and use a popular custom visual (e.g., a Word Cloud or Sankey diagram) when standard visuals are not enough.NEW",
+              concept: "Expanding Power BI's capabilities by importing new visuals from Microsoft AppSource or certified partner galleries unlocks chart types and UI components that go beyond the built-in set. Custom visuals fill gaps for advanced storytelling (Sankey, Gantt, Bullet charts), governance (InfoRiver, Zebra BI), or specialized industries.",
+              discussion: "AppSource hosts hundreds of custom visuals created by Microsoft, partners, and the community. Before importing, evaluate visuals on four dimensions: certification (Microsoft-certified visuals follow security and quality checks), licensing (free, freemium, or paid enterprise), capability fit, and performance. To add a visual: open the Visualizations pane, click the ellipsis (…) → 'Get more visuals', search (e.g., 'Sankey'), review description/screenshots, check certification badge, click 'Add'. The visual now appears in the pane for all report pages. Some visuals (especially enterprise ones) may require sign-in or license keys via the Format pane. Manage custom visuals across a tenant using the Power BI Admin Portal (Tenant settings → Custom visuals) to allow, block, or deploy approved visuals. Best practice is to curate an organizational visual library: download `.pbiviz` files, host them in SharePoint or Teams, and distribute via 'Import a visual from a file' so all creators use vetted versions. From a design perspective, always ensure custom visuals support core needs: tooltips, cross-highlighting, bookmarks, accessibility, export to PDF. Test them on desktop and mobile for responsiveness. Some enterprise visuals (Zebra BI, xViz, Inforiver) offer built-in variance analysis, finance statements, editable tables, or writeback capabilities—great for FP&A teams. Remember that un-certified visuals cannot be exported to PowerPoint/PDF when used in service, and they may be disabled in strict tenant policies.",
+              keyPoints: [
+                "Custom visuals extend Power BI beyond built-in charts for storytelling, finance, and operational scenarios",
+                "Use Microsoft-certified visuals when possible for security, export, and enterprise feature support",
+                "Curate an organizational visual library to ensure consistency and compliance",
+                "Evaluate visuals for performance, accessibility, mobile support, and interactivity (drill, bookmarks, tooltips)",
+                "Tenant admins can allow or block visuals via Admin Portal—coordinate with governance teams",
+                "Document which custom visuals are used in each report for maintenance and licensing audits"
+              ],
+              insiderTips: [
+                "Add visuals to Favorites in AppSource to build a vetted list for your team",
+                "Use `.pbiviz` files stored in SharePoint and import them—ensures everyone uses same version",
+                "Review update history and support responsiveness before relying on third-party visuals in production",
+                "Test custom visuals in the Power BI Service; some behave differently than in Desktop",
+                "Check if visual supports themes and accessibility (keyboard navigation, screen readers)",
+                "For financial statements, compare Zebra BI vs Inforiver vs Power ON; each has different licensing",
+                "Monitor performance—complex visuals on large datasets can slow render time; consider aggregations",
+                "Keep contingency plan—if a vendor discontinues a visual, have an alternative built-in chart ready"
+              ],
+              labs: [
+                "Open AppSource from the Visualizations pane and search for 'Sankey'—add the Microsoft-certified Sankey chart",
+                "Import the visual into a sample report and map Source, Destination, and Weight fields; verify cross-filtering works",
+                "Download a `.pbiviz` file (e.g., Zebra BI Demo) and import from file; configure advanced variance layout",
+                "Create a comparison table with both native and custom visuals showing the same data; assess readability and performance",
+                "Review tenant settings (if you have admin access) to understand how custom visuals are governed in your organization",
+                "Document custom visuals used in the report, including version number and licensing status, in a metadata table"
+              ],
+              tables: [
+                {
+                  title: "Custom Visual Evaluation Checklist",
+                  headers: ["Criteria", "Questions to Ask", "Why It Matters"],
+                  rows: [
+                    ["Certification", "Is there a blue check badge?", "Certified visuals comply with Microsoft security standards"],
+                    ["Licensing", "Is it free, trial, or paid?", "Avoid surprises during deployment; budget accordingly"],
+                    ["Feature Fit", "Does it support tooltips, drill, formatting, export?", "Ensures it meets user expectations"],
+                    ["Performance", "How does it render on large datasets?", "Maintains report responsiveness"],
+                    ["Support", "Does vendor have documentation and updates?", "Reduces risk if issues arise"]
+                  ]
+                },
+                {
+                  title: "Popular Custom Visual Categories",
+                  headers: ["Category", "Example Visuals", "Use Case"],
+                  rows: [
+                    ["Flow & Network", "Sankey Chart, Chord diagram", "Customer journey, logistics flow"],
+                    ["Financial", "Zebra BI, Inforiver, Acterys Matrix", "P&L statements, variance, budgeting"],
+                    ["Project & Planning", "Gantt Chart, Timeline storyteller", "Project tracking, roadmaps"],
+                    ["Advanced Tables", "HTML Viewer, PowerApps Visual", "Rich formatting, writeback workflows"],
+                    ["Infographics/UI", "Card with States, Chiclet Slicer", "Branded navigation, KPI storytelling"]
+                  ]
+                }
+              ]
             },
           },
         ],
@@ -4617,30 +4717,58 @@ export const courseData: Part[] = [
             tags: ["Data Modeling"],
             topic: 'Business Intelligence',
             content: {
-              concept: "The Key Influencers visual is an AI-powered visual that automatically analyzes your data to identify what factors drive a specific metric or outcome. It answers questions like 'What influences a customer to churn?' or 'What drives high sales performance?'",
-              discussion: "This visual uses machine learning algorithms to analyze relationships in your data and identify the factors that most strongly influence a target metric. Unlike traditional analysis where you manually explore relationships, Key Influencers does this automatically. It works by analyzing categorical and numeric fields to determine which values are associated with higher or lower instances of your target metric. The visual displays results showing both positive influences (factors that increase the metric) and negative influences (factors that decrease it), along with statistical confidence levels.",
-              labs: [
-                "Add the Key Influencers visual to your report",
-                "Set 'Total Profit' as the measure to analyze",
-                "Set 'Explain by' to include fields like Product Category, Region, Customer Segment, Sales Rep",
-                "Run the analysis and review the influencers",
-                "Interpret the results: Which factors contribute most to High Profit?",
-                "Drill down into specific influencers to understand the relationships",
-                "Compare positive vs. negative influencers",
-                "Use insights to inform business decisions"
-              ],
+              concept: "The Key Influencers visual is an AI-powered explanation tool that ranks the strongest drivers behind a chosen outcome (categorical or numeric). It democratizes root-cause analysis: instead of manually creating dozens of slices, the visual evaluates combinations of fields, surfaces statistically significant influencers, and quantifies their impact with intuitive statements such as \"Customers on Premium plan are 3.2x more likely to renew.\"",
+              discussion: "Behind the scenes, the visual runs logistic regression (for categorical targets) or linear models (for numeric targets) over the columns you place in the Explain-by bucket. It automatically handles binning of continuous variables (age, revenue) and cross-features (region × product). Results appear in two tabs: *Top segments* shows meaningful cohorts with increased probability of the desired outcome, while *Key influencers* ranks individual factors. Each card displays impact (increase factor or average difference), a visual distribution, and a quality band (high/medium/low). To get trustworthy results you must prepare clean, flattened data (no DirectQuery to unsupported sources, no unsupported data types), remove high-cardinality text columns, and be mindful of filters (the analysis is performed after report filters). The visual also supports \"What happens if\" simulations, letting users adjust numeric sliders to see effect on probability. Because it is exploratory, analysts should corroborate findings with business context before acting.",
               keyPoints: [
-                "Key Influencers automatically discovers relationships you might not find manually",
-                "Works best with categorical data and clearly defined target metrics",
-                "Results include statistical confidence to help you trust the insights",
-                "Great for exploratory analysis when you don't know what to look for"
+                "Target must be a measure or column placed in Analyze; categorical (binary/multi-class) and numeric targets are both supported",
+                "Explain-by accepts columns and measures; best practice is 3–7 well-modeled features to avoid noise",
+                "Results show strength (impact), statistical significance, and distribution so analysts can validate reliability",
+                "Filters/slicers applied to the page change the training data on the fly—use bookmarks to lock contexts",
+                "Key Influencers is not causal inference; treat insights as hypotheses to validate",
+                "The visual requires imported (or Premium DirectQuery with AI workloads enabled) data; Live Connect to SSAS not supported"
               ],
               insiderTips: [
-                "Use with clean, well-structured data for best results",
-                "Combine with other visuals to validate findings",
-                "Don't confuse correlation with causation—use business knowledge to interpret",
-                "Key Influencers works well for binary outcomes (High/Low, Yes/No, Churn/Retain)",
-                "Include 3-5 relevant fields in 'Explain by'—too many can dilute insights"
+                "Create calculated columns to bin continuous metrics (e.g., Age Group) for clearer influencer statements",
+                "Remove ID-like columns (OrderID, CustomerID) from Explain-by—they create thousands of categories and slow processing",
+                "Use the \"Top segments\" tab to uncover combinations of factors; export segments to CSV for follow-up campaigns",
+                "Enable \"Only show influencers with high quality\" when presenting to executives to avoid lower-confidence cards",
+                "Combine with Decomposition Tree: take a top segment, then explore it deeper in the tree visual",
+                "Document any filters applied when sharing screenshots—different filters produce different influencers",
+                "Refresh the data model before analysis; stale caches may misrepresent recent behavior",
+                "Train stakeholders to read the impact metric correctly (e.g., 2.5x = 150% increase in likelihood)"
+              ],
+              labs: [
+                "Prepare data: create Age Group and Tenure Band columns, remove high-cardinality IDs from the model",
+                "Insert Key Influencers visual; place `Is Churned` in Analyze and relevant features (Plan Type, Tenure Band, Support Tickets, Region) in Explain-by",
+                "Interpret top influencer cards—note impact, quality, and distribution; capture findings in report notes",
+                "Switch to Top Segments tab; export a high-risk segment to Excel and discuss targeted retention actions",
+                "Use 'What happens if' slider on numeric feature (Support Tickets) to simulate reducing tickets by 20%",
+                "Add a bookmark capturing the filtered state (e.g., North America) to compare influencers by geography",
+                "Create a matrix visual alongside showing actual churn rate by segment to validate the AI output",
+                "Document three recommended business actions based on the influencers discovered"
+              ],
+              tables: [
+                {
+                  title: "Data Readiness Checklist for Key Influencers",
+                  headers: ["Step", "Action", "Why It Matters", "Tools"],
+                  rows: [
+                    ["1", "Flatten table (no duplicate rows per entity)", "Model expects one row per customer/event", "Power Query merge/group"],
+                    ["2", "Handle missing values", "Nulls degrade model accuracy", "Power Query fill/replace"],
+                    ["3", "Limit Explain-by features", "Too many columns add noise", "Model diagram review"],
+                    ["4", "Create bins for continuous fields", "Produces readable influencer statements", "Power Query `Number.RoundDown`"],
+                    ["5", "Verify filters", "Filters define training dataset", "Bookmarks / filter pane"]
+                  ]
+                },
+                {
+                  title: "Interpreting Influencer Cards",
+                  headers: ["Card Element", "Description", "Analyst Question"],
+                  rows: [
+                    ["Impact metric", "Shows factor increase/decrease vs baseline", "Is the effect large enough to matter?"],
+                    ["Quality band", "High/medium/low indicator of statistical confidence", "Is sample size sufficient?"],
+                    ["Distribution chart", "Displays how metric behaves across categories", "Is behavior consistent or skewed?"],
+                    ["Top segments link", "Moves to segment view for cohort analysis", "Which combination of features needs action?"]
+                  ]
+                }
               ]
             },
           },
@@ -4655,33 +4783,61 @@ export const courseData: Part[] = [
             tags: ["Data Modeling"],
             topic: 'Business Intelligence',
             content: {
-              concept: "The Decomposition Tree is an AI-powered visual that allows users to dynamically explore data by breaking down a measure across multiple dimensions in a flexible, ad-hoc way. It's perfect for root-cause analysis and answering 'why' questions.",
-              discussion: "The Decomposition Tree provides an interactive way to drill down into data to understand what's driving a metric. Users can click on different branches to explore the data hierarchy, and the visual automatically suggests the next best dimension to drill into based on impact. It supports both manual exploration (user chooses dimensions) and AI-driven exploration (visual suggests optimal paths). This makes it powerful for ad-hoc analysis where users want to investigate anomalies or understand variance. The tree structure visually represents the hierarchical breakdown, making it easy to see how different dimensions contribute to the overall metric.",
-              labs: [
-                "Add the Decomposition Tree visual to your report",
-                "Set 'Total Sales' as the measure to decompose",
-                "Add dimensions: Region, Product Category, Sub-Category, Sales Rep",
-                "Start at the root level to see total sales",
-                "Manually drill down: Click on a Region to see sales by that region",
-                "Continue drilling: Select a Category within that region",
-                "Use AI suggestions: Let the visual suggest optimal drill-down paths",
-                "Switch between different analysis paths to explore multiple perspectives",
-                "Use the 'Find where' feature to quickly locate high or low values",
-                "Reset and explore different starting points"
-              ],
+              concept: "The Decomposition Tree is an AI-assisted visual for root-cause analysis. Starting from a metric (Total Sales, Margin %, Support Tickets), it allows users to split the value by multiple dimensions in any order, guided either by their intuition or by the built-in AI that recommends the next best split. The result is an interactive decision tree that highlights how each dimension contributes to the metric.",
+              discussion: "Unlike static drill-down hierarchies, the tree lets you mix dimensions on the fly: Region → Product → Channel or Product → Customer Segment → Sales Rep. Users click the + icon to choose the next field manually, or pick the lightbulb icon to let AI decide which split creates the greatest difference (high value, low value, or absolute impact). Each node shows the contribution as a bar length and value, with optional KPI status coloring. The \"High value\" analysis finds the branch that maximizes the metric; \"Low value\" finds underperformers; \"Explain by\" configuration determines eligible fields. The \"Find where\" search bar can locate outliers automatically (e.g., \"Find where Profit Margin is lowest\"), instantly expanding the tree to reveal the responsible branch. Because the tree recalculates as filters change, analysts can isolate time periods, geographies, or scenarios effortlessly. The visual supports conditional formatting, tooltips, and drill-through to detailed pages, making it a versatile exploratory companion to dashboards.",
               keyPoints: [
-                "Decomposition Tree enables flexible, interactive root-cause analysis",
-                "AI suggestions guide users to the most impactful dimensions",
-                "Supports both hierarchical (pre-defined) and ad-hoc exploration",
-                "Visual representation makes complex breakdowns easy to understand"
+                "Requires one measure in Analyze and a set of categorical or binned numeric columns in Explain by",
+                "Supports manual exploration and AI-driven splits (High Value, Low Value, Absolute Value)",
+                "Displays cumulative contribution at each branch, helping quantify impact (e.g., Region = East accounts for 42% of sales)",
+                "Find feature automatically builds the path to the most extreme values, accelerating anomaly investigation",
+                "Bookmarks can capture specific trees to tell a story or share key findings with leadership",
+                "Works best on aggregated, clean datasets; excessive cardinality slows performance"
               ],
               insiderTips: [
-                "Best used for exploratory analysis when investigating specific issues",
-                "Great for executive presentations—let them explore interactively",
-                "Use 'Find where' feature to quickly locate problem areas",
-                "Combine with Key Influencers: Use Key Influencers to find what matters, Decomposition Tree to explore it",
-                "Limit dimensions to 5-7 for best performance and usability",
-                "Works particularly well with sales, revenue, and performance metrics"
+                "Pre-bin continuous fields (e.g., Margin Buckets) to keep branches readable and performant",
+                "Use conditional formatting to color branches by KPI status or variance vs target",
+                "Pair with anomaly detection: locate spike via line chart, select date, then use tree to explain cause",
+                "Limit Explain-by list to the 6–8 most relevant dimensions—too many choices overwhelm users",
+                "Right-click any node to add it as a filter for other visuals or to drill through to a detail page",
+                "Use the \"Analyze\" dropdown at the top right to switch between High/Low/Absolute value scenarios during presentations",
+                "Export the tree path using the Data > Export data option for offline analysis",
+                "When presenting, collapse unused branches to avoid clutter and focus the audience"
+              ],
+              labs: [
+                "Add the Decomposition Tree visual; place `Total Gross Margin` in Analyze",
+                "Add Explain-by fields: Region, Product Category, Channel, Customer Segment, Sales Rep",
+                "Run High Value AI split; note which branch the algorithm selects and why",
+                "Switch to Low Value mode to identify underperforming combinations; capture screenshot for action log",
+                "Use manual splits to test hypotheses (e.g., first split by Product Category). Compare results with AI path",
+                "Leverage the Find feature: search \"Where is Margin % lowest?\" and inspect the generated branch",
+                "Add conditional formatting to color nodes below target red and above target green",
+                "Create a bookmark titled \"Margin Issue – East\" capturing the expanded path; use it in a narrative presentation",
+                "Optional: add a drill-through button from the node to a transaction-level detail page",
+                "Summarize three insights derived from the tree and assign owners for follow-up"
+              ],
+              tables: [
+                {
+                  title: "Decomposition Tree Configuration Cheat Sheet",
+                  headers: ["Setting", "Purpose", "Best Practice", "Where to Configure"],
+                  rows: [
+                    ["Analyze field", "Metric to explain", "Use measures with meaningful aggregation", "Visual field well"],
+                    ["Explain by", "Candidate dimensions", "Limit to relevant categorical/binned fields", "Visual field well"],
+                    ["AI Mode", "High/Low/Absolute value guidance", "Switch during analysis to view different extremes", "On-visual dropdown"],
+                    ["Find feature", "Auto-build path to condition", "Use for quick anomaly localization", "Visual header search"],
+                    ["Conditional formatting", "Color nodes by metric/KPI", "Highlight thresholds for faster storytelling", "Format pane > Bars"]
+                  ]
+                },
+                {
+                  title: "When to Use Decomposition Tree vs Alternatives",
+                  headers: ["Scenario", "Best Tool", "Why"],
+                  rows: [
+                    ["Need to quantify contribution by multiple dimensions", "Decomposition Tree", "Shows cumulative impact at each branch"],
+                    ["Need to see distribution across one dimension only", "Bar/Column Chart", "Simpler comparison"],
+                    ["Need to discover statistically strongest drivers", "Key Influencers", "Ranks drivers automatically"],
+                    ["Need static drill structure for repeated use", "Hierarchical drill-down", "Predictable drill path"],
+                    ["Need to explain change over time", "Waterfall + Decomposition Tree", "Waterfall for change, tree for drivers"]
+                  ]
+                }
               ]
             },
           },
@@ -4696,33 +4852,60 @@ export const courseData: Part[] = [
             tags: ["AI Features", "Visualizations", "Data Modeling", "DAX", "Time Intelligence"],
             topic: 'DAX',
             content: {
-              concept: "Power BI includes built-in AI features directly in line charts that automatically detect anomalies (unexpected spikes or dips) and generate time-series forecasts. These features require no machine learning expertise—they're accessible with a single click.",
-              discussion: "Anomaly Detection uses machine learning to identify data points that deviate significantly from expected patterns in your time series data. It analyzes historical trends and seasonality to flag unusual values that may require investigation. The Forecasting feature uses time series analysis to predict future values based on historical patterns. It considers trends, seasonality, and cycles to generate forecasts with confidence intervals. Both features are powered by Azure Machine Learning but require no setup—they work automatically when enabled on a line chart with a date axis. These AI capabilities transform static charts into intelligent insights that help users identify issues and plan for the future.",
-              labs: [
-                "Create a line chart showing 'Sales over Time' with a date field on the X-axis",
-                "Enable Anomaly Detection: Right-click the chart, select 'Analyze', then 'Detect anomalies'",
-                "Review detected anomalies: Examine the flagged data points",
-                "Understand anomaly explanations: Read why each point is considered anomalous",
-                "Disable anomaly detection and enable Forecasting",
-                "Set forecast parameters: Specify number of periods to forecast (e.g., 3 months)",
-                "Review forecast: Examine predicted values and confidence intervals",
-                "Adjust forecast settings: Modify seasonality and trend assumptions if needed",
-                "Compare forecast to actuals (if available) to assess accuracy",
-                "Combine both features: Enable both anomaly detection and forecasting on the same chart"
-              ],
+              concept: "Power BI line charts include two embedded AI capabilities—Anomaly Detection and Forecasting—that elevate monitoring dashboards into diagnostic and planning tools. With a few clicks you can surface unexpected spikes or dips (with auto-generated explanations) and project future values with confidence intervals, all without leaving the visual or invoking external ML services.",
+              discussion: "Anomaly Detection applies statistical models that consider trend and seasonal patterns to flag points outside an expected band. It produces contextual explanations (e.g., “Product = Accessories contributed the most to the anomaly”) drawing on correlated fields you specify. Forecasting leverages exponential smoothing to extend the series; you can control horizon, seasonality, confidence interval, and ignore last x data points (useful for partial periods). Both features run client-side using the dataset already loaded into Power BI, but they require evenly spaced time series—missing periods or inconsistent granularity reduce accuracy. Analysts should treat the outputs as decision-support, not oracles: confirm anomalies against operational events, overlay forecast ranges with budget targets, and keep metadata describing assumptions. Combine these features with bookmarks to create before/after stories (e.g., anomaly found → drill to decomposition tree). Export to Excel or use Analyze in Excel to share predicted values with finance teams.",
               keyPoints: [
-                "Anomaly Detection helps identify outliers that may indicate problems or opportunities",
-                "Forecasting provides data-driven predictions for planning and budgeting",
-                "Both features work automatically—no machine learning setup required",
-                "Confidence intervals in forecasts show the range of uncertainty"
+                "Enable anomaly detection via Analyze > Detect anomalies, configure sensitivity, and provide fields for explanations",
+                "Forecasting is available in line, area, and combo charts with a time axis; adjust seasonality manually when auto-detection is inaccurate",
+                "Both features visualize confidence ranges so stakeholders understand uncertainty; narrower bands indicate higher confidence",
+                "Unsupported in DirectQuery mode unless the model resides in Premium with AI workloads enabled—most use cases require Import",
+                "Anomaly explanations rely on additional fields (e.g., Product, Region); supply them via the analysis pane for richer insights",
+                "Use slicers/filters to focus the model on relevant periods (e.g., last 24 months) before running detection/forecast"
               ],
               insiderTips: [
-                "Anomaly Detection works best with consistent, regularly-spaced time series data",
-                "Review anomalies with business context—some 'anomalies' may be expected events",
-                "Forecasts assume historical patterns will continue—adjust for known future changes",
-                "Use forecasting for short to medium-term predictions (3-12 months) for best accuracy",
-                "Both features require sufficient historical data (at least 2-3 full cycles for seasonality)",
-                "Enable these features in final reports to provide value to end users automatically"
+                "Fill missing dates with zero/filler rows in Power Query to maintain regular cadence before enabling these features",
+                "Lower sensitivity to reduce noise if you are seeing too many minor anomalies; raise it when searching for subtle shifts",
+                "When a known business event occurred (marketing campaign, supply outage), annotate the chart with shapes or dynamic text to contextualize anomalies",
+                "Use 'Ignore last' option in forecasting to exclude partial months that under-report performance near period close",
+                "Export anomaly results to CSV from the Analyze pane for audit trails or root-cause tickets",
+                "Compare forecast outputs with scenario-based DAX measures (e.g., stretch plan) to frame best/worst cases",
+                "Test forecasts with holdout validation: hide recent data, generate forecast, then unhide to measure accuracy",
+                "Turn off forecasting before printing static reports to avoid stakeholder confusion when interactive explanations are unavailable"
+              ],
+              labs: [
+                "Ensure the Date table has contiguous daily or monthly rows; use Power Query to fill gaps if necessary",
+                "Create a line chart with `Date[Month]` on Axis and `Sales Amount` on Values; add Region and Product to the 'Explain by' bucket in the Analyze pane",
+                "Enable anomaly detection, set Sensitivity to 70, and review the cards generated—record the top three explanations",
+                "Adjust sensitivity to 40 and note how the number of anomalies changes; decide which level balances noise vs insight",
+                "Enable Forecasting, set Forecast length to 6 months, Confidence to 80%, and Ignore last to 1 month; capture the forecast table for handoff to FP&A",
+                "Manually set Seasonality to 12 (months) if auto-detected seasonality is incorrect; compare graphs before/after",
+                "Use a slicer to isolate a specific product line (e.g., Accessories) and repeat anomaly detection to see product-specific behavior",
+                "Create a bookmark with anomalies enabled and another showing forecast; use buttons to toggle between \"What happened\" and \"What’s next\" views",
+                "Export anomaly results (Analyze pane > Export data) and share with operations for validation",
+                "Document assumptions (data cadence, ignored periods, seasonality) in a text box adjacent to the visual for transparency"
+              ],
+              tables: [
+                {
+                  title: "Anomaly Detection Parameters",
+                  headers: ["Setting", "Description", "Guideline", "Where to Adjust"],
+                  rows: [
+                    ["Sensitivity", "Controls how many points are flagged", "Start at 70; decrease for fewer alerts", "Analyze pane > Detect anomalies"],
+                    ["Fields to analyze", "Columns used for explanation", "Add relevant categorical fields (Region, Product)", "Analyze pane > Explain by"],
+                    ["Expected range color", "Shaded band for normal values", "Match corporate color scheme", "Format pane > Data colors"],
+                    ["Anomaly shape", "Marker style for flagged points", "Use contrasting color for accessibility", "Format pane > Shapes"]
+                  ]
+                },
+                {
+                  title: "Forecast Configuration Cheat Sheet",
+                  headers: ["Option", "Purpose", "Best Practice", "Notes"],
+                  rows: [
+                    ["Forecast length", "Number of future periods", "Align with planning horizon (3, 6, 12 months)", "Longer horizons widen confidence intervals"],
+                    ["Confidence interval", "Probability band", "80% for operational, 95% for risk conversations", "Displayed as shaded area"],
+                    ["Seasonality", "Cycle length", "Enable manual override when data has known seasonality", "Set to number of periods per cycle"],
+                    ["Ignore last", "Exclude incomplete periods", "Use 1 for monthly data mid-month", "Prevents under-forecasting near period close"],
+                    ["Trend line", "Underlying trend component", "Toggle on to visualize baseline direction", "Helps in presentations"]
+                  ]
+                }
               ]
             },
           },
@@ -4752,8 +4935,60 @@ export const courseData: Part[] = [
             tags: ["Visualizations"],
             topic: 'Visualizations',
             content: {
-              concept: "Using the \"Publish\" button in Power BI Desktop to send the .pbix file to the cloud (Power BI Service)",
-              discussion: "A tour of the Service UI, identifying the three main content types: Workspaces, Reports, and Semantic Models (the new name for Datasets)",
+              concept: "Publishing pushes your Power BI Desktop (.pbix) report into the Power BI Service, transforming a local analysis into a cloud-hosted asset that supports collaboration, scheduled refresh, governance, and distribution. Understanding what gets published (semantic model, report, potential dataflow dependencies) and how it appears in the Service is foundational to enterprise deployments.",
+              discussion: "When you click Publish in Desktop, Power BI packages the model (formerly called dataset, now semantic model) plus the report definition and uploads them to the selected workspace. After the upload, the Service creates three objects: the report (interactive pages), the semantic model (in-memory model powering queries), and (if applicable) a dataflow link. The Service UI organizes content into navigation hubs—**Home** (recent/favorites), **Browse** (all workspaces and apps), **Create** (build new reports/dataflows), and **Workspaces** (collaboration folders). Inside a workspace, you'll find tabs for Content, Datasets (Semantic models), Dataflows, and Datamarts. Each object has its own settings: refresh schedules, permissions, endorsement (Promoted/Certified), lineage view, and usage metrics. After publishing you should validate data freshness, rebind any data source credentials, and test report behavior in the Service (particularly for RLS and row filters). Developers should also pin critical visuals to dashboards or add the report to an App for consumers.",
+              keyPoints: [
+                "Publishing uploads both the report definition and the semantic model to a workspace",
+                "Service UI separates objects: Reports (front-end), Semantic Models (data engine), Dataflows (ETL)",
+                "Post-publish checklist: update credentials, configure refresh, test RLS, validate visuals",
+                "The Service offers lineage view, usage metrics, endorsements, and sensitivity labeling for governance",
+                "Choose workspaces carefully—publish to DEV/TEST before PROD to follow deployment pipelines"
+              ],
+              insiderTips: [
+                "Name semantic models distinctly from reports (`SalesModel` vs `Sales Report`) to avoid confusion",
+                "Use deployment pipelines (Premium feature) to move content from Dev → Test → Prod without republishing from Desktop",
+                "After publishing, open Settings > Semantic model to configure gateway/refresh before sharing with users",
+                "Enable Usage metrics to monitor adoption and identify stale content",
+                "Leverage the Lineage view to visualize dependencies (dataflows → semantic models → reports → apps)",
+                "Promote or certify semantic models to signal trustworthiness across the organization",
+                "Bookmark the Service URL of key reports; use it in Teams/SharePoint integrations"
+              ],
+              labs: [
+                "Publish `SalesPerformance.pbix` to the DEV workspace; note the newly created report and semantic model",
+                "In the Service, navigate to the workspace, open Settings > Semantic model, and configure refresh credentials",
+                "View the lineage tab to understand upstream (dataflow) and downstream (report/dashboard) connections",
+                "Enable Usage metrics for the published report and review the generated report to monitor adoption",
+                "Promote the semantic model (if you have permissions) and add a description explaining its purpose",
+                "Test the report in the Service: switch to different RLS roles (View as role) to ensure security behaves correctly",
+                "Pin a key KPI visual to a new dashboard to create a monitoring tile for leadership",
+                "Capture the share link and post it in a Teams channel with context for the team"
+              ],
+              tables: [
+                {
+                  title: "Publish/Post-Publish Checklist",
+                  headers: ["Step", "Action", "Reason"],
+                  rows: [
+                    ["1", "Verify workspace target", "Ensure report lands in correct DEV/TEST/PROD area"],
+                    ["2", "Update credentials/gateway", "Enable scheduled refresh without failures"],
+                    ["3", "Set refresh schedule", "Keep semantic model current"],
+                    ["4", "Configure RLS roles", "Enforce data security for end users"],
+                    ["5", "Promote or certify model", "Signal trust to other creators"],
+                    ["6", "Document description/owner", "Help consumers know who maintains the report"],
+                    ["7", "Add to App/dashboard", "Prepare for end-user consumption"]
+                  ]
+                },
+                {
+                  title: "Navigating the Power BI Service",
+                  headers: ["Area", "Purpose", "Typical Actions"],
+                  rows: [
+                    ["Home", "Recent and recommended content", "Open frequent reports, favorites"],
+                    ["Browse", "Access workspaces, shared content", "Find reports across organization"],
+                    ["Create", "Build new shared datasets, reports", "Use quick create, datamarts"],
+                    ["Workspaces", "Collaboration folders for teams", "Manage content, update settings, view lineage"],
+                    ["Apps", "Curated packages for consumers", "Install, update, explore packaged reports"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -4769,6 +5004,30 @@ export const courseData: Part[] = [
             content: {
               concept: "In the Power BI Service, Reports and Dashboards are distinct entities, and the terms are not interchangeable. A Dashboard is a feature unique to the Power BI Service (not available in Desktop).",
               discussion: "A Report is the multi-page, interactive analysis created in Power BI Desktop and published to the Service. Reports are designed for deep-dive analysis with full interactivity including cross-filtering, drill-through, and bookmarks. A Dashboard is a single-page monitoring tool created directly in the Service. Visuals (or 'tiles') are 'pinned' from one or more reports to create a 'greatest hits' collection or high-level summary. Dashboards are optimized for at-a-glance monitoring rather than detailed analysis. This distinction is a common point of confusion. A 'Master' must educate stakeholders on the difference to set proper expectations about what each tool can do.",
+              keyPoints: [
+                "Reports are for analysis; Dashboards are for monitoring",
+                "Reports come from Desktop; Dashboards are created in Service",
+                "Reports are multi-page and interactive; Dashboards are single-page summaries",
+                "Dashboards can aggregate visuals from multiple reports"
+              ],
+              insiderTips: [
+                "Use Dashboards for executives who want high-level KPIs at a glance",
+                "Use Reports for analysts who need to explore and drill into details",
+                "Pin key visuals from reports to dashboards for visibility",
+                "Set up dashboards as landing pages for different user groups",
+                "Remember: You can't create dashboards in Desktop—only in Service"
+              ],
+              labs: [
+                "Open a published report in the Service and pin a KPI, a trend line chart, and a table to a new dashboard named 'Sales Pulse'",
+                "Add a real-time streaming tile (using sample data) to the dashboard to illustrate mixed sources",
+                "Configure a dashboard tile to link to a different report page (Edit details > Set custom link)",
+                "Create a dashboard-level Q&A tile (Ask a question about your data) and validate the generated visual",
+                "Set a data-driven alert on a card tile (e.g., Revenue < $1M) and choose notification recipients",
+                "Duplicate the dashboard and rearrange tiles to build a mobile layout (Mobile view > customize)",
+                "Share the dashboard with a colleague using direct share, then compare with App distribution",
+                "Compare the interactivity differences: attempt cross-filtering on dashboard tiles vs within the original report",
+                "Document dashboard governance: owner, refresh frequency, alert recipients, and source reports"
+              ],
               tables: [
                 {
                   title: "Reports vs. Dashboards (in Power BI Service)",
@@ -4783,19 +5042,6 @@ export const courseData: Part[] = [
                     ["Filters", "Full filtering capabilities", "Limited filtering (dashboard-level filters)"]
                   ]
                 }
-              ],
-              keyPoints: [
-                "Reports are for analysis; Dashboards are for monitoring",
-                "Reports come from Desktop; Dashboards are created in Service",
-                "Reports are multi-page and interactive; Dashboards are single-page summaries",
-                "Dashboards can aggregate visuals from multiple reports"
-              ],
-              insiderTips: [
-                "Use Dashboards for executives who want high-level KPIs at a glance",
-                "Use Reports for analysts who need to explore and drill into details",
-                "Pin key visuals from reports to dashboards for visibility",
-                "Set up dashboards as landing pages for different user groups",
-                "Remember: You can't create dashboards in Desktop—only in Service"
               ]
             },
           },
@@ -4810,8 +5056,58 @@ export const courseData: Part[] = [
             tags: ["Visualizations"],
             topic: 'Visualizations',
             content: {
-              concept: "A Workspace is the fundamental unit of collaboration in the Power BI Service",
-              discussion: "A Workspace (e.g., \"Finance Team\") is created, and reports are published to it. This is the \"development folder\" where colleagues with \"Admin,\" \"Member,\" or \"Contributor\" roles can co-create and manage content",
+              concept: "Workspaces are the collaboration hubs of the Power BI Service—shared containers where teams co-develop semantic models, reports, dashboards, dataflows, and datamarts before distributing curated content through Apps. Mastering workspace roles, permissions, and governance is essential for secure, scalable BI.",
+              discussion: "Each workspace has a security model built on four roles: Admin (full control), Member (edit/update content), Contributor (create/edit but cannot publish apps), and Viewer (read-only). Unlike My Workspace (personal sandbox), modern workspaces support Azure AD security groups, multiple artifacts, deployment pipelines, and OneDrive/SharePoint integration. Best practice is to align workspaces with teams or subject areas (e.g., Finance – Dev, Finance – Prod) and assign roles using security groups rather than individuals. Content lifecycle typically follows: build in Dev workspace → test and validate → deploy to Prod workspace via deployment pipelines or manual publish. Workspace settings allow you to configure endorsement policies, sensitivity labels, scheduled refresh, and integration with Microsoft Teams (link workspace to Teams channel). For multi-tenant governance, Power BI admins can enforce rules such as restricting export, limiting share outside organization, or requiring certified data sources. From the workspace content list you can open the **Access** pane to review who has which role, the **Settings** gear for refresh and gateway configurations, and the **New** menu to create dataflows, datamarts, or streaming datasets.",
+              keyPoints: [
+                "Workspaces are shared collaboration folders distinct from personal 'My workspace'",
+                "Roles control capabilities—Admin (full), Member (create/edit/publish app), Contributor (create/edit), Viewer (read)",
+                "Align workspaces with DEV/TEST/PROD or functional teams to support deployment pipelines",
+                "Use Azure AD security groups to manage access at scale",
+                "Workspace settings govern refresh, gateways, sensitivity, and export/sharing policies",
+                "Workspace content can feed multiple Apps; App permissions are separate from workspace roles"
+              ],
+              insiderTips: [
+                "Create paired workspaces for lifecycle (e.g., Sales Analytics – Dev and Sales Analytics – Prod) and connect via deployment pipelines",
+                "Avoid granting Admin to many users—limit to BI leads; use Member/Contributor for analysts",
+                "Enable OneDrive sync to keep .pbix files versioned in SharePoint/Teams",
+                "Document workspace purpose, contact, and data sources in the Description field",
+                "Turn on 'Assign to workspace' setting so dataset owners are notified about refresh failures",
+                "Use Viewers role for consumers who need to test in Dev without editing",
+                "Review Access logs periodically to remove unused permissions and maintain compliance"
+              ],
+              labs: [
+                "Create a new workspace named `Finance Analytics – Dev`; add description and assign yourself as Admin",
+                "Add an Azure AD security group (Finance BI Team) as Members; add a test user as Viewer",
+                "Configure workspace settings: enable scheduled refresh notifications and set Contact list to BI Operations",
+                "Upload a sample report and inspect lineage view to ensure dataflow dependencies are visible",
+                "Link the workspace to a Microsoft Teams channel for integrated discussions (Workspace settings > Advanced > Connect to Teams)",
+                "Create a deployment pipeline (Premium) or manually duplicate the workspace to `Finance Analytics – Prod` to simulate promotion",
+                "Review Access panel and export permission list to CSV for audit trail",
+                "Set a sensitivity label (Confidential) on the semantic model and verify it cascades to reports"
+              ],
+              tables: [
+                {
+                  title: "Workspace Roles and Capabilities",
+                  headers: ["Role", "Create/Edit Content", "Publish App", "Manage Access", "Typical Audience"],
+                  rows: [
+                    ["Admin", "Yes", "Yes", "Yes", "BI Leads, Workspace Owner"],
+                    ["Member", "Yes", "Yes", "No", "Power Users, Developers"],
+                    ["Contributor", "Yes", "No", "No", "Analysts building content"],
+                    ["Viewer", "No (view only)", "No", "No", "Reviewers, Business stakeholders"]
+                  ]
+                },
+                {
+                  title: "Workspace Governance Checklist",
+                  headers: ["Area", "Action", "Frequency"],
+                  rows: [
+                    ["Security", "Review membership via Azure AD groups", "Quarterly"],
+                    ["Refresh", "Validate schedules and gateway status", "Weekly"],
+                    ["Lineage", "Check for broken dependencies/dataflows", "Monthly"],
+                    ["Documentation", "Update description, owner, SLA", "Quarterly"],
+                    ["Deployment", "Promote content through pipeline", "Per release cycle"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -4845,6 +5141,42 @@ export const courseData: Part[] = [
                 "Pro tip: Use App update notifications to keep users informed of changes",
                 "Master users understand Apps are essential for professional governance",
                 "Apps transform Power BI from developer tool to business solution"
+              ],
+              labs: [
+                "From a workspace, click 'Create app'; configure Name, Description, and add organizational branding (logo + theme colors)",
+                "Select only production-ready reports and dashboards; exclude draft artifacts",
+                "Assign permissions by adding Azure AD security groups (Finance Execs) with Viewer access; publish the app",
+                "Install the published app as a consumer (use a test account) and verify the navigation experience",
+                "Update a report in the workspace, republish, then use App update and send notification email to subscribers",
+                "Add landing page text cards in the app (using navigation builder) to orient new users to content sections",
+                "Generate a PDF export from the app and compare with report export to understand distribution differences",
+                "Document the app link, owner, refresh SLA, and support contact in a Teams/SharePoint knowledge base"
+              ],
+              tables: [
+                {
+                  title: "App Creation Checklist",
+                  headers: ["Step", "Action", "Owner"],
+                  rows: [
+                    ["Content selection", "Include only certified or approved reports/dashboards", "Workspace Owner"],
+                    ["Branding", "Upload logo, set theme color, craft description", "BI Designer"],
+                    ["Navigation", "Organize sections/tabs logically (e.g., Overview, Detail, Exports)", "Report Author"],
+                    ["Permissions", "Assign security groups (Viewers) and optional Build access", "Data Steward"],
+                    ["Notification", "Enable 'Notify users of updates' when publishing", "Workspace Owner"],
+                    ["Documentation", "Add help link/support contact in app description", "BI Support"]
+                  ]
+                },
+                {
+                  title: "Sharing Options Comparison",
+                  headers: ["Method", "Best For", "Strengths", "Considerations"],
+                  rows: [
+                    ["Apps", "Enterprise distribution", "Curated, branded, controlled updates", "Requires workspace permissions to publish"],
+                    ["Direct report sharing", "Ad-hoc collaboration", "Quick share links", "Harder to govern at scale"],
+                    ["Dashboard sharing", "Executive monitoring", "Single page, alerts", "Limited interactivity"],
+                    ["Export (PDF/PPT)", "Board packets, offline review", "Static snapshots", "No interactivity or refresh"],
+                    ["Teams/SharePoint embed", "Team collaboration", "Contextual access in existing tools", "Permissions must match Service"],
+                    ["Publish to web", "Public dissemination", "Embeds anywhere with link", "Not secure—avoid confidential data"]
+                  ]
+                }
               ]
             },
           },
@@ -4874,6 +5206,37 @@ export const courseData: Part[] = [
                 "For multiple data sources, use the same gateway—no need to install multiple instances",
                 "Monitor gateway status in the Service to ensure refreshes are successful",
                 "Consider incremental refresh for large datasets to reduce refresh time"
+              ],
+              labs: [
+                "In Power BI Service, open the semantic model settings and configure credentials for cloud sources (e.g., SharePoint, Azure SQL) without a gateway",
+                "Download and install the On-premises Data Gateway (Standard mode) on a server; sign in with the BI service account",
+                "In the Service, map the published semantic model to the installed gateway and map on-premises data sources to local connections",
+                "Set a refresh schedule (4x daily) for the semantic model; trigger an on-demand refresh to validate",
+                "Review the Refresh history to confirm success, then deliberately stop the gateway service and observe failure messaging",
+                "Configure email notifications to refresh admins on failure and add multiple contacts for redundancy",
+                "Implement incremental refresh policy (if Premium) for a fact table—define historical refresh window (5 years) and incremental period (1 month)",
+                "Document gateway server name, service account, data sources, and owners in a shared runbook"
+              ],
+              tables: [
+                {
+                  title: "Gateway Deployment Options",
+                  headers: ["Mode", "Use Case", "Supports", "Notes"],
+                  rows: [
+                    ["Standard", "Enterprise shared gateway", "Import, DirectQuery, Live connections", "Recommended for most scenarios"],
+                    ["Personal", "Individual refresh needs", "Import only", "Runs under user profile; not for production"],
+                    ["Virtual Network (Preview)", "Gatewayless networking", "Azure data sources", "Requires Premium and VNet setup"]
+                  ]
+                },
+                {
+                  title: "Refresh Strategy Guidelines",
+                  headers: ["Scenario", "Recommendation", "Benefits"],
+                  rows: [
+                    ["Small cloud dataset", "Scheduled refresh (2–4x daily)", "Keeps data current without gateway"],
+                    ["Large on-prem fact table", "Gateway + incremental refresh", "Reduces refresh duration and load"],
+                    ["Real-time dashboards", "DirectQuery/Streaming via gateway", "Near real-time insight"],
+                    ["Weekend maintenance", "Pause refresh schedules", "Avoid conflicts with system updates"]
+                  ]
+                }
               ]
             },
           },
@@ -4896,30 +5259,43 @@ export const courseData: Part[] = [
             tags: ["Performance", "Visualizations"],
             topic: 'Visualizations',
             content: {
-              concept: "A \"Master\" must build fast, efficient reports. The first step is diagnostics, using the built-in Performance Analyzer to identify which visuals and queries are slow.",
-              discussion: "Performance Analyzer is found in the Optimize ribbon in Power BI Desktop. It provides detailed timing information for each visual on a report page. To use it, start recording, interact with slicers or filters, and then analyze the log. The key metrics recorded for each visual are: DAX Query time (time spent by the DAX engine executing the query), Visual Display time (time spent rendering the visual on-screen), and Other time (time spent waiting for other visuals to complete). If 'DAX Query' time is slow, the issue is likely with the DAX formula or data model. If 'Visual Display' time is slow, the visual itself may be complex or there are too many visuals on the page competing for resources.",
-              labs: [
-                "Open a report with multiple visuals",
-                "Go to View > Performance Analyzer to open the pane",
-                "Click 'Start Recording'",
-                "Interact with a slicer or filter",
-                "Review the performance log for each visual",
-                "Identify which visuals have the highest DAX Query times",
-                "Click 'Copy query' for a slow visual to analyze the DAX",
-                "Focus optimization efforts on the slowest visuals first"
-              ],
+              concept: "Optimizing without measurement is guesswork. Performance Analyzer is the built-in profiler that captures how long each visual spends querying the semantic model, rendering, and waiting on other visuals. It is the starting point for every tuning engagement—quantify the problem before applying fixes.",
+              discussion: "Access Performance Analyzer from the Optimize ribbon (formerly View) in Power BI Desktop. The pane records timings whenever visuals query the model: **DAX Query** (time spent by the VertiPaq engine executing DAX), **Visual Display** (rendering time in the client), and **Other** (synchronization, waiting for other visuals). Use \"Start recording\", interact with slicers or page navigation to simulate real user behavior, then \"Stop\" and review the log. Slow DAX Query times indicate issues with the model or measures; slow Visual Display suggests heavy visuals (maps, large tables) or too many visuals per page; high Other often means dependency chains or synchronous refresh. The \"Copy query\" button exports the exact DAX + XMLA command for deeper analysis in DAX Studio. Saving the log (\"Export\" button) provides evidence to share with stakeholders and a baseline for future improvements. Best practice is to test at multiple stages: before publishing, after incremental refresh changes, and following any major design updates.",
               keyPoints: [
-                "Performance Analyzer identifies which visuals are slow",
-                "DAX Query time indicates model or DAX issues",
-                "Visual Display time indicates rendering issues",
-                "Always measure before optimizing—don't guess"
+                "Performance Analyzer measures visual-level timings—treat it as your performance dashboard",
+                "DAX Query > Visual Display indicates data model or measure inefficiencies",
+                "Visual Display > DAX Query points to rendering bottlenecks (visual type, density, page design)",
+                "Always capture a baseline log before making changes to quantify improvements",
+                "Use exported logs for documentation and collaboration with the team"
               ],
               insiderTips: [
-                "Record performance with realistic data volumes, not just sample data",
-                "Test performance with filters applied—empty visuals are always fast",
-                "Use Performance Analyzer after major changes to catch regressions",
-                "Share performance logs with team members to troubleshoot together",
-                "Consider using Performance Analyzer in the Service (Oct 2025) for production performance testing"
+                "Disable \"Auto Start recording\" when iterating—manually control to isolate specific actions",
+                "Use bookmarks to test multiple navigation paths quickly during a single recording",
+                "Turn on 'Show panes' > 'Used size' to correlate large visuals with display time",
+                "Filter the log to focus on visuals over a threshold (e.g., >300 ms)",
+                "Test on machines similar to end-user hardware; Power BI Desktop performance is client-dependent",
+                "Record with realistic filters (e.g., top customer) because empty reports always appear fast",
+                "After exporting the log (JSON), import into Power BI to analyze repeated patterns across pages"
+              ],
+              labs: [
+                "Open a complex report page and clear the query cache (File > Options > Diagnostics > Clear cache)",
+                "Launch Performance Analyzer, click Start recording, and trigger interactions: slicers, bookmarks, drill-through",
+                "Sort the captured visuals by DAX Query time; note the top three offenders and export queries to DAX Studio for deeper inspection",
+                "Repeat while applying a heavy filter (e.g., last 3 years); compare results to the baseline to see how filters affect performance",
+                "Export the log to JSON, build a quick Power BI report showing average DAX time per visual, and share findings with your team",
+                "Adjust the problematic visual (reduce fields, disable total, change aggregation) and re-record to validate improvement",
+                "Capture a final \"after\" log and document before/after timings in a Performance Checklist for the project"
+              ],
+              tables: [
+                {
+                  title: "Performance Analyzer Metrics",
+                  headers: ["Metric", "Represents", "Common Causes of Slowness", "Next Step"],
+                  rows: [
+                    ["DAX Query", "Time spent executing DAX against VertiPaq", "Poor model design, complex measures, missing aggregations", "Analyze query in DAX Studio; revisit model"],
+                    ["Visual Display", "Rendering time in client UI", "High-cardinality visuals, heavy custom visuals, many visuals per page", "Simplify visual, reduce data points, paginate"],
+                    ["Other", "Synchronization and wait time", "Dependent visuals refreshing sequentially, bookmarks with many targets", "Stagger refresh, reduce dependencies, adjust bookmarks"]
+                  ]
+                }
               ]
             },
           },
@@ -4934,8 +5310,48 @@ export const courseData: Part[] = [
             tags: ["Performance", "DAX"],
             topic: 'DAX',
             content: {
-              concept: "Performance Analyzer identifies which visual is slow. DAX Studio is a free, external tool that shows why the DAX query is slow",
-              discussion: "This is a \"pro\" tool. It can connect directly to a Power BI Desktop file",
+              concept: "Performance Analyzer tells you a visual is slow; DAX Studio explains the why. It is the primary external tool for inspecting query plans, measuring server timings, capturing VertiPaq utilization, and exporting queries for optimization.",
+              discussion: "DAX Studio connects to an open Power BI Desktop file (or XMLA endpoint) and provides a professional query editing and diagnostics environment. Key features include: **Query editing with IntelliSense**, **Server Timings** (breakdown of storage engine vs formula engine time), **Query Plan** (shows storage engine scans, hash matches), **VertiPaq Analyzer** (model metadata with column sizes, cardinality), and **Export** tools (to CSV, Excel, SQL Server). Workflow: from Performance Analyzer, copy the slow visual's query, paste into DAX Studio, enable Server Timings + Query Plan, run the query, and examine FE vs SE time. High FE indicates complex DAX (nested iterators, lack of variables); high SE indicates model issues (poor cardinality, missing aggregations). The DMV (Dynamic Management Views) section lets you run queries like `DISCOVER_CALC_DEPENDENCY` to map measure dependencies or `$SYSTEM.TMSCHEMA_COLUMNS` to analyze column metadata. The VertiPaq Analyzer export can be loaded into a separate Power BI template (vpax) to inspect table/column size contributions. DAX Studio is indispensable for serious optimization—it provides the evidence needed to justify model or DAX refactoring.",
+              keyPoints: [
+                "Connect to Power BI Desktop via External Tools ribbon or DAX Studio launcher",
+                "Use Server Timings + Query Plan to distinguish storage vs formula engine bottlenecks",
+                "Leverage VertiPaq Analyzer export to identify bloated tables and columns",
+                "DMVs enable documentation of measures, columns, relationships, and dependencies",
+                "Supports output to Excel/CSV for sharing slow query results with stakeholders"
+              ],
+              insiderTips: [
+                "Enable 'Server Timings' and 'Query Plan' before running the query—otherwise you miss diagnostic data",
+                "Wrap heavy DAX in `DEFINE MEASURE` statements within DAX Studio to experiment without changing the model",
+                "Use `EVALUATE SUMMARIZECOLUMNS(...)` to prototype optimized queries before updating report measures",
+                "Sort storage engine scans by duration to find the table causing heavy reads",
+                "Export VertiPaq results (`File > Export > Save as VPAX`) and analyze with the VertiPaq Analyzer Power BI template",
+                "Use `Clear cache` button in DAX Studio to ensure repeatable measurements for comparisons",
+                "Automate documentation with DMV scripts to generate measure/column lineage",
+                "When connected to Premium XMLA endpoint, you can run scripts without opening Desktop"
+              ],
+              labs: [
+                "Open Power BI Desktop report and launch DAX Studio via External Tools; confirm connection to the local model",
+                "Copy a slow visual's query from Performance Analyzer, paste into DAX Studio, enable Server Timings and Query Plan, run it, and record FE vs SE time",
+                "Modify the query by introducing a variable or summarizing table; rerun and compare timings to validate optimization",
+                "Export query results to CSV for offline analysis and share with the BI team",
+                "Run DMV query `SELECT * FROM $SYSTEM.DISCOVER_CALC_DEPENDENCY` to document measure dependencies; export to Excel",
+                "Create a VPAX file (VertiPaq Analyzer export) and open it in the VertiPaq Analyzer PBIX to inspect table sizes",
+                "Use Query Builder to generate a quick summary and confirm column cardinality matches expectations",
+                "Clear cache, rerun the optimized measure, and compare timings; document before/after in the performance log"
+              ],
+              tables: [
+                {
+                  title: "DAX Studio Diagnostic Features",
+                  headers: ["Feature", "Purpose", "How to Use", "Insight Provided"],
+                  rows: [
+                    ["Server Timings", "Breakdown FE vs SE time", "Enable toggle before running query", "Identify whether DAX or model is bottleneck"],
+                    ["Query Plan", "View storage engine operations", "Enable toggle; inspect operations", "Spot expensive scans, hash matches"],
+                    ["DMV Explorer", "Query metadata", "Run DMV scripts (e.g., TMSCHEMA)", "Document measures, relationships, columns"],
+                    ["VertiPaq Analyzer", "Model size analysis", "Export VPAX", "Find bloated tables/columns"],
+                    ["Query Builder", "Construct DAX queries visually", "Drag tables/columns, generate DAX", "Prototype optimized summarize queries"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -4964,6 +5380,15 @@ export const courseData: Part[] = [
                   ]
                 }
               ],
+              labs: [
+                "Export VertiPaq Analyzer results from DAX Studio and rank tables by size; remove or aggregate unnecessary tables/columns in Power Query",
+                "Refactor a measure using `VAR` to store intermediate results; measure query time before/after with Performance Analyzer",
+                "Replace calculated columns with equivalent measures where possible; validate functional parity and improved model size",
+                "Reduce visuals on a dense report page by moving supporting visuals to a drill-through page; retest page load time",
+                "Create a separate Date slicer page and sync slicers across report pages to reduce slicer count per page",
+                "Implement field parameters for large dimension slicers to allow user choice without loading all visuals simultaneously",
+                "Document each optimization change along with measured improvement in a performance log"
+              ],
               keyPoints: [
                 "Fix the data model first—it has the biggest impact",
                 "Remove unused columns early in Power Query",
@@ -4991,8 +5416,48 @@ export const courseData: Part[] = [
             tags: ["Performance", "Data Modeling"],
             topic: 'AI Features',
             content: {
-              concept: "Using aggregations to pre-summarize large fact tables",
-              discussion: "This feature allows Power BI to query a smaller, pre-aggregated table for high-level visuals (e.g., \"Sales by Year\") while still retaining the granular data for drill-down, offering a hybrid approach with massive performance gains",
+              concept: "Aggregations let you serve high-level queries from a small, pre-summarized table while keeping detail-level data in DirectQuery or Import. When configured correctly, Power BI automatically hits the aggregation table for summary visuals (e.g., Sales by Year) and only touches the granular table when users drill into detail, delivering order-of-magnitude performance gains on enterprise datasets.",
+              discussion: "An aggregation table is typically an Import-mode table that summarizes a DirectQuery fact table by key dimensions (Date, Product, Region) and measure columns (Sales Amount, Quantity). You register the table as an aggregation in Model view (Storage mode = Import, Summarization = Sum/Max, etc.) and map each column to its granular counterpart. Power BI then uses the aggregation when the query granularity matches or is coarser than the defined aggregation. Composite models (Import + DirectQuery) with Dual storage mode enable this hybrid approach: dimensions can be Dual to participate in both Import and DirectQuery queries. The workflow: create summarized table in data source or Power Query, load into model as Import, set Storage mode of detail fact table to DirectQuery, configure aggregations (Model view > table > Manage aggregations), and test with DAX Studio or Performance Analyzer. Consider multiple aggregation tables (e.g., daily by Product, monthly by Region) to optimize diverse workloads. Governance considerations: document aggregation grain, ensure refresh is coordinated with fact table, and monitor aggregation hits via SQL Profiler or Log Analytics.",
+              keyPoints: [
+                "Aggregations reduce DirectQuery calls by answering summary queries from Import-mode tables",
+                "Works best for large fact tables with repetitive summary queries (sales dashboards, KPI scorecards)",
+                "Requires composite model with fact table in DirectQuery or Dual mode",
+                "Column mapping (columnPair) must match data types and precision between aggregation and detail tables",
+                "Multiple aggregation tables can coexist for different grains (e.g., Year vs Month)",
+                "Testing is critical—validate hit/miss behavior before releasing to users"
+              ],
+              insiderTips: [
+                "Start with the most common grain (e.g., Date-Product-Country) based on usage metrics",
+                "Use Power Query Group By on DirectQuery source to produce aggregation table, then load as Import",
+                "Set detail fact table storage mode to DirectQuery, dimensions to Dual for optimal join performance",
+                "Enable SQL Profiler (Premium) or Log Analytics to confirm queries hit aggregation tables (look for `IsAggregationHit`)",
+                "Version-control aggregation definitions; a schema change in the source can break mappings",
+                "When combining with incremental refresh, ensure aggregation tables refresh after detail partitions",
+                "Communicate to users that drill-through beyond aggregation grain may trigger slower DirectQuery behavior"
+              ],
+              labs: [
+                "Identify top BI queries (using Usage metrics) that operate at daily granularity; design aggregation grain accordingly",
+                "Create an aggregation table in Power Query using Group By (Date, Product, Region) with Sum of Sales; set storage mode to Import",
+                "Switch the detailed fact table to DirectQuery and dimensions to Dual; confirm the model is composite",
+                "In Model view, configure Manage aggregations: map each aggregation column to the detailed column and set summarization (Sum/Count)",
+                "Use DAX Studio to run a summary query (Sales by Date) and confirm via Server Timings that the query is served by the aggregation (no DirectQuery)",
+                "Drill down beyond the aggregation granularity (e.g., include Customer ID) and observe fallback to DirectQuery",
+                "Document refresh sequence: refresh aggregation table first, then DirectQuery source, ensuring consistency",
+                "Record performance improvement (query duration before vs after) in the optimization log"
+              ],
+              tables: [
+                {
+                  title: "Aggregation Design Decisions",
+                  headers: ["Decision Area", "Options", "Guideline"],
+                  rows: [
+                    ["Grain", "Year, Quarter, Month, Day", "Pick the lowest level frequently queried; avoid unnecessary detail"],
+                    ["Measure selection", "Sum, Min, Max, Count", "Include only measures needed for summary visuals"],
+                    ["Storage mode", "Import vs Dual", "Aggregation table Import; dimensions Dual for flexibility"],
+                    ["Refresh strategy", "Full vs incremental", "Align with fact table refresh to maintain accuracy"],
+                    ["Validation", "Profiler, DAX Studio, Log Analytics", "Monitor `IsAggregationHit` to ensure configuration works"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -5006,8 +5471,46 @@ export const courseData: Part[] = [
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
             content: {
-              concept: "Setting up an incremental refresh policy for large datasets",
-              discussion: "Instead of refreshing the entire 10-year dataset every day, configure incremental refresh to only refresh the last 7 days of data, while archiving the older data. This drastically reduces refresh times and resource load",
+              concept: "Incremental refresh partitions your semantic model so scheduled refresh recalculates only recent data while leaving historical partitions untouched. This dramatically reduces refresh duration, resource consumption, and gateway load for large datasets.",
+              discussion: "The workflow: parameterize your date table in Power Query using RangeStart and RangeEnd parameters, filter the fact table based on those parameters, then configure incremental refresh in the model (Model view > table > Incremental refresh). You define **Store rows in the last** (e.g., 5 years) and **Refresh rows in the last** (e.g., 30 days). When published to the Service, Power BI creates partitions per period and refreshes only those within the refresh window. Premium/PPU also supports incremental refresh with real-time hybrid tables (DirectQuery + Import). Key considerations: ensure the fact table has a date column at the correct granularity, avoid transformations after the filter step (they negate folding), and use Query Folding so filters push down to the source. Combine with dataflows to centralize incremental logic if multiple models need the same partitions. Monitoring is done via Refresh history, XMLA scripts, or Log Analytics to confirm partition creation.",
+              keyPoints: [
+                "Requires RangeStart/RangeEnd parameters and query folding to be effective",
+                "Store vs Refresh settings control partition retention and update windows",
+                "Publishing to Service is required—incremental refresh only materializes there",
+                "Premium supports hybrid tables for near real-time scenarios",
+                "Reduces refresh time, gateway load, and capacity consumption"
+              ],
+              insiderTips: [
+                "Place the RangeStart/RangeEnd filter step as early as possible in Power Query to preserve folding",
+                "Use DateTime data type to maintain time-of-day granularity when necessary",
+                "For monthly data, set refresh window to 1 month and store window to multiple years",
+                "After first refresh in the Service, use XMLA to inspect partitions and confirm schedule",
+                "Combine with rolling window policy to automatically purge historical partitions",
+                "Document partition strategy (e.g., Year-Month) for future maintenance",
+                "For fact tables exceeding 10M rows, pair incremental refresh with aggregations for summary queries"
+              ],
+              labs: [
+                "In Power Query, create RangeStart and RangeEnd parameters (DateTime) and apply them to filter the fact table's Date column",
+                "Ensure query folding is active (View Native Query); adjust steps to maintain folding",
+                "Configure incremental refresh: set Store rows = last 5 Years, Refresh rows = last 30 Days, detect data changes = Date column",
+                "Publish model to a Premium workspace; trigger first refresh to materialize partitions",
+                "Use XMLA endpoint (Tabular Editor or SQL Profiler) to list partitions and verify names/dates",
+                "Simulate data update by appending new rows in source; refresh and confirm only newest partitions process",
+                "Monitor refresh history to capture duration improvements compared to full refresh",
+                "Document incremental refresh configuration (parameters, windows, detection) in the project README"
+              ],
+              tables: [
+                {
+                  title: "Incremental Refresh Configuration Matrix",
+                  headers: ["Scenario", "Store Rows", "Refresh Rows", "Notes"],
+                  rows: [
+                    ["Daily transactions", "5 Years", "7 Days", "Common for sales fact tables"],
+                    ["Monthly snapshots", "10 Years", "2 Months", "Allows restating prior month if needed"],
+                    ["Event logs", "2 Years", "1 Day", "High-frequency updates"],
+                    ["Finance actuals", "7 Years", "30 Days", "Aligns with monthly close cycle"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -5021,7 +5524,32 @@ export const courseData: Part[] = [
             tags: ["Performance", "2025 Features"],
             topic: 'Power BI Service',
             content: {
-              concept: "The Performance Analyzer tool is now also available directly in the Power BI Service (GA Oct 2025), allowing for performance testing in the production environment.Lab: Run the Performance Analyzer in the Power BI Service 144 and compare the results of a slow visual to the timings captured in Power BI Desktop",
+              concept: "With the Oct 2025 GA update, Performance Analyzer is available in the Power BI Service, enabling you to capture real performance metrics in the production environment—including network latency, tenant capacity load, and security layers—something Desktop cannot simulate.",
+              discussion: "Service-side Performance Analyzer is accessible from the report's view menu (Optimize ribbon → Performance Analyzer). It mirrors the Desktop experience but adds true end-to-end measurements: DAX query time executed on the capacity, Visual display time in the browser, and service-level latency. Because it runs against published semantic models, it respects RLS, capacity constraints, and real data volumes. Use it for: validating performance after deployment, comparing Premium vs Pro capacity behavior, and diagnosing issues that appear only in the Service (e.g., network latency, custom visual CDN downloads). Logs can be exported to JSON just like Desktop, but now they reflect the production load. Combine with Azure Monitor/Log Analytics for historical tracking. The Service version also allows you to test across browsers/devices, capturing front-end differences. It is a best practice to run both Desktop (developer environment) and Service (production) analyzer sessions to identify environment-specific bottlenecks.",
+              keyPoints: [
+                "Service Performance Analyzer measures production conditions (capacity load, RLS, network)",
+                "Accessible via Optimize ribbon in the Service; requires edit permissions on the report",
+                "Exported logs mirror Desktop format—facilitates comparison",
+                "Great for validating app performance and multi-region latency",
+                "Helps differentiate developer machine performance vs end-user experience"
+              ],
+              insiderTips: [
+                "Test across time zones—capacity load during peak hours impacts timings",
+                "Use a clean browser profile or incognito to avoid cached assets influencing display time",
+                "Combine logs with Log Analytics (Power BI Activity events) to correlate with capacity metrics",
+                "When testing with RLS, impersonate roles via 'View as' to capture performance for restricted datasets",
+                "If using custom visuals, note CDN download time; consider bundling visuals in App if slow",
+                "Include device/browser info in your performance log documentation to explain variability"
+              ],
+              labs: [
+                "Open the published report in the Service (Prod workspace) and launch Performance Analyzer",
+                "Record interactions (slicers, page navigation) during peak business hours; export the JSON log",
+                "Compare Service log to Desktop log for the same report; identify differences in DAX Query vs Visual Display times",
+                "Run the analyzer on a mobile browser (Power BI mobile or mobile web) to test responsive performance",
+                "Share the exported log with admins and correlate with capacity metrics in the Admin Portal or Log Analytics",
+                "Repeat test during off-peak hours to measure capacity impact; document findings in performance playbook",
+                "Create a performance dashboard using exported Service logs to monitor which visuals consistently exceed thresholds"
+              ]
             },
           },
         ],
@@ -5043,8 +5571,42 @@ export const courseData: Part[] = [
             tags: ["DAX", "Security"],
             topic: 'DAX',
             content: {
-              concept: "RLS is a security feature that restricts data access at the row level, ensuring users only see the data they are authorized to see.148Lab (Static RLS):In Power BI Desktop, navigate to Modeling > Manage Roles.150Create a new role, e.g., Role_East.150Apply a DAX filter to the Region table:  = \"East\".148Test the role using the View as feature.150Publish to the Power BI Service. In the Security settings of the Semantic Model, assign users or groups to the Role_East",
-              discussion: "This method is simple but has high maintenance. A new role is required for every new region",
+              concept: "Static Row-Level Security uses roles with hard-coded filters to enforce row-level restrictions. It is simple to implement and appropriate for small scenarios (e.g., half a dozen regions) or prototypes where the access matrix rarely changes.",
+              discussion: "In Power BI Desktop, you create roles under Modeling > Manage roles, add a DAX filter to restrict the dimension table (e.g., `Region[RegionName] = \"East\"`), test the role using 'View as', then publish and assign users/groups to the role in the Service. Each role represents a single slice; if you have 10 regions, you create 10 roles. Because the filter is static, changing security requires editing the model, republishing, and reassigning users—high maintenance at scale. However, static RLS is still useful for: simple departmental splits, ad-hoc demos, and scenarios where security mirrors the dataset's own partitions (e.g., separate PBIX per subsidiary). Governance requirements: document which users are assigned to which roles, test after every data update, and ensure roles filter dimension tables that cascade relationships (avoid filtering fact tables directly).",
+              keyPoints: [
+                "Static RLS = hard-coded DAX filters per role; fast to implement but not scalable",
+                "Filters should target dimension tables so relationships propagate security",
+                "Publish to the Service and assign security in the semantic model’s Security blade",
+                "Use 'View as' in Desktop and Service to validate user experience",
+                "Keep a runbook describing each role and its assigned audience"
+              ],
+              insiderTips: [
+                "Name roles consistently (e.g., `RLS_Region_East`) so administrators know the scope",
+                "Avoid filtering fact tables—filtering dimensions makes maintenance easier",
+                "Store the DAX filter logic in documentation (e.g., README) for audits",
+                "Use Azure AD security groups instead of individuals when assigning users",
+                "For many similar roles, consider creating a role template and scripting creation via Tabular Editor",
+                "Remember to revisit security after refreshing data sets—new regions require new roles",
+                "Combine static RLS with App separation if departments want customized navigation"
+              ],
+              labs: [
+                "In Power BI Desktop, open Modeling > Manage roles; create `RLS_Region_East` with filter `Region[RegionName] = \"East\"`",
+                "Repeat for two additional regions; document the DAX used for each role",
+                "Use 'View as' to simulate each region and confirm visuals show only permitted data",
+                "Publish to a workspace; in the semantic model's Security settings, assign Azure AD group `Sales-East` to the corresponding role",
+                "Test in the Service using 'Test as role' to validate RLS works after publish",
+                "Create a security mapping table (Role, Group, Owner) in SharePoint/Teams to track assignments"
+              ],
+              tables: [
+                {
+                  title: "Static RLS Runbook Template",
+                  headers: ["Role Name", "Filter Expression", "Assigned Group/User", "Last Validated", "Owner"],
+                  rows: [
+                    ["RLS_Region_East", "Region[RegionName] = \"East\"", "Sales-East SG", "2025-10-01", "BI Security"],
+                    ["RLS_Region_Central", "Region[RegionName] = \"Central\"", "Sales-Central SG", "2025-10-01", "BI Security"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -5058,8 +5620,46 @@ export const courseData: Part[] = [
             tags: ["DAX", "Visualizations", "Security"],
             topic: 'DAX',
             content: {
-              concept: "A scalable, enterprise-grade solution where one role dynamically filters data based on the logged-in user's identity.149Prerequisite: This method requires a \"User Permissions\" or \"lookup\" table in the data model that maps users (by their email) to the data they are allowed to see (e.g., user@company.com | East).154Lab (Dynamic RLS):Create a single role, e.g., User_Role.154Apply a DAX filter to the User Permissions table: [UserEmail] = USERPRINCIPALNAME().150Ensure the User Permissions table has a relationship to the rest of the data model (e.g., to the Dim_Region table)",
-              discussion: "This is the superior method. Security is now data-driven. To grant a new user access, a developer doesn't change the Power BI report; an admin simply adds a row to the User Permissions table",
+              concept: "Dynamic RLS externalizes security logic into data tables so a single role adapts to the logged-in user. Users gain access by being mapped to allowed entities (regions, customers) in a permissions table, eliminating the need to create dozens of roles.",
+              discussion: "Architecture: add a 'User Permissions' table containing `UserPrincipalName` (email) and security keys (RegionID, CustomerID). Relate this table to corresponding dimensions. Create one role (e.g., `RLS_Dynamic`) with filter `[UserPrincipalName] = USERPRINCIPALNAME()` and optionally `OR USEROBJECTID()` depending on Azure AD setup. Because the filter sits on the permissions table, security cascades through relationships to all fact tables. Maintenance is handled by updating the permissions table—through ETL, dataflows, or manual edits—without modifying the model. Advanced patterns include hierarchical security (manager sees all subordinates), multi-tenant security (client ID mapping), and bridging multiple domains (user assigned to multiple regions). Testing requires covering multiple cases (single assignment, multiple assignments, no assignment). Governance: treat the permissions table as sensitive data, secure its refresh pipeline, and ensure it loads before fact tables to avoid blank access.",
+              keyPoints: [
+                "Single role covers entire security matrix—security becomes data-driven",
+                "Permissions table must have unique rows per user/entity and relationships to dimensions",
+                "Use `USERPRINCIPALNAME()` for email-based mapping; `USEROBJECTID()` for Azure AD GUID if email changes possible",
+                "Test no-match scenario—users with no rows should see nothing",
+                "Keep permissions table refresh synchronized with HR or CRM systems"
+              ],
+              insiderTips: [
+                "Store permissions in a centralized dataflow so multiple datasets reuse the same security mapping",
+                "Add `EffectiveDate`/`ExpiryDate` columns to support time-bound access and filter in the role DAX",
+                "For hierarchical security, precompute tree paths (e.g., `PATH` functions) in the permissions table",
+                "Log security assignments to audit (User, Scope, Date) for compliance reviews",
+                "When testing, use the Service 'Test as role' with specific user emails to ensure real-world behavior",
+                "If users belong to multiple regions, ensure relationships allow many-to-many (bridge tables) and row filters accommodate multiple rows",
+                "Cache-friendly approach: mark permissions table as Dual if using composite models to improve DirectQuery performance"
+              ],
+              labs: [
+                "Create a `UserPermissions` table (UserPrincipalName, RegionKey) in Power Query or as a dataflow; relate it to the Region dimension",
+                "Define a single role `RLS_Dynamic` with DAX filter `UserPermissions[UserPrincipalName] = USERPRINCIPALNAME()`",
+                "Add sample entries for three users (two single-region, one multi-region) and test using 'View as' in Desktop",
+                "Publish to the Service and assign Azure AD group with dynamic users to the role; use 'Test as role' with actual emails",
+                "Implement a bridge table for multi-region assignments (UserKey ↔ RegionKey) and update relationships accordingly",
+                "Add start/end date columns to permissions and adjust role filter to `&& TODAY() BETWEEN [StartDate] && [EndDate]`",
+                "Automate permissions refresh via dataflow or ETL script; document refresh order to ensure permissions table loads first"
+              ],
+              tables: [
+                {
+                  title: "Dynamic RLS Components",
+                  headers: ["Component", "Description", "Best Practice"],
+                  rows: [
+                    ["User Permissions table", "Maps users to security keys", "One row per user/entity; include effective dates"],
+                    ["Role filter", "DAX using USERPRINCIPALNAME()", "Apply filter on permissions table; let relationships cascade"],
+                    ["Relationships", "Connect permissions to dimensions", "Use single-direction relationships for clarity"],
+                    ["Testing plan", "Matrix of users vs expected scope", "Test no-access, single-access, multi-access cases"],
+                    ["Refresh pipeline", "Keeps permissions current", "Integrate with HR/CRM systems; monitor failures"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -5073,8 +5673,42 @@ export const courseData: Part[] = [
             tags: ["Security"],
             topic: 'Security',
             content: {
-              concept: "RLS hides rows of data. OLS hides entire columns or tables",
-              discussion: "For example, hiding a `` column from \"Analyst\" users while making it visible to \"Manager\" users.Implementation: OLS cannot be configured inside the Power BI Desktop interface.157 It requires an external tool, such as Tabular Editor",
+              concept: "Object-Level Security (OLS) restricts entire tables or columns rather than rows. It's ideal for sensitive fields (salary, margin %) that should be invisible to certain roles—even in metadata, DAX, or drill-through. Without OLS, savvy users can infer restricted data through calculations or export.",
+              discussion: "OLS is configured in the model metadata (Tabular Object Model) using external tools like Tabular Editor or SQL Server Management Studio. You define security roles and specify which tables/columns are hidden or visible for each role. Unlike RLS, OLS changes metadata exposure: restricted columns don't appear in the field list, cannot be referenced in DAX, and exports exclude them. Implementation steps: open Tabular Editor from External Tools, create or select a role, expand the Role > TablePermissions, set `MetadataPermission` to `Read` or `None` per table/column. For column-level OLS, set table permission to `Read`, column to `None`. Deploy/save changes back to the model. Verify using 'View as' in Desktop or Service. OLS is typically combined with RLS for comprehensive security. Key scenarios: finance models (hide salary), HR analytics (hide PII), multi-tenant models (hide entire dimension tables). Be aware that OLS requires Premium/PPU for XMLA endpoint write-back if you edit in Service; Desktop editing via Tabular Editor is supported and saved in PBIX.",
+              keyPoints: [
+                "OLS hides schema objects (tables/columns), preventing visibility and usage",
+                "Configured via external tools (Tabular Editor) because Power BI Desktop UI lacks OLS controls",
+                "Combine with RLS to cover both row and object level restrictions",
+                "Column-level OLS still allows measure references unless you secure measure tables appropriately",
+                "Requires careful documentation to avoid accidental exposure during model changes"
+              ],
+              insiderTips: [
+                "Group sensitive columns into a dedicated table (e.g., `Finance Sensitive`) to manage OLS at table level",
+                "When hiding columns, ensure dependent measures are placed in a secure measures table also restricted by OLS",
+                "Maintain a security matrix outlining which roles have metadata access to each object",
+                "Validate OLS behavior by attempting to create a measure referencing restricted columns—should fail",
+                "Use Tabular Editor scripts to automate OLS assignment across environments",
+                "When using Calculation Groups, ensure OLS doesn't block required columns used by group expressions"
+              ],
+              labs: [
+                "Open the model in Tabular Editor from Power BI Desktop; create role `FinanceManagers`",
+                "Set table-level OLS: for role `FinanceManagers`, set `FactFinance` metadata permission to Read, `FactHR` to None; save and return to Desktop",
+                "Set column-level OLS: allow table `FactFinance` metadata, but set `FactFinance[Salary]` to None for role `Analysts`",
+                "Use 'View as' to test both roles—verify the Salary column is hidden and measures referencing it fail",
+                "Publish to Service; assign users/groups to OLS-enabled roles; test using 'Test as role'",
+                "Document all OLS assignments in a security catalog (object, role, permission)"
+              ],
+              tables: [
+                {
+                  title: "OLS vs RLS Comparison",
+                  headers: ["Security Type", "Scope", "Configured In", "Best For"],
+                  rows: [
+                    ["RLS", "Rows within a table", "Power BI Desktop UI", "Departmental data separation"],
+                    ["OLS - Table", "Entire table visibility", "Tabular Editor / XMLA", "Hiding sensitive dimensions/facts"],
+                    ["OLS - Column", "Specific columns", "Tabular Editor / XMLA", "PII or financial metrics"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -5088,8 +5722,8 @@ export const courseData: Part[] = [
             tags: ["Power BI Fundamentals"],
             topic: 'Business Intelligence',
             content: {
-              concept: "A brief tour of the central, tenant-wide settings for Power BI governance provides administrators with comprehensive control over Power BI usage, security, and compliance across the entire organization. The Admin Portal is where Power BI governance is configured and enforced.",
-              discussion: "This includes Usage Metrics (detailed analytics on Power BI usage across the tenant—who's using what, how often, and where. Essential for understanding adoption, identifying popular content, and optimizing licenses), auditing (comprehensive audit logs tracking all Power BI activities—who accessed what, when, and from where. Essential for compliance and security monitoring), and Tenant Settings (organization-wide configuration options like \"Allow publish to web\" (controls whether users can publish reports publicly), \"Enable external sharing\" (controls whether users can share reports with external users), \"Manage custom visuals\" (controls whether users can import custom visuals), \"Enable Copilot features\" (controls AI assistant availability), and many other settings). Additional Admin Portal features include: Data sensitivity labels (classify and protect data based on sensitivity levels—Public, Internal, Confidential, etc.), Certified datasets (promote trusted datasets for enterprise-wide use—users can identify certified content), Data lineage (visualize data flow from source to report—understand dependencies and impacts), Capacity monitoring (track Premium capacity usage and performance), and User management (manage licenses, roles, and permissions across the organization). The key insight: The Admin Portal is where Power BI governance happens. Professional organizations use these settings to balance security, compliance, and user productivity. Best practices: Review tenant settings regularly—ensure security without blocking productivity, Enable auditing—essential for compliance and security monitoring, Use sensitivity labels—protect sensitive data appropriately, Certify trusted datasets—help users identify reliable data sources, Monitor usage metrics—understand adoption and optimize licenses, and Document settings—future administrators need to understand configuration decisions. Master users understand that governance isn't about restricting users—it's about enabling safe, compliant, and effective use of Power BI across the organization.",
+              concept: "The Power BI Admin Portal is the control center for tenant-level governance. Administrators use it to manage security, feature availability, capacity, compliance, and monitoring across the entire organization. Analysts and BI leads should understand its structure so their solutions align with corporate policy.",
+              discussion: "The portal is organized into several sections:\n\n- **Tenant settings** – toggle feature availability and scope it to security groups (e.g., Publish to web, external sharing, custom visuals, Copilot, dataflow creation). Settings can be enabled for the entire organization or limited to approved users.\n- **Capacity settings** – manage Premium/PPU capacities, configure workload priorities (datasets, AI, paginated reports), monitor memory/throttling, and pause/resume capacities.\n- **Usage metrics & Activity (audit) logs** – track adoption, identify key reports, monitor exports or sharing, and export logs to Microsoft Purview/Audit or Azure Log Analytics for long-term retention and alerting.\n- **Governance tools** – review endorsed/certified semantic models, manage sensitivity labels (information protection integration), inspect lineage view for dependencies, and manage workspaces, service principals, and deployment pipelines.\n- **Integration & monitoring** – configure OneDrive/SharePoint integration, gateway clusters, embed codes, and service principal profiles. Admin APIs provide automation for inventory, auditing, and operational tasks.\n\nProfessionals collaborate with admins to ensure tenant settings enable necessary features while maintaining compliance. Documenting decisions, maintaining approval workflows, and communicating policy changes are critical to avoid unexpected disruptions for report authors.",
               keyPoints: [
                 "Admin Portal provides tenant-wide settings for Power BI governance",
                 "Usage Metrics track adoption and help optimize licenses",
@@ -5108,6 +5742,38 @@ export const courseData: Part[] = [
                 "Pro tip: Create a governance policy document explaining tenant settings",
                 "Master users understand governance enables safe, compliant use of Power BI",
                 "Admin Portal is where professional organizations manage Power BI at scale"
+              ],
+              labs: [
+                "With admin rights, navigate to the Admin Portal and review Tenant settings; list three settings currently restricted to specific security groups.",
+                "Open Capacity settings for a Premium capacity; document workload allocations and identify any throttled workloads from the last week.",
+                "Export 30 days of Activity logs and build a quick Power BI report highlighting top exporters and external shares.",
+                "Configure (or review) Log Analytics integration for a capacity and confirm events are streaming into the workspace.",
+                "Review Endorsement reports to identify uncertified semantic models used by more than 50 users; create an action plan with data owners.",
+                "Document the workspace governance policy (naming convention, owner, capacity) in a shared governance wiki."
+              ],
+              tables: [
+                {
+                  title: "Key Tenant Settings Checklist",
+                  headers: ["Setting Category", "Example Controls", "Suggested Policy"],
+                  rows: [
+                    ["Content sharing", "Publish to Web, Share with external users", "Restrict to approved security groups"],
+                    ["Content creation", "Create dataflows, use custom visuals", "Enable but limit to certified groups"],
+                    ["AI & advanced", "Copilot, Azure Cognitive services integration", "Pilot with limited audience before rollout"],
+                    ["Export & download", "Export data, Analyze in Excel", "Allow for analysts; monitor via audit logs"],
+                    ["Developer features", "Service principals, embed codes", "Require registration and naming standards"]
+                  ]
+                },
+                {
+                  title: "Admin Portal Responsibilities",
+                  headers: ["Area", "Primary Owner", "Cadence", "Artifacts"],
+                  rows: [
+                    ["Tenant settings review", "Power BI admin / Governance board", "Quarterly", "Change log, approval record"],
+                    ["Capacity monitoring", "Capacity admin / BI Ops", "Weekly", "Capacity metrics report"],
+                    ["Audit & compliance", "Security/Compliance team", "Monthly", "Audit log extracts, alerts"],
+                    ["Asset certification", "Data stewards", "Quarterly", "Certified dataset list"],
+                    ["Documentation", "BI governance PMO", "Ongoing", "Governance wiki, policy docs"]
+                  ]
+                }
               ]
             },
           },
@@ -5150,6 +5816,29 @@ export const courseData: Part[] = [
                 "Pro tip: Learn C# basics—scripting in Tabular Editor uses C# syntax",
                 "Master users understand Tabular Editor is essential for enterprise modeling",
                 "Desktop + Tabular Editor = complete modeling toolkit"
+              ],
+              labs: [
+                "Install Tabular Editor (v2 or v3) and launch it from Power BI Desktop via the External Tools ribbon",
+                "Bulk rename columns by prefixing fact table measures with `Fact_` using the Advanced Search + Rename function",
+                "Add descriptions to all measures by multi-selecting them and using the Properties pane",
+                "Create a Calculation Group shell (no items yet) and save to the PBIX—verify it appears in Desktop",
+                "Run a simple C# script to set `FormatString = \"#,0\"` on every measure returning whole numbers",
+                "Use Best Practice Analyzer (import BPA rules) to scan the model and fix flagged issues (e.g., missing descriptions, unused columns)",
+                "Export model metadata (TMSL) for version control and log the export in your repository",
+                "Reopen the PBIX to confirm all changes persisted; document the steps in modeling standards"
+              ],
+              tables: [
+                {
+                  title: "Tabular Editor Use Cases",
+                  headers: ["Scenario", "Desktop UI?", "Tabular Editor Benefit"],
+                  rows: [
+                    ["Add calculation groups", "No", "Create time-intelligence templates once, reuse everywhere"],
+                    ["Bulk update properties", "Limited", "Select hundreds of objects and change property with one action"],
+                    ["Automate documentation", "Manual", "Script exports for measure descriptions, dependencies"],
+                    ["Best practice validation", "Manual review", "Use BPA rules to catch issues automatically"],
+                    ["Version control metadata", "Difficult", "Export TMSL/JSON for Git tracking"]
+                  ]
+                }
               ]
             },
           },
@@ -5164,8 +5853,45 @@ export const courseData: Part[] = [
             tags: ["DAX"],
             topic: 'DAX',
             content: {
-              concept: "Calculation Groups are the ultimate DAX reusability tool. They are, in effect, \"measures for measures,\" allowing a developer to define calculation logic that can be applied to any base measure",
-              discussion: "A developer from",
+              concept: "Calculation Groups are reusable calculation templates—think of them as 'measures for measures.' One calculation group item can apply logic (YTD, Prior Year, Currency conversion) across every base measure in your model, eliminating duplicate DAX and ensuring consistency.",
+              discussion: "Because Power BI Desktop cannot author calculation groups, Tabular Editor (or other XMLA tools) is required. The workflow: create a Calculation Group table, add calculation items with expressions, set precedence if multiple groups exist, and reference measures via `SELECTEDMEASURE()`. Common patterns include: Time intelligence (YTD, QTD, MTD, Prior Year, Variance), Formatting logic (apply currency display based on dimension), KPI states (Actual, Budget, Variance). Calculation groups reduce measure proliferation—five base measures plus five calculations would traditionally require 25 measures; with a calculation group you keep five measures and add five group items. Key considerations: precedence controls the order when multiple groups apply; avoid recursion (calculation items referencing themselves); ensure visuals show calculation item names (use a slicer or place group column on axis). For Excel pivot compatibility, hide the calculation group column by default. Testing should cover visuals, matrix subtotals, and interactions with filter context.",
+              keyPoints: [
+                "Calculation groups reuse logic across measures via `SELECTEDMEASURE()`",
+                "Created using Tabular Editor (Desktop UI does not support creation)",
+                "Ideal for time intelligence, currency conversion, KPI states, scenario toggles",
+                "Precedence property governs how multiple groups interact",
+                "Groups can impact auto-exist—test measure combinations"
+              ],
+              insiderTips: [
+                "Create a 'Measures' table with base measures; keep calculation group column visible only when needed (use dedicated slicer)",
+                "Set `FormatStringExpression` on calculation items to adjust number formatting dynamically (e.g., percentages)",
+                "Use translation-friendly names for calculation items if your model supports localization",
+                "Avoid placing calculation group columns on columns/rows of a matrix when mixing calculations that don’t apply (e.g., both actual and forecast)",
+                "Document each calculation item’s DAX and intended usage in model metadata",
+                "When combining time-intelligence and currency groups, set precedence carefully (e.g., currency first, time second)",
+                "Leverage calculation groups to centralize KPI thresholds (e.g., On Track, At Risk) without duplicating measures"
+              ],
+              labs: [
+                "In Tabular Editor, create a calculation group `Time Intelligence` with items: YTD, QTD, MTD, Prior Year, YoY %",
+                "Define DAX for each item using `CALCULATE(SELECTEDMEASURE(), ...)` patterns; include `FormatStringExpression` for YoY %",
+                "Create a slicer using the calculation group column; test across multiple base measures (Sales, Margin, Units)",
+                "Add a second calculation group `Scenario` (Actual, Budget, Variance) and set precedence to ensure desired evaluation order",
+                "Validate visuals in Power BI and Excel Pivot Tables to ensure calculation items behave as expected",
+                "Document calculation group logic in a README and screenshot usage examples for the governance wiki"
+              ],
+              tables: [
+                {
+                  title: "Common Calculation Group Patterns",
+                  headers: ["Pattern", "Example Items", "Notes"],
+                  rows: [
+                    ["Time Intelligence", "YTD, QTD, MTD, Prior Year, YoY %", "Requires Date table marked as Date table"],
+                    ["Currency Conversion", "Local Currency, USD, EUR", "Use conversion table + SELECTEDMEASURE() * Rate"],
+                    ["Scenario Analysis", "Actual, Budget, Variance", "Combine with KPI formatting"],
+                    ["KPI Status", "On Track, At Risk, Off Track", "Return text or colour measure"],
+                    ["Formatting Overrides", "Currency, Percentage, Decimal", "Set FormatStringExpression only"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -5179,8 +5905,45 @@ export const courseData: Part[] = [
             tags: ["Power Query"],
             topic: 'Power Query',
             content: {
-              concept: "Moving beyond the UI in Power Query to write M code",
-              discussion: "A brief introduction to creating Power Query Parameters (e.g., for a server name or file path) 13 and custom M functions 46 for reusable transformation logic",
+              concept: "Power Query’s graphical interface is powerful, but the M language unlocks reusable, parameterized, and optimized transformations. Advanced developers write M to parameterize sources, create custom functions, and enforce consistent ETL patterns.",
+              discussion: "Key advanced M techniques include: **Parameters** (define RangeStart/RangeEnd, environment toggles, or source paths), **Custom functions** (encapsulate repetitive logic—e.g., cleanse columns, call web APIs), **Reusable query templates** (store in dataflows or shared PBIX), and **Performance tuning** (control query folding, buffer data, handle errors). Core language concepts: everything is an expression, records/lists/tables are the fundamental types, and functions are first-class citizens. Syntax: `let ... in ...` expressions, `each` shorthand for anonymous functions, custom function definitions `MyFunc = (param as type) => ...`, and using `Table.AddColumn` with function invocations. You can expose parameters to end users (Manage Parameters) or reference environment variables for Dev/Test/Prod. Combining functions with `Table.TransformColumns`, `List.Generate`, or `Table.AddColumn` enables complex ETL scenarios not possible in the UI. Structured error handling (`try ... otherwise ...`) keeps refresh robust. Invest time in reading the M library documentation (`#shared`) to discover built-in functions. Scripts can be stored in Git and reused across models or dataflows.",
+              keyPoints: [
+                "M language enables parameterization, custom functions, and ETL reuse beyond the UI",
+                "Functions are first-class; use them to encapsulate transformations and reuse across columns/tables",
+                "`let ... in ...` structure, record/list/table types, and `each` syntax are foundational",
+                "Parameters support environment management and incremental refresh policy setup",
+                "Error handling (`try ... otherwise`) prevents refresh failures on unexpected data"
+              ],
+              insiderTips: [
+                "Use `#shared` in the formula bar to list all available functions for discovery",
+                "Create a library query (e.g., `fnTextCleanse`) and copy/paste into other PBIX/dataflows",
+                "Leverage `Value.ReplaceType` to add metadata (descriptions, types) to functions for clarity",
+                "Keep transformation logic stateless—avoid referencing direct UI steps inside functions for reuse",
+                "Document function usage in comments (`//`), especially parameter expectations",
+                "Use Git to version-control M scripts—Power Query Editor supports copy/paste of full queries",
+                "Test query folding after custom steps (View Native Query); adjust to keep folding intact where possible"
+              ],
+              labs: [
+                "Create parameters `EnvServerDev`, `EnvServerProd` and use a `Switch` query to select source based on a `CurrentEnvironment` parameter",
+                "Write a custom function `fnCleanColumn` that trims, uppercases, and replaces nulls; apply it to multiple text columns via `Table.TransformColumns`",
+                "Implement `try ... otherwise` to handle missing optional columns when new data files arrive",
+                "Build a function that calls a paginated API using `List.Generate` for pagination; convert results to a table",
+                "Create a reusable `DateTable` function parameterized by start/end date; invoke it to generate a consistent calendar across models",
+                "Measure refresh performance before and after refactoring repeated steps into a function; note improvements"
+              ],
+              tables: [
+                {
+                  title: "Essential M Patterns",
+                  headers: ["Pattern", "Purpose", "Example Snippet"],
+                  rows: [
+                    ["Parameter-driven source", "Switch between Dev/Prod", "Source = if CurrentEnv = \"Prod\" then ProdServer else DevServer"],
+                    ["Custom cleanse function", "Reusable column cleaning", "fnClean = (txt as nullable text) => if txt = null then \"\" else Text.Upper(Text.Trim(txt))"],
+                    ["Try/Otherwise", "Graceful error handling", "try Table.SelectRows(...) otherwise Table.FromRecords({})"],
+                    ["List.Generate", "Pagination/loops", "List.Generate(()=>[Page=1], each [Page]<=Max, each [Page]+1, each GetPage([Page]))"],
+                    ["Function invocation in table", "Apply function row-wise", "Table.AddColumn(Source, \"Result\", each fnProcess([Column]))"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -5194,8 +5957,46 @@ export const courseData: Part[] = [
             tags: ["Visualizations", "Power Query", "Microsoft Fabric"],
             topic: 'Power Query',
             content: {
-              concept: "Using Power BI Dataflows (Gen2) as a cloud-based ETL tool that integrates with Microsoft Fabric",
-              discussion: "A Dataflow is \"Power Query in the cloud.\" It allows a developer to prepare data once in the Service, storing the clean data in Azure Data Lake. Multiple reports can then connect to this single, certified Dataflow.126 Dataflows Gen2 allows this data to be directly loaded as a destination into a Fabric Lakehouse or Warehouse",
+              concept: "Dataflows Gen2 move Power Query transformations into the cloud, enabling centralized, reusable ETL that feeds multiple datasets, Lakehouses, or Warehouses in Microsoft Fabric. They enforce single-source-of-truth transformations and reduce duplicated prep work in individual PBIX files.",
+              discussion: "Gen2 dataflows run on Fabric compute and store results in OneLake (Delta Lake format). You author transformations using the same Power Query experience, but outputs can load to tables in Lakehouse/Warehouse or remain as analytical tables for semantic models. Benefits: shared transformation logic across teams, scheduled refresh independent of semantic models, lineage tracking, and governance (certify, endorse). Typical architecture: Ingest raw data into Lakehouse (raw zone) → transform with dataflow → output curated tables (gold zone) → connect semantic models/reports. Dataflows support incremental refresh and linked entities to reuse outputs across workspaces. They also integrate with deployment pipelines and Git for ALM. Best practices: design modular dataflows (ingest vs transform), document schema, use parameters for source connections, and enforce naming standards. Security: manage workspace permissions and leverage dataflow endorsements. Monitoring occurs via refresh history and Fabric’s monitoring hub.",
+              keyPoints: [
+                "Dataflows centralize Power Query transformations and store results in OneLake (Delta format)",
+                "Gen2 supports loading directly into Fabric Lakehouse/Warehouse tables",
+                "Promotes reuse—multiple datasets connect to the same curated tables",
+                "Supports incremental refresh, linked entities, and deployment pipelines",
+                "Ideal for IT-managed ETL feeding self-service semantic models"
+              ],
+              insiderTips: [
+                "Split dataflows into staging (heavy transformations) and presentation (light shaping) for maintenance",
+                "Parameterize source connections to switch Dev/Test/Prod easily",
+                "Leverage linked dataflows to avoid duplicating transformations across workspaces",
+                "Document lineage using Fabric’s lineage view so analysts understand dependency chain",
+                "Use Git integration to version-control dataflow definitions in Fabric",
+                "Schedule dataflow refresh before dataset refresh to ensure downstream freshness",
+                "Consider cost/compute—plan refresh windows to avoid capacity contention"
+              ],
+              labs: [
+                "Create a Dataflow Gen2 that ingests sales data from an Azure SQL source; store output in a Fabric Lakehouse table",
+                "Parameterize server and database names to support Dev/Test/Prod environments",
+                "Configure incremental refresh on the dataflow (Store 3 years, Refresh last 30 days) and validate partitions via monitoring",
+                "Create a second dataflow that references the curated table (linked entity) and applies business calculations",
+                "Connect a Power BI semantic model to the curated Lakehouse table and build a quick report to validate data",
+                "Add documentation (description, owner) and endorse the dataflow as Certified; notify consumers of new shared ETL asset",
+                "Export the dataflow definition to JSON (or sync with Git) to store in version control"
+              ],
+              tables: [
+                {
+                  title: "Dataflow Gen2 Design Guidelines",
+                  headers: ["Design Area", "Recommendation", "Benefits"],
+                  rows: [
+                    ["Layering", "Separate ingest vs transformation flows", "Simpler maintenance, reusable curated layer"],
+                    ["Storage destination", "Output to Lakehouse/Warehouse tables", "Native Fabric integration, delta format"],
+                    ["Parameters", "Use for environment configuration", "Supports Dev/Test/Prod deployments"],
+                    ["Linked entities", "Reuse logic across workspaces", "Eliminates duplication, consistent outputs"],
+                    ["Refresh orchestration", "Schedule dataflows before datasets", "Downstream models use fresh data"]
+                  ]
+                }
+              ]
             },
           },
         ],
@@ -5217,26 +6018,44 @@ export const courseData: Part[] = [
             tags: ["Visualizations"],
             topic: 'Visualizations',
             content: {
-              concept: "A \"Master\" never publishes a change directly to the live production report. A professional Continuous Integration/Continuous Deployment (CI/CD) workflow is used to de-risk changes by testing and validating updates before they reach production. This is essential for enterprise deployments where reliability and stability are critical.",
-              discussion: "Deployment Pipelines in the Power BI Service provide a simple, visual interface for CI/CD workflows. Deployment Pipelines enable a three-stage deployment process: Development (where developers build and test new features), Test (where updates are validated before production), and Production (where end-users access finalized reports). This workflow de-risks changes by: Testing before production (validate updates in Test stage before deploying to Production), Validation (review changes, test functionality, ensure quality), and Rollback capability (if issues arise, revert to previous version). Creating a Deployment Pipeline: In Power BI Service, navigate to a workspace, click 'Deployment pipelines' in the workspace menu, click 'Create pipeline', select source workspace (Development), add Test and Production stages, and configure pipeline settings. Deployment workflow: Build report in Development workspace, Deploy to Test stage for validation, Test functionality and validate changes, Deploy to Production after validation, and Monitor production for issues. Best practices: Never skip Test stage—always validate before production, Use version control—track changes across stages, Document changes—explain what changed and why, Test thoroughly—validate functionality, performance, and security, and Monitor production—watch for issues after deployment. The key insight: Professional Power BI development requires CI/CD workflows. Direct publishing to production is risky—use Deployment Pipelines to ensure reliability and stability. Master users understand that CI/CD is not optional for enterprise deployments—it's essential for maintaining production quality.",
+              concept: "Continuous Integration/Continuous Deployment (CI/CD) brings discipline to Power BI releases. Deployment Pipelines provide Dev → Test → Prod stages so content is validated and approved before reaching end users, minimizing downtime and surprises.",
+              discussion: "Pipelines (available with Premium/PPU) map workspaces to stages. Each deployment produces a diff showing changed reports, models, dataflows, and can copy or merge changes selectively. Typical workflow: developers build in Dev workspace, run automated checks (Best Practice Analyzer, Performance Analyzer logs), then deploy to Test for business sign-off. Once approved, deploy to Prod, optionally keeping different parameter values per stage (e.g., pointing to Prod data sources). Pipelines integrate with Git (Fabric Git integration) to align with broader DevOps, and deployment rules override data source connections, credentials, and parameters per stage. Benefits: consistent releases, rollback ability (redeploy previous stage), and guardrails to separate development content from consumer access. Pipelines support dataflows, datamarts, and semantic models alongside reports. Use tags/comments to document deployments, and automation (Power BI REST APIs or Azure DevOps) to trigger deployments and run smoke tests.",
               keyPoints: [
-                "Deployment Pipelines provide CI/CD workflows for Power BI reports",
-                "Three-stage process: Development → Test → Production",
-                "Testing before production de-risks changes and ensures quality",
-                "Professional deployments require validation before production",
-                "CI/CD is essential for enterprise deployments",
-                "Never skip Test stage—always validate before production"
+                "Deployment pipelines formalize Dev → Test → Prod promotion",
+                "Diff view highlights changes before deploy; selective deployment is supported",
+                "Deployment rules override data sources and credentials per stage",
+                "Integrates with Fabric Git and REST APIs for automation",
+                "Supports rollback by redeploying prior stage content"
               ],
               insiderTips: [
-                "Always use Deployment Pipelines for production reports—never publish directly",
-                "Test stage is critical—validate changes before production deployment",
-                "Use version control—track changes across stages",
-                "Document changes—explain what changed and why for future reference",
-                "Test thoroughly—validate functionality, performance, and security",
-                "Monitor production after deployment—watch for issues",
-                "Pro tip: Create deployment checklist—ensures nothing is missed",
-                "Master users understand CI/CD is essential for professional deployments",
-                "Deployment Pipelines separate professionals from beginners"
+                "Define workspace naming convention (e.g., `Finance Analytics - Dev/Test/Prod`) aligned with pipeline stages",
+                "Use pipeline deployment rules to point Test stage to QA database and Prod stage to production database",
+                "Capture performance logs and run regression tests in Test stage before promoting",
+                "Leverage pipeline notifications to alert stakeholders when deployments occur",
+                "Document release notes in pipeline comments; store in change log",
+                "Automate deployments via REST API for alignment with Azure DevOps release pipelines",
+                "Regularly review pipeline diff to ensure no unintended changes (deleted reports, overwritten datasets)"
+              ],
+              labs: [
+                "Create a deployment pipeline linking Dev/Test/Prod workspaces; configure deployment rules so Test uses QA data source",
+                "Deploy latest content from Dev to Test; review the compare view and capture screenshot of differences",
+                "Run functional testing in Test (RLS, performance) and log results; only after sign-off deploy to Prod",
+                "Simulate rollback by redeploying Test content back to Dev (undo change) and document the process",
+                "Export deployment activity report (REST API or portal) and archive in governance repository",
+                "Optional: integrate with Fabric Git; commit workspace changes and trigger pipeline deployment from Git"
+              ],
+              tables: [
+                {
+                  title: "Deployment Readiness Checklist",
+                  headers: ["Item", "Description", "Status"],
+                  rows: [
+                    ["Data source connectivity", "Test stage uses QA credentials", "Pending"],
+                    ["RLS validation", "View as roles tested in Test stage", "Complete"],
+                    ["Performance logs", "Performance Analyzer baseline captured", "Complete"],
+                    ["Regression tests", "Key report scenarios validated", "In progress"],
+                    ["Release notes", "Changes documented and approved", "Complete"]
+                  ]
+                }
               ]
             },
           },
@@ -5245,14 +6064,51 @@ export const courseData: Part[] = [
             moduleNumber: 16,
             lessonNumber: 2,
             title: "The Future: Microsoft Fabric and OneLake",
-            description: "Power BI is no longer just a standalone tool; it is the visualization experience for Microsoft Fabric",
+            description: "Power BI is now the visualization layer of Microsoft Fabric. Understanding Fabric architecture is critical for designing future-proof analytics solutions.",
             duration: 20,
             difficulty: 'advanced',
             tags: ["Visualizations", "Data Modeling", "Microsoft Fabric"],
             topic: 'Visualizations',
             content: {
-              concept: "Power BI is no longer just a standalone tool; it is the visualization experience for Microsoft Fabric",
-              discussion: "Fabric is Microsoft's new, all-in-one analytics platform.10 It unifies Data Engineering (Data Factory, Spark), Data Warehousing (SQL), and Business Intelligence (Power BI) into a single SaaS product.10The central concept is OneLake.21 OneLake is the \"OneDrive for Data.\" All Fabric tools read from and write to this single, unified data lake. This eliminates data duplication, silos, and the need for constant data movement. The \"Master\" developer must understand this shift: the future is less about \"importing files\" and more about \"connecting to the OneLake.\"",
+              concept: "Fabric unifies data engineering, data warehousing, data science, real-time analytics, and business intelligence under one SaaS umbrella. OneLake—the 'OneDrive for Data'—centralizes storage so every experience (Power BI, Data Factory, Synapse) reads and writes to a single logical lake.",
+              discussion: "Fabric introduces experiences: Data Factory (pipelines, dataflows), Synapse Data Engineering (Spark notebooks), Synapse Data Warehousing (SQL-based warehouses), Synapse Real-Time Analytics (Kusto), Data Activator (event triggers), and Power BI. OneLake sits beneath them, storing data as Delta tables with shortcut support to external storage (ADLS, AWS S3). Power BI models can connect directly to Lakehouse/Warehouse tables, eliminating duplication. This changes development patterns: ingest raw data into Lakehouse (bronze), curate with dataflows/spark (silver/gold), surface via Power BI semantic models. Fabric capacities replace classic Premium SKUs, offering dynamic compute scaling. Developers should learn how to create Lakehouses, define shortcuts, use DirectLake mode (query delta tables without import), and orchestrate pipelines that refresh semantic models automatically. Governance spans across Fabric via data lineage, Purview sensitivity labels, and capacity monitoring. The shift requires BI teams to collaborate closely with data engineering, sharing OneLake assets rather than exchanging CSVs.",
+              keyPoints: [
+                "Fabric is a unified SaaS platform; Power BI is the front-end experience",
+                "OneLake stores data in open Delta format accessible by all Fabric workloads",
+                "DirectLake enables models to query Delta tables without import, combining speed and freshness",
+                "Fabric capacities govern compute; workloads (Lakehouse, Warehouse, Power BI) share the same SKU",
+                "Shortcuts and OneLake integration eliminate data silos and duplication"
+              ],
+              insiderTips: [
+                "Adopt medallion architecture (bronze/silver/gold) to structure Lakehouse layers",
+                "Use shortcuts to point to existing ADLS data—no need to copy data into OneLake",
+                "Monitor capacity metrics to balance Spark jobs, dataflows, and Power BI refresh within Fabric",
+                "Plan security with OneLake in mind—same sensitivity labels flow through Power BI reports",
+                "Leverage Git integration to manage Lakehouse notebooks, pipelines, and Power BI artifacts together",
+                "Experiment with DirectLake for high-volume fact tables and evaluate performance vs Import/DirectQuery"
+              ],
+              labs: [
+                "Create a Lakehouse in Fabric, ingest sample data using Dataflow Gen2, and validate Delta tables in OneLake",
+                "Build a shortcut to existing ADLS data and query it from Power BI via DirectLake",
+                "Create a Warehouse table, populate with data, and connect Power BI semantic model using Direct Lake mode",
+                "Set up an end-to-end pipeline: Dataflow ingest → Lakehouse transform → Semantic model refresh → Power BI report",
+                "Enable sensitivity labels in Fabric and confirm they propagate to Power BI reports",
+                "Document Fabric architecture decisions (capacities, workspaces, Lakehouse/Warehouse usage) in governance wiki"
+              ],
+              tables: [
+                {
+                  title: "Fabric Workload Overview",
+                  headers: ["Experience", "Purpose", "Primary Artifacts"],
+                  rows: [
+                    ["Data Factory", "ETL/ELT pipelines", "Pipelines, Dataflows Gen2"],
+                    ["Synapse Data Engineering", "Spark-based transformations", "Notebooks, Jobs"],
+                    ["Synapse Data Warehousing", "SQL analytics at scale", "Warehouse tables"],
+                    ["Synapse Real-Time Analytics", "Streaming/Kusto analytics", "KQL databases"],
+                    ["Power BI", "Semantic models & reports", "Datasets, Reports, Metrics"],
+                    ["Data Activator", "Event-driven automation", "Triggers, Conditions"]
+                  ]
+                }
+              ]
             },
           },
           {
