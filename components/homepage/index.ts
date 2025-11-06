@@ -3,4 +3,5 @@ export { default as TeacherBio } from './TeacherBio'
 export { default as Credentials } from './Credentials'
 export { default as CourseOutline } from './CourseOutline'
 export { default as LogoCloud } from './LogoCloud'
+export { default as ReadingFirstSection } from './ReadingFirstSection'
 

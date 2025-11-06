@@ -8,6 +8,10 @@ const CourseOutline = dynamic(() => import('@/components/homepage/CourseOutline'
   loading: () => <div className="min-h-[200px]" />,
 })
 
+const ReadingFirstSection = dynamic(() => import('@/components/homepage/ReadingFirstSection'), {
+  loading: () => <div className="min-h-[200px]" />,
+})
+
 const TeacherBio = dynamic(() => import('@/components/homepage/TeacherBio'), {
   loading: () => <div className="min-h-[400px]" />,
 })
@@ -52,6 +56,7 @@ export default function Home() {
       <main id="main-content" className="min-h-screen">
         <HeroSection />
         <ValueProposition />
+        <ReadingFirstSection />
         <CourseOutline />
         <TeacherBio />
         <SocialProof />

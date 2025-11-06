@@ -8,4 +8,5 @@ export { LessonOverview } from './LessonOverview'
 export { ContentCompletenessBadge } from './ContentCompletenessBadge'
 export { LabPreparationBanner } from './LabPreparationBanner'
 export { DifficultyBadge } from './DifficultyBadge'
+export { ReadingModeBanner } from './ReadingModeBanner'
 

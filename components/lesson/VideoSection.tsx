@@ -35,11 +35,7 @@ export default function VideoSection({ videoUrl, hasVideo = false }: VideoSectio
   }, [videoUrl, hasVideo])
 
   if (!hasVideo || !videoUrl) {
-    return (
-      <div className="rounded-xl border bg-neutral-50 px-4 py-3 text-sm text-neutral-700">
-        <strong className="font-medium">Video coming soon.</strong> All content below is complete—start reading now.
-      </div>
-    )
+    return null
   }
 
   return (

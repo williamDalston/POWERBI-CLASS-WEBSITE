@@ -18,6 +18,7 @@ import CourseOutline from '@/components/dashboard/CourseOutline'
 import AdvancedAnalytics from '@/components/dashboard/AdvancedAnalytics'
 import AchievementsDisplay from '@/components/dashboard/AchievementsDisplay'
 import StreakCalendar from '@/components/dashboard/StreakCalendar'
+import SelfPacedReminder from '@/components/dashboard/SelfPacedReminder'
 import CelebrationAnimation from '@/components/shared/CelebrationAnimation'
 import { calculateAnalytics } from '@/lib/utils/analytics'
 import LearningPathVisualization from '@/components/dashboard/LearningPathVisualization'
@@ -227,6 +228,9 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
+
+      {/* Reading-first reminder */}
+      <SelfPacedReminder />
 
       {/* Analytics & Assessment Links */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 animate-fade-in" style={{ animationDelay: '0.05s' }}>

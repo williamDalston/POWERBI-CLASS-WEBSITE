@@ -27,4 +27,5 @@ export { default as LearningPathVisualization } from './LearningPathVisualizatio
 export { default as LearningPathTimeline } from './LearningPathTimeline'
 export { default as LearningPathGraph } from './LearningPathGraph'
 export { default as ProgressHeatmap } from './ProgressHeatmap'
+export { default as SelfPacedReminder } from './SelfPacedReminder'
 

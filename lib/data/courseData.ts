@@ -6123,7 +6123,7 @@ export const courseData: Part[] = [
             topic: 'Visualizations',
             content: {
               concept: "Making reports actionable by integrating with the other components of the Power Platform transforms Power BI from a reporting tool into an interactive business application. Integration with Power Apps and Power Automate enables users to take action directly from reports, closing the loop from insight to execution.",
-              discussion: "Power BI is part of Microsoft's Power Platform—a suite of tools that work together: Power BI (analytics and reporting), Power Apps (custom business applications), Power Automate (workflow automation), and Power Virtual Agents (chatbots). Integrating these tools transforms reports from passive dashboards into actionable business solutions. Integration scenarios include: Power Apps Integration (embed Power Apps forms directly into Power BI reports—users can input data, update records, or trigger actions without leaving the report. Example: Sales report with embedded form to update customer information), Power Automate Integration (trigger automated workflows from Power BI reports—when a KPI exceeds threshold, automatically send email, create task, or update system. Example: Sales threshold alert automatically creates support ticket), Data Action Buttons (add action buttons to reports that trigger Power Automate flows—users click 'Approve' button to start approval workflow, or 'Create Task' to generate task in project management system), and Cross-Platform Navigation (embed Power BI visuals in Power Apps apps—combine interactive analytics with business applications). The key insight: Integration transforms Power BI from 'what happened' to 'what should I do about it.' This closes the loop between analytics and action, making Power BI a complete business solution, not just a reporting tool. Best practices: Start with simple integrations—embed a Power App form before building complex workflows, Test thoroughly—automated actions have consequences, ensure reliability, Document integration points—future maintenance requires understanding how systems connect, Secure appropriately—automated actions may need approval workflows, and Understand licensing—Power Apps and Power Automate require separate licenses. Master users understand that integration is where Power BI becomes transformative—reports that drive action are more valuable than reports that just show data.",
+              discussion: "Power BI sits alongside Power Apps, Power Automate, and Power Virtual Agents within the Power Platform. Integrating them turns dashboards into operational systems: users can write back data, trigger workflows, and manage approvals directly from analytics. Common patterns: **Embedded Power App visual** (embed a canvas app inside a report to collect comments, update Dataverse rows, or submit support tickets), **Power Automate buttons** (use the 'Power Automate for Power BI' visual to run flows—send alerts, create Planner tasks, write records to SharePoint/Dataverse), **Writeback scenarios** (Power App updates a table and a flow refreshes the dataset or notifies stakeholders), and **Cross-tool navigation** (open Power Apps from report bookmarks or embed Power BI tiles inside Power Apps for mobile scenarios). Fire-and-forget flows (e.g., `if measure > threshold → send Teams message`) close the loop between insight and action. Governance requires understanding connectors, data loss prevention (DLP) policies, and license requirements (Power Apps per app plan, Power Automate premium connectors). Testing must cover authentication, RLS context (flows run in service principal context by default), and concurrency.",
               keyPoints: [
                 "Power Platform integration makes reports actionable, not just informative",
                 "Power Apps integration embeds forms and apps directly into Power BI reports",
@@ -6142,6 +6142,26 @@ export const courseData: Part[] = [
                 "Pro tip: Build proof-of-concept integrations first—validate value before full deployment",
                 "Master users understand integration is where Power BI becomes truly powerful",
                 "Close the loop: Analytics → Insight → Action → Result → Analytics"
+              ],
+              labs: [
+                "Embed a Power App in a report: create a canvas app for feedback submission, insert the Power Apps visual, connect to Dataverse/SharePoint, and test writeback",
+                "Add the Power Automate for Power BI visual to trigger a flow that sends a Teams alert when a selected data point exceeds threshold",
+                "Create an approval flow (Power Automate) that starts from a report button and routes approval to managers, updating status in Dataverse",
+                "Build a Power App that consumes a Power BI dataset via Power BI connector and displays the same visuals within a custom mobile app",
+                "Document the integration architecture (data sources, connectors, DLP requirements) and store in governance repository",
+                "Verify RLS context during embed—ensure flows/actions do not bypass assigned security roles"
+              ],
+              tables: [
+                {
+                  title: "Power BI + Power Platform Integration Patterns",
+                  headers: ["Pattern", "Tools Used", "Example Use Case"],
+                  rows: [
+                    ["Writeback form", "Power BI + Power Apps", "Update customer notes from within sales dashboard"],
+                    ["Triggered workflow", "Power BI + Power Automate", "Create Planner task when KPI below target"],
+                    ["Embedded analytics in app", "Power Apps + Power BI visual", "Field service technicians view metrics inside mobile app"],
+                    ["Chatbot guidance", "Power BI + Power Virtual Agents", "Provide natural language guidance based on report context"]
+                  ]
+                }
               ]
             },
           },
@@ -6157,7 +6177,7 @@ export const courseData: Part[] = [
             topic: 'Power BI Service',
             content: {
               concept: "For \"Master\" level developers, this is the process of embedding Power BI content inside their own custom applications for external customers (a SaaS scenario). Power BI Embedded Analytics enables you to integrate Power BI reports and dashboards directly into custom web applications, providing a seamless analytics experience within your own application.",
-              discussion: "This is a highly technical, API-driven topic. It involves App Registration in Microsoft Entra ID (formerly Azure AD), workspace management, and using client-side APIs (JavaScript) to render the content securely. Power BI Embedded Analytics enables organizations to integrate Power BI reports into custom applications without requiring users to have Power BI licenses—they access reports through your application. Key components include: App Registration (register your application in Microsoft Entra ID to authenticate users and access Power BI APIs), Service Principal Authentication (create a service principal for automated authentication—your app authenticates on behalf of users), Workspace Management (create and manage workspaces programmatically—deploy reports, manage content, control access), and Client-Side APIs (use JavaScript SDK to embed reports in web applications—render Power BI content in your UI). The key insight: Embedded Analytics transforms Power BI from a standalone BI tool into an integrated analytics component. Your application becomes the interface—Power BI provides the analytics engine. This is essential for SaaS scenarios where you want to provide analytics to customers without requiring Power BI licenses. Best practices: Understand authentication—service principals vs user authentication, Secure properly—embedded content still needs security, Test thoroughly—embedded reports have different behavior, Monitor usage—track API calls and performance, and Document integration—future maintenance requires understanding. Master users understand that Embedded Analytics is where Power BI becomes truly integrated—reports aren't just in Power BI Service, they're part of your application ecosystem.",
+              discussion: "Embedding requires Azure resources and API fluency. Typical architecture: register an application in Microsoft Entra ID, grant it access to Power BI service APIs (with appropriate delegated or app-only permissions), use service principal or user authentication to acquire tokens, and embed content in a custom app using the Power BI JavaScript SDK. Workspaces used for embedding must be in dedicated capacity (A SKUs for embedded, or P SKUs). Key steps: upload reports to a dedicated workspace, configure embed token generation (either service principal via app owns data or user owns data flow), and implement front-end embed using `powerbi-client` library. Consider multi-tenant scenarios: isolate customers by workspace, use row-level security with EffectiveIdentity, or implement per-customer datasets. Manage refresh via REST APIs or incremental refresh. Admins should monitor capacity load and enforce throttling controls. Licensing: app owns data scenario requires capacity; user owns data requires each user to have Pro/PPU and authenticate individually.",
               keyPoints: [
                 "Embedded Analytics integrates Power BI into custom applications",
                 "Requires App Registration in Microsoft Entra ID",
@@ -6176,6 +6196,25 @@ export const courseData: Part[] = [
                 "Pro tip: Start with proof-of-concept—validate integration before full deployment",
                 "Master users understand Embedded Analytics is advanced—requires API knowledge",
                 "Embedded Analytics is where Power BI becomes truly integrated"
+              ],
+              labs: [
+                "Register an Azure AD application, grant Power BI service API permissions, and create a service principal",
+                "Provision an Embedded capacity (A SKU) or assign workspace to Premium capacity for testing",
+                "Upload a sample report to a dedicated workspace and use the REST API to generate an embed token (app owns data scenario)",
+                "Implement a simple web page using the Power BI JavaScript SDK to embed the report with the token",
+                "Configure row-level security and test EffectiveIdentity in embed token generation for per-customer filtering",
+                "Set up monitoring for capacity using the Admin API or Azure Monitor to watch for overloads"
+              ],
+              tables: [
+                {
+                  title: "Embedding Models",
+                  headers: ["Scenario", "Auth Model", "Licensing Requirements", "Notes"],
+                  rows: [
+                    ["App owns data", "Service principal", "Power BI Embedded (A SKU) or Premium capacity", "Multi-tenant SaaS apps"],
+                    ["User owns data", "Delegated user token", "Each user Pro/PPU", "Internal portals with existing licenses"],
+                    ["Service principal + RLS", "Service principal with EffectiveIdentity", "Capacity + RLS defined in model", "Per customer security filtering"]
+                  ]
+                }
               ]
             },
           },
@@ -6210,6 +6249,24 @@ export const courseData: Part[] = [
                 "Pro tip: Use streaming for operational dashboards, refresh for analytical reports",
                 "Master users understand streaming is specialized—not needed for most reports",
                 "Real-time analytics is where Power BI becomes operational, not just analytical"
+              ],
+              labs: [
+                "Create a Push dataset using the REST API and build a simple console app to send simulated sensor values; visualize in a streaming dashboard",
+                "Configure a Streaming dataset via Power BI Service, enable historic data analysis, and design a report with a line chart updating in real time",
+                "Set up Azure Stream Analytics to read from an Event Hub or IoT Hub and output to Power BI; validate throughput and latency",
+                "Design alerts on real-time tiles (e.g., temperature > threshold) and test notifications",
+                "Monitor streaming dataset performance via Power BI metrics and adjust batch size/ingest frequency"
+              ],
+              tables: [
+                {
+                  title: "Streaming Options Comparison",
+                  headers: ["Approach", "Best For", "Pros", "Considerations"],
+                  rows: [
+                    ["Push dataset", "Small custom apps", "Simple REST API integration", "Limited schema, no automatic storage"],
+                    ["Streaming dataset", "Moderate real-time dashboards", "Quick setup in Service", "Limited to certain visuals"],
+                    ["Azure Stream Analytics", "Large-scale IoT/event processing", "Scalable, rich transformations", "Requires Azure resources & cost"]
+                  ]
+                }
               ]
             },
           },
@@ -6264,6 +6321,19 @@ export const courseData: Part[] = [
                 "Ask: 'Explain this chart' while hovering over a visual",
                 "Test Copilot's understanding: Ask complex questions about relationships between metrics",
                 "Compare Copilot insights to your own analysis to verify accuracy"
+              ],
+              tables: [
+                {
+                  title: "Copilot Prompt Playbook",
+                  headers: ["Goal", "Example Prompt", "Follow-up"],
+                  rows: [
+                    ["High-level summary", "\"Summarize key drivers on this page\"", "\"Which metric changed the most month over month?\""],
+                    ["Explain visual", "\"Explain the revenue by region chart\"", "\"What outliers should I pay attention to?\""],
+                    ["Compare segments", "\"Compare profitability between enterprise and SMB customers\"", "\"Why is enterprise higher?\""],
+                    ["Identify risk", "\"Highlight any KPIs trending downward\"", "\"What factors contribute to the decline?\""],
+                    ["Data quality check", "\"Are there any missing values or anomalies in this dataset?\"", "\"Show the fields affected\""]
+                  ]
+                }
               ]
             },
           },
@@ -6310,6 +6380,18 @@ export const courseData: Part[] = [
                 "Test the generated measure in a visual",
                 "Compare Copilot's code to manual DAX to understand differences",
                 "Use Copilot to explain an existing complex measure"
+              ],
+              tables: [
+                {
+                  title: "Sample DAX Copilot Prompts",
+                  headers: ["Intent", "Prompt", "Suggested Follow-up"],
+                  rows: [
+                    ["Time intelligence", "\"Create a measure for quarter-to-date revenue\"", "\"Add a comparison against prior quarter\""],
+                    ["Ratio calculation", "\"Calculate gross margin percentage using Revenue and Cost\"", "\"Format the output as percentage\""],
+                    ["Filter condition", "\"Build a measure that counts orders above $1,000\"", "\"Limit to North America region\""],
+                    ["Debug assistance", "\"Explain why this CALCULATE measure returns blank\"", "\"Suggest a fix to handle missing dates\""]
+                  ]
+                }
               ]
             },
           },
@@ -6356,6 +6438,18 @@ export const courseData: Part[] = [
                 "Modify visuals: 'Change the bar chart to a stacked column chart'",
                 "Add elements: 'Add slicers for year and region'",
                 "Compare Copilot's design to your own manual designs to understand patterns"
+              ],
+              tables: [
+                {
+                  title: "Report Generation Prompt Examples",
+                  headers: ["Use Case", "Prompt", "Refinement"],
+                  rows: [
+                    ["Executive KPI page", "\"Create an executive dashboard with revenue, margin, and customer retention KPIs\"", "\"Add narrative summary and filter slicers for region\""],
+                    ["Trend analysis", "\"Build a page showing monthly sales trends by product line\"", "\"Include a map visual for regional distribution\""],
+                    ["Operations monitoring", "\"Make an operations dashboard highlighting open tickets, SLA breaches, and average resolution time\"", "\"Add conditional formatting to highlight SLA breaches\""],
+                    ["Marketing insights", "\"Generate a campaign performance page comparing spend vs leads\"", "\"Insert a funnel visual for lead stages\""]
+                  ]
+                }
               ]
             },
           },
@@ -6370,7 +6464,59 @@ export const courseData: Part[] = [
             tags: ["Visualizations", "AI Features", "Security", "Performance", "Data Modeling", "Microsoft Fabric", "DAX", "Time Intelligence"],
             topic: 'DAX',
             content: {
-              concept: "Connecting a Power BI semantic model directly to data in a Fabric Lakehouse using a \"OneLake shortcut,\" eliminating data movement and enabling a single source of truth.Lab: In a Fabric Lakehouse, create a shortcut to an external data source. Then, connect to this Lakehouse from Power BI Desktop and build a report.Capstone Project 3: Advanced-Level Portfolio ProjectProject Brief: 55Task: This is a self-directed, portfolio-worthy project where the student must create an end-to-end solution from scratch.Domain Choice: The student can choose a complex domain, such as Healthcare Claims Fraud 55, Global Supply Chain Analysis 55, HR Analytics 190, Sales & Marketing 187, or Finance Analytics.190Requirements (Must Include):Complex Data Model: Must source data from multiple, messy files and build an optimized Star Schema.Advanced DAX: Must include Time Intelligence measures and at least one other complex pattern (e.g., Calculation Groups 167 or complex CALCULATE filters 95).Security: Must implement Dynamic Row-Level Security (RLS).155Storytelling: Must use Bookmarks, Drill-through, or Custom Tooltips to create a guided narrative.113Performance: The student must use the Performance Analyzer 144 to identify one performance bottleneck and document the steps taken to fix it (e.g., \"My bar chart was slow, Perf Analyzer showed high DAX query time, I fixed it by...\").AI/Fabric Integration: The report must be connected to a Fabric Lakehouse and include a Copilot-generated narrative summary explaining the key insights.Deliverable: A published Power BI report (or App) and a 5-minute video presentation where the student \"walks through\" their report, explaining the insights, the narrative, and the advanced technical features (like RLS and Copilot) they implemented.Learning Outcome: The student has proven they are a \"Master.\" They can successfully manage a complex BI project from ingestion to deployment, implement enterprise-grade security, tune for performance, and—most importantly—communicate the value of their work",
+              concept: "OneLake shortcuts allow Power BI semantic models to reference data stored anywhere in Fabric (or external storage) without copying it. You point a Lakehouse folder to remote data, and Power BI connects through that shortcut using DirectLake or Import, ensuring a single source of truth.",
+              discussion: "Shortcuts create a logical pointer inside a Lakehouse to external Delta/Parquet data in OneLake, ADLS, or even S3. They mirror the folder structure but do not duplicate bytes, so large datasets remain in place. Power BI Desktop connects to the Lakehouse or Warehouse, and tables exposed via shortcuts appear alongside native tables. Pairing shortcuts with DirectLake mode lets you query Delta tables in OneLake with in-memory performance. Governance benefits include centralized permissions and lineage. Workflow: in Fabric Lakehouse, add Shortcut → choose destination (OneLake, ADLS Gen2, S3) and folder → confirm schema. Then in Power BI Desktop, use Get Data > Power BI data hub > Lakehouse table, or use SQL endpoint. Considerations: schema changes at source propagate automatically; refresh is unnecessary for DirectLake; RLS/OLS must be enforced at semantic layer; monitor capacity when many models query the same shortcut. This lesson culminates in a capstone project where students create an end-to-end Fabric-integrated solution.",
+              keyPoints: [
+                "Shortcuts virtualize external data inside Fabric Lakehouse without copying",
+                "Power BI models can use shortcuts via DirectLake for low-latency access",
+                "Schema updates flow through automatically; no manual refresh for metadata",
+                "Security and governance remain centralized in Fabric (OneLake permissions, Purview labels)",
+                "Ideal for multi-domain analytics where teams share curated datasets"
+              ],
+              insiderTips: [
+                "Organize Lakehouse folders into bronze/silver/gold zones and create shortcuts only from curated layers",
+                "Document shortcut targets and owners—knowing upstream location simplifies troubleshooting",
+                "Monitor OneLake access logs to track which reports consume shared data",
+                "Use DirectLake where possible; fall back to DirectQuery or Import if transformations are needed",
+                "Combine shortcuts with deployment pipelines to ensure Dev/Test/Prod environments point to correct locations",
+                "When sharing across tenants, use OneLake external sharing (preview) and shortcuts to avoid duplication"
+              ],
+              labs: [
+                "In Fabric, create a Lakehouse and add a shortcut pointing to curated Delta tables in another workspace",
+                "Connect Power BI Desktop to the Lakehouse; verify shortcut tables are available and build visuals with DirectLake",
+                "Simulate a schema update (add column) in the source and confirm availability through the shortcut",
+                "Apply sensitivity labels in the Lakehouse and ensure they surface in Power BI report",
+                "Monitor query performance via DirectLake metrics and document results"
+              ],
+              tables: [
+                {
+                  title: "Shortcut Source Options",
+                  headers: ["Source", "Supported Format", "Typical Use Case"],
+                  rows: [
+                    ["OneLake (other workspace)", "Delta tables", "Sharing curated data between domains"],
+                    ["Azure Data Lake Storage Gen2", "Parquet/Delta", "Bridging existing lake investments"],
+                    ["Amazon S3", "Parquet/Delta", "Multi-cloud data integration"]
+                  ]
+                }
+              ],
+              capstoneProject: {
+                title: "Capstone Project 3: Fabric-Integrated Analytics Solution",
+                description: "Build an end-to-end solution combining Fabric Lakehouse shortcuts, advanced modeling, security, storytelling, performance tuning, and Copilot.",
+                requirements: [
+                  "Ingest messy source data and build a star schema using Fabric (Lakehouse/Dataflows)",
+                  "Use OneLake shortcut to connect Power BI semantic model without duplicating data",
+                  "Implement advanced DAX (time intelligence plus one additional complex pattern)",
+                  "Configure Dynamic RLS to enforce data security",
+                  "Create guided storytelling with bookmarks, drill-through, or custom tooltips",
+                  "Run Performance Analyzer, resolve at least one bottleneck, and document before/after metrics",
+                  "Leverage Copilot to generate narrative summary embedded in the report"
+                ],
+                deliverables: [
+                  "Published Power BI App or report connecting to Fabric Lakehouse",
+                  "5-minute video walkthrough explaining insights, technical architecture, and Copilot narrative"
+                ],
+                learningOutcome: "Demonstrates mastery across data ingestion, Fabric integration, modeling, security, performance, AI assistance, and storytelling."
+              }
             },
           },
         ],
@@ -6392,8 +6538,41 @@ export const courseData: Part[] = [
             tags: ["DAX", "Visualizations", "Power Query", "Data Modeling"],
             topic: 'DAX',
             content: {
-              concept: "The PL-300 is the official \"Microsoft Power BI Data Analyst\" certification",
-              discussion: "This entire course has been structured to align with the key domains of the PL-300 exam: Prepare data (Power Query), Model data (Star Schema, DAX), Visualize data (Reports, Storytelling), and Deploy and maintain assets (Service, Governance).191PL-300 Skills Mapping:PL-300 Section%Curriculum CoveragePrepare Data25-30Part 1 (",
+              concept: "The PL-300 \"Microsoft Power BI Data Analyst\" certification validates end-to-end skills from data preparation to deployment. Understanding the exam blueprint and aligning your study plan ensures a successful attempt.",
+              discussion: "PL-300 covers four domains: Prepare Data (20-25%), Model Data (25-30%), Visualize and Analyze Data (25-30%), Deploy and Maintain Assets (20-25%). This course mirrors the blueprint—Part 1 covers data prep (Power Query, dataflows), Part 2 modeling (star schema, DAX), Part 3 visualization/storytelling, and Part 3 governance (Service, security, pipelines). The exam is performance-based: expect case studies, multi-step questions, and drag-and-drop sequences. Microsoft Learn contains official learning paths; practice tests (MeasureUp, Whizlabs) reinforce timing. Candidates should build a hands-on project (capstone) and review exam objectives regularly. During the exam, manage time (approx 100-120 minutes) and flag questions for review. Microsoft occasionally updates the blueprint—monitor the exam page for changes (Fabric topics now included).",
+              keyPoints: [
+                "PL-300 assesses prepare/model/visualize/deploy skills",
+                "This curriculum aligns with exam domains; review references during study",
+                "Expect practical scenarios (role-based) rather than theoretical questions",
+                "Microsoft updates objectives periodically—check official page before scheduling",
+                "Hands-on practice and timed mock exams are critical for success"
+              ],
+              insiderTips: [
+                "Download the Skills Outline PDF and create a checklist to track mastery",
+                "Use Microsoft Learn sandbox exercises to practice tasks in a guided environment",
+                "Schedule exam when you can dedicate uninterrupted time—avoid last-minute cramming",
+                "Review Power BI Service settings, sharing options, and security—they appear frequently",
+                "Consider joining study groups or forums (LinkedIn, Reddit) for peer discussion",
+                "After passing, maintain skills by tracking monthly updates and retaking key labs"
+              ],
+              labs: [
+                "Map each exam objective to relevant lessons in this course; note any gaps for revision",
+                "Complete a timed mock exam (MeasureUp or exam sandbox) and review incorrect responses",
+                "Build a one-page 'cheat sheet' summarizing Power Query, DAX, and Service best practices",
+                "Set up a study schedule covering all domains over 4-6 weeks"
+              ],
+              tables: [
+                {
+                  title: "PL-300 Skills Mapping",
+                  headers: ["Exam Domain", "Weight", "Course Coverage"],
+                  rows: [
+                    ["Prepare data", "20-25%", "Part 1 – Power Query, Dataflows, Parameters"],
+                    ["Model data", "25-30%", "Part 2 – Star schema, DAX, Calculation Groups"],
+                    ["Visualize & analyze", "25-30%", "Part 1 & 3 – Visual design, storytelling, Copilot"],
+                    ["Deploy & maintain", "20-25%", "Part 3 – Service, security, pipelines, governance"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -6407,8 +6586,39 @@ export const courseData: Part[] = [
             tags: ["DAX", "Power Query", "Microsoft Fabric"],
             topic: 'DAX',
             content: {
-              concept: "\"Mastery\" can take many forms, and the next steps depend on career goals",
-              discussion: "How to apply these skills in specialized roles:BI Analyst: Double-down on DAX, Modeling, and Data Storytelling.190Data Engineer: Focus on advanced Power Query (M), Dataflows Gen2, and Microsoft Fabric.176BI Developer: Specialize in Power BI Embedded, CI/CD, and Governance",
+              concept: "\"Mastery\" has different trajectories depending on career goals. Map your next steps to specialized roles—BI Analyst, Data Engineer, BI Developer, Fabric Architect, or Analytics Consultant.",
+              discussion: "Role-focused learning accelerates career growth. BI Analysts deepen DAX, storytelling, Copilot usage, and stakeholder engagement. Data Engineers concentrate on Fabric Lakehouse, Dataflows Gen2, M scripting, and orchestration. BI Developers (or Admins) master deployment pipelines, governance, Embedded analytics, and automation via REST APIs. Analytics Consultants broaden soft skills (requirements gathering, communication) and cross-platform knowledge (Power Apps, Automate). Fabric Architects design unified data estates (OneLake, capacities). Each path benefits from certification (PL-300, Fabric certifications, Azure Data Engineer), community participation, and portfolio projects.",
+              keyPoints: [
+                "Align learning plan with desired role; focus on depth not just breadth",
+                "Combine technical skills with communication and governance expertise",
+                "Build portfolio projects demonstrating real-world scenarios",
+                "Stay engaged with community, conferences, and monthly updates",
+                "Consider complementary certifications (Azure, Fabric, Power Platform)"
+              ],
+              insiderTips: [
+                "Set quarterly learning goals (e.g., master Calculation Groups, complete Fabric dataflow project)",
+                "Maintain a personal knowledge base (OneNote/Notion) with patterns and script snippets",
+                "Attend Power Platform community calls or local user groups for networking",
+                "Contribute to open-source templates or write technical blogs to build reputation",
+                "Pair with mentors—shadow senior architects to understand enterprise decision-making"
+              ],
+              labs: [
+                "Create a career roadmap table listing roles, required skills, and resources; pick one focus area for next month",
+                "Build or update a portfolio project showcasing recent advanced techniques (Fabric integration, Copilot, RLS)",
+                "Join a community forum (Power BI Community, LinkedIn groups) and participate in one discussion per week"
+              ],
+              tables: [
+                {
+                  title: "Role-Based Learning Path",
+                  headers: ["Role", "Focus Areas", "Recommended Next Steps"],
+                  rows: [
+                    ["BI Analyst", "Advanced DAX, storytelling, Copilot narratives", "Publish monthly insight reports, present to stakeholders"],
+                    ["Data Engineer", "Fabric Lakehouse, Dataflows Gen2, M functions", "Build automated ingestion pipelines, learn Spark/SQL"],
+                    ["BI Developer/Admin", "Governance, CI/CD, Embedded, REST APIs", "Implement deployment pipelines, automate workspace auditing"],
+                    ["Analytics Consultant", "Requirements gathering, workshop facilitation, Power Platform integration", "Design end-to-end solutions, document best practices"]
+                  ]
+                }
+              ]
             },
           },
           {
@@ -6442,6 +6652,25 @@ export const courseData: Part[] = [
                 "Pro tip: Create a personal 'Power BI Update Review' checklist—track what you've learned",
                 "Master users understand that staying current is a professional responsibility",
                 "Continuous learning separates professionals from beginners—embrace the monthly cycle"
+              ],
+              labs: [
+                "Block 45 minutes on your calendar next month titled \"Power BI Update Review\" and populate it with links to the latest blog and release notes",
+                "Enable at least one preview feature in Power BI Desktop (Options > Preview features) and document observations",
+                "Subscribe to two Power BI community channels or newsletters and summarize takeaways in a personal knowledge base",
+                "Join the Power BI Community forum and answer or ask one question related to a recent update"
+              ],
+              tables: [
+                {
+                  title: "Stay-Current Resource Guide",
+                  headers: ["Resource", "Frequency", "Action"],
+                  rows: [
+                    ["Power BI Blog", "Monthly", "Read release summary; note relevant features"],
+                    ["Power BI YouTube (Guy in a Cube, SQLBI)", "Weekly", "Watch feature deep dives"],
+                    ["Power BI Community / Reddit", "Ongoing", "Discuss updates, troubleshoot issues"],
+                    ["Microsoft Learn updates", "Quarterly", "Review new modules tied to Fabric/Power BI"],
+                    ["Internal newsletter", "Monthly", "Share relevant updates with stakeholders"]
+                  ]
+                }
               ]
             },
           },
@@ -6476,6 +6705,25 @@ export const courseData: Part[] = [
                 "Pro tip: Build your own resource collection—add patterns and templates you discover",
                 "Master users maintain personal resource libraries—professional development is ongoing",
                 "Share resources with your team—standardize practices and accelerate learning"
+              ],
+              labs: [
+                "Download the provided DAX, M, and visualization references; store them in a version-controlled folder",
+                "Create a personal cheat sheet by adding custom patterns encountered in your projects",
+                "Catalog sample datasets and solution PBIX files with descriptions so you can reuse them for demos",
+                "Share the visualization checklist with your team and incorporate it into your report review process"
+              ],
+              tables: [
+                {
+                  title: "Resource Library Blueprint",
+                  headers: ["Folder", "Contents", "Usage"],
+                  rows: [
+                    ["DAX Reference", "Formula guide, pattern library, calculation group templates", "Measure creation, troubleshooting"],
+                    ["Power Query", "M tips sheet, reusable functions, dataflow definitions", "ETL scripting, data prep"],
+                    ["Design Guides", "Visualization checklist, color palettes, layout templates", "Report review, stakeholder presentations"],
+                    ["Sample Projects", "Capstone PBIX files, before/after versions", "Portfolio, demos, onboarding new teammates"],
+                    ["Video Tutorials", "Lesson recordings, community webinars", "Refresher training, team share-outs"]
+                  ]
+                }
               ]
             },
           },
@@ -6510,9 +6758,211 @@ export const courseData: Part[] = [
                 "Join Power BI professional groups—network and stay current",
                 "Pro tip: Create a personal portfolio website showcasing your work with detailed case studies",
                 "Master users understand career advancement requires both skills and presentation—invest in both"
+              ],
+              labs: [
+                "Update your LinkedIn Projects section with Capstone 1-3, including summary, skills, and screenshots",
+                "Add PL-300 certification badge to Certifications section and link to Microsoft credential",
+                "Write a LinkedIn post summarizing your master project and tag relevant skills/hashtags",
+                "Request at least one recommendation from a mentor or peer referencing your Power BI expertise"
+              ],
+              tables: [
+                {
+                  title: "Portfolio Checklist",
+                  headers: ["Item", "Description", "Status"],
+                  rows: [
+                    ["Project summary", "Business-centric description with quantified impact", "To do"],
+                    ["Screenshots/video", "High-resolution visuals or Loom walkthrough", "In progress"],
+                    ["Skills/keywords", "Power BI, DAX, Fabric, RLS, Storytelling", "Complete"],
+                    ["Certification badge", "PL-300 (and others) linked and visible", "Complete"],
+                    ["Recommendations", "At least two endorsements from peers/managers", "To do"]
+                  ]
+                }
               ]
             },
           },
+        ],
+      },
+      {
+        id: "module-19",
+        title: "Enterprise Excellence Playbook",
+        description: "Advanced strategies, automation, and real-world patterns for senior Power BI leaders",
+        moduleNumber: 19,
+        lessons: [
+          {
+            id: "19-1",
+            moduleNumber: 19,
+            lessonNumber: 1,
+            title: "Enterprise Architecture Patterns",
+            description: "Designing scalable, multi-region architectures combining Fabric, DirectLake, and legacy systems",
+            duration: 20,
+            difficulty: 'advanced',
+            tags: ["Microsoft Fabric", "Data Modeling", "Performance", "Security"],
+            topic: 'Data Modeling',
+            content: {
+              concept: "Senior practitioners design architecture that scales across regions, business units, and workloads. This lesson catalogs proven patterns that combine Fabric Lakehouse, DirectLake, data marts, and existing SQL warehouses into cohesive analytics platforms.",
+              discussion: "Patterns include: **Hub-and-Spoke Fabric** (central governance workspace feeding spoke datasets), **Dual-mode DirectLake + Import** (DirectLake for near real-time aggregates, Import for highly curated snapshots), **Hybrid Fabric + On-Prem** (shortcuts to ADLS/SQL plus gateway access for legacy ERP), and **Multi-region deployment** (Geo-distributed capacities with traffic manager). Architectural considerations: latency, data sovereignty, backup/DR, cross-tenant sharing, and metadata consistency. Use Purview to inventory assets, enforce sensitivity labels end-to-end, and coordinate with Azure networking team for Private Link/Firewall rules. Provide reference diagrams, RACI for architecture ownership, and escalation paths.",
+              keyPoints: [
+                "Select architecture patterns based on latency, governance, and data residency requirements",
+                "Fabric shortcuts and DirectLake reduce duplication while keeping central governance",
+                "Plan for multi-region resilience: capacity failover, workspace replication, consistent deployment pipelines",
+                "Document architecture decisions with clear ownership and runbooks"
+              ],
+              insiderTips: [
+                "Maintain an architecture decision record (ADR) library documenting alternatives and rationale",
+                "Use Fabric deployment pipelines to promote Lakehouse schemas alongside semantic models",
+                "Define naming conventions for capacities, workspaces, Lakehouses, and shortcuts",
+                "Partner with security to align Purview labels and sensitivity policies across tools"
+              ],
+              labs: [
+                "Create an architecture diagram showing hub Lakehouse, spoke semantic models, and DirectLake connections for two business domains",
+                "Document ADR for choosing DirectLake vs Import for a global sales dataset",
+                "Draft a RACI chart assigning responsibilities for Lakehouse, semantic model, and app ownership"
+              ],
+              tables: [
+                {
+                  title: "Architecture Pattern Comparison",
+                  headers: ["Pattern", "Best For", "Strengths", "Watchouts"],
+                  rows: [
+                    ["Hub-and-Spoke Fabric", "Large enterprises with shared data products", "Central governance, reusable curated layer", "Requires strong data stewardship"],
+                    ["Dual-mode DirectLake + Import", "Near real-time KPIs + curated snapshots", "Performance + consistency", "Manage refresh orchestration carefully"],
+                    ["Hybrid Fabric + On-Prem", "Gradual cloud migration", "Leverages existing investments", "Gateway performance and security complexity"],
+                    ["Multi-region Fabric", "Global organizations", "Resilience, localized performance", "Higher cost, governance synchronization"]
+                  ]
+                }
+              ]
+            },
+          },
+          {
+            id: "19-2",
+            moduleNumber: 19,
+            lessonNumber: 2,
+            title: "Automation with REST APIs and PowerShell",
+            description: "Automating governance, deployment, and monitoring using Power BI REST APIs, PowerShell, and DevOps",
+            duration: 20,
+            difficulty: 'advanced',
+            tags: ["Automation", "Governance", "Power BI Service", "DevOps"],
+            topic: 'Power BI Service',
+            content: {
+              concept: "Enterprise teams automate repetitive tasks: workspace provisioning, RLS updates, refresh monitoring, and usage reporting. Power BI REST APIs plus PowerShell/Azure DevOps pipelines deliver repeatable governance.",
+              discussion: "Key automation scenarios: **Workspace lifecycle** (create/assign capacities via REST), **Dataset refresh and data source credentials**, **Security automation** (assign RLS role members from HR systems), **Deployment automation** (trigger pipeline stages via API), and **Monitoring** (extract activity events, refresh logs, capacity metrics). Tools: PowerShell modules (`MicrosoftPowerBIMgmt`), Azure Functions for scheduled jobs, Logic Apps for no-code automation, DevOps YAML pipelines. Ensure service principals have least privilege, maintain client secret rotation, and log automation actions. Provide example scripts for dataset refresh monitoring and workspace inventory.",
+              keyPoints: [
+                "Use service principals with delegated permissions to automate safely",
+                "PowerShell modules simplify REST API calls for administrators",
+                "Automate logging and alerts to detect failures promptly",
+                "Document automation scripts and schedule secret rotation"
+              ],
+              insiderTips: [
+                "Store automation scripts in Git with CI/CD; run Pester tests before deploying",
+                "Centralize secrets in Azure Key Vault; inject into pipelines at runtime",
+                "Tag workspaces/capacities to group usage metrics and chargeback",
+                "Publish internal automation cookbook with approved scripts"
+              ],
+              labs: [
+                "Use PowerShell to list all workspaces, capacities, and owners; export to CSV",
+                "Automate dataset refresh monitoring by calling the Refresh History API and posting alerts to Teams",
+                "Create an Azure DevOps pipeline that deploys a PBIX file via REST API to a Test workspace"
+              ],
+              tables: [
+                {
+                  title: "Automation Use Cases",
+                  headers: ["Scenario", "API Endpoint / Tool", "Outcome"],
+                  rows: [
+                    ["Workspace provisioning", "POST /groups", "Standardized workspace creation with tags"],
+                    ["Security synchronization", "POST /datasets/{id}/Default.UpdateRls", "Keeps RLS memberships aligned with HR"],
+                    ["Refresh monitoring", "GET /datasets/{id}/refreshes", "Proactive alerts for failures"],
+                    ["Pipeline deployment", "POST /pipelines/{id}/deploy", "Trigger Dev→Test→Prod programmatically"]
+                  ]
+                }
+              ]
+            },
+          },
+          {
+            id: "19-3",
+            moduleNumber: 19,
+            lessonNumber: 3,
+            title: "Monitoring & Cost Optimization",
+            description: "Building observability and financial governance across Fabric capacities and Power BI workloads",
+            duration: 15,
+            difficulty: 'advanced',
+            tags: ["Performance", "Governance", "Microsoft Fabric", "Power BI Service"],
+            topic: 'Business Intelligence',
+            content: {
+              concept: "Observability ensures reliability. Senior leaders track capacity utilization, refresh times, query performance, and license usage; they also manage cost through chargeback models.",
+              discussion: "Use Azure Monitor / Log Analytics to ingest Activity events, dataset refresh logs, and Fabric capacity metrics. Build governance dashboards: capacity CPU/memory, dataset refresh duration trends, DirectQuery query latency. Implement cost allocation by tagging workspaces and capacities, and publishing monthly chargeback reports. Combine metrics with Service health alerts to anticipate throttling. Tactics for optimization: incremental refresh, aggregations, query folding enforcement, scheduling refresh windows, applying auto-pause to embedded capacities, and trimming unused artifacts.",
+              keyPoints: [
+                "Stream activity and capacity metrics to Log Analytics for analysis",
+                "Create governance dashboards showing usage, performance, and cost by workspace",
+                "Use tagging and metadata to attribute costs to business units",
+                "Regularly archive or delete unused datasets/reports to reduce load"
+              ],
+              insiderTips: [
+                "Automate monthly governance review meetings with curated dashboards",
+                "Set alert rules for capacity overload (e.g., CPU > 80% sustained)",
+                "Combine dataset refresh history with incremental refresh policy audits",
+                "Offer optimization playbooks to business units based on telemetry findings"
+              ],
+              labs: [
+                "Configure Log Analytics connection for a Premium capacity and verify dataset refresh logs are captured",
+                "Build a Power BI governance report summarizing refresh durations, failure rates, and capacity utilization by workspace",
+                "Draft a cost allocation worksheet mapping workspace tags to business units and estimated monthly spend"
+              ],
+              tables: [
+                {
+                  title: "Monitoring Metrics Matrix",
+                  headers: ["Metric", "Source", "Purpose"],
+                  rows: [
+                    ["Capacity CPU/memory", "Fabric metrics / Log Analytics", "Detect throttling risk"],
+                    ["Dataset refresh duration", "Activity Log / Refresh history", "Identify long-running models"],
+                    ["Query latency", "Power BI Performance Analyzer in Service", "Improve user experience"],
+                    ["License/usage counts", "Admin APIs", "Optimize licensing strategy"]
+                  ]
+                }
+              ]
+            },
+          },
+          {
+            id: "19-4",
+            moduleNumber: 19,
+            lessonNumber: 4,
+            title: "Real-World Case Study Playbook",
+            description: "Applying the Master toolkit to real enterprise scenarios with templates and success metrics",
+            duration: 20,
+            difficulty: 'advanced',
+            tags: ["Storytelling", "Governance", "Microsoft Fabric", "Performance"],
+            topic: 'Business Intelligence',
+            content: {
+              concept: "Senior Power BI professionals translate techniques into business outcomes. This playbook offers reusable blueprints for four industry scenarios with success metrics, stakeholder maps, and change management tips.",
+              discussion: "Case studies: **Global Supply Chain Control Tower** (DirectLake KPIs, anomaly detection, DevOps pipeline), **Financial Planning & Analysis** (calc groups, dynamic RLS for cost centers, Copilot narratives), **Healthcare Quality Dashboard** (sensitivity labels, HIPAA compliance, incremental refresh), **Retail Customer 360** (Power Platform integration for customer follow-up, streaming kiosks). Each includes stakeholders, data sources, architecture, security, performance tuning, and adoption strategies. Provide templates: project charter, backlog, release communication, KPI definitions. Emphasize change management: executive sponsorship, training plans, support queues.",
+              keyPoints: [
+                "Use case-specific blueprints accelerate delivery and stakeholder trust",
+                "Define success metrics (accuracy, adoption, decision cycle time) upfront",
+                "Combine technical excellence with change management and training"
+              ],
+              insiderTips: [
+                "Maintain a repository of case study templates to jumpstart new engagements",
+                "Align each case study with business OKRs to demonstrate value",
+                "Create playbooks for support (FAQ, training videos, office hours)",
+                "Capture lessons learned and feed into governance board"
+              ],
+              labs: [
+                "Select one case study and draft a project charter including goals, stakeholders, timeline, and success metrics",
+                "Create a template release plan covering communication, training, and support for go-live",
+                "Design a storytelling outline ensuring each KPI ties to business outcomes and executive questions"
+              ],
+              tables: [
+                {
+                  title: "Case Study Snapshot",
+                  headers: ["Scenario", "Key Features", "Success Metrics"],
+                  rows: [
+                    ["Supply Chain Control Tower", "DirectLake KPIs, anomaly detection, DevOps pipeline", "Reduced stock-outs, faster exception resolution"],
+                    ["FP&A Cockpit", "Calc groups, dynamic RLS, Copilot narratives", "Faster forecasting cycles, higher executive adoption"],
+                    ["Healthcare Quality", "Sensitivity labels, HIPAA compliance checklist, incremental refresh", "Compliance adherence, proactive alerts"],
+                    ["Retail Customer 360", "Power Apps embed, streaming datasets, segmentation", "Improved NPS, increased upsell conversions"]
+                  ]
+                }
+              ]
+            },
+          }
         ],
       },
     ],

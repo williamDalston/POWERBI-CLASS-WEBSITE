@@ -9,6 +9,7 @@ import { LessonNav } from '@/components/lesson/LessonNav'
 import { ScrollProgress } from '@/components/lesson/ScrollProgress'
 import { TableOfContents } from '@/components/lesson/TableOfContents'
 import { LessonOverview } from '@/components/lesson/LessonOverview'
+import { ReadingModeBanner } from '@/components/lesson/ReadingModeBanner'
 import LessonNotesPanel from '@/components/dashboard/LessonNotesPanel'
 import FloatingActionButton from '@/components/shared/FloatingActionButton'
 import { getLessonById, getNextLesson, getPreviousLesson, getModuleForLesson, getLessonPositionInModule } from '@/lib/data/courseData'
@@ -181,9 +182,13 @@ export default function LessonPage() {
           </div>
         </header>
 
-        {/* Video Section (compact) */}
+        {/* Video Section or Reading Mode Banner */}
         <div className="mb-6">
-          <VideoSection videoUrl={lesson.videoUrl} hasVideo={!!lesson.videoUrl} />
+          {lesson.videoUrl ? (
+            <VideoSection videoUrl={lesson.videoUrl} hasVideo={!!lesson.videoUrl} />
+          ) : (
+            lessonData && <ReadingModeBanner lesson={lessonData} />
+          )}
         </div>
 
         {/* Two-column layout: content + TOC */}
